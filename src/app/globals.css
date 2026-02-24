@@ -14,3 +14,49 @@
   --color-border-gray: #dcdfdd;
   --color-review-gold: #ffb800;
 }
+
+/* Hide scrollbar for carousel */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Marquee animation for testimonial carousel */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Hero CTA shimmer sweep */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-150%) skewX(-15deg);
+  }
+  35% {
+    transform: translateX(250%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-15deg);
+  }
+}
+
+/* Hero CTA breathing glow */
+@keyframes cta-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 105, 72, 0);
+  }
+  50% {
+    box-shadow: 0 0 24px 4px rgba(0, 105, 72, 0.2);
+  }
+}

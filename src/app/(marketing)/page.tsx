@@ -1,10 +1,13 @@
 import { Hero } from "@/components/sections/Hero";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { Programs } from "@/components/sections/Programs";
 
 export default function HomePage() {
   return (
-    <Hero
-      title="Make Florida Your Home"
-      subtitle="Florida mortgage experts at Next Wave Mortgage."
-    />
+    <>
+      <Hero />
+      <Testimonials />
+      <Programs />
+    </>
   );
 }
