@@ -50,7 +50,7 @@ export function Footer() {
               className="mb-8 inline-block transition-opacity hover:opacity-80"
             >
               <Image
-                src="/images/bbb_accredited_business.webp"
+                src="/images/bbb-accredited-business.webp"
                 alt="BBB Accredited Business"
                 width={130}
                 height={50}
