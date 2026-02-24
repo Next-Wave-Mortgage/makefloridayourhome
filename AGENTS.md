@@ -25,6 +25,15 @@ working in this repository.
   explaining why it is needed and what alternatives were considered.
 - Prefer the built-in Next.js / React API over third-party packages.
 
+## Tailwind / CSS
+
+- Brand colors are defined in `src/app/globals.css` via the `@theme` directive.
+- **`npm run dev` auto-clears `.next` cache** before starting. This prevents
+  stale CSS when theme tokens are added or changed.
+- If a Tailwind utility class (e.g. `bg-brand-green`) isn't applying, the
+  `.next` cache is likely stale. Run `npm run dev` (which clears it) or
+  manually delete `.next/` and restart.
+
 ## Quality
 
 - Run `npm run lint` and `npm run format` before finishing any task.
