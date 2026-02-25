@@ -1,0 +1,348 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { PageHero } from "@/components/shared/PageHero";
+import { PageFAQ } from "@/components/shared/PageFAQ";
+import { PageCTA } from "@/components/shared/PageCTA";
+import { ExpertGuidesRow } from "@/components/shared/ExpertGuidesRow";
+
+export const metadata: Metadata = {
+  title:
+    "Florida Down Payment Assistance Programs (2026) | Make Florida Your Home",
+  description:
+    "Explore Florida down payment assistance programs for 2026. Learn about Hometown Heroes, Florida Assist, SHIP funds, and how to qualify for up to $35,000+ in aid.",
+  openGraph: {
+    title: "Florida Down Payment Assistance Programs (2026)",
+    description:
+      "Explore Florida down payment assistance programs for 2026. Learn about Hometown Heroes, Florida Assist, SHIP funds, and how to qualify.",
+    url: "https://makefloridayourhome.com/down-payment-assistance",
+    type: "website",
+  },
+};
+
+/* ------------------------------------------------------------------ */
+/*  Data                                                               */
+/* ------------------------------------------------------------------ */
+
+const heroFeatures = [
+  {
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="12" y1="1" x2="12" y2="23" />
+        <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+      </svg>
+    ),
+    text: "Up to $35,000 with Hometown Heroes — 0% interest",
+  },
+  {
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M9 11l3 3L22 4" />
+        <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+      </svg>
+    ),
+    text: "Stack state, county, and federal programs together",
+  },
+  {
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    ),
+    text: "Many programs are forgivable after 5–15 years",
+  },
+  {
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+        <polyline points="9 22 9 12 15 12 15 22" />
+      </svg>
+    ),
+    text: "Covers down payment, closing costs, or both",
+  },
+];
+
+const programs = [
+  {
+    name: "Florida Hometown Heroes",
+    amount: "Up to $35,000",
+    type: "0% interest, deferred second mortgage",
+    repayment: "Repaid when you sell, refinance, or pay off your first mortgage",
+    who: "Full-time W-2 employees in 50+ eligible professions — teachers, nurses, law enforcement, firefighters, childcare workers, and more",
+    href: "/florida/hometown-heroes",
+  },
+  {
+    name: "Florida Assist (FL Assist)",
+    amount: "Up to $7,500",
+    type: "0% interest, deferred second mortgage",
+    repayment: "Repaid when you sell, refinance, or transfer the property",
+    who: "First-time buyers meeting Florida Housing income and purchase price limits. Must pair with a Florida Housing first mortgage.",
+    href: "/first-time-home-buyer",
+  },
+];
+
+const requirements = [
+  "Minimum 640 credit score (580 for some FHA-based programs)",
+  "Must be a first-time buyer — no ownership in the past 3 years",
+  "Property must be your primary residence in Florida",
+  "Must complete a HUD-approved homebuyer education course",
+  "Meet income and purchase price limits for your county",
+];
+
+const articles = [
+  {
+    category: "Best Florida Home Buyer Programs",
+    title: "50 Florida First-Time Home Buyer Grants & Programs (2026 Guide)",
+    description:
+      "Explore 50 Florida first-time homebuyer grants and assistance programs for 2026.",
+    href: "/florida-first-time-homebuyer-grants-programs",
+    image: "/images/guides/florida-first-time-homebuyer-grants.png",
+    readTime: "12 min read",
+  },
+  {
+    category: "Rent-to-Own Programs",
+    title: "17 Florida Rent-to-Own Programs: Buy With No Down Payment",
+    description:
+      "Explore 17 Florida rent-to-own programs for 2026. Learn how buyers may purchase with little or no down payment.",
+    href: "/florida-rent-to-own-programs",
+    image: "/images/guides/florida-rent-to-own-programs.png",
+    readTime: "10 min read",
+  },
+  {
+    category: "Florida Income Limits & Pricing",
+    title: "Florida Housing Income & Purchase Price Limits (2026)",
+    description:
+      "See 2026 Florida Housing income limits and purchase price caps by county.",
+    href: "/florida-housing-income-purchase-price-limits",
+    image: "/images/guides/florida-housing-income-limits.png",
+    readTime: "8 min read",
+  },
+  {
+    category: "First-Time Buyer Guides",
+    title: "What Are the Requirements to Buy a House in Florida?",
+    description:
+      "Learn the key requirements to buy a house in Florida, including credit, down payment, and loan options.",
+    href: "/requirements-to-buy-house-in-florida",
+    image: "/images/guides/florida-homebuyer-requirements.png",
+    readTime: "7 min read",
+  },
+];
+
+const faqs = [
+  {
+    question: "How much down payment assistance can I get in Florida?",
+    answer:
+      "It depends on which programs you qualify for. Hometown Heroes offers up to $35,000. Florida Assist provides up to $7,500. County SHIP funds can add $10,000–$60,000 more. Many buyers stack multiple programs together, sometimes totaling $50,000–$100,000+ in combined assistance.",
+  },
+  {
+    question: "Do I have to pay back down payment assistance?",
+    answer:
+      "It depends on the program. Most Florida DPA programs are structured as deferred second mortgages — meaning you don't make monthly payments. Repayment is triggered when you sell, refinance, or transfer the home. Some programs, like HFA Preferred grants, are forgivable after a set period (typically 3–5 years).",
+  },
+  {
+    question: "Can I use down payment assistance for closing costs too?",
+    answer:
+      "Yes. Most Florida DPA programs can be applied to both the down payment and closing costs. Hometown Heroes and Florida Assist explicitly allow assistance funds to be used for either purpose.",
+  },
+  {
+    question: "Do I need to be a first-time buyer to get DPA in Florida?",
+    answer:
+      "Not always. While many programs target first-time buyers (no ownership in the past 3 years), some county SHIP programs and VA-backed options don't require first-time buyer status. We'll help you identify programs you're eligible for regardless of your history.",
+  },
+  {
+    question: "What credit score do I need for down payment assistance?",
+    answer:
+      "Most Florida DPA programs require a minimum 640 credit score. Some FHA-based options accept scores as low as 580. A higher credit score may qualify you for more programs and better interest rates.",
+  },
+  {
+    question: "Can I combine Hometown Heroes with other programs?",
+    answer:
+      "Yes. Hometown Heroes can be stacked with county SHIP funds and other local programs in many cases. However, you cannot combine it with Florida Assist — you must choose one or the other for your state-level DPA. Our team can help you determine the best combination.",
+  },
+  {
+    question: "How long does it take to get approved for DPA?",
+    answer:
+      "Pre-approval for your first mortgage typically takes 1–3 business days. Adding a DPA program may extend the timeline by 5–10 business days for the layered approval process. Total time from application to closing is usually 30–45 days.",
+  },
+  {
+    question: "Are there purchase price limits for DPA programs?",
+    answer:
+      "Yes. Florida Housing sets maximum purchase price limits by county. These limits vary — for example, higher-cost counties like Miami-Dade and Monroe have higher caps. We can provide your county's exact limits instantly.",
+  },
+  {
+    question: "What types of homes qualify for DPA?",
+    answer:
+      "Single-family homes, condos, townhomes, and manufactured homes (on a permanent foundation) are generally eligible. The property must be your primary residence. For FHA loans, condos must be on the FHA-approved list.",
+  },
+  {
+    question: "Can I use DPA with a VA or USDA loan?",
+    answer:
+      "VA and USDA loans already offer 0% down payment, but DPA can still be used to cover closing costs. Some county SHIP programs can be layered on top of VA or USDA loans to further reduce your out-of-pocket expenses.",
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  Page                                                               */
+/* ------------------------------------------------------------------ */
+
+export default function DownPaymentAssistancePage() {
+  return (
+    <>
+      {/* Hero */}
+      <PageHero
+        title={
+          <>
+            <span className="text-brand-green">Down Payment</span> Assistance
+            Programs in Florida
+          </>
+        }
+        subtitle={
+          <p>
+            The down payment is the biggest barrier for most Florida buyers.{" "}
+            <strong className="text-dark-green">
+              State and local programs can cover most or all of it
+            </strong>{" "}
+            — often as a forgivable loan or 0% interest second mortgage.
+          </p>
+        }
+        features={heroFeatures}
+        image="/images/heroes/florida-down-payment-assistance-hero.png"
+        imageAlt="Happy family celebrating in front of Florida home with SOLD sign"
+      />
+
+      {/* Explainer */}
+      <section className="bg-white py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-[28px] font-bold leading-tight text-dark-green sm:text-[36px] lg:text-[42px]">
+              <span className="text-brand-green">How</span> Down Payment
+              Assistance Works
+            </h2>
+            <p className="mt-5 text-[16px] leading-relaxed text-dark-green/60">
+              Florida DPA programs provide funds to cover your down payment,
+              closing costs, or both. Most are structured as 0% interest second
+              mortgages that you don&apos;t repay until you sell or refinance.
+              Some are outright grants that never need to be repaid.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Program Cards */}
+      <section className="bg-green-tint py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
+          <h2 className="mx-auto max-w-2xl text-center text-[28px] font-bold leading-tight text-dark-green sm:text-[36px] lg:text-[42px]">
+            <span className="text-brand-green">Top</span> Florida DPA Programs
+          </h2>
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            {programs.map((program) => (
+              <div
+                key={program.name}
+                className="rounded-2xl border border-border-gray/60 bg-white p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-300 hover:border-brand-green/30 hover:shadow-[0_8px_32px_rgba(0,105,72,0.1)]"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <h3 className="text-[20px] font-bold text-dark-green sm:text-[22px]">
+                    {program.name}
+                  </h3>
+                  <span className="shrink-0 rounded-full bg-brand-green/10 px-4 py-1.5 text-[14px] font-bold text-brand-green">
+                    {program.amount}
+                  </span>
+                </div>
+
+                <div className="mt-5 space-y-3">
+                  {[
+                    { label: "Type", value: program.type },
+                    { label: "Repayment", value: program.repayment },
+                    { label: "Who Qualifies", value: program.who },
+                  ].map((detail) => (
+                    <div key={detail.label}>
+                      <span className="text-[12px] font-bold uppercase tracking-wider text-dark-green/40">
+                        {detail.label}
+                      </span>
+                      <p className="mt-0.5 text-[15px] leading-relaxed text-dark-green/70">
+                        {detail.value}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                <Link
+                  href={program.href}
+                  className="group mt-6 inline-flex items-center gap-2 text-[15px] font-bold text-brand-green transition-colors hover:text-dark-green"
+                >
+                  Learn More
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Requirements Checklist */}
+      <section className="bg-white py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-center text-[28px] font-bold leading-tight text-dark-green sm:text-[36px] lg:text-[42px]">
+              <span className="text-brand-green">Eligibility</span>{" "}
+              Requirements
+            </h2>
+            <p className="mt-4 text-center text-[16px] leading-relaxed text-dark-green/60">
+              Most Florida DPA programs share these core requirements.
+            </p>
+
+            <div className="mt-10 space-y-4">
+              {requirements.map((req, i) => (
+                <div
+                  key={req}
+                  className="flex items-start gap-4 rounded-xl border border-border-gray/60 bg-green-tint px-6 py-5 transition-all duration-300 hover:border-brand-green/30"
+                >
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-green text-[13px] font-black text-white">
+                    {i + 1}
+                  </span>
+                  <span className="text-[15px] font-medium leading-relaxed text-dark-green/80">
+                    {req}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expert Guides */}
+      <ExpertGuidesRow
+        heading={
+          <>
+            From Our <span className="text-brand-green">Experts</span>
+          </>
+        }
+        articles={articles}
+        bg="green-tint"
+      />
+
+      {/* FAQ */}
+      <PageFAQ faqs={faqs} bg="white" />
+
+      {/* CTA */}
+      <PageCTA
+        heading="Find Out How Much DPA You Qualify For"
+        subtitle="Check your eligibility in minutes — no credit pull, no obligation."
+      />
+    </>
+  );
+}

@@ -151,7 +151,7 @@ export function FinalCTA() {
 
               {/* CTA buttons */}
               <div className="animate-fade-up" style={{ animationDelay: "400ms" }}>
-                <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
+                <div className="mt-10">
                   <Link
                     href="/home-purchase-eligibility"
                     className="shimmer-btn group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full bg-brand-green px-9 py-4.5 text-[15px] font-bold text-white shadow-[0_4px_24px_rgba(0,105,72,0.5)] transition-all duration-300 hover:shadow-[0_8px_40px_rgba(0,105,72,0.6)] hover:scale-[1.02] sm:text-[16px]"
@@ -174,26 +174,6 @@ export function FinalCTA() {
                         <polyline points="12 5 19 12 12 19" />
                       </svg>
                     </span>
-                  </Link>
-                  <Link
-                    href="/contact-us"
-                    className="group inline-flex items-center gap-2.5 rounded-full border border-white/[0.12] bg-white/[0.04] px-7 py-4 text-[14px] font-semibold text-white/70 transition-all duration-300 hover:border-white/25 hover:bg-white/[0.08] hover:text-white sm:text-[15px]"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="15"
-                      height="15"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-white/50 transition-colors duration-300 group-hover:text-white"
-                    >
-                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-                    </svg>
-                    Or Call Us Directly
                   </Link>
                 </div>
               </div>
