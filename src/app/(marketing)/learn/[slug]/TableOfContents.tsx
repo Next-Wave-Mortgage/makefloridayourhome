@@ -16,7 +16,7 @@ function useHeadings() {
     const article = document.querySelector("article");
     if (!article) return;
 
-    const els = article.querySelectorAll("h2, h3");
+    const els = article.querySelectorAll("h2");
     const items: TocItem[] = [];
 
     els.forEach((el) => {

@@ -117,14 +117,14 @@ export function FAQ() {
                         className={`hidden text-[13px] font-black sm:block ${
                           isOpen
                             ? "text-brand-green"
-                            : "text-dark-green/15"
+                            : "text-brand-green/15"
                         }`}
                       >
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <h3
                         className={`text-[15px] font-bold leading-snug transition-colors duration-200 sm:text-[16px] ${
-                          isOpen ? "text-brand-green" : "text-dark-green"
+                          isOpen ? "text-dark-green" : "text-dark-green"
                         }`}
                       >
                         {faq.question}
@@ -132,7 +132,7 @@ export function FAQ() {
                     </div>
                     <span
                       className={`transition-colors duration-200 ${
-                        isOpen ? "text-brand-green" : "text-dark-green/30"
+                        isOpen ? "text-brand-green" : "text-brand-green/30"
                       }`}
                     >
                       <ChevronIcon open={isOpen} />

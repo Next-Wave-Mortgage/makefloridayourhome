@@ -18,6 +18,7 @@ export interface BlogPost {
   reviewedByTitle?: string;
   reviewedBySlug?: string;
   featuredImage?: string;
+  imageAlt?: string;
   tags?: string[];
   readTime: number;
   content: string;
@@ -83,11 +84,12 @@ export function getPostBySlug(slug: string): BlogPost | null {
     author: data.author || "Phil Ganz",
     authorTitle: data.authorTitle || "Mortgage Expert · NMLS #227607",
     authorImage: data.authorImage || "/images/team/phil-ganz.jpg",
-    reviewedBy: data.reviewedBy || null,
+    reviewedBy: data.reviewedBy ?? "Ryan Skerritt",
     reviewedByImage: data.reviewedByImage || "/images/team/ryan-skerritt.jpg",
     reviewedByTitle: data.reviewedByTitle || "Mortgage Expert · NMLS #1170025",
     reviewedBySlug: data.reviewedBySlug || "ryan-skerritt",
     featuredImage: data.featuredImage || null,
+    imageAlt: data.imageAlt || null,
     tags: data.tags || [],
     readTime: estimateReadTime(content),
     content,

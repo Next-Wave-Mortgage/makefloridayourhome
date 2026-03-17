@@ -245,7 +245,7 @@ export function WhatWeDo() {
         </div>
 
         {/* Mission card — dark green with Ryan's photo */}
-        <div className="mt-12 overflow-hidden rounded-2xl bg-dark-green shadow-[0_8px_40px_rgba(0,0,0,0.15)]">
+        <div className="mt-12 overflow-hidden rounded-2xl bg-brand-green shadow-[0_8px_40px_rgba(0,0,0,0.15)]">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto]">
             {/* Text */}
             <div className="flex flex-col justify-center p-8 sm:p-10 lg:py-12 lg:pr-4 lg:pl-12">
@@ -312,7 +312,7 @@ export function WhatWeDo() {
                   className={`pointer-events-none absolute -top-1 right-3 select-none text-[56px] font-black leading-none transition-colors duration-300 ${
                     isFeatured
                       ? "text-brand-green/[0.06] group-hover:text-brand-green/[0.10]"
-                      : "text-dark-green/[0.03] group-hover:text-brand-green/[0.07]"
+                      : "text-brand-green/[0.03] group-hover:text-brand-green/[0.07]"
                   }`}
                 >
                   {String(i + 1).padStart(2, "0")}

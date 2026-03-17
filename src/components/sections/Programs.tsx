@@ -46,7 +46,7 @@ export function Programs() {
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
         {/* Heading */}
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-[13px] font-semibold uppercase tracking-[0.2em] text-brand-green">
+          <p className="text-[13px] font-semibold uppercase tracking-[0.2em] text-dark-green">
             Florida Buyer Programs
           </p>
           <h2 className="mt-3 text-[28px] font-bold leading-tight text-dark-green sm:text-[36px] lg:text-[42px]">
@@ -122,7 +122,7 @@ export function Programs() {
         </div>
 
         {/* Bottom CTA bar */}
-        <div className="mt-14 overflow-hidden rounded-2xl bg-dark-green px-8 py-8 shadow-lg sm:flex sm:items-center sm:justify-between sm:px-10 sm:py-9">
+        <div className="mt-14 overflow-hidden rounded-2xl bg-brand-green px-8 py-8 shadow-lg sm:flex sm:items-center sm:justify-between sm:px-10 sm:py-9">
           <div>
             <h3 className="text-[22px] font-bold text-white sm:text-[24px]">
               Find Out Which Program Fits You Best

@@ -59,7 +59,7 @@ export function FinalCTA() {
   return (
     <section
       ref={sectionRef}
-      className="group/section relative overflow-hidden bg-dark-green py-16 sm:py-20 lg:py-24"
+      className="group/section relative overflow-hidden bg-brand-green py-16 sm:py-20 lg:py-24"
     >
       {/* Animated shimmer keyframes */}
       <style>{`
@@ -100,8 +100,8 @@ export function FinalCTA() {
             <div className="text-center">
               {/* Pill badge */}
               <div className="animate-fade-up" style={{ animationDelay: "0ms" }}>
-                <span className="inline-flex items-center gap-2.5 rounded-full border border-brand-green/30 bg-brand-green/10 px-5 py-2 text-[12px] font-bold uppercase tracking-widest text-white/90">
-                  <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-brand-green shadow-[0_0_8px_rgba(0,105,72,0.6)]" />
+                <span className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-[12px] font-bold uppercase tracking-widest text-white/90">
+                  <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.4)]" />
                   Free — No Obligation, No Credit Pull
                 </span>
               </div>
@@ -114,7 +114,7 @@ export function FinalCTA() {
                   <span className="relative inline-block mt-1">
                     Florida Home?
                     {/* Thick green underline */}
-                    <span className="absolute -bottom-2 left-1/2 h-1 w-3/4 -translate-x-1/2 rounded-full bg-brand-green shadow-[0_0_12px_rgba(0,105,72,0.5)] sm:-bottom-2.5 sm:h-1.5" />
+                    <span className="absolute -bottom-2 left-1/2 h-1 w-3/4 -translate-x-1/2 rounded-full bg-white/40 sm:-bottom-2.5 sm:h-1.5" />
                   </span>
                 </h2>
               </div>
@@ -135,7 +135,7 @@ export function FinalCTA() {
                       key={stat.label}
                       className="group/stat rounded-2xl border border-white/[0.07] bg-white/[0.04] px-3 py-5 transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.06] sm:px-5 sm:py-6"
                     >
-                      <span className="mx-auto flex h-9 w-9 items-center justify-center rounded-lg bg-brand-green/20 text-brand-green transition-colors duration-300 group-hover/stat:bg-brand-green/30">
+                      <span className="mx-auto flex h-9 w-9 items-center justify-center rounded-lg bg-white/15 text-white/70 transition-colors duration-300 group-hover/stat:bg-white/25">
                         {stat.icon}
                       </span>
                       <span className="mt-3 block text-[22px] font-black leading-none text-white sm:text-[28px]">
@@ -154,7 +154,7 @@ export function FinalCTA() {
                 <div className="mt-10">
                   <Link
                     href="/home-purchase-eligibility"
-                    className="shimmer-btn group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full bg-brand-green px-9 py-4.5 text-[15px] font-bold text-white shadow-[0_4px_24px_rgba(0,105,72,0.5)] transition-all duration-300 hover:shadow-[0_8px_40px_rgba(0,105,72,0.6)] hover:scale-[1.02] sm:text-[16px]"
+                    className="shimmer-btn group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full bg-white px-9 py-4.5 text-[15px] font-bold text-brand-green shadow-[0_4px_24px_rgba(0,0,0,0.2)] transition-all duration-300 hover:shadow-[0_8px_40px_rgba(0,0,0,0.3)] hover:scale-[1.02] sm:text-[16px]"
                   >
                     <span className="relative z-[1] flex items-center gap-2.5">
                       Check My Eligibility
@@ -181,7 +181,7 @@ export function FinalCTA() {
               {/* Trust line */}
               <div className="animate-fade-up" style={{ animationDelay: "500ms" }}>
                 <p className="mt-8 flex items-center justify-center gap-2 text-[12px] text-white/30 sm:text-[13px]">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-green/60">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/40">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   </svg>
                   NMLS #2536820 &bull; Licensed in Florida &bull; BBB Accredited

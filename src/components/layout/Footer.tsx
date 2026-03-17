@@ -30,7 +30,7 @@ const navColumns = [
 
 export function Footer() {
   return (
-    <footer className="bg-dark-green text-white">
+    <footer className="bg-brand-green text-white">
       {/* Top accent line */}
       <div className="h-[3px] bg-brand-green" />
 

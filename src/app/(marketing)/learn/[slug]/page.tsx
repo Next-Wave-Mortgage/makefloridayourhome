@@ -19,15 +19,50 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) return {};
+
+  const url = `https://makefloridayourhome.com/learn/${slug}`;
+
   return {
     title: `${post.title} | Make Florida Your Home`,
     description: post.description,
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
       title: post.title,
       description: post.description,
-      url: `https://makefloridayourhome.com/learn/${slug}`,
+      url,
       type: "article",
-      ...(post.featuredImage && { images: [post.featuredImage] }),
+      siteName: "Make Florida Your Home",
+      publishedTime: post.date,
+      modifiedTime: post.updatedDate || post.date,
+      authors: [post.author],
+      section: "Florida Homebuying",
+      ...(post.featuredImage && {
+        images: [
+          {
+            url: `https://makefloridayourhome.com${post.featuredImage}`,
+            alt: post.imageAlt || post.title,
+            width: 1200,
+            height: 630,
+          },
+        ],
+      }),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      ...(post.featuredImage && {
+        images: [`https://makefloridayourhome.com${post.featuredImage}`],
+      }),
+    },
+    robots: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large" as const,
+      "max-snippet": -1,
+      "max-video-preview": -1,
     },
   };
 }
@@ -55,8 +90,90 @@ export default async function BlogPostPage({
       })
     : null;
 
+  const canonicalUrl = `https://makefloridayourhome.com/learn/${slug}`;
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.description,
+    image: post.featuredImage
+      ? `https://makefloridayourhome.com${post.featuredImage}`
+      : undefined,
+    datePublished: post.date,
+    dateModified: post.updatedDate || post.date,
+    author: {
+      "@type": "Person",
+      name: post.author,
+      url: `https://makefloridayourhome.com/team/${post.author.toLowerCase().replace(/\s+/g, "-")}`,
+      jobTitle: post.authorTitle,
+    },
+    ...(post.reviewedBy && {
+      reviewedBy: {
+        "@type": "Person",
+        name: post.reviewedBy,
+        url: `https://makefloridayourhome.com/team/${post.reviewedBySlug}`,
+        jobTitle: post.reviewedByTitle,
+      },
+    }),
+    publisher: {
+      "@type": "Organization",
+      name: "Make Florida Your Home",
+      url: "https://makefloridayourhome.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://makefloridayourhome.com/images/logo.webp",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalUrl,
+    },
+    wordCount: post.content.trim().split(/\s+/).length,
+    ...(post.tags && { keywords: post.tags.join(", ") }),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://makefloridayourhome.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Articles",
+        item: "https://makefloridayourhome.com/learn",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: canonicalUrl,
+      },
+    ],
+  };
+
   return (
     <>
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+
       {/* Article Hero */}
       <section className="relative overflow-hidden bg-brand-green">
         {/* Layered gradient: bright highlight top-left, deep shadow bottom */}
@@ -292,7 +409,7 @@ export default async function BlogPostPage({
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={post.featuredImage}
-                      alt={post.title}
+                      alt={post.imageAlt || post.title}
                       className="aspect-[4/3] w-full object-cover"
                     />
                   </div>
@@ -322,7 +439,7 @@ export default async function BlogPostPage({
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={post.featuredImage}
-                  alt={post.title}
+                  alt={post.imageAlt || post.title}
                   className="aspect-[16/9] w-full object-cover"
                 />
               </div>

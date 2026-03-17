@@ -70,7 +70,7 @@ export function Hero() {
             {/* Subheading */}
             <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-dark-green/70 sm:text-[18px]">
               See every program and grant you qualify for.{" "}
-              <strong className="text-dark-green">
+              <strong className="text-brand-green">
                 No credit pull. No obligation.
               </strong>{" "}
               Real savings for Florida buyers.
@@ -107,7 +107,7 @@ export function Hero() {
                   <span className="block h-full w-1/3 bg-gradient-to-r from-transparent via-white/25 to-transparent" />
                 </span>
                 {/* Dark slide-in on hover */}
-                <span className="absolute inset-0 -translate-x-full bg-dark-green transition-transform duration-300 ease-out group-hover:translate-x-0" />
+                <span className="absolute inset-0 -translate-x-full bg-brand-green transition-transform duration-300 ease-out group-hover:translate-x-0" />
               </Link>
               <span className="text-[14px] text-dark-green/50">
                 No credit pull required

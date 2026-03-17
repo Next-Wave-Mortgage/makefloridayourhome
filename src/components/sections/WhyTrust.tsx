@@ -15,7 +15,7 @@ const valueProps: {
       <>
         Our team specializes in Florida&apos;s first-time homebuyer and down
         payment assistance programs. We know{" "}
-        <strong className="text-dark-green">which options stack</strong> and how
+        <strong className="text-brand-green">which options stack</strong> and how
         to structure your loan for the biggest savings.
       </>
     ),
@@ -43,7 +43,7 @@ const valueProps: {
       <>
         From state grants to local SHIP funds and Hometown Heroes, we help you
         uncover every dollar of assistance you qualify for—often saving buyers{" "}
-        <strong className="text-dark-green">$25,000 – $100,000</strong> at
+        <strong className="text-brand-green">$25,000 – $100,000</strong> at
         closing.
       </>
     ),
@@ -69,7 +69,7 @@ const valueProps: {
     description: (
       <>
         We&apos;re Florida-based, working{" "}
-        <strong className="text-dark-green">county by county</strong> to match
+        <strong className="text-brand-green">county by county</strong> to match
         you with programs actually available where you&apos;re buying—plus local
         lenders who know how to close them fast.
       </>
@@ -158,7 +158,7 @@ export function WhyTrust() {
                   className={`pointer-events-none absolute -top-1 right-4 select-none text-[72px] font-black leading-none transition-colors duration-300 sm:text-[80px] ${
                     prop.featured
                       ? "text-brand-green/[0.06] group-hover:text-brand-green/[0.10]"
-                      : "text-dark-green/[0.03] group-hover:text-brand-green/[0.07]"
+                      : "text-brand-green/[0.03] group-hover:text-brand-green/[0.07]"
                   }`}
                 >
                   {String(i + 1).padStart(2, "0")}

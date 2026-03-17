@@ -146,7 +146,7 @@ export function ExpertGuides() {
               {/* Content */}
               <div className="relative flex-1 py-5 pr-5 pl-6 sm:py-5 sm:pr-6 sm:pl-6">
                 {/* Background number */}
-                <span className="pointer-events-none absolute -top-1 right-4 select-none text-[64px] font-black leading-none text-dark-green/[0.03] transition-colors duration-300 group-hover:text-brand-green/[0.08]">
+                <span className="pointer-events-none absolute -top-1 right-4 select-none text-[64px] font-black leading-none text-brand-green/[0.03] transition-colors duration-300 group-hover:text-brand-green/[0.08]">
                   {String(i + 2).padStart(2, "0")}
                 </span>
 
@@ -182,7 +182,7 @@ export function ExpertGuides() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-12 overflow-hidden rounded-2xl bg-dark-green px-8 py-7 shadow-lg sm:flex sm:items-center sm:justify-between sm:px-10 sm:py-8">
+        <div className="mt-12 overflow-hidden rounded-2xl bg-brand-green px-8 py-7 shadow-lg sm:flex sm:items-center sm:justify-between sm:px-10 sm:py-8">
           <h3 className="text-[20px] font-bold text-white sm:text-[22px]">
             Stay Current on Florida&apos;s 2026 Grants
           </h3>
