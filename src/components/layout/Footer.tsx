@@ -22,8 +22,8 @@ const navColumns = [
   {
     heading: "Legal",
     links: [
-      { href: "/terms-and-privacy", label: "Terms & Privacy" },
-      { href: "/licenses", label: "Licenses" },
+      { href: "https://www.nextwavemortgage.com/terms", label: "Terms & Privacy" },
+      { href: "https://www.nextwavemortgage.com/terms", label: "Licenses" },
     ],
   },
 ];
