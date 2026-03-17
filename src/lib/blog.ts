@@ -11,9 +11,21 @@ export interface BlogPost {
   date: string;
   updatedDate?: string;
   author: string;
+  authorTitle?: string;
+  authorImage?: string;
+  reviewedBy?: string;
+  reviewedByImage?: string;
+  reviewedByTitle?: string;
+  reviewedBySlug?: string;
   featuredImage?: string;
   tags?: string[];
+  readTime: number;
   content: string;
+}
+
+function estimateReadTime(text: string): number {
+  const words = text.trim().split(/\s+/).length;
+  return Math.max(1, Math.round(words / 238));
 }
 
 export interface BlogPostMeta {
@@ -69,8 +81,15 @@ export function getPostBySlug(slug: string): BlogPost | null {
     date: data.date || "",
     updatedDate: data.updatedDate || null,
     author: data.author || "Phil Ganz",
+    authorTitle: data.authorTitle || "Mortgage Expert · NMLS #227607",
+    authorImage: data.authorImage || "/images/team/phil-ganz.jpg",
+    reviewedBy: data.reviewedBy || null,
+    reviewedByImage: data.reviewedByImage || "/images/team/ryan-skerritt.jpg",
+    reviewedByTitle: data.reviewedByTitle || "Mortgage Expert · NMLS #1170025",
+    reviewedBySlug: data.reviewedBySlug || "ryan-skerritt",
     featuredImage: data.featuredImage || null,
     tags: data.tags || [],
+    readTime: estimateReadTime(content),
     content,
   };
 }
