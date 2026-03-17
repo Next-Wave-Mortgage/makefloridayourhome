@@ -6,7 +6,7 @@ import Script from "next/script";
 export function MeetingEmbed() {
   useEffect(() => {
     // If script already loaded, initialize
-    if ((window as Record<string, unknown>).hbspt) {
+    if ((window as unknown as Record<string, unknown>).hbspt) {
       initMeeting();
     }
   }, []);
