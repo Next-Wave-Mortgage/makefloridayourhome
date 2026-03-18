@@ -178,7 +178,7 @@ export function EligibilityForm({
   async function submitForm() {
     setSubmitting(true);
     try {
-      await fetch("/api/lead", {
+      const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -193,12 +193,20 @@ export function EligibilityForm({
         }),
       });
 
-      setDone(true);
+      const data = await res.json().catch(() => ({}));
+
+      // Redirect to booking page with contact info
+      const params = new URLSearchParams({
+        firstName: contact.firstName,
+        contactId: data.contactId || "",
+      });
+      window.location.href = `/schedule-a-call?${params.toString()}`;
     } catch {
-      // Still show success — don't block the user on CRM errors
-      setDone(true);
-    } finally {
-      setSubmitting(false);
+      // On error, still redirect — booking page works without contactId
+      const params = new URLSearchParams({
+        firstName: contact.firstName,
+      });
+      window.location.href = `/schedule-a-call?${params.toString()}`;
     }
   }
 

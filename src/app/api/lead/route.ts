@@ -34,7 +34,53 @@ const CUSTOM_FIELD_IDS: Record<string, string> = {
   geo_state: "9nNC53CRZS9yCHp9CW42",
   geo_country: "vNkP7eUcvj2kLUyXBIre",
   geo_ip: "WMxMzy7duS1vGQ88Wdes",
+  // Lead scoring
+  lead_score: "1GESZ5dFXiCMFRQmuRM5",
 };
+
+/**
+ * Lead scoring — rates eligibility form leads 0-12 based on:
+ *   Purchase price (0-3), Credit rating (0-3), Buying stage (0-3),
+ *   Has agent (0-2), Veteran (0-1)
+ */
+function calculateLeadScore(fields: Record<string, string>): number {
+  let score = 0;
+
+  // Purchase price: higher = better (0-3)
+  const price = fields.estimated_purchase_price || "";
+  if (price.includes("1,000,000") || price.includes("1,250,000") || price.includes("1,500,000"))
+    score += 3;
+  else if (price.includes("500,000") || price.includes("750,000"))
+    score += 3;
+  else if (price.includes("300,000") || price.includes("400,000"))
+    score += 2;
+  else if (price.includes("200,000"))
+    score += 1;
+  // Under $200k = 0
+
+  // Credit rating (0-3)
+  const credit = fields.credit_rating || "";
+  if (credit.startsWith("Excellent")) score += 3;
+  else if (credit.startsWith("Very Good")) score += 2;
+  else if (credit.startsWith("Good")) score += 1;
+  // Fair/Poor = 0
+
+  // Buying stage (0-3)
+  const stage = fields.home_buying_stage || "";
+  if (stage.includes("signed contract")) score += 3;
+  else if (stage.includes("making an offer")) score += 3;
+  else if (stage.includes("pre-approval")) score += 2;
+  else if (stage.includes("next few months")) score += 1;
+  // 6+ months = 0
+
+  // Has real estate agent (0-2)
+  if (fields.has_real_estate_agent === "Yes") score += 2;
+
+  // Veteran / military (0-1 bonus)
+  if (fields.veteran_or_military === "Yes") score += 1;
+
+  return score;
+}
 
 interface LeadPayload {
   firstName: string;
@@ -94,6 +140,15 @@ export async function POST(req: NextRequest) {
       });
     }
 
+    // Lead scoring (eligibility forms only — contact forms won't have these fields)
+    const leadScore = body.customFields
+      ? calculateLeadScore(body.customFields)
+      : 0;
+    customFieldValues.push({
+      id: CUSTOM_FIELD_IDS.lead_score,
+      field_value: String(leadScore),
+    });
+
     const ghlPayload = {
       locationId: GHL_LOCATION_ID,
       firstName: body.firstName,
@@ -125,7 +180,11 @@ export async function POST(req: NextRequest) {
     }
 
     const data = await res.json();
-    return NextResponse.json({ success: true, contactId: data.contact?.id });
+    return NextResponse.json({
+      success: true,
+      contactId: data.contact?.id,
+      leadScore,
+    });
   } catch (err) {
     console.error("Lead API error:", err);
     return NextResponse.json(
