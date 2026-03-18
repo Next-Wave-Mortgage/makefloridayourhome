@@ -475,15 +475,9 @@ export default async function BlogPostPage({
                   )}
                   <span>
                     {updatedDate
-                      ? `Updated ${updatedDate}`
+                      ? <><strong className="font-semibold text-white/60">Updated</strong> {updatedDate}</>
                       : publishedDate}
                   </span>
-                  {updatedDate && (
-                    <>
-                      <span className="text-white/20">·</span>
-                      <span className="hidden sm:inline">Originally {publishedDate}</span>
-                    </>
-                  )}
                   <span className="text-white/20">·</span>
                   <span>{post.readTime} min read</span>
                 </div>
