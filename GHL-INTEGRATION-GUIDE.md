@@ -66,6 +66,17 @@ These custom fields already exist in the GHL account. Do NOT create new ones —
 | UTM Content | `RDPMbkArgQx03QEwCIxI` | utm_content parameter |
 | UTM Term | `ZuMnXSNH10zkyQPNIohI` | utm_term parameter |
 
+### Geolocation Fields (Server-Side, Automatic)
+
+These are populated automatically from Vercel's edge headers — no client-side code needed. They won't populate on localhost, only in production on Vercel.
+
+| Field Name | GHL Field ID | Description |
+|---|---|---|
+| Geo City | `GaqfKBYBdPjM0KSHxR28` | Visitor's city (e.g. "Fort Lauderdale") |
+| Geo State | `9nNC53CRZS9yCHp9CW42` | Visitor's state/region code (e.g. "FL") |
+| Geo Country | `vNkP7eUcvj2kLUyXBIre` | Visitor's country code (e.g. "US") |
+| Geo IP Address | `WMxMzy7duS1vGQ88Wdes` | Visitor's IP address |
+
 ---
 
 ## Architecture Overview

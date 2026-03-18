@@ -29,6 +29,11 @@ const CUSTOM_FIELD_IDS: Record<string, string> = {
   utm_term: "ZuMnXSNH10zkyQPNIohI",
   source_website: "f4VeSqwpQwHpqoIBuOLE",
   previous_page: "rgkRBCuLbnoje6tLrlVV",
+  // Geolocation (from Vercel headers)
+  geo_city: "GaqfKBYBdPjM0KSHxR28",
+  geo_state: "9nNC53CRZS9yCHp9CW42",
+  geo_country: "vNkP7eUcvj2kLUyXBIre",
+  geo_ip: "WMxMzy7duS1vGQ88Wdes",
 };
 
 interface LeadPayload {
@@ -46,8 +51,20 @@ export async function POST(req: NextRequest) {
   try {
     const body: LeadPayload = await req.json();
 
+    // Geolocation from Vercel edge headers (free, automatic)
+    const geoCity = req.headers.get("x-vercel-ip-city") || "";
+    const geoState = req.headers.get("x-vercel-ip-country-region") || "";
+    const geoCountry = req.headers.get("x-vercel-ip-country") || "";
+    const geoIp = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "";
+
     // Build custom field values from form answers + tracking data
     const customFieldValues = [];
+
+    // Geolocation fields (server-side only — not sent from client)
+    if (geoCity) customFieldValues.push({ id: CUSTOM_FIELD_IDS.geo_city, field_value: decodeURIComponent(geoCity) });
+    if (geoState) customFieldValues.push({ id: CUSTOM_FIELD_IDS.geo_state, field_value: geoState });
+    if (geoCountry) customFieldValues.push({ id: CUSTOM_FIELD_IDS.geo_country, field_value: geoCountry });
+    if (geoIp) customFieldValues.push({ id: CUSTOM_FIELD_IDS.geo_ip, field_value: geoIp });
 
     // Form-specific custom fields (eligibility answers, contact message)
     if (body.customFields) {
@@ -83,7 +100,7 @@ export async function POST(req: NextRequest) {
       lastName: body.lastName,
       email: body.email,
       phone: body.phone || undefined,
-      source: "Website - makefloridayourhome.com",
+      source: "Website - " + (body.tracking?.source_website || "microsite"),
       tags: body.tags || ["website-lead"],
       customFields: customFieldValues,
     };
