@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-const HS_PORTAL = "20342342";
-const HS_FORM = "c76ac460-5460-4391-89cc-fb1dee197296";
+import { getTrackingPayload } from "@/lib/tracking";
 
 export function ContactForm() {
   const [form, setForm] = useState({
@@ -27,26 +25,22 @@ export function ContactForm() {
     const lastname = rest.join(" ");
 
     try {
-      await fetch(
-        `https://api.hsforms.com/submissions/v3/integration/submit/${HS_PORTAL}/${HS_FORM}`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            fields: [
-              { name: "firstname", value: firstname },
-              { name: "lastname", value: lastname },
-              { name: "email", value: form.email },
-              { name: "phone", value: form.phone },
-              { name: "message", value: form.message },
-            ],
-            context: {
-              pageUri: window.location.href,
-              pageName: "Contact Us",
-            },
-          }),
-        },
-      );
+      await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: firstname,
+          lastName: lastname,
+          email: form.email,
+          phone: form.phone,
+          source: "/contact-us",
+          tags: ["website-lead", "contact-form"],
+          customFields: {
+            contact_message: form.message,
+          },
+          tracking: getTrackingPayload(),
+        }),
+      });
       setDone(true);
     } catch {
       setDone(true);

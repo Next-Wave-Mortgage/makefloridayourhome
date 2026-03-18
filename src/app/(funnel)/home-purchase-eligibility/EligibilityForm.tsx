@@ -2,27 +2,16 @@
 
 import { useState, useCallback } from "react";
 import Image from "next/image";
+import { getTrackingPayload } from "@/lib/tracking";
 
-/* ─── HubSpot config ───────────────────────────────────────────────── */
-const HS_PORTAL = "20342342";
-const HS_FORM = "c76ac460-5460-4391-89cc-fb1dee197296";
-
-/**
- * HubSpot contact property names.
- * Standard fields are correct. Custom ones (marked *) may need updating —
- * verify at HubSpot → Settings → Properties.
- */
+/* ─── Field keys (match GHL custom fields) ────────────────────────── */
 const FIELD = {
-  propertyUse: "property_used_for", // *
+  propertyUse: "property_used_for",
   buyingStage: "home_buying_stage",
-  purchasePrice: "estimated_purchase_price", // *
-  hasAgent: "has_real_estate_agent", // *
-  creditRating: "credit_rating", // *
-  veteranMilitary: "veteran_or_military", // *
-  firstName: "firstname",
-  lastName: "lastname",
-  email: "email",
-  phone: "phone",
+  purchasePrice: "estimated_purchase_price",
+  hasAgent: "has_real_estate_agent",
+  creditRating: "credit_rating",
+  veteranMilitary: "veteran_or_military",
 } as const;
 
 /* ─── Step definitions ─────────────────────────────────────────────── */
@@ -189,32 +178,24 @@ export function EligibilityForm({
   async function submitForm() {
     setSubmitting(true);
     try {
-      const fields = [
-        { name: FIELD.firstName, value: contact.firstName },
-        { name: FIELD.lastName, value: contact.lastName },
-        { name: FIELD.email, value: contact.email },
-        { name: FIELD.phone, value: contact.phone },
-        ...Object.entries(answers).map(([name, value]) => ({ name, value })),
-      ];
-
-      await fetch(
-        `https://api.hsforms.com/submissions/v3/integration/submit/${HS_PORTAL}/${HS_FORM}`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            fields,
-            context: {
-              pageUri: window.location.href,
-              pageName: "Home Purchase Eligibility",
-            },
-          }),
-        },
-      );
+      await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: contact.firstName,
+          lastName: contact.lastName,
+          email: contact.email,
+          phone: contact.phone,
+          source: window.location.pathname,
+          tags: ["website-lead", "eligibility-form"],
+          customFields: answers,
+          tracking: getTrackingPayload(),
+        }),
+      });
 
       setDone(true);
     } catch {
-      // Still show success — HubSpot may reject unknown fields but we don't want to block the user
+      // Still show success — don't block the user on CRM errors
       setDone(true);
     } finally {
       setSubmitting(false);
