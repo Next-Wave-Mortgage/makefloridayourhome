@@ -126,7 +126,15 @@ const STEPS: Step[] = [
 const TOTAL = STEPS.length;
 
 /* ─── Component ────────────────────────────────────────────────────── */
-export function EligibilityForm() {
+interface EligibilityFormProps {
+  heading?: string;
+  subtitle?: string;
+}
+
+export function EligibilityForm({
+  heading = "Let\u2019s get you into a Florida home",
+  subtitle,
+}: EligibilityFormProps) {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [contact, setContact] = useState({
@@ -286,9 +294,16 @@ export function EligibilityForm() {
 
           {/* Intro heading — only on first step */}
           {step === 0 && (
-            <h1 className="mb-4 text-[28px] font-bold leading-snug text-dark-green sm:text-[34px]">
-              Let's get you into a Florida home
-            </h1>
+            <>
+              <h1 className="mb-2 text-[28px] font-bold leading-snug text-dark-green sm:text-[34px]">
+                {heading}
+              </h1>
+              {subtitle && (
+                <p className="mb-4 text-[15px] leading-relaxed text-dark-green/50">
+                  {subtitle}
+                </p>
+              )}
+            </>
           )}
 
           {/* Question */}
@@ -450,7 +465,7 @@ export function EligibilityForm() {
               disabled={!canAdvance() || submitting}
               className={`flex items-center justify-center gap-2 rounded-full px-10 py-4 text-[15px] font-bold transition-all duration-200 ${
                 canAdvance()
-                  ? "bg-dark-green text-white shadow-[0_2px_12px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.25)]"
+                  ? "bg-brand-green text-white shadow-[0_2px_12px_rgba(0,105,72,0.25)] hover:shadow-[0_4px_20px_rgba(0,105,72,0.35)]"
                   : "cursor-not-allowed bg-border-gray text-mid-gray"
               } ${step === 0 ? "" : "ml-auto"}`}
             >

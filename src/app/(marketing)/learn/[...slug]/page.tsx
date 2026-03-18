@@ -144,7 +144,7 @@ export default async function BlogPostPage({
     ...(post.tags && { keywords: post.tags.join(", ") }),
     about: {
       "@type": "Thing",
-      name: "First-time home buyer assistance programs in Florida",
+      name: post.description,
     },
     inLanguage: "en-US",
     isPartOf: {

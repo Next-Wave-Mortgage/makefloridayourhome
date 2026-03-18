@@ -83,7 +83,7 @@ export function PageHero({
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
-                <span className="absolute inset-0 -translate-x-full bg-dark-green transition-transform duration-300 ease-out group-hover:translate-x-0" />
+                <span className="absolute inset-0 -translate-x-full bg-brand-green transition-transform duration-300 ease-out group-hover:translate-x-0" />
               </Link>
               <span className="text-[14px] text-dark-green/50">
                 No credit pull required

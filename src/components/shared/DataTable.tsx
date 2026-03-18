@@ -13,7 +13,7 @@ export function DataTable({ headers, rows, caption }: DataTableProps) {
             <caption className="sr-only">{caption}</caption>
           )}
           <thead>
-            <tr className="bg-dark-green text-white">
+            <tr className="bg-brand-green text-white">
               {headers.map((header, i) => (
                 <th
                   key={header}

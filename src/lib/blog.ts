@@ -34,6 +34,7 @@ export interface BlogPostMeta {
   title: string;
   description: string;
   date: string;
+  updatedDate?: string;
   author: string;
   featuredImage?: string;
   tags?: string[];
@@ -72,16 +73,19 @@ export function getAllPosts(): BlogPostMeta[] {
       title: data.title || slug,
       description: data.description || "",
       date: data.date || "",
+      updatedDate: data.updatedDate || null,
       author: data.author || "Phil Ganz",
       featuredImage: data.featuredImage || null,
       tags: data.tags || [],
     } as BlogPostMeta;
   });
 
-  // Sort by date descending
-  return posts.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-  );
+  // Sort by most recent date (updatedDate if available, otherwise date)
+  return posts.sort((a, b) => {
+    const dateA = new Date(a.updatedDate || a.date).getTime();
+    const dateB = new Date(b.updatedDate || b.date).getTime();
+    return dateB - dateA;
+  });
 }
 
 export function getPostBySlug(slug: string): BlogPost | null {

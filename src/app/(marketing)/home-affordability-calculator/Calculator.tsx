@@ -80,7 +80,7 @@ export function Calculator() {
   // Donut chart
   const segments = [
     { label: "Principal & Interest", value: calc.pi, color: "#006948" },
-    { label: "Property Taxes", value: calc.taxes, color: "#00BDA5" },
+    { label: "Property Taxes", value: calc.taxes, color: "#4A9E7E" },
     { label: "Home Insurance", value: calc.insurance, color: "#2E4136" },
     ...(calc.pmi > 0
       ? [{ label: "PMI", value: calc.pmi, color: "#ABACAC" }]

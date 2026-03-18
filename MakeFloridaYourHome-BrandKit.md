@@ -26,7 +26,6 @@
 
 | Name              | Hex       | RGB              | Usage                                      |
 |-------------------|-----------|------------------|---------------------------------------------|
-| **Teal Accent**   | `#00BDA5` | `0, 189, 165`    | Secondary accent, hover states, highlights  |
 | **Green Tint**    | `#F2FAF6` | `242, 250, 246`  | Section backgrounds, card fills, subtle tint|
 
 ### Neutrals

@@ -102,7 +102,7 @@ export function ExpertGuides() {
             {/* Content */}
             <div className="relative p-8 sm:p-10">
               <div className="flex items-center gap-3">
-                <span className="w-fit rounded-full bg-teal/20 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-teal backdrop-blur-sm">
+                <span className="w-fit rounded-full bg-white/15 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
                   {articles[0].category}
                 </span>
                 <span className="text-[12px] font-medium text-white/40">
@@ -118,7 +118,7 @@ export function ExpertGuides() {
                 {articles[0].description}
               </p>
 
-              <span className="mt-8 inline-flex items-center gap-2 text-[14px] font-semibold text-teal transition-all duration-300 group-hover:gap-3">
+              <span className="mt-8 inline-flex items-center gap-2 text-[14px] font-semibold text-white/80 transition-all duration-300 group-hover:gap-3 group-hover:text-white">
                 Read Guide
                 <ArrowIcon />
               </span>
@@ -188,7 +188,7 @@ export function ExpertGuides() {
           </h3>
           <Link
             href="/mortgage-articles"
-            className="group mt-5 inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[15px] font-bold text-brand-green transition-all duration-300 hover:bg-teal hover:text-white hover:shadow-[0_4px_24px_rgba(0,189,165,0.35)] sm:mt-0"
+            className="group mt-5 inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[15px] font-bold text-brand-green transition-all duration-300 hover:bg-white/90 hover:shadow-[0_4px_24px_rgba(0,0,0,0.15)] sm:mt-0"
           >
             See Latest Updates
             <ArrowIcon />

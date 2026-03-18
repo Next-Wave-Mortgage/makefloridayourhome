@@ -98,7 +98,7 @@ export function Programs() {
                 </p>
 
                 {/* Learn more */}
-                <span className="mt-3 inline-flex items-center gap-1.5 text-[14px] font-semibold text-teal drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] sm:translate-y-2 sm:opacity-0 sm:transition-all sm:duration-300 sm:delay-75 sm:group-hover:translate-y-0 sm:group-hover:opacity-100">
+                <span className="mt-3 inline-flex items-center gap-1.5 text-[14px] font-semibold text-white/80 drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)] group-hover:text-white sm:translate-y-2 sm:opacity-0 sm:transition-all sm:duration-300 sm:delay-75 sm:group-hover:translate-y-0 sm:group-hover:opacity-100">
                   Learn More
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -133,7 +133,7 @@ export function Programs() {
           </div>
           <Link
             href="/home-purchase-eligibility"
-            className="group mt-6 inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-8 py-4 text-[15px] font-bold text-brand-green transition-all duration-300 hover:bg-teal hover:text-white hover:shadow-[0_4px_24px_rgba(0,189,165,0.35)] sm:mt-0"
+            className="group mt-6 inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-8 py-4 text-[15px] font-bold text-brand-green transition-all duration-300 hover:bg-white/90 hover:shadow-[0_4px_24px_rgba(0,0,0,0.15)] sm:mt-0"
           >
             Check My Eligibility
             <svg

@@ -15,5 +15,5 @@ export const metadata: Metadata = {
 };
 
 export default function HomePurchaseEligibilityPage() {
-  return <EligibilityForm />;
+  return <EligibilityForm heading="Check your home purchase eligibility in Florida" />;
 }

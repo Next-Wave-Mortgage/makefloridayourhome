@@ -79,7 +79,7 @@ export default function LearnPage() {
                     <div className="mt-4 flex items-center justify-between text-[12px] text-dark-green/40">
                       <span>{post.author}</span>
                       <span>
-                        {new Date(post.date).toLocaleDateString("en-US", {
+                        {new Date(post.updatedDate || post.date).toLocaleDateString("en-US", {
                           month: "short",
                           day: "numeric",
                           year: "numeric",
