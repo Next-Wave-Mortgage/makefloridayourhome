@@ -103,7 +103,7 @@ const articles = [
     title: "17 Florida Rent-to-Own Programs: Buy With No Down Payment",
     description:
       "Explore 17 Florida rent-to-own programs for 2026. Learn how buyers may purchase with little or no down payment.",
-    href: "/florida-rent-to-own-programs",
+    href: "/learn/fha-rent-to-own-florida-guide",
     image: "/images/guides/florida-rent-to-own-programs.png",
     readTime: "10 min read",
   },
@@ -112,7 +112,7 @@ const articles = [
     title: "Florida Housing Income & Purchase Price Limits (2026)",
     description:
       "See 2026 Florida Housing income limits and purchase price caps by county.",
-    href: "/florida-housing-income-purchase-price-limits",
+    href: "/learn/florida-housing-income-purchase-price-limits",
     image: "/images/guides/florida-housing-income-limits.png",
     readTime: "8 min read",
   },
@@ -121,7 +121,7 @@ const articles = [
     title: "What Are the Requirements to Buy a House in Florida?",
     description:
       "Learn the key requirements to buy a house in Florida, including credit, down payment, and loan options.",
-    href: "/requirements-to-buy-house-in-florida",
+    href: "/learn/requirements-to-buy-a-house-in-florida",
     image: "/images/guides/florida-homebuyer-requirements.png",
     readTime: "7 min read",
   },

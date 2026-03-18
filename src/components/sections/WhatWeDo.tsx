@@ -12,7 +12,7 @@ const features: {
     title: "First-Time Homebuyer Programs",
     description:
       "Grants, loans, and assistance designed for new Florida buyers",
-    href: "/first-time-homebuyer",
+    href: "/first-time-home-buyer",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +54,7 @@ const features: {
   {
     title: "Hometown Heroes Program",
     description: "Up to $35,000 in aid for qualifying Florida professionals",
-    href: "/hometown-heroes",
+    href: "/florida/hometown-heroes",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@ const features: {
   {
     title: "Home Loan Programs",
     description: "Compare FHA, VA, USDA, and conventional loan options",
-    href: "/loan-options",
+    href: "/home-loan",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +98,7 @@ const features: {
   {
     title: "Affordability Calculator",
     description: "Estimate your budget and monthly payments in minutes",
-    href: "/affordability-calculator",
+    href: "/home-affordability-calculator",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +125,7 @@ const features: {
   {
     title: "County Program Guides",
     description: "Find assistance specific to your Florida county",
-    href: "/county-programs",
+    href: "/programs",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -146,7 +146,7 @@ const features: {
   {
     title: "Local Expert Support",
     description: "Connect with mortgage specialists who know your area",
-    href: "/contact-us",
+    href: "/schedule-a-free-call-today",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -169,7 +169,7 @@ const features: {
   {
     title: "Step-by-Step Buying Guides",
     description: "Clear guides from pre-approval to closing day",
-    href: "/mortgage-articles",
+    href: "/learn",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -190,7 +190,7 @@ const features: {
   {
     title: "Income & Price Limit Lookups",
     description: "Check income caps and purchase price limits by county",
-    href: "/florida-housing-income-purchase-price-limits",
+    href: "/learn/florida-housing-income-purchase-price-limits",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"

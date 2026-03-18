@@ -16,7 +16,7 @@ const articles = [
     title: "17 Florida Rent-to-Own Programs: Buy With No Down Payment",
     description:
       "Explore 17 Florida rent-to-own programs for 2026. Learn how buyers may purchase with little or no down payment, plus risks, rules, and alternatives.",
-    href: "/florida-rent-to-own-programs",
+    href: "/learn/fha-rent-to-own-florida-guide",
     image: "/images/guides/florida-rent-to-own-programs.png",
     readTime: "10 min read",
   },
@@ -26,7 +26,7 @@ const articles = [
       "Florida Housing Income & Purchase Price Limits (2026) | County-by-County Guide",
     description:
       "See 2026 Florida Housing income limits and purchase price caps by county. Learn who qualifies for Florida Housing loans, grants, and down payment assistance.",
-    href: "/florida-housing-income-purchase-price-limits",
+    href: "/learn/florida-housing-income-purchase-price-limits",
     image: "/images/guides/florida-housing-income-limits.png",
     readTime: "8 min read",
   },
@@ -36,7 +36,7 @@ const articles = [
       "What Are the Requirements to Buy a House in Florida? 7 Rules for First-Time Buyers",
     description:
       "Learn the key requirements to buy a house in Florida, including credit, down payment, and loan options. These 7 rules help first-time buyers understand what it takes to qualify.",
-    href: "/requirements-to-buy-house-in-florida",
+    href: "/learn/requirements-to-buy-a-house-in-florida",
     image: "/images/guides/florida-homebuyer-requirements.png",
     readTime: "7 min read",
   },
@@ -187,7 +187,7 @@ export function ExpertGuides() {
             Stay Current on Florida&apos;s 2026 Grants
           </h3>
           <Link
-            href="/mortgage-articles"
+            href="/learn"
             className="group mt-5 inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[15px] font-bold text-brand-green transition-all duration-300 hover:bg-white/90 hover:shadow-[0_4px_24px_rgba(0,0,0,0.15)] sm:mt-0"
           >
             See Latest Updates

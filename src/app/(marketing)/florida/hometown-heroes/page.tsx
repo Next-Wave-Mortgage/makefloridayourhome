@@ -122,21 +122,39 @@ const steps = [
 
 const articles = [
   {
-    category: "Best Florida Home Buyer Programs",
-    title: "50 Florida First-Time Home Buyer Grants & Programs (2026 Guide)",
+    category: "Hometown Heroes",
+    title: "Florida Hometown Heroes Income Limits (2026): County Eligibility Guide",
     description:
-      "Explore 50 Florida first-time homebuyer grants and assistance programs for 2026.",
-    href: "/florida-first-time-homebuyer-grants-programs",
-    image: "/images/guides/florida-first-time-homebuyer-grants.png",
-    readTime: "12 min read",
+      "See Florida Hometown Heroes income limits for 2026, including county-by-county eligibility and who qualifies.",
+    href: "/learn/florida-hometown-heroes-income-limits",
+    image: "/images/learn/florida-hometown-heroes-income-limits-2026.jpg",
+    readTime: "8 min read",
+  },
+  {
+    category: "Hometown Heroes",
+    title: "Florida Hometown Heroes Job Eligibility (2026) | Full Approved Occupation List",
+    description:
+      "See which Florida jobs qualify for the Hometown Heroes program. Full eligibility checklist by occupation.",
+    href: "/learn/florida-hometown-heroes-job-eligibility",
+    image: "/images/learn/florida-hometown-heroes-job-eligibility-2026.jpg",
+    readTime: "7 min read",
+  },
+  {
+    category: "Hometown Heroes",
+    title: "Florida Hometown Heroes Approved Lenders (2026): Find a Participating Company",
+    description:
+      "Learn how to verify participating mortgage companies and secure up to $35,000 in assistance.",
+    href: "/learn/florida-hometown-heroes-approved-lenders",
+    image: "/images/learn/florida-hometown-heroes-approved-lenders-2026.jpg",
+    readTime: "6 min read",
   },
   {
     category: "Florida Income Limits & Pricing",
     title: "Florida Housing Income & Purchase Price Limits (2026)",
     description:
       "See 2026 Florida Housing income limits and purchase price caps by county.",
-    href: "/florida-housing-income-purchase-price-limits",
-    image: "/images/guides/florida-housing-income-limits.png",
+    href: "/learn/florida-housing-income-purchase-price-limits",
+    image: "/images/learn/florida-housing-income-purchase-price-limits-2026.jpg",
     readTime: "8 min read",
   },
 ];
@@ -257,8 +275,19 @@ export default function HometownHeroesPage() {
         </div>
       </section>
 
+      {/* Expert Guides */}
+      <ExpertGuidesRow
+        heading={
+          <>
+            Related <span className="text-brand-green">Guides</span>
+          </>
+        }
+        articles={articles}
+        bg="green-tint"
+      />
+
       {/* Income Limits Table */}
-      <section className="bg-green-tint py-16 sm:py-20 lg:py-24">
+      <section className="bg-white py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
           <h2 className="mx-auto max-w-2xl text-center text-[28px] font-bold leading-tight text-dark-green sm:text-[36px] lg:text-[42px]">
             <span className="text-brand-green">Income</span> Limits by County
@@ -278,7 +307,7 @@ export default function HometownHeroesPage() {
       </section>
 
       {/* Eligibility Checklist */}
-      <section className="bg-white py-16 sm:py-20 lg:py-24">
+      <section className="bg-green-tint py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-center text-[28px] font-bold leading-tight text-dark-green sm:text-[36px] lg:text-[42px]">
@@ -328,17 +357,6 @@ export default function HometownHeroesPage() {
           </>
         }
         steps={steps}
-        bg="green-tint"
-      />
-
-      {/* Expert Guides */}
-      <ExpertGuidesRow
-        heading={
-          <>
-            Related <span className="text-brand-green">Guides</span>
-          </>
-        }
-        articles={articles}
         bg="white"
       />
 

@@ -73,7 +73,7 @@ export function FAQ() {
               Can&apos;t find what you&apos;re looking for?
             </p>
             <Link
-              href="/contact-us"
+              href="/schedule-a-free-call-today"
               className="group mt-6 inline-flex items-center gap-2 rounded-full bg-brand-green px-7 py-3.5 text-[15px] font-bold text-white transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,105,72,0.4)]"
             >
               Talk to an Expert

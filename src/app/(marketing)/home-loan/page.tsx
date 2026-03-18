@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { PageHero } from "@/components/shared/PageHero";
 import { PageCTA } from "@/components/shared/PageCTA";
 import { DataTable } from "@/components/shared/DataTable";
@@ -100,7 +101,9 @@ const loanTypes = [
     href: "/home-loan/fha-loan",
     linkText: "FHA Loan Details",
     articles: [
-      { title: "50 Florida First-Time Home Buyer Grants & Programs", href: "/florida-first-time-homebuyer-grants-programs" },
+      { title: "FHA Loan Eligibility Requirements in Florida", href: "/learn/fha-loan-eligibility-requirements-florida", image: "/images/learn/fha-loan-eligibility-requirements-florida-2026.jpg" },
+      { title: "Florida FHA Loan Limits by County (2026)", href: "/learn/florida-fha-loan-limits", image: "/images/learn/florida-fha-loan-limits-2026.jpg" },
+      { title: "FHA 203k Loan in Florida: Rehab & Renovation Guide", href: "/learn/fha-203k-loan-florida", image: "/images/learn/fha-203k-loan-florida-2026.jpg" },
     ],
   },
   {
@@ -110,7 +113,8 @@ const loanTypes = [
     description:
       "Conventional loans aren't backed by a government agency — they follow guidelines set by Fannie Mae and Freddie Mac. They require a 620+ credit score and as little as 3% down. The big advantage: private mortgage insurance (PMI) can be removed once you reach 80% loan-to-value, saving you money over time.",
     articles: [
-      { title: "What Are the Requirements to Buy a House in Florida?", href: "/requirements-to-buy-house-in-florida" },
+      { title: "Conventional Mortgages in Florida: Full Guide", href: "/learn/conventional-mortgages-in-florida", image: "/images/learn/conventional-mortgages-in-florida-2026.jpg" },
+      { title: "Requirements to Buy a House in Florida", href: "/learn/requirements-to-buy-a-house-in-florida", image: "/images/learn/requirements-to-buy-a-house-in-florida-2026.jpg" },
     ],
   },
   {
@@ -120,7 +124,8 @@ const loanTypes = [
     description:
       "Available to veterans, active-duty service members, and eligible surviving spouses, VA loans offer 0% down payment and no mortgage insurance. They're backed by the Department of Veterans Affairs and typically offer the best rates available. VA loans can be combined with county DPA programs for closing cost assistance.",
     articles: [
-      { title: "Florida Housing Income & Purchase Price Limits (2026)", href: "/florida-housing-income-purchase-price-limits" },
+      { title: "Florida VA Disability Property Tax Exemptions", href: "/learn/florida-va-disability-property-tax-exemptions", image: "/images/learn/florida-va-disability-property-tax-exemptions-2026.jpg" },
+      { title: "Florida Housing Income & Purchase Price Limits (2026)", href: "/learn/florida-housing-income-purchase-price-limits", image: "/images/learn/florida-housing-income-purchase-price-limits-2026.jpg" },
     ],
   },
   {
@@ -130,7 +135,7 @@ const loanTypes = [
     description:
       "USDA loans are designed for buyers purchasing in USDA-eligible rural areas — and many Florida suburbs qualify. They offer 0% down payment and reduced mortgage insurance rates. Income limits apply based on your county and household size.",
     articles: [
-      { title: "17 Florida Rent-to-Own Programs: Buy With No Down Payment", href: "/florida-rent-to-own-programs" },
+      { title: "USDA Loans in Florida: Eligibility, Income Limits & Map", href: "/learn/usda-loans-florida", image: "/images/learn/usda-loans-florida-2026.jpg" },
     ],
   },
   {
@@ -139,7 +144,9 @@ const loanTypes = [
     accentWord: "Reverse",
     description:
       "A reverse mortgage (HECM) lets homeowners age 62 and older convert home equity into cash — either as a lump sum, monthly payments, or a line of credit. No monthly mortgage payments are required. The loan is repaid when the borrower sells, moves, or passes away.",
-    articles: [],
+    articles: [
+      { title: "Reverse Mortgage Closing Costs in Florida", href: "/learn/reverse-mortgage-closing-costs-florida", image: "/images/learn/reverse-mortgage-closing-costs-florida-2026.jpg" },
+    ],
   },
   {
     id: "manufactured",
@@ -147,7 +154,9 @@ const loanTypes = [
     accentWord: "Manufactured",
     description:
       "Florida has one of the largest manufactured housing markets in the country. FHA, VA, and conventional loans are all available for manufactured homes on permanent foundations. Down payments start at 3.5% for FHA. The home must meet HUD code standards and be classified as real property.",
-    articles: [],
+    articles: [
+      { title: "Florida Manufactured Home Loan Program Guide", href: "/learn/florida-manufactured-home-loan-program", image: "/images/learn/florida-manufactured-home-loan-program-2026.jpg" },
+    ],
   },
   {
     id: "heloc",
@@ -155,7 +164,9 @@ const loanTypes = [
     accentWord: "HELOCs",
     description:
       "A Home Equity Line of Credit lets existing homeowners borrow against their home's equity. It works like a credit card with a revolving balance. HELOCs are ideal for home improvements, debt consolidation, or large expenses. Most lenders require at least 15–20% equity and a 620+ credit score.",
-    articles: [],
+    articles: [
+      { title: "How a HELOC Works in Florida: Rates, Limits & Examples", href: "/learn/how-does-heloc-work-in-florida", image: "/images/learn/how-does-heloc-work-in-florida-2026.jpg" },
+    ],
   },
 ];
 
@@ -272,34 +283,41 @@ export default function HomeLoanPage() {
                 )}
 
                 {loan.articles.length > 0 && (
-                  <div className="mt-8 space-y-2">
-                    <span className="text-[12px] font-bold uppercase tracking-wider text-dark-green/40">
+                  <div className="mt-10">
+                    <span className="text-[12px] font-bold uppercase tracking-[0.15em] text-dark-green/40">
                       Related Reading
                     </span>
-                    {loan.articles.map((article) => (
-                      <Link
-                        key={article.href}
-                        href={article.href}
-                        className="group flex items-center gap-2 text-[15px] font-medium text-brand-green transition-colors hover:text-dark-green"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="14"
-                          height="14"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="shrink-0 transition-transform duration-300 group-hover:translate-x-1"
+                    <div className={`mt-4 grid gap-4 ${loan.articles.length >= 3 ? "sm:grid-cols-3" : loan.articles.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-1 sm:max-w-sm"}`}>
+                      {loan.articles.map((article) => (
+                        <Link
+                          key={article.href}
+                          href={article.href}
+                          className="group overflow-hidden rounded-xl border border-border-gray/60 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-green/30 hover:shadow-[0_8px_32px_rgba(0,105,72,0.12)]"
                         >
-                          <line x1="5" y1="12" x2="19" y2="12" />
-                          <polyline points="12 5 19 12 12 19" />
-                        </svg>
-                        {article.title}
-                      </Link>
-                    ))}
+                          <div className="relative h-[140px] w-full overflow-hidden">
+                            <Image
+                              src={article.image}
+                              alt={article.title}
+                              fill
+                              className="object-cover transition-transform duration-500 group-hover:scale-110"
+                              sizes="(max-width: 640px) 100vw, 33vw"
+                            />
+                          </div>
+                          <div className="p-4">
+                            <h3 className="text-[14px] font-bold leading-snug text-dark-green line-clamp-2">
+                              {article.title}
+                            </h3>
+                            <span className="mt-2 inline-flex items-center gap-1.5 text-[13px] font-semibold text-brand-green transition-all duration-300 group-hover:gap-2.5">
+                              Read Guide
+                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1">
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                                <polyline points="12 5 19 12 12 19" />
+                              </svg>
+                            </span>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
