@@ -27,6 +27,8 @@ const CUSTOM_FIELD_IDS: Record<string, string> = {
   utm_campaign: "tvqnDzK4RlteT6C075eW",
   utm_content: "RDPMbkArgQx03QEwCIxI",
   utm_term: "ZuMnXSNH10zkyQPNIohI",
+  source_website: "f4VeSqwpQwHpqoIBuOLE",
+  previous_page: "rgkRBCuLbnoje6tLrlVV",
 };
 
 interface LeadPayload {

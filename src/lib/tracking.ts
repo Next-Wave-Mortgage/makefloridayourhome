@@ -91,6 +91,7 @@ export function getTrackingPayload(): Record<string, string> {
   const data = getStoredData();
   if (!data) {
     return {
+      source_website: window?.location?.hostname || "",
       landing_page: window?.location?.pathname || "",
       referrer: document?.referrer || "direct",
       device_type: getDeviceType(),
@@ -101,11 +102,17 @@ export function getTrackingPayload(): Record<string, string> {
   const minutes = Math.floor(timeOnSite / 60);
   const seconds = timeOnSite % 60;
 
+  // The page right before the current form page
+  const pages = data.pagesViewed.map((p) => p.path);
+  const previousPage = pages.length >= 2 ? pages[pages.length - 2] : "";
+
   return {
+    source_website: window?.location?.hostname || "",
     landing_page: data.landingPage,
     referrer: data.referrer,
-    pages_viewed: data.pagesViewed.map((p) => p.path).join(" → "),
-    pages_viewed_count: String(data.pagesViewed.length),
+    previous_page: previousPage,
+    pages_viewed: pages.join(" → "),
+    pages_viewed_count: String(pages.length),
     device_type: getDeviceType(),
     time_on_site: minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`,
     utm_source: data.utmSource,
