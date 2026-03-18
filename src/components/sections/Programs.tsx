@@ -7,7 +7,7 @@ const programs = [
     description:
       "Everything you need to know before buying your first home in Florida.",
     href: "/first-time-home-buyer",
-    image: "/images/programs/first-time-homebuyer.png",
+    image: "/images/programs/first-time-homebuyer.webp",
     imagePosition: "center",
     tag: "Getting Started",
   },
@@ -16,7 +16,7 @@ const programs = [
     description:
       "See how much help you can get and which programs you qualify for.",
     href: "/down-payment-assistance",
-    image: "/images/programs/down-payment-assistance.png",
+    image: "/images/programs/down-payment-assistance.webp",
     imagePosition: "center",
     tag: "Save Thousands",
   },
@@ -25,7 +25,7 @@ const programs = [
     description:
       "Check if your job makes you eligible for Florida's top buyer benefit.",
     href: "/florida/hometown-heroes",
-    image: "/images/programs/hometown-heroes.png",
+    image: "/images/programs/hometown-heroes.webp",
     imagePosition: "center 25%",
     tag: "Up to $35K",
   },
@@ -34,7 +34,7 @@ const programs = [
     description:
       "Understand low down payment options and flexible credit guidelines.",
     href: "/home-loan/fha-loan",
-    image: "/images/programs/fha-loans.png",
+    image: "/images/programs/fha-loans.webp",
     imagePosition: "center",
     tag: "Low Down Payment",
   },

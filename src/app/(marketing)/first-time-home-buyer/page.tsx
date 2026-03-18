@@ -148,7 +148,7 @@ export default function FirstTimeHomeBuyerPage() {
           </p>
         }
         features={heroFeatures}
-        image="/images/heroes/florida-first-time-homebuyer-hero.png"
+        image="/images/heroes/florida-first-time-homebuyer-hero.webp"
         imageAlt="Young couple with keys in front of their new Florida home"
       />
 

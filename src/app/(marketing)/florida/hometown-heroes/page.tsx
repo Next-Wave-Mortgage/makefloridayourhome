@@ -228,7 +228,7 @@ export default function HometownHeroesPage() {
           </p>
         }
         features={heroFeatures}
-        image="/images/heroes/florida-hometown-heroes-hero.png"
+        image="/images/heroes/florida-hometown-heroes-hero.webp"
         imageAlt="Florida professional holding house keys in front of a new home"
       />
 

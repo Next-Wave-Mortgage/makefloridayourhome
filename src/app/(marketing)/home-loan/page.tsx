@@ -195,7 +195,7 @@ export default function HomeLoanPage() {
           </p>
         }
         features={heroFeatures}
-        image="/images/heroes/florida-home-loan-options-hero.png"
+        image="/images/heroes/florida-home-loan-options-hero.webp"
         imageAlt="Aerial view of a Florida neighborhood at golden hour"
       />
 

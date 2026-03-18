@@ -164,7 +164,7 @@ export function Hero() {
             <div className="absolute -right-6 -top-6 h-full w-full rounded-3xl bg-brand-green/10" />
             <div className="relative overflow-hidden rounded-3xl shadow-2xl">
               <Image
-                src="/images/florida-first-time-homebuyer-couple.png"
+                src="/images/florida-first-time-homebuyer-couple.webp"
                 alt="Happy couple with keys in front of their new Florida home"
                 width={540}
                 height={640}
