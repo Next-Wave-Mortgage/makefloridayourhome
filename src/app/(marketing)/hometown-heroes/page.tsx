@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Florida Hometown Heroes Program (2026) — Up to $35,000 in DPA",
     description:
       "Up to $35,000 in down payment assistance for Florida's essential workers. See if you qualify.",
-    url: "https://makefloridayourhome.com/florida/hometown-heroes",
+    url: "https://makefloridayourhome.com/hometown-heroes",
     type: "website",
   },
 };

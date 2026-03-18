@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 const navLinks = [
   { href: "/first-time-home-buyer", label: "First-Time Homebuyer" },
   { href: "/down-payment-assistance", label: "Down Payment Assistance" },
-  { href: "/florida/hometown-heroes", label: "Hometown Heroes" },
+  { href: "/hometown-heroes", label: "Hometown Heroes" },
   { href: "/home-loan/fha-loan", label: "FHA Loan" },
   { href: "/home-loan", label: "Loan Options" },
 ];

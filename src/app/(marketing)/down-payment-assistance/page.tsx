@@ -68,7 +68,7 @@ const programs = [
     type: "0% interest, deferred second mortgage",
     repayment: "Repaid when you sell, refinance, or pay off your first mortgage",
     who: "Full-time W-2 employees in 50+ eligible professions — teachers, nurses, law enforcement, firefighters, childcare workers, and more",
-    href: "/florida/hometown-heroes",
+    href: "/hometown-heroes",
   },
   {
     name: "Florida Assist (FL Assist)",

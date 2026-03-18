@@ -54,7 +54,7 @@ const features: {
   {
     title: "Hometown Heroes Program",
     description: "Up to $35,000 in aid for qualifying Florida professionals",
-    href: "/florida/hometown-heroes",
+    href: "/hometown-heroes",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"

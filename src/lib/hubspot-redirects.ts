@@ -1,5 +1,5 @@
 // Auto-generated from HubSpot URL redirects export
-// Total: 2030 redirects
+// Total: 2024 redirects
 
 import type { Redirect } from "next/dist/lib/load-custom-routes";
 
@@ -1470,7 +1470,6 @@ const hubspotRedirects: Redirect[] = [
   { source: '/hometown-heroes-calculator', destination: '/hometown-heroes', permanent: true },
   { source: '/general-policies', destination: 'https://www.nextwavemortgage.com/terms-and-privacy', permanent: true },
   { source: '/mortgage-calculator', destination: '/home-affordability-calculator', permanent: true },
-  { source: '/calculators', destination: '/home-affordability-calculator', permanent: true },
   { source: '/todays-rates', destination: '/mortgage-rates', permanent: true },
   { source: '/renovation-loans', destination: '/home-loan', permanent: true },
   { source: '/blog/fha-zero-down-program', destination: '/home-loan/fha-loan', permanent: true },
@@ -1687,7 +1686,6 @@ const hubspotRedirects: Redirect[] = [
   { source: '/blog/foreign-national-florida-property-buyer-faq', destination: '/learn/foreign-buyers-guide-florida-real-estate', permanent: true },
   { source: '/blog/how-to-move-to-florida-from-canada-guide', destination: '/learn/foreign-buyers-guide-florida-real-estate', permanent: true },
   { source: '/blog/how-to-buy-florida-real-estate-as-british-national', destination: '/learn/foreign-buyers-guide-florida-real-estate', permanent: true },
-  { source: '/blog', destination: '/learn', permanent: true },
   { source: '/florida/blog/author/keevin-geller', destination: '/florida/blog/author/phil-ganz', permanent: true },
   { source: '/florida/blog/author/tara-skerritt', destination: '/florida/blog/author/phil-ganz', permanent: true },
   { source: '/resources', destination: '/home-loan', permanent: true },
@@ -2014,13 +2012,9 @@ const hubspotRedirects: Redirect[] = [
   { source: '/florida/foreign-buyer-guides', destination: '/learn/foreign-buyers-guide-florida-real-estate', permanent: true },
   { source: '/florida/explore', destination: '/learn/cheapest-places-to-buy-house-in-florida', permanent: true },
   { source: '/florida/home-loan/usda-loan', destination: '/learn/usda-loans-florida', permanent: true },
-  { source: '/florida/home-loan/heloc', destination: '/learn/how-does-heloc-work-in-florida', permanent: true },
   { source: '/florida/home-loan/reverse-mortgage', destination: '/home-loan', permanent: true },
-  { source: '/florida/hometown-heroes', destination: '/hometown-heroes', permanent: true },
   { source: '/florida/research', destination: '/learn', permanent: true },
-  { source: '/florida/home-loan/conventional-mortgage', destination: '/learn/conventional-mortgages-in-florida', permanent: true },
   { source: '/florida/home-loan/dscr-loan', destination: '/home-loan', permanent: true },
-  { source: '/florida/home-loan/manufactured-home-loan', destination: '/learn/florida-manufactured-home-loan-program', permanent: true },
   { source: '/florida/home-loan/va-loan', destination: '/home-loan', permanent: true },
   { source: '/florida/home-loan/fha-loan', destination: '/home-loan/fha-loan', permanent: true },
   { source: '/florida/down-payment-assistance/home-loans-single-moms-florida', destination: '/learn/florida-home-loans-for-single-moms', permanent: true },
@@ -2034,6 +2028,10 @@ const hubspotRedirects: Redirect[] = [
   { source: '/florida/down-payment-assistance/first-time-homebuyer/grants-and-programs', destination: '/learn/first-time-homebuyer/grants-and-programs', permanent: true },
   { source: '/florida/down-payment-assistance', destination: '/down-payment-assistance', permanent: true },
   { source: '/learn/florida-first-time-homebuyer-grants-programs', destination: '/learn/first-time-homebuyer/grants-and-programs', permanent: true },
+  { source: '/florida/hometown-heroes', destination: '/hometown-heroes', permanent: true },
+  { source: '/florida/home-loan/conventional-mortgage', destination: '/learn/conventional-mortgages-in-florida', permanent: true },
+  { source: '/florida/home-loan/manufactured-home-loan', destination: '/learn/florida-manufactured-home-loan-program', permanent: true },
+  { source: '/florida/home-loan/heloc', destination: '/learn/how-does-heloc-work-in-florida', permanent: true },
 ];
 
 export default hubspotRedirects;

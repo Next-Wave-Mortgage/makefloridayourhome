@@ -24,7 +24,7 @@ const programs = [
     title: "Hometown Heroes",
     description:
       "Check if your job makes you eligible for Florida's top buyer benefit.",
-    href: "/florida/hometown-heroes",
+    href: "/hometown-heroes",
     image: "/images/programs/hometown-heroes.webp",
     imagePosition: "center 25%",
     tag: "Up to $35K",
