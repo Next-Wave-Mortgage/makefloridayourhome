@@ -39,14 +39,31 @@ export interface BlogPostMeta {
   tags?: string[];
 }
 
+/** Recursively find all .mdx files and return their slugs (relative paths without .mdx). */
+function findMdxFiles(dir: string, base: string = dir): string[] {
+  if (!fs.existsSync(dir)) return [];
+
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  const files: string[] = [];
+
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...findMdxFiles(fullPath, base));
+    } else if (entry.name.endsWith(".mdx")) {
+      const relativePath = path.relative(base, fullPath).replace(/\\/g, "/");
+      files.push(relativePath.replace(/\.mdx$/, ""));
+    }
+  }
+
+  return files;
+}
+
 export function getAllPosts(): BlogPostMeta[] {
-  if (!fs.existsSync(CONTENT_DIR)) return [];
+  const slugs = findMdxFiles(CONTENT_DIR);
 
-  const files = fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith(".mdx"));
-
-  const posts = files.map((filename) => {
-    const slug = filename.replace(/\.mdx$/, "");
-    const filePath = path.join(CONTENT_DIR, filename);
+  const posts = slugs.map((slug) => {
+    const filePath = path.join(CONTENT_DIR, `${slug}.mdx`);
     const fileContent = fs.readFileSync(filePath, "utf-8");
     const { data } = matter(fileContent);
 
@@ -97,10 +114,5 @@ export function getPostBySlug(slug: string): BlogPost | null {
 }
 
 export function getAllSlugs(): string[] {
-  if (!fs.existsSync(CONTENT_DIR)) return [];
-
-  return fs
-    .readdirSync(CONTENT_DIR)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((f) => f.replace(/\.mdx$/, ""));
+  return findMdxFiles(CONTENT_DIR);
 }

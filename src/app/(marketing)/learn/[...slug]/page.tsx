@@ -8,19 +8,20 @@ import { getAllSlugs, getPostBySlug } from "@/lib/blog";
 import { TableOfContents, MobileTableOfContents } from "./TableOfContents";
 
 export function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
+  return getAllSlugs().map((slug) => ({ slug: slug.split("/") }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string[] }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const slugStr = slug.join("/");
+  const post = getPostBySlug(slugStr);
   if (!post) return {};
 
-  const url = `https://makefloridayourhome.com/learn/${slug}`;
+  const url = `https://makefloridayourhome.com/learn/${slugStr}`;
 
   return {
     title: `${post.title} | Make Florida Your Home`,
@@ -64,16 +65,24 @@ export async function generateMetadata({
       "max-snippet": -1,
       "max-video-preview": -1,
     },
+    ...(post.tags && { keywords: post.tags.join(", ") }),
+    other: {
+      "article:published_time": post.date,
+      "article:modified_time": post.updatedDate || post.date,
+      "article:author": post.author,
+      ...(post.reviewedBy && { "article:reviewer": post.reviewedBy }),
+    },
   };
 }
 
 export default async function BlogPostPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string[] }>;
 }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const slugStr = slug.join("/");
+  const post = getPostBySlug(slugStr);
   if (!post) notFound();
 
   const publishedDate = new Date(post.date).toLocaleDateString("en-US", {
@@ -90,7 +99,9 @@ export default async function BlogPostPage({
       })
     : null;
 
-  const canonicalUrl = `https://makefloridayourhome.com/learn/${slug}`;
+  const canonicalUrl = `https://makefloridayourhome.com/learn/${slugStr}`;
+
+  const wordCount = post.content.trim().split(/\s+/).length;
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -129,33 +140,93 @@ export default async function BlogPostPage({
       "@type": "WebPage",
       "@id": canonicalUrl,
     },
-    wordCount: post.content.trim().split(/\s+/).length,
+    wordCount,
     ...(post.tags && { keywords: post.tags.join(", ") }),
+    about: {
+      "@type": "Thing",
+      name: "First-time home buyer assistance programs in Florida",
+    },
+    inLanguage: "en-US",
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Make Florida Your Home",
+      url: "https://makefloridayourhome.com",
+    },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", ".prose-mfyh > p:first-of-type"],
+    },
   };
+
+  // Extract H3 headings for ItemList schema (listicle programs)
+  const h3Matches = post.content.match(/^### .+$/gm);
+  const itemListSchema = h3Matches && h3Matches.length > 5
+    ? {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: post.title,
+        description: post.description,
+        numberOfItems: h3Matches.length,
+        itemListElement: h3Matches.map((heading: string, i: number) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: heading.replace(/^### /, ""),
+          url: `${canonicalUrl}#${heading.replace(/^### /, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`,
+        })),
+      }
+    : null;
+
+  // Extract FAQ pairs from <details><summary>Q</summary><div>A</div></details> pattern
+  const faqSchema = (() => {
+    const summaryRegex = new RegExp("<summary>(.*?)</summary>\\s*<div[^>]*>(.*?)</div>", "gs");
+    const qaPairs: { question: string; answer: string }[] = [];
+    let match;
+    while ((match = summaryRegex.exec(post.content)) !== null) {
+      const question = match[1].trim();
+      const answer = match[2].trim();
+      if (question && answer) {
+        qaPairs.push({ question, answer });
+      }
+    }
+    if (qaPairs.length === 0) return null;
+    return {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: qaPairs.map((qa) => ({
+        "@type": "Question",
+        name: qa.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: qa.answer,
+        },
+      })),
+    };
+  })();
+
+  // Build breadcrumb — add intermediate segments for nested slugs
+  const breadcrumbItems = [
+    { name: "Home", item: "https://makefloridayourhome.com" },
+    { name: "Articles", item: "https://makefloridayourhome.com/learn" },
+  ];
+  if (slug.length > 1) {
+    // Add intermediate breadcrumb for subcategory (e.g., "First-Time Homebuyer")
+    const subcat = slug[0].replace(/-/g, " ").replace(/\b\w/g, (c: string) => c.toUpperCase());
+    breadcrumbItems.push({
+      name: subcat,
+      item: `https://makefloridayourhome.com/learn/${slug[0]}`,
+    });
+  }
+  breadcrumbItems.push({ name: post.title, item: canonicalUrl });
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://makefloridayourhome.com",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Articles",
-        item: "https://makefloridayourhome.com/learn",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: post.title,
-        item: canonicalUrl,
-      },
-    ],
+    itemListElement: breadcrumbItems.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      item: item.item,
+    })),
   };
 
   return (
@@ -173,6 +244,22 @@ export default async function BlogPostPage({
           __html: JSON.stringify(breadcrumbSchema),
         }}
       />
+      {itemListSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(itemListSchema),
+          }}
+        />
+      )}
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqSchema),
+          }}
+        />
+      )}
 
       {/* Article Hero */}
       <section className="relative overflow-hidden bg-brand-green">

@@ -214,6 +214,113 @@
   border-radius: 12px;
   margin: 1.5em 0;
 }
+.prose-mfyh .dpa-button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1.25em;
+}
+.prose-mfyh .dpa-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.prose-mfyh .dpa-btn-primary {
+  background: #006948;
+  color: white !important;
+}
+.prose-mfyh .dpa-btn-primary:hover {
+  background: #005238;
+}
+.prose-mfyh .dpa-btn-action {
+  background: #0000cc;
+  color: white !important;
+}
+.prose-mfyh .dpa-btn-action:hover {
+  background: #0000a0;
+}
+.prose-mfyh .dpa-btn-outline {
+  border: 1.5px solid #dcdfdd;
+  color: #2e4136 !important;
+  background: white;
+}
+.prose-mfyh .dpa-btn-outline:hover {
+  border-color: #006948;
+  color: #006948 !important;
+}
+
+/* FAQ accordion within prose */
+.prose-mfyh .faq-section h3 {
+  counter-increment: none;
+  background: none;
+  border-left: none;
+  padding: 0;
+  border-radius: 0;
+  display: block;
+  margin: 0;
+}
+.prose-mfyh .faq-section h3::before {
+  display: none;
+}
+.prose-mfyh .faq-section details {
+  border: 1px solid #dcdfdd;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+.prose-mfyh .faq-section details:hover {
+  border-color: #006948;
+}
+.prose-mfyh .faq-section details[open] {
+  border-color: #006948;
+  box-shadow: 0 2px 12px rgba(0, 105, 72, 0.08);
+}
+.prose-mfyh .faq-section summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  color: #2e4136;
+  list-style: none;
+  user-select: none;
+  transition: background 0.2s;
+}
+.prose-mfyh .faq-section summary:hover {
+  background: #f2faf6;
+}
+.prose-mfyh .faq-section summary::-webkit-details-marker {
+  display: none;
+}
+.prose-mfyh .faq-section summary::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-right: 2.5px solid #006948;
+  border-bottom: 2.5px solid #006948;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.prose-mfyh .faq-section details[open] summary::after {
+  transform: rotate(-135deg);
+}
+.prose-mfyh .faq-section .faq-answer {
+  padding: 0 20px 16px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(46, 65, 54, 0.7);
+}
 
 /* Custom range slider */
 .slider {
