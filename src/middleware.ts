@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import hubspotRedirects from "./lib/hubspot-redirects";
+import redirects from "./lib/redirects";
 
 // Build a lookup map at module load time for O(1) matching
 const redirectMap = new Map<string, string>();
-for (const r of hubspotRedirects) {
+for (const r of redirects) {
   redirectMap.set(r.source, r.destination);
 }
 

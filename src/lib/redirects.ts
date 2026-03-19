@@ -1,9 +1,9 @@
-// Auto-generated from HubSpot URL redirects export
-// Total: 2024 redirects
+// 301 redirects — old HubSpot URLs + any new ones as the site evolves
+// Handled by middleware (src/middleware.ts), no Vercel route limit
 
 import type { Redirect } from "next/dist/lib/load-custom-routes";
 
-const hubspotRedirects: Redirect[] = [
+const redirects: Redirect[] = [
   { source: '/blog/july-2021-week-two', destination: '/blog/july-2021-what-to-avoid-when-remodeling-your-home', permanent: true },
   { source: '/blog/july-2021-week-three', destination: '/blog/july-2021-what-to-do-when-someone-wants-to-purchase-your-home', permanent: true },
   { source: '/blog/september-2021-week-one', destination: '/blog/moving-to-exurbs', permanent: true },
@@ -2034,4 +2034,4 @@ const hubspotRedirects: Redirect[] = [
   { source: '/florida/home-loan/heloc', destination: '/learn/how-does-heloc-work-in-florida', permanent: true },
 ];
 
-export default hubspotRedirects;
+export default redirects;
