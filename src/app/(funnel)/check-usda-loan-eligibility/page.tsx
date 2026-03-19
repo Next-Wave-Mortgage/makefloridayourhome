@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Check Your USDA Loan Eligibility | Make Florida Your Home",
     description:
       "See if you qualify for a USDA loan in Florida. Zero down payment in eligible rural areas.",
-    url: "https://makefloridayourhome.com/check-usda-loan-eligibility",
+    url: "https://www.makefloridayourhome.com/check-usda-loan-eligibility",
     type: "website",
   },
 };

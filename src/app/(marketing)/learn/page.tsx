@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mortgage Articles | Make Florida Your Home",
     description: "Expert guides on Florida home loans and buyer programs.",
-    url: "https://makefloridayourhome.com/learn",
+    url: "https://www.makefloridayourhome.com/learn",
     type: "website",
   },
 };

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "Florida First-Time Home Buyer Programs & Grants (2026)",
     description:
       "Explore Florida first-time home buyer programs, grants, and down payment assistance for 2026. See income limits, requirements, and how to qualify.",
-    url: "https://makefloridayourhome.com/first-time-home-buyer",
+    url: "https://www.makefloridayourhome.com/first-time-home-buyer",
     type: "website",
   },
 };

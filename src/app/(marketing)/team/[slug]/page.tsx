@@ -22,7 +22,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${member.name} | ${member.role} | Make Florida Your Home`,
       description: member.bio[0],
-      url: `https://makefloridayourhome.com/team/${member.slug}`,
+      url: `https://www.makefloridayourhome.com/team/${member.slug}`,
       type: "profile",
     },
   };

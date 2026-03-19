@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Free Home Purchase Eligibility | Make Florida Your Home",
     description:
       "Check your Florida home purchase eligibility in 2 minutes. No credit pull, no obligation.",
-    url: "https://makefloridayourhome.com/home-purchase-eligibility",
+    url: "https://www.makefloridayourhome.com/home-purchase-eligibility",
     type: "website",
   },
 };

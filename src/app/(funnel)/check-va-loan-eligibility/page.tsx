@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Check Your VA Loan Eligibility | Make Florida Your Home",
     description:
       "See if you qualify for a VA loan in Florida. Zero down payment for eligible veterans and active military.",
-    url: "https://makefloridayourhome.com/check-va-loan-eligibility",
+    url: "https://www.makefloridayourhome.com/check-va-loan-eligibility",
     type: "website",
   },
 };

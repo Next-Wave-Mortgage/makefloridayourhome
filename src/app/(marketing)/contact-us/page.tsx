@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Us | Make Florida Your Home",
     description: "Get in touch with our Florida mortgage specialists.",
-    url: "https://makefloridayourhome.com/contact-us",
+    url: "https://www.makefloridayourhome.com/contact-us",
     type: "website",
   },
 };

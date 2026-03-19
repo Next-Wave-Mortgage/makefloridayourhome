@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "About Us | Make Florida Your Home",
     description:
       "Next Wave Mortgage is committed to finding the best rates and loan options for Florida homebuyers.",
-    url: "https://makefloridayourhome.com/about-us",
+    url: "https://www.makefloridayourhome.com/about-us",
     type: "website",
   },
 };

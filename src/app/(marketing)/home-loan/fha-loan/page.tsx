@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Florida FHA Loans (2026) — Requirements, Limits & How to Qualify",
     description:
       "FHA loans in Florida: 3.5% down, 580 credit score. See 2026 loan limits, qualification requirements, and how to apply.",
-    url: "https://makefloridayourhome.com/home-loan/fha-loan",
+    url: "https://www.makefloridayourhome.com/home-loan/fha-loan",
     type: "website",
   },
 };

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
       "Check Your Down Payment Assistance Eligibility | Make Florida Your Home",
     description:
       "See which Florida down payment assistance programs you qualify for. Takes 2 minutes — no credit pull, no obligation.",
-    url: "https://makefloridayourhome.com/check-dpa-eligibility",
+    url: "https://www.makefloridayourhome.com/check-dpa-eligibility",
     type: "website",
   },
 };

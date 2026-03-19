@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Book Your Free Consultation | Make Florida Your Home",
     description:
       "Schedule a free 30-minute consultation with a Florida mortgage specialist.",
-    url: "https://makefloridayourhome.com/schedule-a-call",
+    url: "https://www.makefloridayourhome.com/schedule-a-call",
     type: "website",
   },
 };

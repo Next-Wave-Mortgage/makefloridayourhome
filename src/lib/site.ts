@@ -4,7 +4,7 @@ export const siteConfig = {
   company: "Next Wave Mortgage, LLC",
   description:
     "Florida mortgage experts helping you find the right home loan. Purchase, refinance, and specialty programs.",
-  url: "https://makefloridayourhome.com",
+  url: "https://www.makefloridayourhome.com",
   ogImage: "/og-default.png",
   links: {
     facebook: "",

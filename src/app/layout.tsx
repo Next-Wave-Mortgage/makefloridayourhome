@@ -7,11 +7,15 @@ import { TrackPageView } from "@/components/TrackPageView";
 const GA4_ID = process.env.GA4_ID || "G-E7KYFVSJ1G";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({

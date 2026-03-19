@@ -21,7 +21,7 @@ export async function generateMetadata({
   const post = getPostBySlug(slugStr);
   if (!post) return {};
 
-  const url = `https://makefloridayourhome.com/learn/${slugStr}`;
+  const url = `https://www.makefloridayourhome.com/learn/${slugStr}`;
 
   return {
     title: `${post.title} | Make Florida Your Home`,
@@ -42,7 +42,7 @@ export async function generateMetadata({
       ...(post.featuredImage && {
         images: [
           {
-            url: `https://makefloridayourhome.com${post.featuredImage}`,
+            url: `https://www.makefloridayourhome.com${post.featuredImage}`,
             alt: post.imageAlt || post.title,
             width: 1200,
             height: 630,
@@ -55,7 +55,7 @@ export async function generateMetadata({
       title: post.title,
       description: post.description,
       ...(post.featuredImage && {
-        images: [`https://makefloridayourhome.com${post.featuredImage}`],
+        images: [`https://www.makefloridayourhome.com${post.featuredImage}`],
       }),
     },
     robots: {
@@ -99,7 +99,7 @@ export default async function BlogPostPage({
       })
     : null;
 
-  const canonicalUrl = `https://makefloridayourhome.com/learn/${slugStr}`;
+  const canonicalUrl = `https://www.makefloridayourhome.com/learn/${slugStr}`;
 
   const wordCount = post.content.trim().split(/\s+/).length;
 
@@ -109,31 +109,31 @@ export default async function BlogPostPage({
     headline: post.title,
     description: post.description,
     image: post.featuredImage
-      ? `https://makefloridayourhome.com${post.featuredImage}`
+      ? `https://www.makefloridayourhome.com${post.featuredImage}`
       : undefined,
     datePublished: post.date,
     dateModified: post.updatedDate || post.date,
     author: {
       "@type": "Person",
       name: post.author,
-      url: `https://makefloridayourhome.com/team/${post.author.toLowerCase().replace(/\s+/g, "-")}`,
+      url: `https://www.makefloridayourhome.com/team/${post.author.toLowerCase().replace(/\s+/g, "-")}`,
       jobTitle: post.authorTitle,
     },
     ...(post.reviewedBy && {
       reviewedBy: {
         "@type": "Person",
         name: post.reviewedBy,
-        url: `https://makefloridayourhome.com/team/${post.reviewedBySlug}`,
+        url: `https://www.makefloridayourhome.com/team/${post.reviewedBySlug}`,
         jobTitle: post.reviewedByTitle,
       },
     }),
     publisher: {
       "@type": "Organization",
       name: "Make Florida Your Home",
-      url: "https://makefloridayourhome.com",
+      url: "https://www.makefloridayourhome.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://makefloridayourhome.com/images/logo.webp",
+        url: "https://www.makefloridayourhome.com/images/logo.webp",
       },
     },
     mainEntityOfPage: {
@@ -150,7 +150,7 @@ export default async function BlogPostPage({
     isPartOf: {
       "@type": "WebSite",
       name: "Make Florida Your Home",
-      url: "https://makefloridayourhome.com",
+      url: "https://www.makefloridayourhome.com",
     },
     speakable: {
       "@type": "SpeakableSpecification",
@@ -205,15 +205,15 @@ export default async function BlogPostPage({
 
   // Build breadcrumb — add intermediate segments for nested slugs
   const breadcrumbItems = [
-    { name: "Home", item: "https://makefloridayourhome.com" },
-    { name: "Articles", item: "https://makefloridayourhome.com/learn" },
+    { name: "Home", item: "https://www.makefloridayourhome.com" },
+    { name: "Articles", item: "https://www.makefloridayourhome.com/learn" },
   ];
   if (slug.length > 1) {
     // Add intermediate breadcrumb for subcategory (e.g., "First-Time Homebuyer")
     const subcat = slug[0].replace(/-/g, " ").replace(/\b\w/g, (c: string) => c.toUpperCase());
     breadcrumbItems.push({
       name: subcat,
-      item: `https://makefloridayourhome.com/learn/${slug[0]}`,
+      item: `https://www.makefloridayourhome.com/learn/${slug[0]}`,
     });
   }
   breadcrumbItems.push({ name: post.title, item: canonicalUrl });

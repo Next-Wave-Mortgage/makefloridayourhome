@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Our Team | Make Florida Your Home",
     description: "Meet the Florida mortgage experts at Next Wave Mortgage.",
-    url: "https://makefloridayourhome.com/team",
+    url: "https://www.makefloridayourhome.com/team",
     type: "website",
   },
 };

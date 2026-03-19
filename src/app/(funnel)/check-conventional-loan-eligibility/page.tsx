@@ -11,7 +11,7 @@ export const metadata: Metadata = {
       "Check Your Conventional Loan Eligibility | Make Florida Your Home",
     description:
       "See if you qualify for a conventional loan in Florida. Competitive rates, as low as 3% down.",
-    url: "https://makefloridayourhome.com/check-conventional-loan-eligibility",
+    url: "https://www.makefloridayourhome.com/check-conventional-loan-eligibility",
     type: "website",
   },
 };

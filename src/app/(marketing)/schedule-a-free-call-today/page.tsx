@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Schedule a FREE Call | Make Florida Your Home",
     description:
       "Schedule a free call with a Florida mortgage expert. No commitment.",
-    url: "https://makefloridayourhome.com/schedule-a-free-call-today",
+    url: "https://www.makefloridayourhome.com/schedule-a-free-call-today",
     type: "website",
   },
 };

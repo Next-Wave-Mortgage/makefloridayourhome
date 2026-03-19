@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Check Your FHA Loan Eligibility | Make Florida Your Home",
     description:
       "See if you qualify for an FHA loan in Florida. Low down payment, flexible credit — takes 2 minutes.",
-    url: "https://makefloridayourhome.com/check-fha-loan-eligibility",
+    url: "https://www.makefloridayourhome.com/check-fha-loan-eligibility",
     type: "website",
   },
 };

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "Florida Home Loan Options (2026)",
     description:
       "Compare FHA, VA, USDA, Conventional, and specialty loan programs available in Florida.",
-    url: "https://makefloridayourhome.com/home-loan",
+    url: "https://www.makefloridayourhome.com/home-loan",
     type: "website",
   },
 };

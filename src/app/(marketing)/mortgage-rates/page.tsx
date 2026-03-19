@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Current Mortgage Rates in Florida | Make Florida Your Home",
     description:
       "Today's Florida mortgage rates. Compare 30-year fixed, 15-year fixed, and more.",
-    url: "https://makefloridayourhome.com/mortgage-rates",
+    url: "https://www.makefloridayourhome.com/mortgage-rates",
     type: "website",
   },
 };

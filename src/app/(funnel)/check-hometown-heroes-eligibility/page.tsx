@@ -11,7 +11,7 @@ export const metadata: Metadata = {
       "Check Your Hometown Heroes Eligibility | Make Florida Your Home",
     description:
       "See if you qualify for up to $35,000 in assistance through Florida's Hometown Heroes program.",
-    url: "https://makefloridayourhome.com/check-hometown-heroes-eligibility",
+    url: "https://www.makefloridayourhome.com/check-hometown-heroes-eligibility",
     type: "website",
   },
 };

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Florida Home Affordability Calculator | Make Florida Your Home",
     description:
       "How much home can you afford? Free calculator with real-time estimates.",
-    url: "https://makefloridayourhome.com/home-affordability-calculator",
+    url: "https://www.makefloridayourhome.com/home-affordability-calculator",
     type: "website",
   },
 };
