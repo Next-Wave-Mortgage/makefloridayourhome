@@ -102,6 +102,15 @@ export function TableOfContents() {
           </li>
         ))}
       </ul>
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-lg border border-border-gray/60 py-2 text-[12px] font-semibold text-dark-green/40 transition-colors hover:border-brand-green/40 hover:text-brand-green"
+      >
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="18 15 12 9 6 15" />
+        </svg>
+        Back to top
+      </button>
     </nav>
   );
 }
