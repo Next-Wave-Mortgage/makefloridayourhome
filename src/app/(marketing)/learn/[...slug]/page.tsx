@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
 import { getAllSlugs, getPostBySlug } from "@/lib/blog";
 import { TableOfContents, MobileTableOfContents } from "./TableOfContents";
 
@@ -530,7 +531,7 @@ export default async function BlogPostPage({
             <div className="prose-mfyh">
               <MDXRemote
                 source={post.content}
-                options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+                options={{ mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug] } }}
               />
             </div>
             {/* CTA inside the card */}
