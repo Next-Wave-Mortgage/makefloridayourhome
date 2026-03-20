@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 interface TocItem {
   id: string;
@@ -8,37 +9,42 @@ interface TocItem {
   level: number;
 }
 
+function getHeadingsFromDom(): TocItem[] {
+  if (typeof document === "undefined") return [];
+  const article = document.querySelector("article");
+  if (!article) return [];
+
+  const els = article.querySelectorAll("h2");
+  const items: TocItem[] = [];
+
+  els.forEach((el) => {
+    if (!el.id) {
+      el.id =
+        el.textContent
+          ?.toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/(^-|-$)/g, "") || "";
+    }
+    items.push({
+      id: el.id,
+      text: el.textContent || "",
+      level: el.tagName === "H2" ? 2 : 3,
+    });
+  });
+
+  return items;
+}
+
 function useHeadings() {
   const [headings, setHeadings] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState("");
 
   useEffect(() => {
-    const article = document.querySelector("article");
-    if (!article) return;
-
-    const els = article.querySelectorAll("h2");
-    const items: TocItem[] = [];
-
-    els.forEach((el) => {
-      if (!el.id) {
-        el.id =
-          el.textContent
-            ?.toLowerCase()
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)/g, "") || "";
-      }
-      items.push({
-        id: el.id,
-        text: el.textContent || "",
-        level: el.tagName === "H2" ? 2 : 3,
-      });
-    });
-
+    const items = getHeadingsFromDom();
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time DOM read on mount; no cascading render risk
     setHeadings(items);
-  }, []);
 
-  useEffect(() => {
-    if (headings.length === 0) return;
+    if (items.length === 0) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -47,16 +53,16 @@ function useHeadings() {
           setActiveId(visible[0].target.id);
         }
       },
-      { rootMargin: "-80px 0px -60% 0px", threshold: 0 }
+      { rootMargin: "-80px 0px -60% 0px", threshold: 0 },
     );
 
-    headings.forEach(({ id }) => {
+    items.forEach(({ id }) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
-  }, [headings]);
+  }, []);
 
   return { headings, activeId };
 }
@@ -73,7 +79,7 @@ const PROGRAMS_SLUG = "first-time-homebuyer/grants-and-programs";
 
 function ProgramsPromoCard() {
   return (
-    <a
+    <Link
       href="/learn/first-time-homebuyer/grants-and-programs"
       className="group mt-5 block overflow-hidden rounded-2xl border border-brand-green/20 bg-white transition-all hover:border-brand-green/40 hover:shadow-[0_4px_20px_rgba(0,105,72,0.1)]"
     >
@@ -100,13 +106,13 @@ function ProgramsPromoCard() {
           </svg>
         </span>
       </div>
-    </a>
+    </Link>
   );
 }
 
 function MapPromoCard() {
   return (
-    <a
+    <Link
       href="/florida-down-payment-assistance-interactive-map"
       className="group mt-5 block overflow-hidden rounded-2xl border border-brand-green/20 bg-white transition-all hover:border-brand-green/40 hover:shadow-[0_4px_20px_rgba(0,105,72,0.1)]"
     >
@@ -133,7 +139,7 @@ function MapPromoCard() {
           </svg>
         </span>
       </div>
-    </a>
+    </Link>
   );
 }
 

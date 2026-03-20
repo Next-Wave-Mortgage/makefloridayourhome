@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { getTrackingPayload } from "@/lib/tracking";
 
 /* ─── Field keys (match GHL custom fields) ────────────────────────── */
@@ -146,7 +147,7 @@ export function EligibilityForm({
     [current.key],
   );
 
-  const canAdvance = () => {
+  const canAdvance = useCallback(() => {
     if (current.type === "contact") {
       return (
         contact.firstName.trim() &&
@@ -156,26 +157,9 @@ export function EligibilityForm({
       );
     }
     return !!answers[current.key];
-  };
+  }, [current, contact, answers]);
 
-  const next = useCallback(() => {
-    if (!canAdvance()) return;
-    if (step < TOTAL - 1) {
-      setDirection("forward");
-      setStep((s) => s + 1);
-    } else {
-      submitForm();
-    }
-  }, [step, answers, contact]);
-
-  const back = useCallback(() => {
-    if (step > 0) {
-      setDirection("back");
-      setStep((s) => s - 1);
-    }
-  }, [step]);
-
-  async function submitForm() {
+  const submitForm = useCallback(async () => {
     setSubmitting(true);
     try {
       const res = await fetch("/api/lead", {
@@ -195,20 +179,38 @@ export function EligibilityForm({
 
       const data = await res.json().catch(() => ({}));
 
-      // Redirect to booking page with contact info
-      const params = new URLSearchParams({
-        firstName: contact.firstName,
-        contactId: data.contactId || "",
-      });
-      window.location.href = `/schedule-a-call?${params.toString()}`;
+      // Store booking context in sessionStorage (avoids PII in URL params)
+      sessionStorage.setItem(
+        "mfyh_booking",
+        JSON.stringify({ firstName: contact.firstName, contactId: data.contactId || "" }),
+      );
+      window.location.href = "/schedule-a-call";
     } catch {
       // On error, still redirect — booking page works without contactId
-      const params = new URLSearchParams({
-        firstName: contact.firstName,
-      });
-      window.location.href = `/schedule-a-call?${params.toString()}`;
+      sessionStorage.setItem(
+        "mfyh_booking",
+        JSON.stringify({ firstName: contact.firstName }),
+      );
+      window.location.href = "/schedule-a-call";
     }
-  }
+  }, [contact, answers]);
+
+  const next = useCallback(() => {
+    if (!canAdvance()) return;
+    if (step < TOTAL - 1) {
+      setDirection("forward");
+      setStep((s) => s + 1);
+    } else {
+      submitForm();
+    }
+  }, [step, canAdvance, submitForm]);
+
+  const back = useCallback(() => {
+    if (step > 0) {
+      setDirection("back");
+      setStep((s) => s - 1);
+    }
+  }, [step]);
 
   /* ── Success state ── */
   if (done) {
@@ -238,12 +240,12 @@ export function EligibilityForm({
             A Florida mortgage specialist will review your information and reach
             out within one business day.
           </p>
-          <a
+          <Link
             href="/"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-green px-8 py-3.5 text-[15px] font-bold text-white transition-shadow hover:shadow-[0_4px_20px_rgba(0,105,72,0.35)]"
           >
             Back to Home
-          </a>
+          </Link>
         </div>
       </div>
     );

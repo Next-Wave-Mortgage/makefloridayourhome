@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { useSearchParams } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 
 /* ─── Types ───────────────────────────────────────────────────────── */
 interface SlotsResponse {
@@ -54,9 +54,22 @@ const MONTH_NAMES = [
 
 /* ─── Component ───────────────────────────────────────────────────── */
 export function BookingCalendar() {
-  const params = useSearchParams();
-  const firstName = params.get("firstName") || "there";
-  const contactId = params.get("contactId") || "";
+  // Read booking context from sessionStorage (set by eligibility form)
+  const [firstName, setFirstName] = useState("there");
+  const [contactId, setContactId] = useState("");
+
+  useEffect(() => {
+    try {
+      const raw = sessionStorage.getItem("mfyh_booking");
+      if (raw) {
+        const data = JSON.parse(raw);
+        if (data.firstName) setFirstName(data.firstName);
+        if (data.contactId) setContactId(data.contactId);
+      }
+    } catch {
+      // sessionStorage unavailable — use defaults
+    }
+  }, []);
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -209,9 +222,9 @@ export function BookingCalendar() {
               </div>
             ))}
           </div>
-          <a href="/" className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-green px-8 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_16px_rgba(0,105,72,0.25)] transition-all hover:shadow-[0_6px_24px_rgba(0,105,72,0.35)]">
+          <Link href="/" className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-green px-8 py-3.5 text-[15px] font-bold text-white shadow-[0_4px_16px_rgba(0,105,72,0.25)] transition-all hover:shadow-[0_6px_24px_rgba(0,105,72,0.35)]">
             Back to Home
-          </a>
+          </Link>
         </div>
       </div>
     );

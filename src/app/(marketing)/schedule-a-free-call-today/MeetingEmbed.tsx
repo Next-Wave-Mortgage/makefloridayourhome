@@ -4,13 +4,6 @@ import { useEffect } from "react";
 import Script from "next/script";
 
 export function MeetingEmbed() {
-  useEffect(() => {
-    // If script already loaded, initialize
-    if ((window as unknown as Record<string, unknown>).hbspt) {
-      initMeeting();
-    }
-  }, []);
-
   function initMeeting() {
     const container = document.getElementById("hs-meeting-embed");
     if (container && container.children.length === 0) {
@@ -25,6 +18,13 @@ export function MeetingEmbed() {
       container.appendChild(iframe);
     }
   }
+
+  useEffect(() => {
+    // If script already loaded, initialize
+    if ((window as unknown as Record<string, unknown>).hbspt) {
+      initMeeting();
+    }
+  }, []);
 
   return (
     <>

@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
+import { leadSchema } from "@/lib/validation";
+import { rateLimit, getClientIp } from "@/lib/rate-limit";
 
 const GHL_API_KEY = process.env.GHL_API_KEY!;
 const GHL_LOCATION_ID = process.env.GHL_LOCATION_ID!;
@@ -56,14 +58,12 @@ function calculateLeadScore(fields: Record<string, string>): number {
     score += 2;
   else if (price.includes("200,000"))
     score += 1;
-  // Under $200k = 0
 
   // Credit rating (0-3)
   const credit = fields.credit_rating || "";
   if (credit.startsWith("Excellent")) score += 3;
   else if (credit.startsWith("Very Good")) score += 2;
   else if (credit.startsWith("Good")) score += 1;
-  // Fair/Poor = 0
 
   // Buying stage (0-3)
   const stage = fields.home_buying_stage || "";
@@ -71,7 +71,6 @@ function calculateLeadScore(fields: Record<string, string>): number {
   else if (stage.includes("making an offer")) score += 3;
   else if (stage.includes("pre-approval")) score += 2;
   else if (stage.includes("next few months")) score += 1;
-  // 6+ months = 0
 
   // Has real estate agent (0-2)
   if (fields.has_real_estate_agent === "Yes") score += 2;
@@ -82,35 +81,46 @@ function calculateLeadScore(fields: Record<string, string>): number {
   return score;
 }
 
-interface LeadPayload {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone?: string;
-  source: string;
-  customFields?: Record<string, string>;
-  tracking?: Record<string, string>;
-  tags?: string[];
-}
+// Rate limit: 30 requests per minute per IP
+const LEAD_RATE_LIMIT = { maxRequests: 30, windowMs: 60_000 };
 
 export async function POST(req: NextRequest) {
+  // Rate limiting
+  const ip = getClientIp(req.headers);
+  const limited = rateLimit(`lead:${ip}`, LEAD_RATE_LIMIT);
+  if (limited) {
+    return NextResponse.json(
+      { success: false, error: "Too many requests" },
+      { status: 429, headers: { "Retry-After": String(limited.retryAfter) } },
+    );
+  }
+
   try {
-    const body: LeadPayload = await req.json();
+    // Validate input
+    const raw = await req.json();
+    const result = leadSchema.safeParse(raw);
+    if (!result.success) {
+      return NextResponse.json(
+        { success: false, error: "Invalid input", details: result.error.flatten().fieldErrors },
+        { status: 400 },
+      );
+    }
+    const body = result.data;
 
     // Geolocation from Vercel edge headers (free, automatic)
     const geoCity = req.headers.get("x-vercel-ip-city") || "";
     const geoState = req.headers.get("x-vercel-ip-country-region") || "";
     const geoCountry = req.headers.get("x-vercel-ip-country") || "";
-    const geoIp = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "";
+    const geoIp = ip;
 
     // Build custom field values from form answers + tracking data
     const customFieldValues = [];
 
     // Geolocation fields (server-side only — not sent from client)
-    if (geoCity) customFieldValues.push({ id: CUSTOM_FIELD_IDS.geo_city, field_value: decodeURIComponent(geoCity) });
-    if (geoState) customFieldValues.push({ id: CUSTOM_FIELD_IDS.geo_state, field_value: geoState });
-    if (geoCountry) customFieldValues.push({ id: CUSTOM_FIELD_IDS.geo_country, field_value: geoCountry });
-    if (geoIp) customFieldValues.push({ id: CUSTOM_FIELD_IDS.geo_ip, field_value: geoIp });
+    if (geoCity) customFieldValues.push({ id: CUSTOM_FIELD_IDS.geo_city, field_value: decodeURIComponent(geoCity).slice(0, 100) });
+    if (geoState) customFieldValues.push({ id: CUSTOM_FIELD_IDS.geo_state, field_value: geoState.slice(0, 100) });
+    if (geoCountry) customFieldValues.push({ id: CUSTOM_FIELD_IDS.geo_country, field_value: geoCountry.slice(0, 100) });
+    if (geoIp) customFieldValues.push({ id: CUSTOM_FIELD_IDS.geo_ip, field_value: geoIp.slice(0, 45) });
 
     // Form-specific custom fields (eligibility answers, contact message)
     if (body.customFields) {
@@ -122,7 +132,7 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // Visitor tracking fields
+    // Visitor tracking fields (already filtered to whitelist by validation)
     if (body.tracking) {
       for (const [key, value] of Object.entries(body.tracking)) {
         const fieldId = CUSTOM_FIELD_IDS[key];
@@ -171,8 +181,7 @@ export async function POST(req: NextRequest) {
     });
 
     if (!res.ok) {
-      const err = await res.text();
-      console.error("GHL API error:", res.status, err);
+      console.error("GHL API error:", res.status);
       return NextResponse.json(
         { success: false, error: "CRM submission failed" },
         { status: 502 },
@@ -186,7 +195,7 @@ export async function POST(req: NextRequest) {
       leadScore,
     });
   } catch (err) {
-    console.error("Lead API error:", err);
+    console.error("Lead API error:", err instanceof Error ? err.message : "Unknown");
     return NextResponse.json(
       { success: false, error: "Internal error" },
       { status: 500 },

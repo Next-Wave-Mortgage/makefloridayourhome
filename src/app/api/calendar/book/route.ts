@@ -1,14 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
+import { bookingSchema } from "@/lib/validation";
+import { rateLimit, getClientIp } from "@/lib/rate-limit";
 
 const GHL_API_KEY = process.env.GHL_API_KEY!;
 const GHL_LOCATION_ID = process.env.GHL_LOCATION_ID!;
-const GHL_CALENDAR_ID = "2NWNxF7BIWTs3zv1Wk4y";
+const GHL_CALENDAR_ID = process.env.GHL_CALENDAR_ID!;
 const GHL_BASE = "https://services.leadconnectorhq.com";
 
-interface BookingPayload {
-  contactId: string;
-  slot: string; // ISO datetime from free-slots API
-}
+// Rate limit: 10 requests per minute per IP
+const BOOK_RATE_LIMIT = { maxRequests: 10, windowMs: 60_000 };
 
 /**
  * POST /api/calendar/book
@@ -16,15 +16,27 @@ interface BookingPayload {
  * Fetches contact name from GHL so no PII needs to be in the client URL.
  */
 export async function POST(req: NextRequest) {
-  try {
-    const body: BookingPayload = await req.json();
+  // Rate limiting
+  const ip = getClientIp(req.headers);
+  const limited = rateLimit(`book:${ip}`, BOOK_RATE_LIMIT);
+  if (limited) {
+    return NextResponse.json(
+      { error: "Too many requests" },
+      { status: 429, headers: { "Retry-After": String(limited.retryAfter) } },
+    );
+  }
 
-    if (!body.contactId || !body.slot) {
+  try {
+    // Validate input
+    const raw = await req.json();
+    const result = bookingSchema.safeParse(raw);
+    if (!result.success) {
       return NextResponse.json(
-        { error: "contactId and slot are required" },
+        { error: "Invalid input", details: result.error.flatten().fieldErrors },
         { status: 400 },
       );
     }
+    const body = result.data;
 
     // Fetch contact name from GHL
     const contactRes = await fetch(`${GHL_BASE}/contacts/${body.contactId}`, {
@@ -50,7 +62,7 @@ export async function POST(req: NextRequest) {
       startTime: body.slot,
       title: `Mortgage Consultation - ${contactName}`,
       appointmentStatus: "confirmed",
-      assignedUserId: "", // Will be set when Phil is added as a GHL user
+      assignedUserId: "",
     };
 
     const res = await fetch(`${GHL_BASE}/calendars/events/appointments`, {
@@ -64,8 +76,7 @@ export async function POST(req: NextRequest) {
     });
 
     if (!res.ok) {
-      const err = await res.text();
-      console.error("GHL booking error:", res.status, err);
+      console.error("GHL booking error:", res.status);
       return NextResponse.json(
         { error: "Failed to create appointment" },
         { status: 502 },
@@ -75,7 +86,7 @@ export async function POST(req: NextRequest) {
     const data = await res.json();
     return NextResponse.json({ success: true, appointment: data });
   } catch (err) {
-    console.error("Booking API error:", err);
+    console.error("Booking API error:", err instanceof Error ? err.message : "Unknown");
     return NextResponse.json(
       { error: "Internal error" },
       { status: 500 },
