@@ -81,9 +81,9 @@ function ProgramsPromoCard() {
       <img
         src="/images/learn/florida-first-time-homebuyer-grants-programs-2026.png"
         alt="105 Florida first-time home buyer grants and programs"
-        className="aspect-[4/3] w-full object-cover"
+        className="h-36 w-full object-cover"
         width={600}
-        height={450}
+        height={144}
         loading="lazy"
       />
       <div className="p-4">
@@ -114,9 +114,9 @@ function MapPromoCard() {
       <img
         src="/images/dpa-map-promo.webp"
         alt="Interactive Florida down payment assistance map"
-        className="w-full"
+        className="h-36 w-full object-cover"
         width={600}
-        height={340}
+        height={144}
         loading="lazy"
       />
       <div className="p-4">
