@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useCallback, useMemo } from "react";
-import { geoPath, geoAlbers } from "d3-geo";
-import floridaGeo from "@/data/florida-counties.json";
+import countyPaths from "@/data/florida-county-paths.json";
 
 interface FloridaCountyMapProps {
   countiesWithPrograms: Map<string, number>;
@@ -11,27 +10,16 @@ interface FloridaCountyMapProps {
   onCountyHover: (county: string | null) => void;
 }
 
-interface CountyFeature {
-  type: string;
-  id: string;
-  properties: { NAME: string; STATE: string; COUNTY: string };
-  geometry: GeoJSON.Geometry;
+interface CountyPath {
+  name: string;
+  d: string;
+  cx: number;
+  cy: number;
 }
 
 const WIDTH = 800;
 const HEIGHT = 750;
-
-/* Florida-focused Albers projection */
-const projection = geoAlbers()
-  .center([0, 28.5])
-  .rotate([83.5, 0])
-  .parallels([26, 30])
-  .scale(6200)
-  .translate([WIDTH / 2, HEIGHT / 2]);
-
-const pathGenerator = geoPath().projection(projection);
-
-const features = (floridaGeo as GeoJSON.FeatureCollection).features as unknown as CountyFeature[];
+const counties = countyPaths as CountyPath[];
 
 function getOpacity(count: number, max: number): number {
   if (max <= 1) return 0.7;
@@ -53,18 +41,6 @@ export default function FloridaCountyMap({
     });
     return max;
   }, [countiesWithPrograms]);
-
-  /* Pre-compute paths + centroids */
-  const countyData = useMemo(() => {
-    return features.map((feature) => {
-      const name = feature.properties.NAME;
-      const d = pathGenerator(feature.geometry as GeoJSON.Geometry) || "";
-      const centroid = pathGenerator.centroid(
-        feature.geometry as GeoJSON.Geometry
-      );
-      return { name, d, centroid };
-    });
-  }, []);
 
   const handleMouseEnter = useCallback(
     (county: string) => {
@@ -97,7 +73,7 @@ export default function FloridaCountyMap({
       <title>Florida County Map</title>
 
       {/* County shapes */}
-      {countyData.map(({ name, d }) => {
+      {counties.map(({ name, d }) => {
         const programCount = countiesWithPrograms.get(name);
         const hasPrograms = programCount !== undefined && programCount > 0;
         const isSelected = selectedCounty === name;
@@ -151,10 +127,10 @@ export default function FloridaCountyMap({
       })}
 
       {/* Program count indicators */}
-      {countyData.map(({ name, centroid }) => {
+      {counties.map(({ name, cx, cy }) => {
         const programCount = countiesWithPrograms.get(name);
         if (!programCount || programCount < 1) return null;
-        if (!centroid || isNaN(centroid[0]) || isNaN(centroid[1])) return null;
+        if (isNaN(cx) || isNaN(cy)) return null;
 
         const isSelected = selectedCounty === name;
         const r = programCount > 1 ? 12 : 6;
@@ -162,8 +138,8 @@ export default function FloridaCountyMap({
         return (
           <g key={`dot-${name}`} className="pointer-events-none">
             <circle
-              cx={centroid[0]}
-              cy={centroid[1]}
+              cx={cx}
+              cy={cy}
               r={r}
               fill="#FFFFFF"
               stroke="#006948"
@@ -172,8 +148,8 @@ export default function FloridaCountyMap({
             />
             {programCount > 1 && (
               <text
-                x={centroid[0]}
-                y={centroid[1]}
+                x={cx}
+                y={cy}
                 textAnchor="middle"
                 dominantBaseline="central"
                 fill="#006948"
