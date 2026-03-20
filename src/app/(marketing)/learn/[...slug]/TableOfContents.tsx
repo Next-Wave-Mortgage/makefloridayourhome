@@ -69,11 +69,81 @@ function scrollToHeading(id: string) {
   }
 }
 
+const PROGRAMS_SLUG = "first-time-homebuyer/grants-and-programs";
+
+function ProgramsPromoCard() {
+  return (
+    <a
+      href="/learn/first-time-homebuyer/grants-and-programs"
+      className="group mt-5 block overflow-hidden rounded-2xl border border-brand-green/20 bg-white transition-all hover:border-brand-green/40 hover:shadow-[0_4px_20px_rgba(0,105,72,0.1)]"
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/learn/florida-first-time-homebuyer-grants-programs-2026.png"
+        alt="105 Florida first-time home buyer grants and programs"
+        className="aspect-[4/3] w-full object-cover"
+        width={600}
+        height={450}
+        loading="lazy"
+      />
+      <div className="p-4">
+        <div className="text-[14px] font-bold leading-snug text-dark-green">
+          105 Florida DPA Programs
+        </div>
+        <p className="mt-1 text-[12px] leading-relaxed text-dark-green/60">
+          The complete guide to every down payment assistance program in Florida for 2026.
+        </p>
+        <span className="mt-2 inline-flex items-center gap-1 text-[12px] font-bold text-brand-green transition-colors group-hover:text-brand-green/80">
+          View All Programs
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-0.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </span>
+      </div>
+    </a>
+  );
+}
+
+function MapPromoCard() {
+  return (
+    <a
+      href="/florida-down-payment-assistance-interactive-map"
+      className="group mt-5 block overflow-hidden rounded-2xl border border-brand-green/20 bg-white transition-all hover:border-brand-green/40 hover:shadow-[0_4px_20px_rgba(0,105,72,0.1)]"
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/dpa-map-promo.webp"
+        alt="Interactive Florida down payment assistance map"
+        className="w-full"
+        width={600}
+        height={340}
+        loading="lazy"
+      />
+      <div className="p-4">
+        <div className="text-[14px] font-bold leading-snug text-dark-green">
+          Interactive DPA Map
+        </div>
+        <p className="mt-1 text-[12px] leading-relaxed text-dark-green/60">
+          Explore 105 programs across 48 Florida counties. Click your county to find assistance near you.
+        </p>
+        <span className="mt-2 inline-flex items-center gap-1 text-[12px] font-bold text-brand-green transition-colors group-hover:text-brand-green/80">
+          Explore the Map
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-0.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </span>
+      </div>
+    </a>
+  );
+}
+
 /** Desktop sidebar TOC */
-export function TableOfContents({ showMapPromo = false }: { showMapPromo?: boolean }) {
+export function TableOfContents({ showMapPromo = false, currentSlug = "" }: { showMapPromo?: boolean; currentSlug?: string }) {
   const { headings, activeId } = useHeadings();
 
   if (headings.length === 0) return null;
+
+  const isOnProgramsPage = currentSlug === PROGRAMS_SLUG;
 
   return (
     <nav className="sticky top-24 hidden max-h-[calc(100vh-120px)] overflow-y-auto lg:block">
@@ -111,36 +181,8 @@ export function TableOfContents({ showMapPromo = false }: { showMapPromo?: boole
         </svg>
         Back to top
       </button>
-      {showMapPromo && (
-        <a
-          href="/florida-down-payment-assistance-interactive-map"
-          className="group mt-5 block overflow-hidden rounded-2xl border border-brand-green/20 bg-white transition-all hover:border-brand-green/40 hover:shadow-[0_4px_20px_rgba(0,105,72,0.1)]"
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/dpa-map-promo.webp"
-            alt="Interactive Florida down payment assistance map"
-            className="w-full"
-            width={600}
-            height={340}
-            loading="lazy"
-          />
-          <div className="p-4">
-            <div className="text-[14px] font-bold leading-snug text-dark-green">
-              Interactive DPA Map
-            </div>
-            <p className="mt-1 text-[12px] leading-relaxed text-dark-green/60">
-              Explore 105 programs across 48 Florida counties. Click your county to find assistance near you.
-            </p>
-            <span className="mt-2 inline-flex items-center gap-1 text-[12px] font-bold text-brand-green transition-colors group-hover:text-brand-green/80">
-              Explore the Map
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-0.5">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </span>
-          </div>
-        </a>
-      )}
+      {!isOnProgramsPage && <ProgramsPromoCard />}
+      {showMapPromo && <MapPromoCard />}
     </nav>
   );
 }
