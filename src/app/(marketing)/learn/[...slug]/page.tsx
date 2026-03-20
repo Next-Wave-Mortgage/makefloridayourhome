@@ -577,7 +577,7 @@ export default async function BlogPostPage({
 
           {/* Sidebar TOC */}
           <aside className="pt-20">
-            <TableOfContents />
+            <TableOfContents showMapPromo={post.tags?.some((t) => ["down payment assistance", "dpa", "grants"].includes(t.toLowerCase())) ?? false} />
           </aside>
           </div>
         </div>

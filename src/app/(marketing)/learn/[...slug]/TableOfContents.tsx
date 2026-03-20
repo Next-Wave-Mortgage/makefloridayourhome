@@ -70,7 +70,7 @@ function scrollToHeading(id: string) {
 }
 
 /** Desktop sidebar TOC */
-export function TableOfContents() {
+export function TableOfContents({ showMapPromo = false }: { showMapPromo?: boolean }) {
   const { headings, activeId } = useHeadings();
 
   if (headings.length === 0) return null;
@@ -111,6 +111,36 @@ export function TableOfContents() {
         </svg>
         Back to top
       </button>
+      {showMapPromo && (
+        <a
+          href="/florida-down-payment-assistance-interactive-map"
+          className="group mt-5 block overflow-hidden rounded-2xl border border-brand-green/20 bg-white transition-all hover:border-brand-green/40 hover:shadow-[0_4px_20px_rgba(0,105,72,0.1)]"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/dpa-map-promo.webp"
+            alt="Interactive Florida down payment assistance map"
+            className="w-full"
+            width={600}
+            height={340}
+            loading="lazy"
+          />
+          <div className="p-4">
+            <div className="text-[14px] font-bold leading-snug text-dark-green">
+              Interactive DPA Map
+            </div>
+            <p className="mt-1 text-[12px] leading-relaxed text-dark-green/60">
+              Explore 105 programs across 48 Florida counties. Click your county to find assistance near you.
+            </p>
+            <span className="mt-2 inline-flex items-center gap-1 text-[12px] font-bold text-brand-green transition-colors group-hover:text-brand-green/80">
+              Explore the Map
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-0.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </span>
+          </div>
+        </a>
+      )}
     </nav>
   );
 }

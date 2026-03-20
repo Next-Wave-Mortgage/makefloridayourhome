@@ -91,9 +91,9 @@ const requirements = [
 const articles = [
   {
     category: "Best Florida Home Buyer Programs",
-    title: "70 Florida First-Time Home Buyer Grants & Programs (2026 Guide)",
+    title: "105 Florida First-Time Home Buyer Grants & Programs (2026 Guide)",
     description:
-      "Explore 70 Florida first-time homebuyer grants and assistance programs for 2026.",
+      "Explore 105 Florida first-time homebuyer grants and assistance programs for 2026.",
     href: "/learn/first-time-homebuyer/grants-and-programs",
     image: "/images/guides/florida-first-time-homebuyer-grants.webp",
     readTime: "33 min read",
