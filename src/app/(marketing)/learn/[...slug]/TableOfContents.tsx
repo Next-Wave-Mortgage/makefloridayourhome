@@ -145,45 +145,53 @@ export function TableOfContents({ showMapPromo = false, currentSlug = "" }: { sh
 
   const isOnProgramsPage = currentSlug === PROGRAMS_SLUG;
 
+  const hasCards = !isOnProgramsPage || showMapPromo;
+  const cardCount = (!isOnProgramsPage ? 1 : 0) + (showMapPromo ? 1 : 0);
+  /* Reserve space for cards below the scrollable TOC list:
+     each card is roughly 260px (h-36 image + padding + text) + 20px margin */
+  const cardSpace = hasCards ? cardCount * 280 : 0;
+
   return (
-    <nav className="sticky top-24 hidden max-h-[calc(100vh-120px)] overflow-y-auto lg:block">
-      <div className="text-[11px] font-bold uppercase tracking-wider text-brand-green">
-        In This Article
-      </div>
-      <ul className="mt-3 space-y-0.5 border-l border-border-gray">
-        {headings.map((h) => (
-          <li key={h.id}>
-            <a
-              href={`#${h.id}`}
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToHeading(h.id);
-              }}
-              className={`block border-l-2 py-1.5 text-[13px] leading-snug transition-colors ${
-                h.level === 3 ? "pl-6" : "pl-4"
-              } ${
-                activeId === h.id
-                  ? "border-brand-green font-semibold text-brand-green"
-                  : "border-transparent text-dark-green/50 hover:text-dark-green/80"
-              }`}
-            >
-              {h.text}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <button
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-lg border border-border-gray/60 py-2 text-[12px] font-semibold text-dark-green/40 transition-colors hover:border-brand-green/40 hover:text-brand-green"
-      >
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="18 15 12 9 6 15" />
-        </svg>
-        Back to top
-      </button>
+    <div className="sticky top-24 hidden max-h-[calc(100vh-120px)] lg:block">
+      <nav className={`overflow-y-auto ${hasCards ? `max-h-[calc(100vh-120px-${cardSpace}px)]` : "max-h-[calc(100vh-120px)]"}`} style={hasCards ? { maxHeight: `calc(100vh - 120px - ${cardSpace}px)` } : undefined}>
+        <div className="text-[11px] font-bold uppercase tracking-wider text-brand-green">
+          In This Article
+        </div>
+        <ul className="mt-3 space-y-0.5 border-l border-border-gray">
+          {headings.map((h) => (
+            <li key={h.id}>
+              <a
+                href={`#${h.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToHeading(h.id);
+                }}
+                className={`block border-l-2 py-1.5 text-[13px] leading-snug transition-colors ${
+                  h.level === 3 ? "pl-6" : "pl-4"
+                } ${
+                  activeId === h.id
+                    ? "border-brand-green font-semibold text-brand-green"
+                    : "border-transparent text-dark-green/50 hover:text-dark-green/80"
+                }`}
+              >
+                {h.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-lg border border-border-gray/60 py-2 text-[12px] font-semibold text-dark-green/40 transition-colors hover:border-brand-green/40 hover:text-brand-green"
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="18 15 12 9 6 15" />
+          </svg>
+          Back to top
+        </button>
+      </nav>
       {!isOnProgramsPage && <ProgramsPromoCard />}
       {showMapPromo && <MapPromoCard />}
-    </nav>
+    </div>
   );
 }
 
