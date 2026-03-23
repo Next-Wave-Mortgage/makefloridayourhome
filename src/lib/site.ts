@@ -5,7 +5,7 @@ export const siteConfig = {
   description:
     "Florida mortgage experts helping you find the right home loan. Purchase, refinance, and specialty programs.",
   url: "https://www.makefloridayourhome.com",
-  ogImage: "/og-default.png",
+  ogImage: "/opengraph-image",
   links: {
     facebook: "",
     instagram: "",

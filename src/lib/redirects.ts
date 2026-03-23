@@ -2015,7 +2015,7 @@ const redirects: Redirect[] = [
   { source: '/florida/down-payment-assistance/florida-bond-loan-program-guide', destination: '/down-payment-assistance', permanent: true },
   { source: '/florida/down-payment-assistance/broward-county-first-time-homebuyer-program', destination: '/learn/broward-county-florida-first-time-homebuyer-program', permanent: true },
   { source: '/florida/down-payment-assistance/what-is-my-safe-florida-home-program', destination: '/down-payment-assistance', permanent: true },
-  { source: '/florida/blog', destination: '/learn', permanent: true },
+  { source: '/florida/blog/:path*', destination: '/learn', permanent: true },
   { source: '/florida/foreign-buyer-guides', destination: '/learn/foreign-buyers-guide-florida-real-estate', permanent: true },
   { source: '/florida/explore', destination: '/learn/cheapest-places-to-buy-house-in-florida', permanent: true },
   { source: '/florida/home-loan/usda-loan', destination: '/learn/usda-loans-florida', permanent: true },

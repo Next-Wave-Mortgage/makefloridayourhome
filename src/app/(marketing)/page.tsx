@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: `${siteConfig.url}/og-default.png`,
+        url: `${siteConfig.url}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: "Make Florida Your Home — Florida First-Time Homebuyer Programs & Grants",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
       "Florida First-Time Homebuyer Programs & Grants (2026) | Make Florida Your Home",
     description:
       "See every Florida first-time homebuyer program you qualify for — Hometown Heroes, FHA, VA, USDA, down payment assistance up to $35,000+.",
-    images: [`${siteConfig.url}/og-default.png`],
+    images: [`${siteConfig.url}/opengraph-image`],
   },
   robots: {
     index: true,
@@ -60,7 +60,7 @@ const organizationSchema = {
   alternateName: siteConfig.name,
   url: siteConfig.url,
   logo: `${siteConfig.url}/images/logo.webp`,
-  image: `${siteConfig.url}/og-default.png`,
+  image: `${siteConfig.url}/opengraph-image`,
   telephone: siteConfig.contact.phone,
   email: siteConfig.contact.email,
   address: {
