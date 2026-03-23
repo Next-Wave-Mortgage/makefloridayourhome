@@ -536,6 +536,13 @@ export default async function BlogPostPage({
               <MDXRemote
                 source={post.content}
                 options={{ mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeSlug] } }}
+                components={{
+                  table: (props: React.ComponentProps<"table">) => (
+                    <div className="table-wrap">
+                      <table {...props} />
+                    </div>
+                  ),
+                }}
               />
             </div>
             {/* CTA inside the card */}

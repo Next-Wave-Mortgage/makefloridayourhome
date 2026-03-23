@@ -184,11 +184,16 @@
   font-style: italic;
   color: rgba(46, 65, 54, 0.6);
 }
+.prose-mfyh .table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5em 0;
+}
 .prose-mfyh table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.5em 0;
   font-size: 14px;
+  min-width: 540px;
 }
 .prose-mfyh table th {
   background: #2e4136;
