@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { EligibilityForm } from "./EligibilityForm";
+import { FunnelFormPage } from "../FunnelFormPage";
 
 export const metadata: Metadata = {
   title: "Free Home Purchase Eligibility | Make Florida Your Home",
@@ -15,5 +15,11 @@ export const metadata: Metadata = {
 };
 
 export default function HomePurchaseEligibilityPage() {
-  return <EligibilityForm heading="Check your home purchase eligibility in Florida" />;
+  return (
+    <FunnelFormPage
+      heading="See every loan program you qualify for in Florida"
+      subtitle="Answer a few quick questions and we'll match you with every program, grant, and rate available to you."
+      fcKey="wkjetxp"
+    />
+  );
 }

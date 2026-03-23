@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { EligibilityForm } from "../home-purchase-eligibility/EligibilityForm";
+import { FunnelFormPage } from "../FunnelFormPage";
 
 export const metadata: Metadata = {
   title: "Check Your USDA Loan Eligibility | Make Florida Your Home",
@@ -16,9 +16,10 @@ export const metadata: Metadata = {
 
 export default function CheckUsdaLoanEligibilityPage() {
   return (
-    <EligibilityForm
-      heading="Check your USDA loan eligibility in Florida"
-      subtitle="USDA loans offer zero down payment for homes in eligible rural and suburban areas."
+    <FunnelFormPage
+      heading="See if you qualify for a zero-down USDA loan in Florida"
+      subtitle="No down payment required in eligible rural and suburban areas — find out in 2 minutes."
+      fcKey="wkjetxp"
     />
   );
 }

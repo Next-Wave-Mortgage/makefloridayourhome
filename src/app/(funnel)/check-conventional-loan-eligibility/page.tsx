@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { EligibilityForm } from "../home-purchase-eligibility/EligibilityForm";
+import { FunnelFormPage } from "../FunnelFormPage";
 
 export const metadata: Metadata = {
   title:
@@ -18,9 +18,10 @@ export const metadata: Metadata = {
 
 export default function CheckConventionalLoanEligibilityPage() {
   return (
-    <EligibilityForm
-      heading="Check your conventional loan eligibility in Florida"
-      subtitle="Conventional loans offer competitive rates with as little as 3% down for qualified buyers."
+    <FunnelFormPage
+      heading="See if you qualify for a conventional loan in Florida"
+      subtitle="Competitive rates with as little as 3% down — find out in 2 minutes."
+      fcKey="wkjetxp"
     />
   );
 }

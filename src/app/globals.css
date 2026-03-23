@@ -376,6 +376,12 @@
   }
 }
 
+/* FormCrafts seamless embed — strip iframe border/shadow */
+.fc-seamless iframe {
+  border: none !important;
+  box-shadow: none !important;
+}
+
 /* Custom range slider */
 .slider {
   -webkit-appearance: none;

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { EligibilityForm } from "../home-purchase-eligibility/EligibilityForm";
+import { FunnelFormPage } from "../FunnelFormPage";
 
 export const metadata: Metadata = {
   title: "Check Your VA Loan Eligibility | Make Florida Your Home",
@@ -16,9 +16,10 @@ export const metadata: Metadata = {
 
 export default function CheckVaLoanEligibilityPage() {
   return (
-    <EligibilityForm
-      heading="Check your VA loan eligibility in Florida"
-      subtitle="VA loans offer zero down payment and no PMI for eligible veterans and active-duty service members."
+    <FunnelFormPage
+      heading="See if you qualify for a VA loan in Florida"
+      subtitle="Zero down payment and no PMI for eligible veterans and active-duty service members."
+      fcKey="wkjetxp"
     />
   );
 }

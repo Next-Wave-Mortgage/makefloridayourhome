@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { EligibilityForm } from "../home-purchase-eligibility/EligibilityForm";
+import { FunnelFormPage } from "../FunnelFormPage";
 
 export const metadata: Metadata = {
   title: "Check Your FHA Loan Eligibility | Make Florida Your Home",
@@ -16,9 +16,10 @@ export const metadata: Metadata = {
 
 export default function CheckFhaLoanEligibilityPage() {
   return (
-    <EligibilityForm
-      heading="Check your FHA loan eligibility in Florida"
-      subtitle="FHA loans offer as little as 3.5% down with flexible credit requirements."
+    <FunnelFormPage
+      heading="See if you qualify for an FHA loan in Florida"
+      subtitle="As little as 3.5% down with flexible credit requirements — find out in 2 minutes."
+      fcKey="wkjetxp"
     />
   );
 }

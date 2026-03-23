@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { EligibilityForm } from "../home-purchase-eligibility/EligibilityForm";
+import { FunnelFormPage } from "../FunnelFormPage";
 
 export const metadata: Metadata = {
   title:
@@ -18,9 +18,10 @@ export const metadata: Metadata = {
 
 export default function CheckDpaEligibilityPage() {
   return (
-    <EligibilityForm
-      heading="Check your down payment assistance eligibility in Florida"
+    <FunnelFormPage
+      heading="See how much down payment help you can get in Florida"
       subtitle="Answer a few quick questions and we'll match you with every DPA program you qualify for."
+      fcKey="wkjetxp"
     />
   );
 }
