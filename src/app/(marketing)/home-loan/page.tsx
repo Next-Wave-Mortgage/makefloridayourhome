@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import Link from "next/link";
 import Image from "next/image";
 import { PageHero } from "@/components/shared/PageHero";
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
     url: "https://www.makefloridayourhome.com/home-loan",
     type: "website",
   },
+  alternates: { canonical: "/home-loan" },
 };
 
 /* ------------------------------------------------------------------ */
@@ -170,6 +172,15 @@ const loanTypes = [
   },
 ];
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.makefloridayourhome.com/" },
+    { "@type": "ListItem", position: 2, name: "Home Loan Options", item: "https://www.makefloridayourhome.com/home-loan" },
+  ],
+};
+
 /* ------------------------------------------------------------------ */
 /*  Page                                                               */
 /* ------------------------------------------------------------------ */
@@ -177,6 +188,12 @@ const loanTypes = [
 export default function HomeLoanPage() {
   return (
     <>
+      <Script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       {/* Hero */}
       <PageHero
         title={

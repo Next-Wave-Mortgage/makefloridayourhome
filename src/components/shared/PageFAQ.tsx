@@ -99,6 +99,8 @@ export function PageFAQ({
                 >
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : i)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${i}`}
                     className="flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left"
                   >
                     <div className="flex items-center gap-4">
@@ -129,6 +131,8 @@ export function PageFAQ({
                   </button>
 
                   <div
+                    id={`faq-answer-${i}`}
+                    role="region"
                     className={`grid transition-all duration-300 ease-in-out ${
                       isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                     }`}

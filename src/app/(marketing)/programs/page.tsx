@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     url: "https://www.makefloridayourhome.com/programs",
     type: "website",
   },
+  alternates: {
+    canonical: "/programs",
+  },
 };
 
 export default function ProgramsIndexPage() {

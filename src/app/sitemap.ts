@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
-import { getAllSlugs } from "@/lib/blog";
+import { getAllPosts } from "@/lib/blog";
 import { team } from "@/app/(marketing)/team/teamData";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -39,9 +39,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   /* ── Dynamic learn/blog articles ── */
-  const learnPages: MetadataRoute.Sitemap = getAllSlugs().map((slug) => ({
-    url: `${baseUrl}/learn/${slug}`,
-    lastModified: now,
+  const learnPages: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
+    url: `${baseUrl}/learn/${post.slug}`,
+    lastModified: new Date(post.updatedDate || post.date || now),
     changeFrequency: "weekly" as const,
     priority: 0.7,
   }));

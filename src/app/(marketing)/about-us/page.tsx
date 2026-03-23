@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     url: "https://www.makefloridayourhome.com/about-us",
     type: "website",
   },
+  alternates: {
+    canonical: "/about-us",
+  },
 };
 
 const values = [

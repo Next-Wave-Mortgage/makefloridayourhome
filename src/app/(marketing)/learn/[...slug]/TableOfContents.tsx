@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface TocItem {
   id: string;
@@ -83,14 +84,12 @@ function ProgramsPromoCard() {
       href="/learn/first-time-homebuyer/grants-and-programs"
       className="group mt-5 block overflow-hidden rounded-2xl border border-brand-green/20 bg-white transition-all hover:border-brand-green/40 hover:shadow-[0_4px_20px_rgba(0,105,72,0.1)]"
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/images/learn/florida-first-time-homebuyer-grants-programs-2026.png"
+      <Image
+        src="/images/learn/florida-first-time-homebuyer-grants-programs-2026.webp"
         alt="105 Florida first-time home buyer grants and programs"
         className="h-36 w-full object-cover"
         width={600}
         height={144}
-        loading="lazy"
       />
       <div className="p-4">
         <div className="text-[14px] font-bold leading-snug text-dark-green">
@@ -116,14 +115,12 @@ function MapPromoCard() {
       href="/florida-down-payment-assistance-interactive-map"
       className="group mt-5 block overflow-hidden rounded-2xl border border-brand-green/20 bg-white transition-all hover:border-brand-green/40 hover:shadow-[0_4px_20px_rgba(0,105,72,0.1)]"
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src="/images/dpa-map-promo.webp"
         alt="Interactive Florida down payment assistance map"
         className="h-36 w-full object-cover"
         width={600}
         height={144}
-        loading="lazy"
       />
       <div className="p-4">
         <div className="text-[14px] font-bold leading-snug text-dark-green">

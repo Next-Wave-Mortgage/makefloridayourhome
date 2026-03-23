@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     url: "https://www.makefloridayourhome.com/home-affordability-calculator",
     type: "website",
   },
+  alternates: {
+    canonical: "/home-affordability-calculator",
+  },
 };
 
 export default function AffordabilityCalculatorPage() {

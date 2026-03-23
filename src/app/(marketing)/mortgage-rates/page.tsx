@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     url: "https://www.makefloridayourhome.com/mortgage-rates",
     type: "website",
   },
+  alternates: {
+    canonical: "/mortgage-rates",
+  },
 };
 
 const rateFactors = [

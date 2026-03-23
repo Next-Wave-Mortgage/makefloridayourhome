@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import Link from "next/link";
 import { PageHero } from "@/components/shared/PageHero";
 import { PageFAQ } from "@/components/shared/PageFAQ";
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
     "Florida Down Payment Assistance Programs (2026) | Make Florida Your Home",
   description:
     "Explore Florida down payment assistance programs for 2026. Learn about Hometown Heroes, Florida Assist, SHIP funds, and how to qualify for up to $35,000+ in aid.",
+  alternates: { canonical: "/down-payment-assistance" },
   openGraph: {
     title: "Florida Down Payment Assistance Programs (2026)",
     description:
@@ -180,6 +182,25 @@ const faqs = [
   },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.makefloridayourhome.com" },
+    { "@type": "ListItem", position: 2, name: "Down Payment Assistance" },
+  ],
+};
+
 /* ------------------------------------------------------------------ */
 /*  Page                                                               */
 /* ------------------------------------------------------------------ */
@@ -187,6 +208,17 @@ const faqs = [
 export default function DownPaymentAssistancePage() {
   return (
     <>
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <Script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       {/* Hero */}
       <PageHero
         title={

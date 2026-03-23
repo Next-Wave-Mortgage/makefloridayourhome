@@ -286,6 +286,7 @@ export function WhatWeDo() {
                   alt="Ryan Skerritt — Florida Mortgage Expert"
                   width={457}
                   height={600}
+                  priority
                   className="w-full"
                 />
               </div>

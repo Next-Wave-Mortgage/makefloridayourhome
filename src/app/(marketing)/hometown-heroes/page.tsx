@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { PageHero } from "@/components/shared/PageHero";
 import { PageFAQ } from "@/components/shared/PageFAQ";
 import { PageCTA } from "@/components/shared/PageCTA";
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     "Florida Hometown Heroes Program (2026) — Up to $35,000 in DPA | Make Florida Your Home",
   description:
     "Learn about Florida's Hometown Heroes Program for 2026. Up to $35,000 in down payment assistance for teachers, nurses, law enforcement, and 50+ professions.",
+  alternates: { canonical: "/hometown-heroes" },
   openGraph: {
     title: "Florida Hometown Heroes Program (2026) — Up to $35,000 in DPA",
     description:
@@ -202,6 +204,47 @@ const faqs = [
   },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Apply for Florida Hometown Heroes Program",
+  description:
+    "Step-by-step guide to applying for up to $35,000 in down payment assistance through Florida's Hometown Heroes program.",
+  step: steps.map((s, i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    name: s.title,
+    text: s.description,
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://www.makefloridayourhome.com",
+    },
+    { "@type": "ListItem", position: 2, name: "Hometown Heroes Program" },
+  ],
+};
+
 /* ------------------------------------------------------------------ */
 /*  Page                                                               */
 /* ------------------------------------------------------------------ */
@@ -209,6 +252,22 @@ const faqs = [
 export default function HometownHeroesPage() {
   return (
     <>
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <Script
+        id="howto-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+      />
+      <Script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       {/* Hero */}
       <PageHero
         title={

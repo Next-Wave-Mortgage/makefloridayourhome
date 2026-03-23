@@ -63,7 +63,7 @@ export default async function TeamMemberPage({
               <div className="overflow-hidden rounded-2xl">
                 <Image
                   src={member.photo}
-                  alt={member.name}
+                  alt={`${member.name}, ${member.role}`}
                   width={280}
                   height={350}
                   className="w-full object-cover object-top"

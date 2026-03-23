@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { PageHero } from "@/components/shared/PageHero";
 import { PageFAQ } from "@/components/shared/PageFAQ";
 import { PageCTA } from "@/components/shared/PageCTA";
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
     url: "https://www.makefloridayourhome.com/home-loan/fha-loan",
     type: "website",
   },
+  alternates: { canonical: "/home-loan/fha-loan" },
 };
 
 /* ------------------------------------------------------------------ */
@@ -201,6 +203,40 @@ const faqs = [
   },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Get an FHA Loan in Florida",
+  description:
+    "Step-by-step guide to getting an FHA loan in Florida with as little as 3.5% down.",
+  step: steps.map((s, i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    name: s.title,
+    text: s.description,
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.makefloridayourhome.com/" },
+    { "@type": "ListItem", position: 2, name: "Home Loans", item: "https://www.makefloridayourhome.com/home-loan" },
+    { "@type": "ListItem", position: 3, name: "FHA Loans", item: "https://www.makefloridayourhome.com/home-loan/fha-loan" },
+  ],
+};
+
 /* ------------------------------------------------------------------ */
 /*  Page                                                               */
 /* ------------------------------------------------------------------ */
@@ -208,6 +244,22 @@ const faqs = [
 export default function FHALoanPage() {
   return (
     <>
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <Script
+        id="howto-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+      />
+      <Script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       {/* Hero */}
       <PageHero
         title={

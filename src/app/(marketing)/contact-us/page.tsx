@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     url: "https://www.makefloridayourhome.com/contact-us",
     type: "website",
   },
+  alternates: {
+    canonical: "/contact-us",
+  },
 };
 
 export default function ContactUsPage() {

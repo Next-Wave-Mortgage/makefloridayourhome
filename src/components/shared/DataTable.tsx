@@ -17,6 +17,7 @@ export function DataTable({ headers, rows, caption }: DataTableProps) {
               {headers.map((header, i) => (
                 <th
                   key={header}
+                  scope="col"
                   className={`px-5 py-4 text-[13px] font-bold uppercase tracking-wider sm:text-[14px] ${
                     i === 0 ? "border-l-[3px] border-l-brand-green" : ""
                   }`}

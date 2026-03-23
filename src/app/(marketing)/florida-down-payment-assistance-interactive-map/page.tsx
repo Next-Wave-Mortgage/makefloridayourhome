@@ -13,8 +13,18 @@ export const metadata: Metadata = {
     url: "https://www.makefloridayourhome.com/florida-down-payment-assistance-interactive-map",
     type: "website",
   },
+  alternates: {
+    canonical: "/florida-down-payment-assistance-interactive-map",
+  },
 };
 
 export default function FloridaDPAMapPage() {
-  return <InteractiveMap />;
+  return (
+    <>
+      <h1 className="sr-only">
+        Florida Down Payment Assistance Map — Find Programs in Your County
+      </h1>
+      <InteractiveMap />
+    </>
+  );
 }

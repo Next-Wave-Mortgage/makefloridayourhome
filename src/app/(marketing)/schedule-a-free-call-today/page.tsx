@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     url: "https://www.makefloridayourhome.com/schedule-a-free-call-today",
     type: "website",
   },
+  alternates: {
+    canonical: "/schedule-a-free-call-today",
+  },
 };
 
 export default function ScheduleCallPage() {

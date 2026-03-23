@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { PageHero } from "@/components/shared/PageHero";
 import { PageFAQ } from "@/components/shared/PageFAQ";
 import { PageCTA } from "@/components/shared/PageCTA";
@@ -9,6 +10,9 @@ export const metadata: Metadata = {
     "Florida First-Time Home Buyer Programs & Grants (2026) | Make Florida Your Home",
   description:
     "Explore Florida first-time home buyer programs, grants, and down payment assistance for 2026. See income limits, requirements, and how to qualify.",
+  alternates: {
+    canonical: "/first-time-home-buyer",
+  },
   openGraph: {
     title: "Florida First-Time Home Buyer Programs & Grants (2026)",
     description:
@@ -122,6 +126,28 @@ const faqs = [
   },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.makefloridayourhome.com" },
+    { "@type": "ListItem", position: 2, name: "First-Time Home Buyer Programs" },
+  ],
+};
+
 /* ------------------------------------------------------------------ */
 /*  Page                                                               */
 /* ------------------------------------------------------------------ */
@@ -129,6 +155,17 @@ const faqs = [
 export default function FirstTimeHomeBuyerPage() {
   return (
     <>
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <Script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       {/* Hero */}
       <PageHero
         title={

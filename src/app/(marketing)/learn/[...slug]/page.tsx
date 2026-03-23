@@ -488,10 +488,12 @@ export default async function BlogPostPage({
               {post.featuredImage && (
                 <div className="relative hidden lg:block">
                   <div className="overflow-hidden rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={post.featuredImage}
                       alt={post.imageAlt || post.title}
+                      width={800}
+                      height={600}
+                      priority
                       className="aspect-[4/3] w-full object-cover"
                     />
                   </div>
@@ -518,10 +520,12 @@ export default async function BlogPostPage({
             {/* Mobile featured image — sits at top of card, edge to edge */}
             {post.featuredImage && (
               <div className="lg:hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={post.featuredImage}
                   alt={post.imageAlt || post.title}
+                  width={860}
+                  height={484}
+                  priority
                   className="aspect-[16/9] w-full object-cover"
                 />
               </div>

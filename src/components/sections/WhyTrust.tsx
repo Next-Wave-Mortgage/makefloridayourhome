@@ -124,6 +124,7 @@ export function WhyTrust() {
                 alt="Phil Ganz — Florida Mortgage Expert"
                 width={457}
                 height={678}
+                priority
                 className="w-full object-cover"
               />
 

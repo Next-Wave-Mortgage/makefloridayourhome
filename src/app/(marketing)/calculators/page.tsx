@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     url: "https://www.makefloridayourhome.com/calculators",
     type: "website",
   },
+  alternates: {
+    canonical: "/calculators",
+  },
 };
 
 export default function CalculatorsPage() {

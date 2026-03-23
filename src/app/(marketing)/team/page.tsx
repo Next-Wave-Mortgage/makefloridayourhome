@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     url: "https://www.makefloridayourhome.com/team",
     type: "website",
   },
+  alternates: {
+    canonical: "/team",
+  },
 };
 
 export default function TeamPage() {
@@ -43,7 +46,7 @@ export default function TeamPage() {
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <Image
                     src={member.photo}
-                    alt={member.name}
+                    alt={`${member.name}, ${member.role}`}
                     fill
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />

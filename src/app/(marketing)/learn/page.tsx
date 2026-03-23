@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { getAllPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
@@ -11,6 +12,9 @@ export const metadata: Metadata = {
     description: "Expert guides on Florida home loans and buyer programs.",
     url: "https://www.makefloridayourhome.com/learn",
     type: "website",
+  },
+  alternates: {
+    canonical: "/learn",
   },
 };
 
@@ -49,10 +53,12 @@ export default function LearnPage() {
                 >
                   {post.featuredImage && (
                     <div className="aspect-[16/9] overflow-hidden bg-green-tint">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
+                      <Image
                         src={post.featuredImage}
                         alt={post.title}
+                        width={600}
+                        height={338}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     </div>

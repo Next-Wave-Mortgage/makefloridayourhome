@@ -23,9 +23,9 @@ export function StepProcess({ heading, steps, bg = "white" }: StepProcessProps) 
           {/* Vertical line */}
           <div className="absolute left-[23px] top-0 hidden h-full w-[2px] bg-border-gray sm:block" />
 
-          <div className="space-y-8">
+          <ol className="space-y-8 list-none m-0 p-0">
             {steps.map((step, i) => (
-              <div key={step.title} className="relative flex gap-6">
+              <li key={step.title} className="relative flex gap-6">
                 {/* Number circle */}
                 <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-green text-[16px] font-black text-white shadow-[0_4px_12px_rgba(0,105,72,0.25)]">
                   {i + 1}
@@ -40,9 +40,9 @@ export function StepProcess({ heading, steps, bg = "white" }: StepProcessProps) 
                     {step.description}
                   </p>
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </div>
     </section>
