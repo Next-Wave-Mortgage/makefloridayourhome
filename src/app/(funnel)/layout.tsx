@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { GA } from "@/components/analytics/GA";
 
 export default function FunnelLayout({
   children,
@@ -9,7 +8,6 @@ export default function FunnelLayout({
 }) {
   return (
     <div className="flex min-h-screen flex-col bg-white">
-      <GA />
       <header className="flex h-16 shrink-0 items-center border-b border-border-gray/40 px-6 sm:px-10">
         <Link href="/">
           <Image

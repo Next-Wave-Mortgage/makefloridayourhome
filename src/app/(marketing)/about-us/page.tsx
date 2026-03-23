@@ -58,7 +58,7 @@ const stats = [
   { number: "4.9", label: "Google Rating" },
 ];
 
-const CALENDAR_URL = "/schedule-a-free-call-today";
+const CALENDAR_URL = "/eligibility/schedule-a-free-call";
 
 export default function AboutUsPage() {
   return (

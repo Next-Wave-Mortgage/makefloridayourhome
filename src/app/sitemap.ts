@@ -34,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/check-usda-loan-eligibility`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/check-conventional-loan-eligibility`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/check-hometown-heroes-eligibility`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${baseUrl}/schedule-a-free-call-today`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/eligibility/schedule-a-free-call`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/contact-us`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
   ];
 

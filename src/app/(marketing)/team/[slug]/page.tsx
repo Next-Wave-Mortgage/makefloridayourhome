@@ -193,7 +193,7 @@ export default async function TeamMemberPage({
               {/* CTA */}
               <div className="mt-8">
                 <Link
-                  href="/schedule-a-free-call-today"
+                  href="/eligibility/schedule-a-free-call"
                   className="group inline-flex items-center gap-2 rounded-full bg-brand-green px-8 py-4 text-[15px] font-bold text-white transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,105,72,0.4)]"
                 >
                   Schedule a Free Call

@@ -570,7 +570,7 @@ export default async function BlogPostPage({
                   </svg>
                 </Link>
                 <Link
-                  href="/schedule-a-free-call-today"
+                  href="/eligibility/schedule-a-free-call"
                   className="inline-flex items-center gap-2 rounded-full border-2 border-brand-green/20 px-8 py-4 text-[15px] font-bold text-brand-green transition-all hover:bg-brand-green/5"
                 >
                   Schedule a Free Call

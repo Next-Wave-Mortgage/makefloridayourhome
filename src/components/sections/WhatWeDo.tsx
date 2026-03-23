@@ -146,7 +146,7 @@ const features: {
   {
     title: "Local Expert Support",
     description: "Connect with mortgage specialists who know your area",
-    href: "/schedule-a-free-call-today",
+    href: "/eligibility/schedule-a-free-call",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"

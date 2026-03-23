@@ -1,6 +1,5 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { GA } from "@/components/analytics/GA";
 
 export default function MarketingLayout({
   children,
@@ -9,7 +8,6 @@ export default function MarketingLayout({
 }) {
   return (
     <>
-      <GA />
       <Header />
       <main className="min-h-screen">{children}</main>
       <Footer />

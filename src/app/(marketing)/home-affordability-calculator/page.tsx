@@ -64,7 +64,7 @@ export default function AffordabilityCalculatorPage() {
               with a Florida mortgage expert.
             </p>
             <Link
-              href="/schedule-a-free-call-today"
+              href="/eligibility/schedule-a-free-call"
               className="group mt-8 inline-flex items-center gap-2 rounded-full bg-brand-green px-8 py-4 text-[16px] font-bold text-white transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,105,72,0.4)]"
             >
               Schedule Now

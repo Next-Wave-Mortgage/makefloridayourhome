@@ -11,7 +11,8 @@ export function MeetingEmbed() {
       iframe.src =
         "https://meetings.hubspot.com/phil-ganz/schedule-a-free-call?embed=true";
       iframe.width = "100%";
-      iframe.height = "700";
+      iframe.style.height = "100%";
+      iframe.style.minHeight = "580px";
       iframe.style.border = "none";
       iframe.style.borderRadius = "16px";
       iframe.title = "Schedule a call with Phil Ganz";
@@ -20,7 +21,6 @@ export function MeetingEmbed() {
   }
 
   useEffect(() => {
-    // If script already loaded, initialize
     if ((window as unknown as Record<string, unknown>).hbspt) {
       initMeeting();
     }
@@ -28,7 +28,7 @@ export function MeetingEmbed() {
 
   return (
     <>
-      <div id="hs-meeting-embed" className="min-h-[700px]" />
+      <div id="hs-meeting-embed" className="h-full min-h-[580px]" />
       <Script
         src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"
         strategy="afterInteractive"
