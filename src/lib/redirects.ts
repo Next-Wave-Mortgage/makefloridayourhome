@@ -7,6 +7,10 @@ const redirects: Redirect[] = [
   // Old marketing page URL → new funnel page
   { source: '/schedule-a-free-call-today', destination: '/eligibility/schedule-a-free-call', permanent: true },
 
+  // Old HubSpot microsite URLs → new eligibility forms
+  { source: '/microsite/hometown-heroes-eligibility', destination: '/check-hometown-heroes-eligibility', permanent: true },
+  { source: '/microsite/home-sweet-home-program-eligibility', destination: '/home-purchase-eligibility', permanent: true },
+
   { source: '/blog/july-2021-week-two', destination: '/blog/july-2021-what-to-avoid-when-remodeling-your-home', permanent: true },
   { source: '/blog/july-2021-week-three', destination: '/blog/july-2021-what-to-do-when-someone-wants-to-purchase-your-home', permanent: true },
   { source: '/blog/september-2021-week-one', destination: '/blog/moving-to-exurbs', permanent: true },
