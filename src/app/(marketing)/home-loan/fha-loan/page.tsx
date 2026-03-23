@@ -230,6 +230,8 @@ export default function FHALoanPage() {
         features={heroFeatures}
         image="/images/heroes/florida-fha-loan-hero.webp"
         imageAlt="Couple reviewing mortgage documents with a loan officer"
+        ctaHref="/check-fha-loan-eligibility"
+        ctaText="Check Your FHA Loan Eligibility"
       />
 
       {/* Explainer + Feature Table */}
@@ -347,6 +349,8 @@ export default function FHALoanPage() {
       <PageCTA
         heading="See If FHA Is Right for You"
         subtitle="Get pre-approved in minutes — no credit pull, no obligation."
+        ctaHref="/check-fha-loan-eligibility"
+        ctaText="Check Your FHA Loan Eligibility"
       />
     </>
   );

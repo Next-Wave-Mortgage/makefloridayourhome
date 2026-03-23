@@ -207,6 +207,8 @@ export default function DownPaymentAssistancePage() {
         features={heroFeatures}
         image="/images/heroes/florida-down-payment-assistance-hero.webp"
         imageAlt="Happy family celebrating in front of Florida home with SOLD sign"
+        ctaHref="/check-dpa-eligibility"
+        ctaText="Check Your Florida DPA Eligibility"
       />
 
       {/* Explainer */}
@@ -342,6 +344,8 @@ export default function DownPaymentAssistancePage() {
       <PageCTA
         heading="Find Out How Much DPA You Qualify For"
         subtitle="Check your eligibility in minutes — no credit pull, no obligation."
+        ctaHref="/check-dpa-eligibility"
+        ctaText="Check Your Florida DPA Eligibility"
       />
     </>
   );

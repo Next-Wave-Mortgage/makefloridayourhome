@@ -230,6 +230,8 @@ export default function HometownHeroesPage() {
         features={heroFeatures}
         image="/images/heroes/florida-hometown-heroes-hero.webp"
         imageAlt="Florida professional holding house keys in front of a new home"
+        ctaHref="/check-hometown-heroes-eligibility"
+        ctaText="Check Your Hometown Heroes Eligibility"
       />
 
       {/* Explainer + Stats */}
@@ -367,6 +369,8 @@ export default function HometownHeroesPage() {
       <PageCTA
         heading="See If You Qualify for Hometown Heroes"
         subtitle="Check your eligibility in minutes — no credit pull, no obligation."
+        ctaHref="/check-hometown-heroes-eligibility"
+        ctaText="Check Your Hometown Heroes Eligibility"
       />
     </>
   );
