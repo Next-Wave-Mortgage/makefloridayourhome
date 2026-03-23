@@ -109,7 +109,10 @@ export function FAQ() {
                   }`}
                 >
                   <button
+                    id={`faq-question-${i}`}
                     onClick={() => setOpenIndex(isOpen ? null : i)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${i}`}
                     className="flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left"
                   >
                     <div className="flex items-center gap-4">
@@ -140,6 +143,9 @@ export function FAQ() {
                   </button>
 
                   <div
+                    id={`faq-answer-${i}`}
+                    role="region"
+                    aria-labelledby={`faq-question-${i}`}
                     className={`grid transition-all duration-300 ease-in-out ${
                       isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                     }`}

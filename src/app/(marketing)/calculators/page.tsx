@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Calculators",
-  description: "Mortgage calculators to help plan your Florida home purchase.",
+  title: "Florida Mortgage Calculators — Affordability, Payments & More",
+  description:
+    "Free Florida mortgage calculators. Estimate your home affordability, monthly payment, closing costs, and down payment assistance savings.",
+  openGraph: {
+    title: "Florida Mortgage Calculators — Affordability, Payments & More",
+    description:
+      "Free Florida mortgage calculators. Estimate your home affordability, monthly payment, closing costs, and DPA savings.",
+    url: "https://www.makefloridayourhome.com/calculators",
+    type: "website",
+  },
 };
 
 export default function CalculatorsPage() {

@@ -185,7 +185,7 @@ export function Testimonials() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={review.image}
-                  alt=""
+                  alt={`${review.name} review`}
                   className="h-9 w-9 shrink-0 rounded-full object-cover"
                 />
                 <div>

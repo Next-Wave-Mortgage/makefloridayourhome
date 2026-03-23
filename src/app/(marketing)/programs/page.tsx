@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Programs",
-  description: "Explore our mortgage programs for Florida home buyers.",
+  title: "Florida Homebuyer Programs — DPA, Grants & Loan Options",
+  description:
+    "Browse every Florida homebuyer program: Hometown Heroes, Florida Assist, SHIP, FHA, VA, USDA, and county-level grants. See what you qualify for.",
+  openGraph: {
+    title: "Florida Homebuyer Programs — DPA, Grants & Loan Options",
+    description:
+      "Browse every Florida homebuyer program: Hometown Heroes, Florida Assist, SHIP, FHA, VA, USDA, and county-level grants.",
+    url: "https://www.makefloridayourhome.com/programs",
+    type: "website",
+  },
 };
 
 export default function ProgramsIndexPage() {

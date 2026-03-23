@@ -16,6 +16,30 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  openGraph: {
+    siteName: siteConfig.name,
+    type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "Make Florida Your Home — Florida Mortgage Experts",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-default.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large" as const,
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
 };
 
 export default function RootLayout({

@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "Mortgage tips, Florida housing market insights, and more.",
+  title: "Florida Mortgage Blog — Tips, Programs & Market Updates",
+  description:
+    "Expert articles on Florida home loans, down payment assistance, first-time buyer programs, and housing market trends. Updated weekly.",
+  openGraph: {
+    title: "Florida Mortgage Blog — Tips, Programs & Market Updates",
+    description:
+      "Expert articles on Florida home loans, down payment assistance, first-time buyer programs, and housing market trends.",
+    url: "https://www.makefloridayourhome.com/blog",
+    type: "website",
+  },
 };
 
 export default function BlogIndexPage() {
