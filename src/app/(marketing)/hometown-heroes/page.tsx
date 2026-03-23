@@ -129,7 +129,7 @@ const articles = [
     description:
       "See Florida Hometown Heroes income limits for 2026, including county-by-county eligibility and who qualifies.",
     href: "/learn/florida-hometown-heroes-income-limits",
-    image: "/images/learn/florida-hometown-heroes-income-limits-2026.jpg",
+    image: "/images/learn/florida-hometown-heroes-income-limits-2026.webp",
     readTime: "8 min read",
   },
   {
@@ -138,7 +138,7 @@ const articles = [
     description:
       "See which Florida jobs qualify for the Hometown Heroes program. Full eligibility checklist by occupation.",
     href: "/learn/florida-hometown-heroes-job-eligibility",
-    image: "/images/learn/florida-hometown-heroes-job-eligibility-2026.jpg",
+    image: "/images/learn/florida-hometown-heroes-job-eligibility-2026.webp",
     readTime: "7 min read",
   },
   {
@@ -147,7 +147,7 @@ const articles = [
     description:
       "Learn how to verify participating mortgage companies and secure up to $35,000 in assistance.",
     href: "/learn/florida-hometown-heroes-approved-lenders",
-    image: "/images/learn/florida-hometown-heroes-approved-lenders-2026.jpg",
+    image: "/images/learn/florida-hometown-heroes-approved-lenders-2026.webp",
     readTime: "6 min read",
   },
   {
@@ -156,7 +156,7 @@ const articles = [
     description:
       "See 2026 Florida Housing income limits and purchase price caps by county.",
     href: "/learn/florida-housing-income-purchase-price-limits",
-    image: "/images/learn/florida-housing-income-purchase-price-limits-2026.jpg",
+    image: "/images/learn/florida-housing-income-purchase-price-limits-2026.webp",
     readTime: "8 min read",
   },
 ];

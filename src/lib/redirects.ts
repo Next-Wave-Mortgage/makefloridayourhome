@@ -2035,6 +2035,9 @@ const redirects: Redirect[] = [
   { source: '/florida/home-loan/conventional-mortgage', destination: '/learn/conventional-mortgages-in-florida', permanent: true },
   { source: '/florida/home-loan/manufactured-home-loan', destination: '/learn/florida-manufactured-home-loan-program', permanent: true },
   { source: '/florida/home-loan/heloc', destination: '/learn/how-does-heloc-work-in-florida', permanent: true },
+
+  // Missing alias — old HubSpot URL without the suffix
+  { source: '/general-policies', destination: 'https://www.nextwavemortgage.com/terms-and-privacy', permanent: true },
 ];
 
 export default redirects;

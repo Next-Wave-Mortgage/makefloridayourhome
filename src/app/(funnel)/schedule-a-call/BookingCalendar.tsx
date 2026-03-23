@@ -244,7 +244,7 @@ export function BookingCalendar() {
             <div className="p-6">
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
-                  <Image src="/images/team/phil-ganz.jpg" alt="Phil Ganz" width={48} height={48} className="rounded-full object-cover" />
+                  <Image src="/images/team/phil-ganz.webp" alt="Phil Ganz" width={48} height={48} className="rounded-full object-cover" />
                   <div>
                     <p className="text-[15px] font-bold text-dark-green">Phil Ganz</p>
                     <p className="text-[13px] text-dark-green/50">Senior Mortgage Specialist &middot; NMLS #322933</p>
@@ -363,7 +363,7 @@ export function BookingCalendar() {
             {/* Phil photo + name */}
             <div className="mb-4 flex items-center gap-3 sm:mb-5 sm:flex-col sm:text-center">
               <Image
-                src="/images/team/phil-ganz.jpg"
+                src="/images/team/phil-ganz.webp"
                 alt="Phil Ganz"
                 width={72}
                 height={72}

@@ -38,6 +38,23 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301);
   }
 
+  // Catch-all: old /blog/* and /blog/tag/* URLs that don't have specific
+  // redirects. No blog route exists on the new site — send to /learn.
+  if (normalised.toLowerCase().startsWith("/blog/")) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/learn";
+    return NextResponse.redirect(url, 301);
+  }
+
+  // Case normalization: HubSpot was case-insensitive, so /Home-Loan, /About-Us
+  // etc. may exist in the wild. Lowercase and 301 to the canonical version.
+  const lowered = normalised.toLowerCase();
+  if (lowered !== normalised) {
+    const url = request.nextUrl.clone();
+    url.pathname = lowered;
+    return NextResponse.redirect(url, 301);
+  }
+
   return NextResponse.next();
 }
 

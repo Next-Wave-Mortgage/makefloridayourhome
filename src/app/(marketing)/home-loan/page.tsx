@@ -103,9 +103,9 @@ const loanTypes = [
     href: "/home-loan/fha-loan",
     linkText: "FHA Loan Details",
     articles: [
-      { title: "FHA Loan Eligibility Requirements in Florida", href: "/learn/fha-loan-eligibility-requirements-florida", image: "/images/learn/fha-loan-eligibility-requirements-florida-2026.jpg" },
-      { title: "Florida FHA Loan Limits by County (2026)", href: "/learn/florida-fha-loan-limits", image: "/images/learn/florida-fha-loan-limits-2026.jpg" },
-      { title: "FHA 203k Loan in Florida: Rehab & Renovation Guide", href: "/learn/fha-203k-loan-florida", image: "/images/learn/fha-203k-loan-florida-2026.jpg" },
+      { title: "FHA Loan Eligibility Requirements in Florida", href: "/learn/fha-loan-eligibility-requirements-florida", image: "/images/learn/fha-loan-eligibility-requirements-florida-2026.webp" },
+      { title: "Florida FHA Loan Limits by County (2026)", href: "/learn/florida-fha-loan-limits", image: "/images/learn/florida-fha-loan-limits-2026.webp" },
+      { title: "FHA 203k Loan in Florida: Rehab & Renovation Guide", href: "/learn/fha-203k-loan-florida", image: "/images/learn/fha-203k-loan-florida-2026.webp" },
     ],
   },
   {
@@ -115,8 +115,8 @@ const loanTypes = [
     description:
       "Conventional loans aren't backed by a government agency — they follow guidelines set by Fannie Mae and Freddie Mac. They require a 620+ credit score and as little as 3% down. The big advantage: private mortgage insurance (PMI) can be removed once you reach 80% loan-to-value, saving you money over time.",
     articles: [
-      { title: "Conventional Mortgages in Florida: Full Guide", href: "/learn/conventional-mortgages-in-florida", image: "/images/learn/conventional-mortgages-in-florida-2026.jpg" },
-      { title: "Requirements to Buy a House in Florida", href: "/learn/requirements-to-buy-a-house-in-florida", image: "/images/learn/requirements-to-buy-a-house-in-florida-2026.jpg" },
+      { title: "Conventional Mortgages in Florida: Full Guide", href: "/learn/conventional-mortgages-in-florida", image: "/images/learn/conventional-mortgages-in-florida-2026.webp" },
+      { title: "Requirements to Buy a House in Florida", href: "/learn/requirements-to-buy-a-house-in-florida", image: "/images/learn/requirements-to-buy-a-house-in-florida-2026.webp" },
     ],
   },
   {
@@ -126,8 +126,8 @@ const loanTypes = [
     description:
       "Available to veterans, active-duty service members, and eligible surviving spouses, VA loans offer 0% down payment and no mortgage insurance. They're backed by the Department of Veterans Affairs and typically offer the best rates available. VA loans can be combined with county DPA programs for closing cost assistance.",
     articles: [
-      { title: "Florida VA Disability Property Tax Exemptions", href: "/learn/florida-va-disability-property-tax-exemptions", image: "/images/learn/florida-va-disability-property-tax-exemptions-2026.jpg" },
-      { title: "Florida Housing Income & Purchase Price Limits (2026)", href: "/learn/florida-housing-income-purchase-price-limits", image: "/images/learn/florida-housing-income-purchase-price-limits-2026.jpg" },
+      { title: "Florida VA Disability Property Tax Exemptions", href: "/learn/florida-va-disability-property-tax-exemptions", image: "/images/learn/florida-va-disability-property-tax-exemptions-2026.webp" },
+      { title: "Florida Housing Income & Purchase Price Limits (2026)", href: "/learn/florida-housing-income-purchase-price-limits", image: "/images/learn/florida-housing-income-purchase-price-limits-2026.webp" },
     ],
   },
   {
@@ -137,7 +137,7 @@ const loanTypes = [
     description:
       "USDA loans are designed for buyers purchasing in USDA-eligible rural areas — and many Florida suburbs qualify. They offer 0% down payment and reduced mortgage insurance rates. Income limits apply based on your county and household size.",
     articles: [
-      { title: "USDA Loans in Florida: Eligibility, Income Limits & Map", href: "/learn/usda-loans-florida", image: "/images/learn/usda-loans-florida-2026.jpg" },
+      { title: "USDA Loans in Florida: Eligibility, Income Limits & Map", href: "/learn/usda-loans-florida", image: "/images/learn/usda-loans-florida-2026.webp" },
     ],
   },
   {
@@ -147,7 +147,7 @@ const loanTypes = [
     description:
       "A reverse mortgage (HECM) lets homeowners age 62 and older convert home equity into cash — either as a lump sum, monthly payments, or a line of credit. No monthly mortgage payments are required. The loan is repaid when the borrower sells, moves, or passes away.",
     articles: [
-      { title: "Reverse Mortgage Closing Costs in Florida", href: "/learn/reverse-mortgage-closing-costs-florida", image: "/images/learn/reverse-mortgage-closing-costs-florida-2026.jpg" },
+      { title: "Reverse Mortgage Closing Costs in Florida", href: "/learn/reverse-mortgage-closing-costs-florida", image: "/images/learn/reverse-mortgage-closing-costs-florida-2026.webp" },
     ],
   },
   {
@@ -157,7 +157,7 @@ const loanTypes = [
     description:
       "Florida has one of the largest manufactured housing markets in the country. FHA, VA, and conventional loans are all available for manufactured homes on permanent foundations. Down payments start at 3.5% for FHA. The home must meet HUD code standards and be classified as real property.",
     articles: [
-      { title: "Florida Manufactured Home Loan Program Guide", href: "/learn/florida-manufactured-home-loan-program", image: "/images/learn/florida-manufactured-home-loan-program-2026.jpg" },
+      { title: "Florida Manufactured Home Loan Program Guide", href: "/learn/florida-manufactured-home-loan-program", image: "/images/learn/florida-manufactured-home-loan-program-2026.webp" },
     ],
   },
   {
@@ -167,7 +167,7 @@ const loanTypes = [
     description:
       "A Home Equity Line of Credit lets existing homeowners borrow against their home's equity. It works like a credit card with a revolving balance. HELOCs are ideal for home improvements, debt consolidation, or large expenses. Most lenders require at least 15–20% equity and a 620+ credit score.",
     articles: [
-      { title: "How a HELOC Works in Florida: Rates, Limits & Examples", href: "/learn/how-does-heloc-work-in-florida", image: "/images/learn/how-does-heloc-work-in-florida-2026.jpg" },
+      { title: "How a HELOC Works in Florida: Rates, Limits & Examples", href: "/learn/how-does-heloc-work-in-florida", image: "/images/learn/how-does-heloc-work-in-florida-2026.webp" },
     ],
   },
 ];
