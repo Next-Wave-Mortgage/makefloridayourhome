@@ -25,7 +25,7 @@ export async function generateMetadata({
   const url = `https://www.makefloridayourhome.com/learn/${slugStr}`;
 
   return {
-    title: `${post.title} | Make Florida Your Home`,
+    title: post.title,
     description: post.description,
     alternates: {
       canonical: url,
