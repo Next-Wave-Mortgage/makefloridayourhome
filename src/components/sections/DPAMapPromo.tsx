@@ -57,7 +57,7 @@ export function DPAMapPromo() {
             </p>
             <h2 className="mt-3 text-[28px] font-bold leading-tight text-dark-green sm:text-[36px] lg:text-[42px]">
               <span className="text-brand-green">105 Programs.</span>{" "}
-              48 Counties.
+              67 Counties.
               <br className="hidden sm:block" /> One Map.
             </h2>
             <p className="mt-5 max-w-lg text-[16px] leading-relaxed text-dark-green/60 sm:text-[17px]">
@@ -86,7 +86,7 @@ export function DPAMapPromo() {
             </div>
 
             <p className="mt-3 text-[13px] text-dark-green/40">
-              Programs available per county — click the map to explore all 48
+              Programs available per county — click the map to explore all 67
             </p>
 
             {/* CTA */}
@@ -201,7 +201,7 @@ export function DPAMapPromo() {
                       Florida DPA Interactive Map
                     </p>
                     <p className="mt-0.5 text-[13px] text-dark-green/50">
-                      105 programs across 48 counties
+                      105 programs across 67 counties
                     </p>
                   </div>
                   <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-green/10 text-brand-green transition-all duration-300 group-hover:bg-brand-green group-hover:text-white">

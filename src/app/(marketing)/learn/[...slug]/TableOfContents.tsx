@@ -127,7 +127,7 @@ function MapPromoCard() {
           Interactive DPA Map
         </div>
         <p className="mt-1 text-[12px] leading-relaxed text-dark-green/60">
-          Explore 105 programs across 48 Florida counties. Click your county to find assistance near you.
+          Explore 105 programs across 67 Florida counties. Click your county to find assistance near you.
         </p>
         <span className="mt-2 inline-flex items-center gap-1 text-[12px] font-bold text-brand-green transition-colors group-hover:text-brand-green/80">
           Explore the Map

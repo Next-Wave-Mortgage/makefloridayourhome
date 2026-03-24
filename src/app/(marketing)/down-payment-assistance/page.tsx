@@ -248,7 +248,7 @@ export default function DownPaymentAssistancePage() {
               <div className="absolute bottom-4 left-6 flex gap-5 sm:bottom-6 sm:left-8 sm:gap-6">
                 {[
                   { value: "105", label: "Programs" },
-                  { value: "48", label: "Counties" },
+                  { value: "67", label: "Counties" },
                   { value: "$35K+", label: "Max Aid" },
                 ].map((stat) => (
                   <div key={stat.label} className="text-center">
