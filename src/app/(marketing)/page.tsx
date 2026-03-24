@@ -88,6 +88,13 @@ const organizationSchema = {
     opens: "09:00",
     closes: "18:00",
   },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    bestRating: "5",
+    ratingCount: "239",
+    reviewCount: "239",
+  },
   sameAs: [siteConfig.links.bbb],
   hasCredential: {
     "@type": "EducationalOccupationalCredential",
@@ -108,14 +115,6 @@ const websiteSchema = {
   publisher: {
     "@type": "MortgageBroker",
     name: siteConfig.company,
-  },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${siteConfig.url}/learn?q={search_term_string}`,
-    },
-    "query-input": "required name=search_term_string",
   },
 };
 
@@ -221,19 +220,6 @@ const siteNavSchema = {
   ],
 };
 
-const reviewSchema = {
-  "@context": "https://schema.org",
-  "@type": "MortgageBroker",
-  name: siteConfig.company,
-  url: siteConfig.url,
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    bestRating: "5",
-    ratingCount: "239",
-    reviewCount: "239",
-  },
-};
 
 export default function HomePage() {
   return (
@@ -257,13 +243,6 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(faqSchema),
-        }}
-      />
-      <Script
-        id="review-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(reviewSchema),
         }}
       />
       <Script
