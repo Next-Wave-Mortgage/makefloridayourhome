@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { MeetingEmbed } from "./MeetingEmbed";
 
 export const metadata: Metadata = {
-  title: "Schedule a FREE Call | Make Florida Your Home",
+  title: "Schedule a FREE Call",
   description:
     "Schedule a free 30-minute call with Phil Ganz, Senior Loan Officer with over 20 years of experience. No commitment, no obligation.",
   openGraph: {
-    title: "Schedule a FREE Call | Make Florida Your Home",
+    title: "Schedule a FREE Call",
     description:
       "Schedule a free call with a Florida mortgage expert. No commitment.",
     url: "https://www.makefloridayourhome.com/eligibility/schedule-a-free-call",

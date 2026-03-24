@@ -17,10 +17,10 @@ export async function generateMetadata({
   const member = team.find((m) => m.slug === slug);
   if (!member) return {};
   return {
-    title: `${member.name} | ${member.role} | Make Florida Your Home`,
+    title: `${member.name} | ${member.role}`,
     description: member.bio[0],
     openGraph: {
-      title: `${member.name} | ${member.role} | Make Florida Your Home`,
+      title: `${member.name} | ${member.role}`,
       description: member.bio[0],
       url: `https://www.makefloridayourhome.com/team/${member.slug}`,
       type: "profile",

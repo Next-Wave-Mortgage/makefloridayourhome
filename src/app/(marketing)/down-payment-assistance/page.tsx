@@ -10,7 +10,7 @@ import { DPAMapPromo } from "@/components/sections/DPAMapPromo";
 
 export const metadata: Metadata = {
   title:
-    "Florida Down Payment Assistance Programs (2026) | Make Florida Your Home",
+    "Florida Down Payment Assistance Programs (2026)",
   description:
     "Explore Florida down payment assistance programs for 2026. Learn about Hometown Heroes, Florida Assist, SHIP funds, and how to qualify for up to $35,000+ in aid.",
   alternates: { canonical: "/down-payment-assistance" },

@@ -3,7 +3,7 @@ import { InteractiveMap } from "./InteractiveMap";
 
 export const metadata: Metadata = {
   title:
-    "Florida Down Payment Assistance Map — Find Programs in Your County | Make Florida Your Home",
+    "Florida Down Payment Assistance Map — Find Programs in Your County",
   description:
     "Interactive map of 105 Florida down payment assistance programs across 48 counties. Click your county to see available grants, forgivable loans, and deferred programs — then check your eligibility.",
   openGraph: {

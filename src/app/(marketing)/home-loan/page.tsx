@@ -8,7 +8,7 @@ import { DataTable } from "@/components/shared/DataTable";
 
 export const metadata: Metadata = {
   title:
-    "Florida Home Loan Options (2026) — FHA, VA, USDA, Conventional & More | Make Florida Your Home",
+    "Florida Home Loan Options (2026) — FHA, VA, USDA, Conventional & More",
   description:
     "Compare Florida home loan options for 2026: FHA, Conventional, VA, USDA, Reverse Mortgage, Manufactured Home, and HELOC. Find the best fit for your situation.",
   openGraph: {

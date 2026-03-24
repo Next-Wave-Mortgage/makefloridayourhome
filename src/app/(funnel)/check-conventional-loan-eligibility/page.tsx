@@ -3,12 +3,12 @@ import { FunnelFormPage } from "../FunnelFormPage";
 
 export const metadata: Metadata = {
   title:
-    "Check Your Conventional Loan Eligibility | Make Florida Your Home",
+    "Check Your Conventional Loan Eligibility",
   description:
     "See if you qualify for a conventional loan in Florida. Competitive rates, as low as 3% down — takes 2 minutes, no credit pull.",
   openGraph: {
     title:
-      "Check Your Conventional Loan Eligibility | Make Florida Your Home",
+      "Check Your Conventional Loan Eligibility",
     description:
       "See if you qualify for a conventional loan in Florida. Competitive rates, as low as 3% down.",
     url: "https://www.makefloridayourhome.com/check-conventional-loan-eligibility",

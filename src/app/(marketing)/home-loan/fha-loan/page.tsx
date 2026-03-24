@@ -9,7 +9,7 @@ import { ExpertGuidesRow } from "@/components/shared/ExpertGuidesRow";
 
 export const metadata: Metadata = {
   title:
-    "Florida FHA Loans (2026) — Requirements, Limits & How to Qualify | Make Florida Your Home",
+    "Florida FHA Loans (2026) — Requirements, Limits & How to Qualify",
   description:
     "Learn about FHA loans in Florida for 2026. See loan limits by county, credit score requirements, down payment details, and how FHA compares to conventional.",
   openGraph: {

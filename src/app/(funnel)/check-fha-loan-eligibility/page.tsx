@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { FunnelFormPage } from "../FunnelFormPage";
 
 export const metadata: Metadata = {
-  title: "Check Your FHA Loan Eligibility | Make Florida Your Home",
+  title: "Check Your FHA Loan Eligibility",
   description:
     "See if you qualify for an FHA loan in Florida. Low down payment, flexible credit — takes 2 minutes, no credit pull.",
   openGraph: {
-    title: "Check Your FHA Loan Eligibility | Make Florida Your Home",
+    title: "Check Your FHA Loan Eligibility",
     description:
       "See if you qualify for an FHA loan in Florida. Low down payment, flexible credit — takes 2 minutes.",
     url: "https://www.makefloridayourhome.com/check-fha-loan-eligibility",

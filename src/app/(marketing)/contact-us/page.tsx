@@ -3,11 +3,11 @@ import { siteConfig } from "@/lib/site";
 import { ContactForm } from "./ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Make Florida Your Home",
+  title: "Contact Us",
   description:
     "Get in touch with our Florida mortgage specialists. We respond within one business day.",
   openGraph: {
-    title: "Contact Us | Make Florida Your Home",
+    title: "Contact Us",
     description: "Get in touch with our Florida mortgage specialists.",
     url: "https://www.makefloridayourhome.com/contact-us",
     type: "website",

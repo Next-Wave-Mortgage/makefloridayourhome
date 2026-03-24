@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { FunnelFormPage } from "../FunnelFormPage";
 
 export const metadata: Metadata = {
-  title: "Free Home Purchase Eligibility | Make Florida Your Home",
+  title: "Free Home Purchase Eligibility",
   description:
     "Check your Florida home purchase eligibility in 2 minutes. No credit pull, no obligation. See every program and grant you qualify for.",
   openGraph: {
-    title: "Free Home Purchase Eligibility | Make Florida Your Home",
+    title: "Free Home Purchase Eligibility",
     description:
       "Check your Florida home purchase eligibility in 2 minutes. No credit pull, no obligation.",
     url: "https://www.makefloridayourhome.com/home-purchase-eligibility",

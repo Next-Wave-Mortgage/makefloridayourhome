@@ -7,7 +7,7 @@ import { DataTable } from "@/components/shared/DataTable";
 
 export const metadata: Metadata = {
   title:
-    "Florida First-Time Home Buyer Programs & Grants (2026) | Make Florida Your Home",
+    "Florida First-Time Home Buyer Programs & Grants (2026)",
   description:
     "Explore Florida first-time home buyer programs, grants, and down payment assistance for 2026. See income limits, requirements, and how to qualify.",
   alternates: {

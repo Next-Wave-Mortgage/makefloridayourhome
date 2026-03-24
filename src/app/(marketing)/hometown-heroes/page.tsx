@@ -9,7 +9,7 @@ import { ExpertGuidesRow } from "@/components/shared/ExpertGuidesRow";
 
 export const metadata: Metadata = {
   title:
-    "Florida Hometown Heroes Program (2026) — Up to $35,000 in DPA | Make Florida Your Home",
+    "Florida Hometown Heroes Program (2026) — Up to $35,000 in DPA",
   description:
     "Learn about Florida's Hometown Heroes Program for 2026. Up to $35,000 in down payment assistance for teachers, nurses, law enforcement, and 50+ professions.",
   alternates: { canonical: "/hometown-heroes" },

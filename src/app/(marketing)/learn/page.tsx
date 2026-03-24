@@ -4,11 +4,11 @@ import Image from "next/image";
 import { getAllPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Mortgage Articles & Florida Homebuyer Resources | Make Florida Your Home",
+  title: "Mortgage Articles & Florida Homebuyer Resources",
   description:
     "Expert guides on Florida home loans, down payment assistance, first-time buyer programs, and more. Updated for 2026.",
   openGraph: {
-    title: "Mortgage Articles | Make Florida Your Home",
+    title: "Mortgage Articles",
     description: "Expert guides on Florida home loans and buyer programs.",
     url: "https://www.makefloridayourhome.com/learn",
     type: "website",

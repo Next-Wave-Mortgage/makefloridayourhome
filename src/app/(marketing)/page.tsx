@@ -13,7 +13,7 @@ import { FinalCTA } from "@/components/sections/FinalCTA";
 
 export const metadata: Metadata = {
   title:
-    "Florida First-Time Homebuyer Programs & Grants (2026) | Make Florida Your Home",
+    "Florida First-Time Homebuyer Programs & Grants (2026)",
   description:
     "See every Florida first-time homebuyer program you qualify for — Hometown Heroes, FHA, VA, USDA, down payment assistance up to $35,000+. No credit pull. Free. 2 minutes.",
   alternates: {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Florida First-Time Homebuyer Programs & Grants (2026) | Make Florida Your Home",
+      "Florida First-Time Homebuyer Programs & Grants (2026)",
     description:
       "See every Florida first-time homebuyer program you qualify for — Hometown Heroes, FHA, VA, USDA, down payment assistance up to $35,000+.",
     url: siteConfig.url,
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Florida First-Time Homebuyer Programs & Grants (2026) | Make Florida Your Home",
+      "Florida First-Time Homebuyer Programs & Grants (2026)",
     description:
       "See every Florida first-time homebuyer program you qualify for — Hometown Heroes, FHA, VA, USDA, down payment assistance up to $35,000+.",
     images: [`${siteConfig.url}/opengraph-image`],

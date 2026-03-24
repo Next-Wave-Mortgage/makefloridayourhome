@@ -4,11 +4,11 @@ import Image from "next/image";
 import { team } from "./teamData";
 
 export const metadata: Metadata = {
-  title: "Our Team | Make Florida Your Home",
+  title: "Our Team",
   description:
     "Meet the Florida mortgage experts at Next Wave Mortgage. Personalized service, fast turn times, and decades of experience.",
   openGraph: {
-    title: "Our Team | Make Florida Your Home",
+    title: "Our Team",
     description: "Meet the Florida mortgage experts at Next Wave Mortgage.",
     url: "https://www.makefloridayourhome.com/team",
     type: "website",

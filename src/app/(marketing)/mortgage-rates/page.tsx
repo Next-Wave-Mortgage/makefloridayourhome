@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Current Mortgage Rates in Florida | Make Florida Your Home",
+  title: "Current Mortgage Rates in Florida",
   description:
     "Today's Florida mortgage rates updated regularly. Compare 30-year fixed, 15-year fixed, and more. Get personalized quotes with no obligation.",
   openGraph: {
-    title: "Current Mortgage Rates in Florida | Make Florida Your Home",
+    title: "Current Mortgage Rates in Florida",
     description:
       "Today's Florida mortgage rates. Compare 30-year fixed, 15-year fixed, and more.",
     url: "https://www.makefloridayourhome.com/mortgage-rates",

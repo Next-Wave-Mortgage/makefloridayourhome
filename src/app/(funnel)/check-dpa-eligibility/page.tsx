@@ -3,12 +3,12 @@ import { FunnelFormPage } from "../FunnelFormPage";
 
 export const metadata: Metadata = {
   title:
-    "Check Your Down Payment Assistance Eligibility | Make Florida Your Home",
+    "Check Your Down Payment Assistance Eligibility",
   description:
     "See which Florida down payment assistance programs you qualify for. Takes 2 minutes — no credit pull, no obligation.",
   openGraph: {
     title:
-      "Check Your Down Payment Assistance Eligibility | Make Florida Your Home",
+      "Check Your Down Payment Assistance Eligibility",
     description:
       "See which Florida down payment assistance programs you qualify for. Takes 2 minutes — no credit pull, no obligation.",
     url: "https://www.makefloridayourhome.com/check-dpa-eligibility",

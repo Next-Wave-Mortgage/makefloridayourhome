@@ -4,11 +4,11 @@ import { Calculator } from "./Calculator";
 
 export const metadata: Metadata = {
   title:
-    "Florida Home Affordability Calculator (2026) | Make Florida Your Home",
+    "Florida Home Affordability Calculator (2026)",
   description:
     "How much home can you afford in Florida? Use our free calculator to estimate your max home price, monthly payment, and payment breakdown.",
   openGraph: {
-    title: "Florida Home Affordability Calculator | Make Florida Your Home",
+    title: "Florida Home Affordability Calculator",
     description:
       "How much home can you afford? Free calculator with real-time estimates.",
     url: "https://www.makefloridayourhome.com/home-affordability-calculator",
