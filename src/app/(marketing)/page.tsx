@@ -7,6 +7,7 @@ import { Programs } from "@/components/sections/Programs";
 import { WhyTrust } from "@/components/sections/WhyTrust";
 import { ExpertGuides } from "@/components/sections/ExpertGuides";
 import { WhatWeDo } from "@/components/sections/WhatWeDo";
+import { DPAMapPromo } from "@/components/sections/DPAMapPromo";
 import { FAQ } from "@/components/sections/FAQ";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 
@@ -274,6 +275,7 @@ export default function HomePage() {
       />
       <Hero />
       <Testimonials />
+      <DPAMapPromo />
       <Programs />
       <WhyTrust />
       <ExpertGuides />

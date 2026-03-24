@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import Link from "next/link";
+import Image from "next/image";
 import { PageHero } from "@/components/shared/PageHero";
 import { PageFAQ } from "@/components/shared/PageFAQ";
 import { PageCTA } from "@/components/shared/PageCTA";
 import { ExpertGuidesRow } from "@/components/shared/ExpertGuidesRow";
+import { DPAMapPromo } from "@/components/sections/DPAMapPromo";
 
 export const metadata: Metadata = {
   title:
@@ -63,24 +65,6 @@ const heroFeatures = [
   },
 ];
 
-const programs = [
-  {
-    name: "Florida Hometown Heroes",
-    amount: "Up to $35,000",
-    type: "0% interest, deferred second mortgage",
-    repayment: "Repaid when you sell, refinance, or pay off your first mortgage",
-    who: "Full-time W-2 employees in 50+ eligible professions — teachers, nurses, law enforcement, firefighters, childcare workers, and more",
-    href: "/hometown-heroes",
-  },
-  {
-    name: "Florida Assist (FL Assist)",
-    amount: "Up to $7,500",
-    type: "0% interest, deferred second mortgage",
-    repayment: "Repaid when you sell, refinance, or transfer the property",
-    who: "First-time buyers meeting Florida Housing income and purchase price limits. Must pair with a Florida Housing first mortgage.",
-    href: "/first-time-home-buyer",
-  },
-];
 
 const requirements = [
   "Minimum 640 credit score (580 for some FHA-based programs)",
@@ -243,68 +227,63 @@ export default function DownPaymentAssistancePage() {
         ctaText="Check Your Florida DPA Eligibility"
       />
 
-      {/* Explainer */}
-      <section className="bg-white py-16 sm:py-20 lg:py-24">
+      {/* Interactive DPA Map */}
+      <DPAMapPromo />
+
+      {/* 105 Programs Promo */}
+      <section className="bg-green-tint py-14 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-[28px] font-bold leading-tight text-dark-green sm:text-[36px] lg:text-[42px]">
-              <span className="text-brand-green">How</span> Down Payment
-              Assistance Works
-            </h2>
-            <p className="mt-5 text-[16px] leading-relaxed text-dark-green/60">
-              Florida DPA programs provide funds to cover your down payment,
-              closing costs, or both. Most are structured as 0% interest second
-              mortgages that you don&apos;t repay until you sell or refinance.
-              Some are outright grants that never need to be repaid.
-            </p>
-          </div>
-        </div>
-      </section>
+          <div className="overflow-hidden rounded-2xl bg-white shadow-[0_2px_20px_rgba(0,0,0,0.06)]">
+            {/* Featured image */}
+            <div className="relative h-[200px] sm:h-[260px]">
+              <Image
+                src="/images/learn/florida-first-time-homebuyer-grants-programs-2026.webp"
+                alt="105 Florida First-Time Home Buyer Grants & Programs"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1400px) 100vw, 1400px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              {/* Stats overlay */}
+              <div className="absolute bottom-4 left-6 flex gap-5 sm:bottom-6 sm:left-8 sm:gap-6">
+                {[
+                  { value: "105", label: "Programs" },
+                  { value: "48", label: "Counties" },
+                  { value: "$35K+", label: "Max Aid" },
+                ].map((stat) => (
+                  <div key={stat.label} className="text-center">
+                    <span className="block text-[24px] font-extrabold leading-none text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.4)] sm:text-[28px]">
+                      {stat.value}
+                    </span>
+                    <span className="mt-0.5 block text-[10px] font-semibold uppercase tracking-wider text-white/70">
+                      {stat.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-      {/* Program Cards */}
-      <section className="bg-green-tint py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
-          <h2 className="mx-auto max-w-2xl text-center text-[28px] font-bold leading-tight text-dark-green sm:text-[36px] lg:text-[42px]">
-            <span className="text-brand-green">Top</span> Florida DPA Programs
-          </h2>
+            {/* Content */}
+            <div className="p-8 sm:p-10">
+              <p className="text-[13px] font-semibold uppercase tracking-[0.2em] text-brand-green">
+                Complete Guide
+              </p>
+              <h2 className="mt-3 text-[26px] font-bold leading-tight text-dark-green sm:text-[32px] lg:text-[36px]">
+                <span className="text-brand-green">105</span>{" "}Florida First-Time
+                Home Buyer Grants &amp; Programs
+              </h2>
+              <p className="mt-4 max-w-xl text-[16px] leading-relaxed text-dark-green/60">
+                Every grant, forgivable loan, and deferred program available to
+                Florida buyers in 2026 — organized by county, amount, and type.
+                The most comprehensive list you&apos;ll find anywhere.
+              </p>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            {programs.map((program) => (
-              <div
-                key={program.name}
-                className="rounded-2xl border border-border-gray/60 bg-white p-8 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-300 hover:border-brand-green/30 hover:shadow-[0_8px_32px_rgba(0,105,72,0.1)]"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="text-[20px] font-bold text-dark-green sm:text-[22px]">
-                    {program.name}
-                  </h3>
-                  <span className="shrink-0 rounded-full bg-brand-green/10 px-4 py-1.5 text-[14px] font-bold text-brand-green">
-                    {program.amount}
-                  </span>
-                </div>
-
-                <div className="mt-5 space-y-3">
-                  {[
-                    { label: "Type", value: program.type },
-                    { label: "Repayment", value: program.repayment },
-                    { label: "Who Qualifies", value: program.who },
-                  ].map((detail) => (
-                    <div key={detail.label}>
-                      <span className="text-[12px] font-bold uppercase tracking-wider text-dark-green/40">
-                        {detail.label}
-                      </span>
-                      <p className="mt-0.5 text-[15px] leading-relaxed text-dark-green/70">
-                        {detail.value}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
+              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
                 <Link
-                  href={program.href}
-                  className="group mt-6 inline-flex items-center gap-2 text-[15px] font-bold text-brand-green transition-colors hover:text-dark-green"
+                  href="/learn/first-time-homebuyer/grants-and-programs"
+                  className="group inline-flex items-center gap-2 rounded-full bg-brand-green px-7 py-3.5 text-[15px] font-bold text-white transition-shadow duration-300 hover:shadow-[0_4px_20px_rgba(0,105,72,0.4)]"
                 >
-                  Learn More
+                  View All 105 Programs
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -321,8 +300,11 @@ export default function DownPaymentAssistancePage() {
                     <polyline points="12 5 19 12 12 19" />
                   </svg>
                 </Link>
+                <span className="text-[14px] text-dark-green/40">
+                  33 min read
+                </span>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
