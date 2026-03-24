@@ -12,10 +12,10 @@ interface TocItem {
 
 function getHeadingsFromDom(): TocItem[] {
   if (typeof document === "undefined") return [];
-  const article = document.querySelector("article");
-  if (!article) return [];
+  const prose = document.querySelector(".prose-mfyh");
+  if (!prose) return [];
 
-  const els = article.querySelectorAll("h2");
+  const els = prose.querySelectorAll("h2");
   const items: TocItem[] = [];
 
   els.forEach((el) => {
