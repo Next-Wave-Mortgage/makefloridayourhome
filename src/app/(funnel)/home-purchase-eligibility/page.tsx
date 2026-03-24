@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Free Home Purchase Eligibility",
   description:
     "Check your Florida home purchase eligibility in 2 minutes. No credit pull, no obligation. See every program and grant you qualify for.",
+  alternates: {
+    canonical: "/home-purchase-eligibility",
+  },
   openGraph: {
     title: "Free Home Purchase Eligibility",
     description:

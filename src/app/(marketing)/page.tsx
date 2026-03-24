@@ -13,17 +13,17 @@ import { FinalCTA } from "@/components/sections/FinalCTA";
 
 export const metadata: Metadata = {
   title:
-    "Florida First-Time Homebuyer Programs & Grants (2026)",
+    "Florida's Premier First-Time Homebuyer Resource",
   description:
-    "See every Florida first-time homebuyer program you qualify for — Hometown Heroes, FHA, VA, USDA, down payment assistance up to $35,000+. No credit pull. Free. 2 minutes.",
+    "See every Florida homebuyer program, grant, and loan you qualify for — down payment assistance, Hometown Heroes, FHA, VA, USDA, and more. No credit pull. Free.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title:
-      "Florida First-Time Homebuyer Programs & Grants (2026)",
+      "Florida's Premier First-Time Homebuyer Resource",
     description:
-      "See every Florida first-time homebuyer program you qualify for — Hometown Heroes, FHA, VA, USDA, down payment assistance up to $35,000+.",
+      "See every Florida homebuyer program, grant, and loan you qualify for — down payment assistance, Hometown Heroes, FHA, VA, USDA, and more.",
     url: siteConfig.url,
     siteName: siteConfig.name,
     type: "website",
@@ -33,16 +33,16 @@ export const metadata: Metadata = {
         url: `${siteConfig.url}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: "Make Florida Your Home — Florida First-Time Homebuyer Programs & Grants",
+        alt: "Florida's premier first-time homebuyer resource — programs, grants, and down payment assistance",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Florida First-Time Homebuyer Programs & Grants (2026)",
+      "Florida's Premier First-Time Homebuyer Resource",
     description:
-      "See every Florida first-time homebuyer program you qualify for — Hometown Heroes, FHA, VA, USDA, down payment assistance up to $35,000+.",
+      "See every Florida homebuyer program, grant, and loan you qualify for — down payment assistance, Hometown Heroes, FHA, VA, USDA, and more.",
     images: [`${siteConfig.url}/opengraph-image`],
   },
   robots: {

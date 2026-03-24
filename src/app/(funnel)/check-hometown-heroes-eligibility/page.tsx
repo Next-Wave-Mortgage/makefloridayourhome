@@ -6,6 +6,9 @@ export const metadata: Metadata = {
     "Check Your Hometown Heroes Eligibility",
   description:
     "See if you qualify for up to $35,000 in assistance through Florida's Hometown Heroes program. Takes 2 minutes — no credit pull, no obligation.",
+  alternates: {
+    canonical: "/check-hometown-heroes-eligibility",
+  },
   openGraph: {
     title:
       "Check Your Hometown Heroes Eligibility",

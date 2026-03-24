@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Check Your FHA Loan Eligibility",
   description:
     "See if you qualify for an FHA loan in Florida. Low down payment, flexible credit — takes 2 minutes, no credit pull.",
+  alternates: {
+    canonical: "/check-fha-loan-eligibility",
+  },
   openGraph: {
     title: "Check Your FHA Loan Eligibility",
     description:

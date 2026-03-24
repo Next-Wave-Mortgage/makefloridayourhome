@@ -6,6 +6,9 @@ export const metadata: Metadata = {
     "Check Your Conventional Loan Eligibility",
   description:
     "See if you qualify for a conventional loan in Florida. Competitive rates, as low as 3% down — takes 2 minutes, no credit pull.",
+  alternates: {
+    canonical: "/check-conventional-loan-eligibility",
+  },
   openGraph: {
     title:
       "Check Your Conventional Loan Eligibility",
