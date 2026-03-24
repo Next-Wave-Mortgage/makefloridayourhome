@@ -181,7 +181,7 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://www.makefloridayourhome.com" },
-    { "@type": "ListItem", position: 2, name: "Down Payment Assistance" },
+    { "@type": "ListItem", position: 2, name: "Down Payment Assistance", item: "https://www.makefloridayourhome.com/down-payment-assistance" },
   ],
 };
 

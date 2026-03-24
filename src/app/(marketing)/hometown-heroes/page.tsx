@@ -241,7 +241,7 @@ const breadcrumbSchema = {
       name: "Home",
       item: "https://www.makefloridayourhome.com",
     },
-    { "@type": "ListItem", position: 2, name: "Hometown Heroes Program" },
+    { "@type": "ListItem", position: 2, name: "Hometown Heroes Program", item: "https://www.makefloridayourhome.com/hometown-heroes" },
   ],
 };
 

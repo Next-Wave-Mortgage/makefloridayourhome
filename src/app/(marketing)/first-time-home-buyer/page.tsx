@@ -144,7 +144,7 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://www.makefloridayourhome.com" },
-    { "@type": "ListItem", position: 2, name: "First-Time Home Buyer Programs" },
+    { "@type": "ListItem", position: 2, name: "First-Time Home Buyer Programs", item: "https://www.makefloridayourhome.com/first-time-home-buyer" },
   ],
 };
 
