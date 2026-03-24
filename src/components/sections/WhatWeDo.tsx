@@ -125,7 +125,7 @@ const features: {
   {
     title: "County Program Guides",
     description: "Find assistance specific to your Florida county",
-    href: "/programs",
+    href: "/florida-down-payment-assistance-interactive-map",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
