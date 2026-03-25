@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "@/app/globals.css";
 import { siteConfig } from "@/lib/site";
 import { TrackPageView } from "@/components/TrackPageView";
@@ -66,6 +68,8 @@ export default function RootLayout({
           </>
         )}
         <TrackPageView />
+        <Analytics />
+        <SpeedInsights />
         {children}
       </body>
     </html>
