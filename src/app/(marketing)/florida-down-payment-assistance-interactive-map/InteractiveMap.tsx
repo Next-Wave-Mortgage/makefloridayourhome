@@ -468,11 +468,7 @@ export function InteractiveMap() {
 
   // Stats
   const totalPrograms = DPA_PROGRAMS.length;
-  const countiesWithPrograms = new Set(
-    DPA_PROGRAMS.flatMap((p) =>
-      p.counties.filter((c) => c !== "Statewide")
-    )
-  ).size;
+  const countiesWithPrograms = 67;
 
   return (
     <div className="bg-white">
