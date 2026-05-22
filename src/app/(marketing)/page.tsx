@@ -12,16 +12,14 @@ import { FAQ } from "@/components/sections/FAQ";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 
 export const metadata: Metadata = {
-  title:
-    "Florida's Premier First-Time Homebuyer Resource",
+  title: "Florida's Premier First-Time Homebuyer Resource",
   description:
     "See every Florida homebuyer program, grant, and loan you qualify for — down payment assistance, Hometown Heroes, FHA, VA, USDA, and more. No credit pull. Free.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title:
-      "Florida's Premier First-Time Homebuyer Resource",
+    title: "Florida's Premier First-Time Homebuyer Resource",
     description:
       "See every Florida homebuyer program, grant, and loan you qualify for — down payment assistance, Hometown Heroes, FHA, VA, USDA, and more.",
     url: siteConfig.url,
@@ -39,8 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Florida's Premier First-Time Homebuyer Resource",
+    title: "Florida's Premier First-Time Homebuyer Resource",
     description:
       "See every Florida homebuyer program, grant, and loan you qualify for — down payment assistance, Hometown Heroes, FHA, VA, USDA, and more.",
     images: [`${siteConfig.url}/opengraph-image`],
@@ -190,36 +187,41 @@ const siteNavSchema = {
     {
       "@type": "SiteNavigationElement",
       position: 4,
+      name: "Florida Mortgage Rates",
+      url: `${siteConfig.url}/mortgage-rates`,
+    },
+    {
+      "@type": "SiteNavigationElement",
+      position: 5,
       name: "FHA Loans in Florida",
       url: `${siteConfig.url}/home-loan/fha-loan`,
     },
     {
       "@type": "SiteNavigationElement",
-      position: 5,
+      position: 6,
       name: "Home Loan Options",
       url: `${siteConfig.url}/home-loan`,
     },
     {
       "@type": "SiteNavigationElement",
-      position: 6,
+      position: 7,
       name: "Expert Guides & Articles",
       url: `${siteConfig.url}/learn`,
     },
     {
       "@type": "SiteNavigationElement",
-      position: 7,
+      position: 8,
       name: "Mortgage Calculators",
       url: `${siteConfig.url}/calculators`,
     },
     {
       "@type": "SiteNavigationElement",
-      position: 8,
+      position: 9,
       name: "About Us",
       url: `${siteConfig.url}/about-us`,
     },
   ],
 };
-
 
 export default function HomePage() {
   return (

@@ -4,7 +4,17 @@ import Image from "next/image";
 const features = [
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M9 11l3 3L22 4" />
         <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
       </svg>
@@ -13,7 +23,17 @@ const features = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <rect x="2" y="3" width="20" height="14" rx="2" />
         <path d="M8 21h8" />
         <path d="M12 17v4" />
@@ -24,7 +44,17 @@ const features = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
         <polyline points="9 22 9 12 15 12 15 22" />
       </svg>
@@ -33,7 +63,17 @@ const features = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <line x1="12" y1="1" x2="12" y2="23" />
         <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
       </svg>
@@ -109,9 +149,27 @@ export function Hero() {
                 {/* Dark slide-in on hover */}
                 <span className="absolute inset-0 -translate-x-full bg-brand-green transition-transform duration-300 ease-out group-hover:translate-x-0" />
               </Link>
-              <span className="text-[14px] text-dark-green/50">
-                No credit pull required
-              </span>
+              <Link
+                href="/mortgage-rates"
+                className="group inline-flex items-center justify-center gap-2 rounded-full border border-brand-green/25 bg-white px-7 py-4 text-[16px] font-bold text-brand-green shadow-[0_10px_30px_rgba(46,65,54,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-green/45 hover:shadow-[0_14px_34px_rgba(0,105,72,0.14)]"
+              >
+                <span>See today&apos;s rates</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="17"
+                  height="17"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </Link>
             </div>
 
             {/* Feature grid */}

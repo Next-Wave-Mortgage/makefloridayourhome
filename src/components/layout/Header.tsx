@@ -9,6 +9,7 @@ const navLinks = [
   { href: "/first-time-home-buyer", label: "First-Time Homebuyer" },
   { href: "/down-payment-assistance", label: "Down Payment Assistance" },
   { href: "/hometown-heroes", label: "Hometown Heroes" },
+  { href: "/mortgage-rates", label: "Rates" },
   { href: "/home-loan/fha-loan", label: "FHA Loan" },
   { href: "/home-loan", label: "Loan Options" },
 ];
@@ -33,7 +34,7 @@ export function Header() {
         </Link>
 
         {/* Desktop nav links */}
-        <ul className="mx-auto hidden items-center gap-7 text-[15px] font-bold text-dark-green xl:flex">
+        <ul className="mx-auto hidden items-center gap-5 text-[15px] font-bold text-dark-green xl:flex">
           {navLinks.map((link) => {
             const isActive =
               pathname === link.href || pathname.startsWith(link.href + "/");
@@ -90,9 +91,7 @@ export function Header() {
           >
             <span
               className={`absolute left-0 h-[2px] w-6 bg-current transition-all duration-300 ${
-                mobileOpen
-                  ? "top-[11px] rotate-45"
-                  : "top-[4px]"
+                mobileOpen ? "top-[11px] rotate-45" : "top-[4px]"
               }`}
             />
             <span
@@ -102,9 +101,7 @@ export function Header() {
             />
             <span
               className={`absolute left-0 h-[2px] w-6 bg-current transition-all duration-300 ${
-                mobileOpen
-                  ? "top-[11px] -rotate-45"
-                  : "top-[18px]"
+                mobileOpen ? "top-[11px] -rotate-45" : "top-[18px]"
               }`}
             />
           </button>
