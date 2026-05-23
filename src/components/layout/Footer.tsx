@@ -7,7 +7,10 @@ const navColumns = [
     heading: "Resources",
     links: [
       { href: "/mortgage-rates", label: "Mortgage Rates" },
-      { href: "/home-affordability-calculator", label: "Affordability Calculator" },
+      {
+        href: "/home-affordability-calculator",
+        label: "Affordability Calculator",
+      },
       { href: "/learn", label: "Mortgage Articles" },
     ],
   },
@@ -22,7 +25,10 @@ const navColumns = [
   {
     heading: "Legal",
     links: [
-      { href: "https://www.nextwavemortgage.com/terms", label: "Terms & Privacy" },
+      {
+        href: "https://www.nextwavemortgage.com/terms",
+        label: "Terms & Privacy",
+      },
       { href: "https://www.nextwavemortgage.com/terms", label: "Licenses" },
     ],
   },
@@ -100,12 +106,21 @@ export function Footer() {
                 <ul className="space-y-2.5 text-[13px] sm:space-y-3 sm:text-[14px]">
                   {col.links.map((link) => (
                     <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="text-white/70 transition-colors hover:text-white"
-                      >
-                        {link.label}
-                      </Link>
+                      {link.href === "/mortgage-rates" ? (
+                        <a
+                          href={link.href}
+                          className="text-white/70 transition-colors hover:text-white"
+                        >
+                          {link.label}
+                        </a>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          className="text-white/70 transition-colors hover:text-white"
+                        >
+                          {link.label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -128,8 +143,8 @@ export function Footer() {
                 Reverse mortgage borrowers are required to obtain an eligibility
                 certificate by receiving counseling sessions with a HUD-approved
                 agency. The youngest borrower must be at least 62 years old.
-                Monthly reverse mortgage advances may affect eligibility for some
-                other programs.
+                Monthly reverse mortgage advances may affect eligibility for
+                some other programs.
               </p>
               <p>
                 This is not an offer to enter into an agreement. Not all

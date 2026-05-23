@@ -41,16 +41,29 @@ export function Header() {
 
             return (
               <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={`relative whitespace-nowrap py-1 transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-brand-green after:transition-all after:duration-300 ${
-                    isActive
-                      ? "text-brand-green after:w-full"
-                      : "hover:text-brand-green after:w-0 hover:after:w-full"
-                  }`}
-                >
-                  {link.label}
-                </Link>
+                {link.href === "/mortgage-rates" ? (
+                  <a
+                    href={link.href}
+                    className={`relative whitespace-nowrap py-1 transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-brand-green after:transition-all after:duration-300 ${
+                      isActive
+                        ? "text-brand-green after:w-full"
+                        : "hover:text-brand-green after:w-0 hover:after:w-full"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    href={link.href}
+                    className={`relative whitespace-nowrap py-1 transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-brand-green after:transition-all after:duration-300 ${
+                      isActive
+                        ? "text-brand-green after:w-full"
+                        : "hover:text-brand-green after:w-0 hover:after:w-full"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                )}
               </li>
             );
           })}
@@ -122,17 +135,31 @@ export function Header() {
 
               return (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className={`block rounded-lg px-4 py-3 text-[15px] font-bold transition-colors ${
-                      isActive
-                        ? "bg-green-tint text-brand-green"
-                        : "text-dark-green hover:bg-green-tint"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
+                  {link.href === "/mortgage-rates" ? (
+                    <a
+                      href={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={`block rounded-lg px-4 py-3 text-[15px] font-bold transition-colors ${
+                        isActive
+                          ? "bg-green-tint text-brand-green"
+                          : "text-dark-green hover:bg-green-tint"
+                      }`}
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={`block rounded-lg px-4 py-3 text-[15px] font-bold transition-colors ${
+                        isActive
+                          ? "bg-green-tint text-brand-green"
+                          : "text-dark-green hover:bg-green-tint"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               );
             })}

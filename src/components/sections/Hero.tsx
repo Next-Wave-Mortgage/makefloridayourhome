@@ -149,7 +149,7 @@ export function Hero() {
                 {/* Dark slide-in on hover */}
                 <span className="absolute inset-0 -translate-x-full bg-brand-green transition-transform duration-300 ease-out group-hover:translate-x-0" />
               </Link>
-              <Link
+              <a
                 href="/mortgage-rates"
                 className="group inline-flex items-center justify-center gap-2 rounded-full border border-brand-green/25 bg-white px-7 py-4 text-[16px] font-bold text-brand-green shadow-[0_10px_30px_rgba(46,65,54,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-green/45 hover:shadow-[0_14px_34px_rgba(0,105,72,0.14)]"
               >
@@ -169,7 +169,7 @@ export function Hero() {
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
-              </Link>
+              </a>
             </div>
 
             {/* Feature grid */}
