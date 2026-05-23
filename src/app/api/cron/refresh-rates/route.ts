@@ -1,6 +1,5 @@
-import { revalidateTag } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
-import { getMortgageRateSnapshot, MORTGAGE_RATES_CACHE_TAG } from "@/lib/rates";
+import { refreshMortgageMarketSnapshot } from "@/lib/rates";
 
 export const dynamic = "force-dynamic";
 export const preferredRegion = "iad1";
@@ -13,26 +12,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  revalidateTag(MORTGAGE_RATES_CACHE_TAG, { expire: 0 });
-  const warmUrl = new URL("/api/rates", req.url);
-  warmUrl.searchParams.set("warm", Date.now().toString());
-  const warmResponse = await fetch(warmUrl, {
-    cache: "no-store",
-    headers: {
-      "x-cron-warm": "1",
-    },
-  });
-
-  if (!warmResponse.ok) {
-    return NextResponse.json(
-      { error: "Rates cache warm-up failed", status: warmResponse.status },
-      { status: 502 },
-    );
-  }
-
-  const snapshot = (await warmResponse.json()) as Awaited<
-    ReturnType<typeof getMortgageRateSnapshot>
-  >;
+  const snapshot = await refreshMortgageMarketSnapshot();
 
   return NextResponse.json({
     success: true,

@@ -1,8 +1,5 @@
 import { NextResponse } from "next/server";
-import {
-  getMortgageRateSnapshot,
-  MORTGAGE_RATES_REVALIDATE_SECONDS,
-} from "@/lib/rates";
+import { getMortgageRateSnapshot } from "@/lib/rates";
 
 export const preferredRegion = "iad1";
 
@@ -11,7 +8,7 @@ export async function GET() {
 
   return NextResponse.json(snapshot, {
     headers: {
-      "Cache-Control": `public, s-maxage=${MORTGAGE_RATES_REVALIDATE_SECONDS}, stale-while-revalidate=86400`,
+      "Cache-Control": "no-store",
     },
   });
 }

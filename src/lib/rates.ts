@@ -1,4 +1,4 @@
-import { unstable_cache } from "next/cache";
+import { getCache } from "@vercel/functions";
 import { generateMarketNote, type MarketNote } from "@/lib/rate-market-note";
 
 export type RateProductId =
@@ -134,7 +134,8 @@ const DISCLAIMER =
   "Benchmark and index values are for informational purposes only and are not a loan estimate, commitment to lend, APR quote, or offer of credit. Your actual rate and APR depend on credit, loan program, property type, down payment, points, occupancy, underwriting, and market conditions.";
 
 export const MORTGAGE_RATES_CACHE_TAG = "mortgage-rates";
-export const MORTGAGE_RATES_REVALIDATE_SECONDS = 60 * 60 * 12;
+const MORTGAGE_RATES_RUNTIME_CACHE_KEY = "current-snapshot";
+const MORTGAGE_RATES_RUNTIME_CACHE_TTL_SECONDS = 60 * 60 * 48;
 
 const SOURCES: SnapshotSource[] = [
   {
@@ -524,17 +525,48 @@ async function fetchLatestMortgageMarketSnapshot(): Promise<MortgageMarketSnapsh
   };
 }
 
-const getCachedMortgageMarketSnapshot = unstable_cache(
-  fetchLatestMortgageMarketSnapshot,
-  [MORTGAGE_RATES_CACHE_TAG],
-  {
-    revalidate: false,
-    tags: [MORTGAGE_RATES_CACHE_TAG],
-  },
-);
+function getMortgageRatesRuntimeCache() {
+  return getCache({
+    namespace: MORTGAGE_RATES_CACHE_TAG,
+  });
+}
+
+async function readMortgageMarketSnapshotFromRuntimeCache(): Promise<MortgageMarketSnapshot | null> {
+  const snapshot = await getMortgageRatesRuntimeCache().get(
+    MORTGAGE_RATES_RUNTIME_CACHE_KEY,
+  );
+
+  if (!snapshot) {
+    return null;
+  }
+
+  return snapshot as MortgageMarketSnapshot;
+}
+
+export async function refreshMortgageMarketSnapshot(): Promise<MortgageMarketSnapshot> {
+  const snapshot = await fetchLatestMortgageMarketSnapshot();
+
+  await getMortgageRatesRuntimeCache().set(
+    MORTGAGE_RATES_RUNTIME_CACHE_KEY,
+    snapshot,
+    {
+      ttl: MORTGAGE_RATES_RUNTIME_CACHE_TTL_SECONDS,
+      tags: [MORTGAGE_RATES_CACHE_TAG],
+      name: "Mortgage rates snapshot",
+    },
+  );
+
+  return snapshot;
+}
 
 export async function getMortgageMarketSnapshot(): Promise<MortgageMarketSnapshot> {
-  return getCachedMortgageMarketSnapshot();
+  const cachedSnapshot = await readMortgageMarketSnapshotFromRuntimeCache();
+
+  if (cachedSnapshot) {
+    return cachedSnapshot;
+  }
+
+  return refreshMortgageMarketSnapshot();
 }
 
 export async function getMortgageRateSnapshot(): Promise<MortgageMarketSnapshot> {
