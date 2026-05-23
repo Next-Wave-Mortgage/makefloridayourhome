@@ -28,10 +28,22 @@ const securityHeaders = [
   },
 ];
 
+const mortgageRatesCacheHeaders = [
+  ...securityHeaders,
+  {
+    key: "Vercel-CDN-Cache-Control",
+    value: "max-age=300, stale-while-revalidate=86400",
+  },
+];
+
 const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "md", "mdx"],
   async headers() {
     return [
+      {
+        source: "/mortgage-rates",
+        headers: mortgageRatesCacheHeaders,
+      },
       {
         source: "/(.*)",
         headers: securityHeaders,
