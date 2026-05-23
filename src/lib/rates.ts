@@ -528,7 +528,7 @@ const getCachedMortgageMarketSnapshot = unstable_cache(
   fetchLatestMortgageMarketSnapshot,
   [MORTGAGE_RATES_CACHE_TAG],
   {
-    revalidate: MORTGAGE_RATES_REVALIDATE_SECONDS,
+    revalidate: false,
     tags: [MORTGAGE_RATES_CACHE_TAG],
   },
 );
