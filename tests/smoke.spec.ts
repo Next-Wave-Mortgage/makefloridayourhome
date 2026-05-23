@@ -141,6 +141,10 @@ test("Gemini market note prompt includes live rate values", () => {
   expect(prompt).toContain("clear strategy");
   expect(prompt).toContain("aligning the loan structure");
   expect(prompt).toContain("here is the honest read");
+  expect(prompt).toContain("deal structure");
+  expect(prompt).toContain("buying power needs discipline");
+  expect(prompt).toContain("the math has to be tight");
+  expect(prompt).toContain("real monthly payment");
 });
 
 test("normalizes FRED observations and skips missing dot values", () => {
