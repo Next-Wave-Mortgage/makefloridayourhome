@@ -4,6 +4,8 @@ import {
   MORTGAGE_RATES_REVALIDATE_SECONDS,
 } from "@/lib/rates";
 
+export const preferredRegion = "iad1";
+
 export async function GET() {
   const snapshot = await getMortgageRateSnapshot();
 

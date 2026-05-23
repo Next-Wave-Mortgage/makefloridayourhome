@@ -21,6 +21,7 @@ export const metadata: Metadata = {
 };
 
 export const dynamic = "force-dynamic";
+export const preferredRegion = "iad1";
 
 const faqSchema = {
   "@context": "https://schema.org",

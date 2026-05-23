@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getMortgageRateSnapshot, MORTGAGE_RATES_CACHE_TAG } from "@/lib/rates";
 
 export const dynamic = "force-dynamic";
+export const preferredRegion = "iad1";
 
 export async function GET(req: NextRequest) {
   const cronSecret = process.env.CRON_SECRET?.trim();
