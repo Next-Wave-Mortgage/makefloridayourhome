@@ -135,9 +135,12 @@ test("Gemini market note prompt includes live rate values", () => {
   expect(prompt).toContain("30-Year Fixed: 6.51%");
   expect(prompt).toContain("15-Year Fixed: 5.85%");
   expect(prompt).toContain("Median Listing Price: $430,000");
-  expect(prompt).toContain("Use this editorial hierarchy");
+  expect(prompt).toContain("honest read on the current 30-year rate");
   expect(prompt).toContain("A normal monthly uptick is context");
-  expect(prompt).toContain("senior Florida mortgage advisor");
+  expect(prompt).toContain("speaking plainly to an informed buyer");
+  expect(prompt).toContain("clear strategy");
+  expect(prompt).toContain("aligning the loan structure");
+  expect(prompt).toContain("here is the honest read");
 });
 
 test("normalizes FRED observations and skips missing dot values", () => {
