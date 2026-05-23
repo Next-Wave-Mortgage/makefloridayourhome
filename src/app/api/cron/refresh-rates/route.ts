@@ -14,7 +14,25 @@ export async function GET(req: NextRequest) {
   }
 
   revalidateTag(MORTGAGE_RATES_CACHE_TAG, { expire: 0 });
-  const snapshot = await getMortgageRateSnapshot();
+  const warmUrl = new URL("/api/rates", req.url);
+  warmUrl.searchParams.set("warm", Date.now().toString());
+  const warmResponse = await fetch(warmUrl, {
+    cache: "no-store",
+    headers: {
+      "x-cron-warm": "1",
+    },
+  });
+
+  if (!warmResponse.ok) {
+    return NextResponse.json(
+      { error: "Rates cache warm-up failed", status: warmResponse.status },
+      { status: 502 },
+    );
+  }
+
+  const snapshot = (await warmResponse.json()) as Awaited<
+    ReturnType<typeof getMortgageRateSnapshot>
+  >;
 
   return NextResponse.json({
     success: true,
