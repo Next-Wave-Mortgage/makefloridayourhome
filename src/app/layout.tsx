@@ -6,7 +6,7 @@ import "@/app/globals.css";
 import { siteConfig } from "@/lib/site";
 import { TrackPageView } from "@/components/TrackPageView";
 
-const GA4_ID = process.env.GA4_ID || "G-E7KYFVSJ1G";
+const GA4_ID = (process.env.GA4_ID || "G-E7KYFVSJ1G").trim();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
