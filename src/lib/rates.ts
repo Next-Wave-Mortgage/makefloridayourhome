@@ -1,5 +1,6 @@
 import { getCache } from "@vercel/functions";
 import { generateMarketNote, type MarketNote } from "@/lib/rate-market-note";
+import seedMortgageRatesSnapshot from "@/data/mortgage-rates-seed.json";
 
 export type RateProductId =
   | "30-year-fixed"
@@ -135,7 +136,8 @@ const DISCLAIMER =
 
 export const MORTGAGE_RATES_CACHE_TAG = "mortgage-rates";
 const MORTGAGE_RATES_RUNTIME_CACHE_KEY = "current-snapshot";
-const MORTGAGE_RATES_RUNTIME_CACHE_TTL_SECONDS = 60 * 60 * 48;
+const MORTGAGE_RATES_RUNTIME_CACHE_TTL_SECONDS = 60 * 60 * 24 * 14;
+const FRED_REQUEST_TIMEOUT_MS = 10_000;
 
 const SOURCES: SnapshotSource[] = [
   {
@@ -448,6 +450,8 @@ async function fetchFredObservations(
   seriesId: FredSeriesId,
   apiKey: string,
 ): Promise<ParsedObservation[]> {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), FRED_REQUEST_TIMEOUT_MS);
   const params = new URLSearchParams({
     series_id: seriesId,
     api_key: apiKey,
@@ -456,16 +460,23 @@ async function fetchFredObservations(
     limit: "400",
   });
 
-  const response = await fetch(`${FRED_API_BASE}?${params}`, {
-    cache: "no-store",
-  });
+  try {
+    const response = await fetch(`${FRED_API_BASE}?${params}`, {
+      cache: "no-store",
+      signal: controller.signal,
+    });
 
-  if (!response.ok) {
-    throw new Error(`FRED request failed for ${seriesId}: ${response.status}`);
+    if (!response.ok) {
+      throw new Error(
+        `FRED request failed for ${seriesId}: ${response.status}`,
+      );
+    }
+
+    const payload = (await response.json()) as FredObservationsResponse;
+    return normalizeFredObservations(seriesId, payload);
+  } finally {
+    clearTimeout(timeout);
   }
-
-  const payload = (await response.json()) as FredObservationsResponse;
-  return normalizeFredObservations(seriesId, payload);
 }
 
 async function fetchRateProduct(
@@ -532,15 +543,19 @@ function getMortgageRatesRuntimeCache() {
 }
 
 async function readMortgageMarketSnapshotFromRuntimeCache(): Promise<MortgageMarketSnapshot | null> {
-  const snapshot = await getMortgageRatesRuntimeCache().get(
-    MORTGAGE_RATES_RUNTIME_CACHE_KEY,
-  );
+  try {
+    const snapshot = await getMortgageRatesRuntimeCache().get(
+      MORTGAGE_RATES_RUNTIME_CACHE_KEY,
+    );
 
-  if (!snapshot) {
+    if (!isMortgageMarketSnapshot(snapshot)) {
+      return null;
+    }
+
+    return snapshot;
+  } catch {
     return null;
   }
-
-  return snapshot as MortgageMarketSnapshot;
 }
 
 export async function refreshMortgageMarketSnapshot(): Promise<MortgageMarketSnapshot> {
@@ -559,16 +574,54 @@ export async function refreshMortgageMarketSnapshot(): Promise<MortgageMarketSna
   return snapshot;
 }
 
-export async function getMortgageMarketSnapshot(): Promise<MortgageMarketSnapshot> {
+function isMortgageMarketSnapshot(
+  snapshot: unknown,
+): snapshot is MortgageMarketSnapshot {
+  if (!snapshot || typeof snapshot !== "object") {
+    return false;
+  }
+
+  const candidate = snapshot as Partial<MortgageMarketSnapshot>;
+
+  return (
+    typeof candidate.retrievedAt === "string" &&
+    typeof candidate.effectiveDate === "string" &&
+    Array.isArray(candidate.benchmarks) &&
+    candidate.benchmarks.length > 0 &&
+    Array.isArray(candidate.dailyIndices) &&
+    candidate.dailyIndices.length > 0 &&
+    Array.isArray(candidate.floridaMarket) &&
+    candidate.floridaMarket.length > 0 &&
+    Array.isArray(candidate.sources) &&
+    typeof candidate.disclaimer === "string" &&
+    Boolean(candidate.rateTrend?.points?.length) &&
+    typeof candidate.marketNote?.headline === "string" &&
+    typeof candidate.marketNote.body === "string"
+  );
+}
+
+function getSeedMortgageMarketSnapshot(): MortgageMarketSnapshot {
+  if (!isMortgageMarketSnapshot(seedMortgageRatesSnapshot)) {
+    throw new Error("Seed mortgage rates snapshot is invalid");
+  }
+
+  return seedMortgageRatesSnapshot;
+}
+
+export async function getStoredMortgageMarketSnapshot(): Promise<MortgageMarketSnapshot> {
   const cachedSnapshot = await readMortgageMarketSnapshotFromRuntimeCache();
 
   if (cachedSnapshot) {
     return cachedSnapshot;
   }
 
-  return refreshMortgageMarketSnapshot();
+  return getSeedMortgageMarketSnapshot();
+}
+
+export async function getMortgageMarketSnapshot(): Promise<MortgageMarketSnapshot> {
+  return getStoredMortgageMarketSnapshot();
 }
 
 export async function getMortgageRateSnapshot(): Promise<MortgageMarketSnapshot> {
-  return getMortgageMarketSnapshot();
+  return getStoredMortgageMarketSnapshot();
 }

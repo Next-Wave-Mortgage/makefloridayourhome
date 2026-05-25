@@ -36,6 +36,7 @@ type GeminiGenerateContentResponse = {
 
 const GEMINI_MODEL = "gemini-2.5-flash";
 const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
+const GEMINI_REQUEST_TIMEOUT_MS = 15_000;
 
 function formatPercent(value: number): string {
   return `${value.toFixed(2)}%`;
@@ -198,51 +199,62 @@ export async function generateMarketNote(
 ): Promise<MarketNote> {
   const apiKey = getGeminiApiKey();
   const prompt = buildMarketNotePrompt(input);
-  const response = await fetch(GEMINI_API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-goog-api-key": apiKey,
-    },
-    body: JSON.stringify({
-      contents: [
-        {
-          role: "user",
-          parts: [{ text: prompt }],
-        },
-      ],
-      generationConfig: {
-        temperature: 0.4,
-        maxOutputTokens: 2048,
-        responseMimeType: "application/json",
-        responseSchema: {
-          type: "OBJECT",
-          properties: {
-            headline: { type: "STRING" },
-            body: { type: "STRING" },
-            dataPointsUsed: {
-              type: "ARRAY",
-              items: { type: "STRING" },
-            },
-          },
-          required: ["headline", "body", "dataPointsUsed"],
-        },
-      },
-    }),
-  });
-
-  if (!response.ok) {
-    throw new Error(`Gemini market note request failed: ${response.status}`);
-  }
-
-  const payload = (await response.json()) as GeminiGenerateContentResponse;
-  const note = coerceMarketNoteResponse(
-    parseGeminiJson(extractGeminiText(payload)),
+  const controller = new AbortController();
+  const timeout = setTimeout(
+    () => controller.abort(),
+    GEMINI_REQUEST_TIMEOUT_MS,
   );
 
-  return {
-    ...note,
-    generatedAt: new Date().toISOString(),
-    model: GEMINI_MODEL,
-  };
+  try {
+    const response = await fetch(GEMINI_API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-goog-api-key": apiKey,
+      },
+      signal: controller.signal,
+      body: JSON.stringify({
+        contents: [
+          {
+            role: "user",
+            parts: [{ text: prompt }],
+          },
+        ],
+        generationConfig: {
+          temperature: 0.4,
+          maxOutputTokens: 2048,
+          responseMimeType: "application/json",
+          responseSchema: {
+            type: "OBJECT",
+            properties: {
+              headline: { type: "STRING" },
+              body: { type: "STRING" },
+              dataPointsUsed: {
+                type: "ARRAY",
+                items: { type: "STRING" },
+              },
+            },
+            required: ["headline", "body", "dataPointsUsed"],
+          },
+        },
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Gemini market note request failed: ${response.status}`);
+    }
+
+    const payload = (await response.json()) as GeminiGenerateContentResponse;
+    const note = coerceMarketNoteResponse(
+      parseGeminiJson(extractGeminiText(payload)),
+    );
+
+    return {
+      ...note,
+      generatedAt: new Date().toISOString(),
+      model: GEMINI_MODEL,
+    };
+  } finally {
+    clearTimeout(timeout);
+  }
 }

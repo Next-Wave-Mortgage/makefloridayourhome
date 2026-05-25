@@ -5,9 +5,6 @@ import {
 } from "../src/lib/rate-market-note";
 import { normalizeFredObservations } from "../src/lib/rates";
 
-const hasLiveRateEnv = Boolean(
-  process.env.FRED_API_KEY && process.env.GEMINI_API_KEY,
-);
 const marketNoteInput: MarketNoteInput = {
   benchmarks: [
     {
@@ -71,8 +68,6 @@ test("homepage loads and has an H1", async ({ page }) => {
 });
 
 test("rates API returns benchmark mortgage products", async ({ request }) => {
-  test.skip(!hasLiveRateEnv, "Live FRED and Gemini keys are required");
-
   const response = await request.get("/api/rates");
   expect(response.ok()).toBeTruthy();
 
@@ -182,8 +177,6 @@ test("rates cron rejects unauthorized requests", async ({ request }) => {
 test("mortgage rates page renders benchmark source and disclosure", async ({
   page,
 }) => {
-  test.skip(!hasLiveRateEnv, "Live FRED and Gemini keys are required");
-
   await page.goto("/mortgage-rates");
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
     "Florida Mortgage Rates",
@@ -201,6 +194,6 @@ test("mortgage rates page renders benchmark source and disclosure", async ({
   ).toBeVisible();
   await expect(page.getByText("Florida Mortgage Rate Questions")).toBeVisible();
   await expect(page.getByText("What is a mortgage rate?")).toBeVisible();
-  await expect(page.getByText("offer of credit")).toBeVisible();
+  await expect(page.getByText("offer of credit").first()).toBeVisible();
   await expect(page.getByText("December 24, 2025")).toHaveCount(0);
 });
