@@ -3,6 +3,7 @@ import { refreshMortgageMarketSnapshot } from "@/lib/rates";
 
 export const dynamic = "force-dynamic";
 export const preferredRegion = "iad1";
+export const maxDuration = 60;
 
 export async function GET(req: NextRequest) {
   const cronSecret = process.env.CRON_SECRET?.trim();

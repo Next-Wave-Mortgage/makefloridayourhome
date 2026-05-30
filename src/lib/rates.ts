@@ -138,6 +138,8 @@ export const MORTGAGE_RATES_CACHE_TAG = "mortgage-rates";
 const MORTGAGE_RATES_RUNTIME_CACHE_KEY = "current-snapshot";
 const MORTGAGE_RATES_RUNTIME_CACHE_TTL_SECONDS = 60 * 60 * 24 * 14;
 const FRED_REQUEST_TIMEOUT_MS = 10_000;
+const FRED_REQUEST_SPACING_MS = 1_200;
+const FRED_RETRY_DELAYS_MS = [2_000, 5_000, 10_000];
 
 const SOURCES: SnapshotSource[] = [
   {
@@ -282,6 +284,10 @@ function daysAgo(date: Date, days: number): Date {
   const next = new Date(date);
   next.setUTCDate(next.getUTCDate() - days);
   return next;
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 function parseFredObservation(
@@ -450,8 +456,6 @@ async function fetchFredObservations(
   seriesId: FredSeriesId,
   apiKey: string,
 ): Promise<ParsedObservation[]> {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), FRED_REQUEST_TIMEOUT_MS);
   const params = new URLSearchParams({
     series_id: seriesId,
     api_key: apiKey,
@@ -460,63 +464,107 @@ async function fetchFredObservations(
     limit: "400",
   });
 
-  try {
-    const response = await fetch(`${FRED_API_BASE}?${params}`, {
-      cache: "no-store",
-      signal: controller.signal,
-    });
+  for (let attempt = 0; attempt <= FRED_RETRY_DELAYS_MS.length; attempt += 1) {
+    const controller = new AbortController();
+    const timeout = setTimeout(
+      () => controller.abort(),
+      FRED_REQUEST_TIMEOUT_MS,
+    );
 
-    if (!response.ok) {
+    try {
+      const response = await fetch(`${FRED_API_BASE}?${params}`, {
+        cache: "no-store",
+        signal: controller.signal,
+      });
+
+      if (response.ok) {
+        const payload = (await response.json()) as FredObservationsResponse;
+        return normalizeFredObservations(seriesId, payload);
+      }
+
+      if (
+        attempt < FRED_RETRY_DELAYS_MS.length &&
+        (response.status === 429 || response.status >= 500)
+      ) {
+        await sleep(FRED_RETRY_DELAYS_MS[attempt]);
+        continue;
+      }
+
       throw new Error(
         `FRED request failed for ${seriesId}: ${response.status}`,
       );
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+
+  throw new Error(`FRED request failed for ${seriesId}`);
+}
+
+async function fetchFredObservationMap(
+  seriesIds: FredSeriesId[],
+  apiKey: string,
+): Promise<Map<FredSeriesId, ParsedObservation[]>> {
+  const observationsBySeries = new Map<FredSeriesId, ParsedObservation[]>();
+
+  for (const [index, seriesId] of seriesIds.entries()) {
+    if (index > 0) {
+      await sleep(FRED_REQUEST_SPACING_MS);
     }
 
-    const payload = (await response.json()) as FredObservationsResponse;
-    return normalizeFredObservations(seriesId, payload);
-  } finally {
-    clearTimeout(timeout);
+    observationsBySeries.set(
+      seriesId,
+      await fetchFredObservations(seriesId, apiKey),
+    );
   }
+
+  return observationsBySeries;
 }
 
-async function fetchRateProduct(
-  series: RateSeriesConfig,
-  apiKey: string,
-): Promise<MortgageRateProduct> {
-  return createRateProduct(
-    series,
-    await fetchFredObservations(series.seriesId, apiKey),
-  );
-}
+function getSeriesObservations(
+  observationsBySeries: Map<FredSeriesId, ParsedObservation[]>,
+  seriesId: FredSeriesId,
+): ParsedObservation[] {
+  const observations = observationsBySeries.get(seriesId);
 
-async function fetchMarketMetric(
-  series: MarketSeriesConfig,
-  apiKey: string,
-): Promise<FloridaMarketMetric> {
-  return createMarketMetric(
-    series,
-    await fetchFredObservations(series.seriesId, apiKey),
-  );
+  if (!observations) {
+    throw new Error(`FRED observations are missing for ${seriesId}`);
+  }
+
+  return observations;
 }
 
 async function fetchLatestMortgageMarketSnapshot(): Promise<MortgageMarketSnapshot> {
   const apiKey = getFredApiKey();
-  const [benchmarks, dailyIndices, floridaMarket, thirtyYearHistory] =
-    await Promise.all([
-      Promise.all(
-        BENCHMARK_SERIES.map((series) => fetchRateProduct(series, apiKey)),
-      ),
-      Promise.all(
-        DAILY_INDEX_SERIES.map((series) => fetchRateProduct(series, apiKey)),
-      ),
-      Promise.all(
-        FLORIDA_MARKET_SERIES.map((series) =>
-          fetchMarketMetric(series, apiKey),
-        ),
-      ),
-      fetchFredObservations("MORTGAGE30US", apiKey),
-    ]);
-  const rateTrend = createThirtyYearTrend(thirtyYearHistory);
+  const seriesIds = Array.from(
+    new Set<FredSeriesId>([
+      ...BENCHMARK_SERIES.map((series) => series.seriesId),
+      ...DAILY_INDEX_SERIES.map((series) => series.seriesId),
+      ...FLORIDA_MARKET_SERIES.map((series) => series.seriesId),
+    ]),
+  );
+  const observationsBySeries = await fetchFredObservationMap(seriesIds, apiKey);
+  const benchmarks = BENCHMARK_SERIES.map((series) =>
+    createRateProduct(
+      series,
+      getSeriesObservations(observationsBySeries, series.seriesId),
+    ),
+  );
+  const dailyIndices = DAILY_INDEX_SERIES.map((series) =>
+    createRateProduct(
+      series,
+      getSeriesObservations(observationsBySeries, series.seriesId),
+    ),
+  );
+  const floridaMarket = FLORIDA_MARKET_SERIES.map((series) =>
+    createMarketMetric(
+      series,
+      getSeriesObservations(observationsBySeries, series.seriesId),
+    ),
+  );
+  const rateTrend = createThirtyYearTrend(
+    getSeriesObservations(observationsBySeries, "MORTGAGE30US"),
+  );
   const marketNote = await generateMarketNote({
     benchmarks,
     dailyIndices,
