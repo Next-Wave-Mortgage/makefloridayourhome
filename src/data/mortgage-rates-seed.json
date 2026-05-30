@@ -1,37 +1,37 @@
 {
-  "retrievedAt": "2026-05-25T15:55:50.736Z",
-  "effectiveDate": "2026-05-21",
+  "retrievedAt": "2026-05-30T19:04:25.818Z",
+  "effectiveDate": "2026-05-28",
   "benchmarks": [
     {
       "id": "30-year-fixed",
       "label": "30-Year Fixed",
       "seriesId": "MORTGAGE30US",
-      "rate": 6.51,
-      "effectiveDate": "2026-05-21",
+      "rate": 6.53,
+      "effectiveDate": "2026-05-28",
       "sourceId": "freddie-mac-pmms",
       "frequency": "weekly",
       "geography": "United States",
       "rateType": "benchmark_average",
       "changes": [
-        { "period": "1w", "value": 0.15, "direction": "up" },
-        { "period": "1m", "value": 0.21, "direction": "up" },
-        { "period": "1y", "value": -0.3, "direction": "down" }
+        { "period": "1w", "value": 0.02, "direction": "up" },
+        { "period": "1m", "value": 0.3, "direction": "up" },
+        { "period": "1y", "value": -0.33, "direction": "down" }
       ]
     },
     {
       "id": "15-year-fixed",
       "label": "15-Year Fixed",
       "seriesId": "MORTGAGE15US",
-      "rate": 5.85,
-      "effectiveDate": "2026-05-21",
+      "rate": 5.87,
+      "effectiveDate": "2026-05-28",
       "sourceId": "freddie-mac-pmms",
       "frequency": "weekly",
       "geography": "United States",
       "rateType": "benchmark_average",
       "changes": [
-        { "period": "1w", "value": 0.14, "direction": "up" },
-        { "period": "1m", "value": 0.2, "direction": "up" },
-        { "period": "1y", "value": -0.07, "direction": "down" }
+        { "period": "1w", "value": 0.02, "direction": "up" },
+        { "period": "1m", "value": 0.29, "direction": "up" },
+        { "period": "1y", "value": -0.14, "direction": "down" }
       ]
     }
   ],
@@ -40,96 +40,96 @@
       "id": "30-year-fixed",
       "label": "30-Year Conforming",
       "seriesId": "OBMMIC30YF",
-      "rate": 6.56,
-      "effectiveDate": "2026-05-21",
+      "rate": 6.449,
+      "effectiveDate": "2026-05-28",
       "sourceId": "optimal-blue-obmmi",
       "frequency": "daily",
       "geography": "United States",
       "rateType": "rate_lock_index",
       "changes": [
-        { "period": "1w", "value": 0.179, "direction": "up" },
-        { "period": "1m", "value": 0.329, "direction": "up" },
-        { "period": "1y", "value": -0.365, "direction": "down" }
+        { "period": "1w", "value": -0.111, "direction": "down" },
+        { "period": "1m", "value": 0.157, "direction": "up" },
+        { "period": "1y", "value": -0.425, "direction": "down" }
       ]
     },
     {
       "id": "15-year-fixed",
       "label": "15-Year Conforming",
       "seriesId": "OBMMIC15YF",
-      "rate": 5.92,
-      "effectiveDate": "2026-05-21",
+      "rate": 5.717,
+      "effectiveDate": "2026-05-28",
       "sourceId": "optimal-blue-obmmi",
       "frequency": "daily",
       "geography": "United States",
       "rateType": "rate_lock_index",
       "changes": [
-        { "period": "1w", "value": 0.211, "direction": "up" },
-        { "period": "1m", "value": 0.396, "direction": "up" },
-        { "period": "1y", "value": -0.135, "direction": "down" }
+        { "period": "1w", "value": -0.203, "direction": "down" },
+        { "period": "1m", "value": 0.132, "direction": "up" },
+        { "period": "1y", "value": -0.309, "direction": "down" }
       ]
     },
     {
       "id": "fha-30-year",
       "label": "30-Year FHA",
       "seriesId": "OBMMIFHA30YF",
-      "rate": 6.319,
-      "effectiveDate": "2026-05-21",
+      "rate": 6.248,
+      "effectiveDate": "2026-05-28",
       "sourceId": "optimal-blue-obmmi",
       "frequency": "daily",
       "geography": "United States",
       "rateType": "rate_lock_index",
       "changes": [
-        { "period": "1w", "value": 0.155, "direction": "up" },
-        { "period": "1m", "value": 0.226, "direction": "up" },
-        { "period": "1y", "value": -0.322, "direction": "down" }
+        { "period": "1w", "value": -0.071, "direction": "down" },
+        { "period": "1m", "value": 0.172, "direction": "up" },
+        { "period": "1y", "value": -0.318, "direction": "down" }
       ]
     },
     {
       "id": "va-30-year",
       "label": "30-Year VA",
       "seriesId": "OBMMIVA30YF",
-      "rate": 6.152,
-      "effectiveDate": "2026-05-21",
+      "rate": 6.103,
+      "effectiveDate": "2026-05-28",
       "sourceId": "optimal-blue-obmmi",
       "frequency": "daily",
       "geography": "United States",
       "rateType": "rate_lock_index",
       "changes": [
-        { "period": "1w", "value": 0.158, "direction": "up" },
-        { "period": "1m", "value": 0.33, "direction": "up" },
-        { "period": "1y", "value": -0.413, "direction": "down" }
+        { "period": "1w", "value": -0.049, "direction": "down" },
+        { "period": "1m", "value": 0.276, "direction": "up" },
+        { "period": "1y", "value": -0.346, "direction": "down" }
       ]
     },
     {
       "id": "jumbo-30-year",
       "label": "30-Year Jumbo",
       "seriesId": "OBMMIJUMBO30YF",
-      "rate": 6.637,
-      "effectiveDate": "2026-05-21",
+      "rate": 6.6,
+      "effectiveDate": "2026-05-28",
       "sourceId": "optimal-blue-obmmi",
       "frequency": "daily",
       "geography": "United States",
       "rateType": "rate_lock_index",
       "changes": [
-        { "period": "1w", "value": 0.06, "direction": "up" },
-        { "period": "1m", "value": 0.178, "direction": "up" },
-        { "period": "1y", "value": -0.398, "direction": "down" }
+        { "period": "1w", "value": -0.037, "direction": "down" },
+        { "period": "1m", "value": 0.176, "direction": "up" },
+        { "period": "1y", "value": -0.427, "direction": "down" }
       ]
     },
     {
       "id": "usda-30-year",
       "label": "30-Year USDA",
       "seriesId": "OBMMIUSDA30YF",
-      "rate": 6.198,
-      "effectiveDate": "2026-05-21",
+      "rate": 6.187,
+      "effectiveDate": "2026-05-28",
       "sourceId": "optimal-blue-obmmi",
       "frequency": "daily",
       "geography": "United States",
       "rateType": "rate_lock_index",
       "changes": [
-        { "period": "1w", "value": 0.208, "direction": "up" },
-        { "period": "1m", "value": 0.254, "direction": "up" },
-        { "period": "1y", "value": -0.259, "direction": "down" }
+        { "period": "1w", "value": -0.011, "direction": "down" },
+        { "period": "1m", "value": 0.199, "direction": "up" },
+        { "period": "1y", "value": -0.308, "direction": "down" }
       ]
     }
   ],
@@ -170,16 +170,16 @@
       "id": "florida-home-price-index",
       "label": "Florida Home Price Index",
       "seriesId": "FLSTHPI",
-      "value": 823.56,
-      "effectiveDate": "2025-10-01",
+      "value": 827.88,
+      "effectiveDate": "2026-01-01",
       "sourceId": "fred-florida-housing",
       "frequency": "quarterly",
       "geography": "Florida",
       "unit": "index",
       "changes": [
-        { "period": "1w", "value": 7.23, "direction": "up" },
-        { "period": "1m", "value": 7.23, "direction": "up" },
-        { "period": "1y", "value": 0.26, "direction": "up" }
+        { "period": "1w", "value": 5.86, "direction": "up" },
+        { "period": "1m", "value": 5.86, "direction": "up" },
+        { "period": "1y", "value": 15.78, "direction": "up" }
       ]
     }
   ],
@@ -192,7 +192,6 @@
     "rateType": "benchmark_average",
     "period": "3y",
     "points": [
-      { "date": "2023-05-25", "rate": 6.57 },
       { "date": "2023-06-01", "rate": 6.79 },
       { "date": "2023-06-08", "rate": 6.71 },
       { "date": "2023-06-15", "rate": 6.69 },
@@ -348,18 +347,19 @@
       { "date": "2026-04-30", "rate": 6.3 },
       { "date": "2026-05-07", "rate": 6.37 },
       { "date": "2026-05-14", "rate": 6.36 },
-      { "date": "2026-05-21", "rate": 6.51 }
+      { "date": "2026-05-21", "rate": 6.51 },
+      { "date": "2026-05-28", "rate": 6.53 }
     ]
   },
   "marketNote": {
-    "headline": "Your Payment Math Matters",
-    "body": "Here is the honest read: at 6.51% for a 30-year fixed, your monthly payment needs sharp focus. This isn't a time to be loose with the numbers. While rates moved up slightly this past month, the real takeaway is that the math has to be tight. With nearly 160,000 active listings in Florida, some sellers may be more flexible than they were a couple years ago. I'd pay close attention to seller credits, the loan type, and the real payment you are comfortable carrying. The rate matters, but it's not the only lever.",
+    "headline": "Your Payment Math Needs to Be Tight",
+    "body": "Here is the honest read: at 6.53%, you cannot be loose with the monthly payment. That does not mean you cannot buy. It means the math has to be tight. With nearly 160,000 active listings in Florida, some sellers may have to be more flexible than they were a couple years ago. I would pay close attention to seller credits, the loan type, and the real payment you are comfortable carrying. The 30-year rate has moved up 0.30 points this month, making payment discipline even more critical.",
     "dataPointsUsed": [
-      "30-Year Fixed: 6.51% effective 2026-05-21",
+      "30-Year Fixed: 6.53% effective 2026-05-28",
       "Active Listings: 159,860 effective 2026-04-01",
-      "30-Year Fixed +0.21 points over 1m"
+      "30-Year Fixed +0.30 points over 1m"
     ],
-    "generatedAt": "2026-05-25T15:55:50.736Z",
+    "generatedAt": "2026-05-30T19:04:25.818Z",
     "model": "gemini-2.5-flash"
   },
   "sources": [
