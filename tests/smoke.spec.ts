@@ -4,6 +4,15 @@ import {
   type MarketNoteInput,
 } from "../src/lib/rate-market-note";
 import { normalizeFredObservations } from "../src/lib/rates";
+import {
+  FLORIDA_COUNTIES,
+  FLORIDA_DPA_PROGRAMS,
+  getProgramsForCounty,
+} from "../src/data/dpa";
+import {
+  DPA_PROGRAMS as LEGACY_DPA_PROGRAMS,
+  getCountyPrograms as getLegacyCountyPrograms,
+} from "../src/data/dpa-programs";
 
 const marketNoteInput: MarketNoteInput = {
   benchmarks: [
@@ -65,6 +74,102 @@ test("homepage loads and has an H1", async ({ page }) => {
   await page.goto("/");
   const h1 = page.locator("h1");
   await expect(h1).toBeVisible();
+});
+
+test("DPA database contains 105 uniquely identified programs", () => {
+  expect(FLORIDA_DPA_PROGRAMS).toHaveLength(105);
+
+  const ids = FLORIDA_DPA_PROGRAMS.map((program) => program.id);
+  expect(new Set(ids).size).toBe(ids.length);
+});
+
+test("DPA database records include required calculator and maintenance fields", () => {
+  for (const program of FLORIDA_DPA_PROGRAMS) {
+    expect(program.id).toBeTruthy();
+    expect(program.name).toBeTruthy();
+    expect(program.typeDisplay).toBeTruthy();
+    expect(program.description).toBeTruthy();
+    expect(program.assistance.display).toBeTruthy();
+    expect(program.eligibility.eligibilityUrl).toMatch(/^\/check-/);
+    expect(program.source).toEqual(
+      expect.objectContaining({
+        label: expect.any(String),
+        quality: expect.any(String),
+      }),
+    );
+    expect(program.sources.length).toBeGreaterThan(0);
+    for (const source of program.sources) {
+      expect(source).toEqual(
+        expect.objectContaining({
+          label: expect.any(String),
+          quality: expect.any(String),
+        }),
+      );
+    }
+    expect(program.maintenance).toEqual(
+      expect.objectContaining({
+        status: expect.any(String),
+        lastVerified: expect.any(String),
+        needsReviewReasons: expect.any(Array),
+      }),
+    );
+    expect(program.compatibleLoanTypes.length).toBeGreaterThan(0);
+    expect(program.geography.jurisdictionLevel).toEqual(expect.any(String));
+    expect(program.limits).toEqual(
+      expect.objectContaining({
+        incomeLimitRequired: expect.anything(),
+        purchasePriceLimitRequired: expect.anything(),
+        incomeBasis: expect.any(String),
+        usesFloridaHousingLimits: expect.anything(),
+      }),
+    );
+    expect(program.availability).toEqual(
+      expect.objectContaining({
+        status: expect.any(String),
+        statusLastChecked: expect.any(String),
+      }),
+    );
+    expect(program.stacking).toEqual(
+      expect.objectContaining({
+        withFloridaHousingFirstMortgage: expect.any(String),
+        withHometownHeroes: expect.any(String),
+        withLocalPrograms: expect.any(String),
+      }),
+    );
+    expect(program.calculator).toEqual(
+      expect.objectContaining({
+        confidence: expect.any(String),
+        canEstimateAmount: expect.any(Boolean),
+        canDetermineBasicEligibility: expect.any(Boolean),
+        missingData: expect.any(Array),
+      }),
+    );
+  }
+});
+
+test("DPA database counties match the known Florida county list", () => {
+  const countySet = new Set(FLORIDA_COUNTIES);
+
+  for (const program of FLORIDA_DPA_PROGRAMS) {
+    for (const county of program.geography.counties) {
+      expect(countySet.has(county)).toBeTruthy();
+    }
+  }
+});
+
+test("legacy DPA exports preserve county lookup behavior", () => {
+  expect(LEGACY_DPA_PROGRAMS).toHaveLength(105);
+
+  const canonicalBroward = getProgramsForCounty("Broward").map(
+    (program) => program.id,
+  );
+  const legacyBroward = getLegacyCountyPrograms("Broward").map(
+    (program) => program.id,
+  );
+
+  expect(legacyBroward).toEqual(canonicalBroward);
+  expect(legacyBroward).toContain("florida-hometown-heroes");
+  expect(legacyBroward).toContain("broward-county-hpa");
 });
 
 test("rates API returns benchmark mortgage products", async ({ request }) => {
