@@ -1,9 +1,6 @@
 import Link from "next/link";
 import countyPaths from "@/data/florida-county-paths.json";
-import {
-  getCountyPrograms,
-  FLORIDA_COUNTIES,
-} from "@/data/dpa-programs";
+import { getCountyPrograms, FLORIDA_COUNTIES } from "@/data/dpa-programs";
 
 interface CountyPath {
   name: string;
@@ -31,12 +28,21 @@ function getOpacity(count: number): number {
 }
 
 const countyHighlights = [
-  { county: "Miami-Dade", programs: countyProgramCounts.get("Miami-Dade") ?? 0 },
+  {
+    county: "Miami-Dade",
+    programs: countyProgramCounts.get("Miami-Dade") ?? 0,
+  },
   { county: "Broward", programs: countyProgramCounts.get("Broward") ?? 0 },
   { county: "Orange", programs: countyProgramCounts.get("Orange") ?? 0 },
-  { county: "Hillsborough", programs: countyProgramCounts.get("Hillsborough") ?? 0 },
+  {
+    county: "Hillsborough",
+    programs: countyProgramCounts.get("Hillsborough") ?? 0,
+  },
   { county: "Duval", programs: countyProgramCounts.get("Duval") ?? 0 },
-  { county: "Palm Beach", programs: countyProgramCounts.get("Palm Beach") ?? 0 },
+  {
+    county: "Palm Beach",
+    programs: countyProgramCounts.get("Palm Beach") ?? 0,
+  },
 ];
 
 export function DPAMapPromo() {
@@ -56,8 +62,8 @@ export function DPAMapPromo() {
               Interactive Tool
             </p>
             <h2 className="mt-3 text-[28px] font-bold leading-tight text-dark-green sm:text-[36px] lg:text-[42px]">
-              <span className="text-brand-green">105 Programs.</span>{" "}
-              67 Counties.
+              <span className="text-brand-green">105 Programs.</span> 67
+              Counties.
               <br className="hidden sm:block" /> One Map.
             </h2>
             <p className="mt-5 max-w-lg text-[16px] leading-relaxed text-dark-green/60 sm:text-[17px]">
@@ -111,6 +117,12 @@ export function DPAMapPromo() {
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
+              </Link>
+              <Link
+                href="/florida-down-payment-assistance-calculator"
+                className="inline-flex items-center justify-center rounded-full border-2 border-brand-green/20 px-8 py-4 text-[16px] font-bold text-brand-green transition-colors hover:bg-brand-green/5"
+              >
+                Use the Calculator
               </Link>
               <span className="text-[14px] text-dark-green/50">
                 Free — no signup required

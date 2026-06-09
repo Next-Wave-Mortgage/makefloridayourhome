@@ -9,8 +9,7 @@ import { ExpertGuidesRow } from "@/components/shared/ExpertGuidesRow";
 import { DPAMapPromo } from "@/components/sections/DPAMapPromo";
 
 export const metadata: Metadata = {
-  title:
-    "Florida Down Payment Assistance Programs (2026)",
+  title: "Florida Down Payment Assistance Programs (2026)",
   description:
     "Explore Florida down payment assistance programs for 2026. Learn about Hometown Heroes, Florida Assist, SHIP funds, and how to qualify for up to $35,000+ in aid.",
   alternates: { canonical: "/down-payment-assistance" },
@@ -30,7 +29,17 @@ export const metadata: Metadata = {
 const heroFeatures = [
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <line x1="12" y1="1" x2="12" y2="23" />
         <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
       </svg>
@@ -39,7 +48,17 @@ const heroFeatures = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M9 11l3 3L22 4" />
         <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
       </svg>
@@ -48,7 +67,17 @@ const heroFeatures = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       </svg>
     ),
@@ -56,7 +85,17 @@ const heroFeatures = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
         <polyline points="9 22 9 12 15 12 15 22" />
       </svg>
@@ -64,7 +103,6 @@ const heroFeatures = [
     text: "Covers down payment, closing costs, or both",
   },
 ];
-
 
 const requirements = [
   "Minimum 640 credit score (580 for some FHA-based programs)",
@@ -180,8 +218,18 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.makefloridayourhome.com" },
-    { "@type": "ListItem", position: 2, name: "Down Payment Assistance", item: "https://www.makefloridayourhome.com/down-payment-assistance" },
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://www.makefloridayourhome.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Down Payment Assistance",
+      item: "https://www.makefloridayourhome.com/down-payment-assistance",
+    },
   ],
 };
 
@@ -223,8 +271,8 @@ export default function DownPaymentAssistancePage() {
         features={heroFeatures}
         image="/images/heroes/florida-down-payment-assistance-hero.webp"
         imageAlt="Happy family celebrating in front of Florida home with SOLD sign"
-        ctaHref="/check-dpa-eligibility"
-        ctaText="Check Your Florida DPA Eligibility"
+        ctaHref="/florida-down-payment-assistance-calculator"
+        ctaText="Use the Florida DPA Calculator"
       />
 
       {/* Interactive DPA Map */}
@@ -269,13 +317,25 @@ export default function DownPaymentAssistancePage() {
                 Complete Guide
               </p>
               <h2 className="mt-3 text-[26px] font-bold leading-tight text-dark-green sm:text-[32px] lg:text-[36px]">
-                <span className="text-brand-green">105</span>{" "}Florida First-Time
+                <span className="text-brand-green">105</span> Florida First-Time
                 Home Buyer Grants &amp; Programs
               </h2>
               <p className="mt-4 max-w-xl text-[16px] leading-relaxed text-dark-green/60">
                 Every grant, forgivable loan, and deferred program available to
                 Florida buyers in 2026 — organized by county, amount, and type.
                 The most comprehensive list you&apos;ll find anywhere.
+              </p>
+              <p className="mt-4 max-w-xl text-[16px] leading-relaxed text-dark-green/60">
+                If you want to narrow the list before reading every program, use
+                the{" "}
+                <Link
+                  href="/florida-down-payment-assistance-calculator"
+                  className="font-bold text-brand-green underline decoration-brand-green/25 underline-offset-4 hover:text-dark-green"
+                >
+                  Florida down payment assistance calculator
+                </Link>{" "}
+                to compare programs by county, income, buyer status, and loan
+                type.
               </p>
 
               <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
@@ -300,6 +360,12 @@ export default function DownPaymentAssistancePage() {
                     <polyline points="12 5 19 12 12 19" />
                   </svg>
                 </Link>
+                <Link
+                  href="/florida-down-payment-assistance-calculator"
+                  className="inline-flex items-center gap-2 rounded-full border-2 border-brand-green/20 px-7 py-3.5 text-[15px] font-bold text-brand-green transition-all duration-300 hover:bg-brand-green/5"
+                >
+                  Use the Calculator
+                </Link>
                 <span className="text-[14px] text-dark-green/40">
                   33 min read
                 </span>
@@ -314,8 +380,7 @@ export default function DownPaymentAssistancePage() {
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-center text-[28px] font-bold leading-tight text-dark-green sm:text-[36px] lg:text-[42px]">
-              <span className="text-brand-green">Eligibility</span>{" "}
-              Requirements
+              <span className="text-brand-green">Eligibility</span> Requirements
             </h2>
             <p className="mt-4 text-center text-[16px] leading-relaxed text-dark-green/60">
               Most Florida DPA programs share these core requirements.

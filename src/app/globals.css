@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica,
-    Arial, sans-serif;
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
 
   /* Brand colors */
   --color-brand-green: #006948;
-  --color-dark-green: #2e4136;
+  --color-dark-green: #333333;
   --color-green-tint: #f2faf6;
   --color-charcoal: #333333;
   --color-mid-gray: #abacac;
@@ -91,12 +92,12 @@
 
 /* Blog article prose styles */
 .prose-mfyh {
-  color: rgba(46, 65, 54, 0.7);
+  color: rgba(51, 51, 51, 0.72);
   font-size: 16px;
   line-height: 1.75;
 }
 .prose-mfyh h2 {
-  color: #2e4136;
+  color: #333333;
   font-size: 24px;
   font-weight: 700;
   margin-top: 2.5em;
@@ -111,7 +112,7 @@
 }
 .prose-mfyh h3 {
   counter-increment: program;
-  color: #2e4136;
+  color: #333333;
   font-size: 20px;
   font-weight: 700;
   margin-top: 2em;
@@ -150,7 +151,7 @@
   transition: color 0.2s;
 }
 .prose-mfyh a:hover {
-  color: #2e4136;
+  color: #333333;
 }
 .prose-mfyh strong a {
   color: var(--color-cta-blue);
@@ -174,7 +175,7 @@
   list-style-type: decimal;
 }
 .prose-mfyh strong {
-  color: #2e4136;
+  color: #333333;
   font-weight: 700;
 }
 .prose-mfyh blockquote {
@@ -182,7 +183,7 @@
   padding-left: 1.25em;
   margin: 1.5em 0;
   font-style: italic;
-  color: rgba(46, 65, 54, 0.6);
+  color: rgba(51, 51, 51, 0.62);
 }
 .prose-mfyh .table-wrap {
   overflow-x: auto;
@@ -196,7 +197,7 @@
   min-width: 540px;
 }
 .prose-mfyh table th {
-  background: #2e4136;
+  background: #333333;
   color: white;
   padding: 10px 16px;
   text-align: left;
@@ -227,7 +228,7 @@
 
 /* Mid-article CTA banner */
 .prose-mfyh .cta-banner {
-  background: linear-gradient(135deg, #006948, #2e4136);
+  background: linear-gradient(135deg, #006948, #333333);
   border-radius: 16px;
   padding: 32px 28px;
   text-align: center;
@@ -294,7 +295,7 @@
 }
 .prose-mfyh .dpa-btn-outline {
   border: 1.5px solid #dcdfdd;
-  color: #2e4136 !important;
+  color: #333333 !important;
   background: white;
 }
 .prose-mfyh .dpa-btn-outline:hover {
@@ -338,7 +339,7 @@
   cursor: pointer;
   font-size: 16px;
   font-weight: 700;
-  color: #2e4136;
+  color: #333333;
   list-style: none;
   user-select: none;
   transition: background 0.2s;
@@ -366,7 +367,7 @@
   padding: 0 20px 16px;
   font-size: 15px;
   line-height: 1.7;
-  color: rgba(46, 65, 54, 0.7);
+  color: rgba(51, 51, 51, 0.72);
 }
 
 /* Booking page fade-up */

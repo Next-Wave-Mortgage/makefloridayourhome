@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import Link from "next/link";
 import { PageHero } from "@/components/shared/PageHero";
 import { PageFAQ } from "@/components/shared/PageFAQ";
 import { PageCTA } from "@/components/shared/PageCTA";
 import { DataTable } from "@/components/shared/DataTable";
 
 export const metadata: Metadata = {
-  title:
-    "Florida First-Time Home Buyer Programs & Grants (2026)",
+  title: "Florida First-Time Home Buyer Programs & Grants (2026)",
   description:
     "Explore Florida first-time home buyer programs, grants, and down payment assistance for 2026. See income limits, requirements, and how to qualify.",
   alternates: {
@@ -29,7 +29,17 @@ export const metadata: Metadata = {
 const heroFeatures = [
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <line x1="12" y1="1" x2="12" y2="23" />
         <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
       </svg>
@@ -38,7 +48,17 @@ const heroFeatures = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M9 11l3 3L22 4" />
         <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
       </svg>
@@ -47,7 +67,17 @@ const heroFeatures = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
         <polyline points="9 22 9 12 15 12 15 22" />
       </svg>
@@ -56,7 +86,17 @@ const heroFeatures = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       </svg>
     ),
@@ -66,63 +106,133 @@ const heroFeatures = [
 
 const requirementsHeaders = ["Requirement", "Typical Minimum", "Notes"];
 const requirementsRows = [
-  ["Credit Score", "640 (580 for FHA)", "Higher scores unlock better rates and more programs"],
-  ["Down Payment", "0% – 3.5%", "Many DPA programs cover the full down payment"],
-  ["Debt-to-Income Ratio", "45% or less", "Some programs allow up to 50% with compensating factors"],
-  ["Employment History", "2 years", "Consistent income in the same field preferred"],
-  ["Homebuyer Education", "Required by most programs", "HUD-approved course, available online"],
-  ["First-Time Buyer Status", "No ownership in past 3 years", "Florida's definition — not necessarily your first home ever"],
+  [
+    "Credit Score",
+    "640 (580 for FHA)",
+    "Higher scores unlock better rates and more programs",
+  ],
+  [
+    "Down Payment",
+    "0% – 3.5%",
+    "Many DPA programs cover the full down payment",
+  ],
+  [
+    "Debt-to-Income Ratio",
+    "45% or less",
+    "Some programs allow up to 50% with compensating factors",
+  ],
+  [
+    "Employment History",
+    "2 years",
+    "Consistent income in the same field preferred",
+  ],
+  [
+    "Homebuyer Education",
+    "Required by most programs",
+    "HUD-approved course, available online",
+  ],
+  [
+    "First-Time Buyer Status",
+    "No ownership in past 3 years",
+    "Florida's definition — not necessarily your first home ever",
+  ],
 ];
 
-const grantsHeaders = ["Program", "Max Assistance", "Type", "Repayment", "Key Requirement"];
+const grantsHeaders = [
+  "Program",
+  "Max Assistance",
+  "Type",
+  "Repayment",
+  "Key Requirement",
+];
 const grantsRows = [
-  ["Florida Hometown Heroes", "Up to $35,000", "0% deferred second mortgage", "Repaid at sale, refi, or payoff", "W-2 employee in 50+ eligible professions"],
-  ["Florida Housing (FL HLP)", "Up to $10,000", "0% deferred second mortgage", "Deferred for 15 years, then forgiven", "Income and purchase price limits apply"],
-  ["Florida Assist", "Up to $7,500", "0% deferred second mortgage", "Repaid at sale, refi, or transfer", "Must use FL Housing first mortgage"],
-  ["County SHIP Funds", "Varies by county ($10K–$60K)", "Grant or deferred loan", "Varies — many are forgivable", "Must buy in participating county"],
-  ["HFA Preferred / Advantage", "Up to 5% of loan amount", "Grant or forgivable loan", "3-year forgivable option available", "Income limits; use with FL Housing mortgage"],
+  [
+    "Florida Hometown Heroes",
+    "Up to $35,000",
+    "0% deferred second mortgage",
+    "Repaid at sale, refi, or payoff",
+    "W-2 employee in 50+ eligible professions",
+  ],
+  [
+    "Florida Housing (FL HLP)",
+    "Up to $10,000",
+    "0% deferred second mortgage",
+    "Deferred for 15 years, then forgiven",
+    "Income and purchase price limits apply",
+  ],
+  [
+    "Florida Assist",
+    "Up to $7,500",
+    "0% deferred second mortgage",
+    "Repaid at sale, refi, or transfer",
+    "Must use FL Housing first mortgage",
+  ],
+  [
+    "County SHIP Funds",
+    "Varies by county ($10K–$60K)",
+    "Grant or deferred loan",
+    "Varies — many are forgivable",
+    "Must buy in participating county",
+  ],
+  [
+    "HFA Preferred / Advantage",
+    "Up to 5% of loan amount",
+    "Grant or forgivable loan",
+    "3-year forgivable option available",
+    "Income limits; use with FL Housing mortgage",
+  ],
 ];
 
 const faqs = [
   {
     question: "What qualifies as a 'first-time home buyer' in Florida?",
-    answer: "Florida defines a first-time home buyer as someone who has not owned a home — or had an ownership interest in a primary residence — within the past 3 years. This means you may qualify even if you owned a home before, as long as it was more than 3 years ago.",
+    answer:
+      "Florida defines a first-time home buyer as someone who has not owned a home — or had an ownership interest in a primary residence — within the past 3 years. This means you may qualify even if you owned a home before, as long as it was more than 3 years ago.",
   },
   {
     question: "What credit score do I need to buy a home in Florida?",
-    answer: "Most Florida assistance programs require a minimum credit score of 640. However, FHA loans accept scores as low as 580 with a 3.5% down payment. Your credit score also affects your interest rate and the number of programs you qualify for.",
+    answer:
+      "Most Florida assistance programs require a minimum credit score of 640. However, FHA loans accept scores as low as 580 with a 3.5% down payment. Your credit score also affects your interest rate and the number of programs you qualify for.",
   },
   {
     question: "How much down payment assistance can I get in Florida?",
-    answer: "Florida buyers can receive anywhere from $7,500 to over $100,000 in combined assistance depending on the programs they qualify for. Hometown Heroes offers up to $35,000, Florida Housing offers up to $10,000, and county SHIP funds can add even more. Many of these programs can be stacked.",
+    answer:
+      "Florida buyers can receive anywhere from $7,500 to over $100,000 in combined assistance depending on the programs they qualify for. Hometown Heroes offers up to $35,000, Florida Housing offers up to $10,000, and county SHIP funds can add even more. Many of these programs can be stacked.",
   },
   {
     question: "Do I need to take a homebuyer education course?",
-    answer: "Yes, most Florida down payment assistance programs require completion of a HUD-approved homebuyer education course. These courses are available online, typically cost $0–$100, and can be completed in a few hours. The certificate is valid for 12 months.",
+    answer:
+      "Yes, most Florida down payment assistance programs require completion of a HUD-approved homebuyer education course. These courses are available online, typically cost $0–$100, and can be completed in a few hours. The certificate is valid for 12 months.",
   },
   {
     question: "Can I buy a condo with first-time buyer programs?",
-    answer: "Yes. Condos, townhomes, and single-family homes are all eligible. For FHA loans, the condo complex must be on the FHA-approved list. Conventional loans are more flexible with condo eligibility.",
+    answer:
+      "Yes. Condos, townhomes, and single-family homes are all eligible. For FHA loans, the condo complex must be on the FHA-approved list. Conventional loans are more flexible with condo eligibility.",
   },
   {
     question: "Are there income limits for Florida first-time buyer programs?",
-    answer: "Yes. Each program has its own income limits that vary by county and household size. For example, Hometown Heroes uses Florida Housing income limits, which range from roughly $80,000 to $130,000+ depending on your county. We help you identify your exact limits.",
+    answer:
+      "Yes. Each program has its own income limits that vary by county and household size. For example, Hometown Heroes uses Florida Housing income limits, which range from roughly $80,000 to $130,000+ depending on your county. We help you identify your exact limits.",
   },
   {
     question: "How long does the home buying process take in Florida?",
-    answer: "From pre-approval to closing, the typical timeline is 30–45 days. Adding down payment assistance programs may add 5–10 business days for layered approvals. The pre-approval itself usually takes 1–3 business days once you submit your documents.",
+    answer:
+      "From pre-approval to closing, the typical timeline is 30–45 days. Adding down payment assistance programs may add 5–10 business days for layered approvals. The pre-approval itself usually takes 1–3 business days once you submit your documents.",
   },
   {
     question: "Can I use multiple assistance programs at the same time?",
-    answer: "Absolutely. Many Florida buyers stack programs — for example, using a Florida Housing first mortgage with Hometown Heroes AND county SHIP funds. The key is ensuring each program allows layering, which our team helps you navigate.",
+    answer:
+      "Absolutely. Many Florida buyers stack programs — for example, using a Florida Housing first mortgage with Hometown Heroes AND county SHIP funds. The key is ensuring each program allows layering, which our team helps you navigate.",
   },
   {
     question: "What types of loans are available for first-time buyers?",
-    answer: "Florida first-time buyers can choose from FHA (3.5% down, 580+ credit), Conventional (3% down, 620+ credit), VA (0% down for veterans), and USDA (0% down for rural areas). Each loan type has different requirements and benefits.",
+    answer:
+      "Florida first-time buyers can choose from FHA (3.5% down, 580+ credit), Conventional (3% down, 620+ credit), VA (0% down for veterans), and USDA (0% down for rural areas). Each loan type has different requirements and benefits.",
   },
   {
     question: "Do I have to live in the home I buy?",
-    answer: "Yes. All Florida first-time buyer assistance programs require the property to be your primary residence. You typically must move in within 60 days of closing and maintain it as your primary residence for a set period — usually 5 to 15 years depending on the program.",
+    answer:
+      "Yes. All Florida first-time buyer assistance programs require the property to be your primary residence. You typically must move in within 60 days of closing and maintain it as your primary residence for a set period — usually 5 to 15 years depending on the program.",
   },
 ];
 
@@ -143,8 +253,18 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.makefloridayourhome.com" },
-    { "@type": "ListItem", position: 2, name: "First-Time Home Buyer Programs", item: "https://www.makefloridayourhome.com/first-time-home-buyer" },
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://www.makefloridayourhome.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "First-Time Home Buyer Programs",
+      item: "https://www.makefloridayourhome.com/first-time-home-buyer",
+    },
   ],
 };
 
@@ -209,6 +329,17 @@ export default function FirstTimeHomeBuyerPage() {
                 your first home, there&apos;s likely a program — or a
                 combination of programs — that can put homeownership within
                 reach.
+              </p>
+              <p className="mt-4 text-[16px] leading-relaxed text-dark-green/60">
+                To move from research to a practical shortlist, use our{" "}
+                <Link
+                  href="/florida-down-payment-assistance-calculator"
+                  className="font-bold text-brand-green underline decoration-brand-green/25 underline-offset-4 hover:text-dark-green"
+                >
+                  Florida down payment assistance calculator
+                </Link>{" "}
+                to find programs that may match your county, income, buyer
+                status, and loan type.
               </p>
             </div>
 

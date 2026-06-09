@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import Link from "next/link";
 import { PageHero } from "@/components/shared/PageHero";
 import { PageFAQ } from "@/components/shared/PageFAQ";
 import { PageCTA } from "@/components/shared/PageCTA";
@@ -8,8 +9,7 @@ import { StepProcess } from "@/components/shared/StepProcess";
 import { ExpertGuidesRow } from "@/components/shared/ExpertGuidesRow";
 
 export const metadata: Metadata = {
-  title:
-    "Florida Hometown Heroes Program (2026) — Up to $35,000 in DPA",
+  title: "Florida Hometown Heroes Program (2026) — Up to $35,000 in DPA",
   description:
     "Learn about Florida's Hometown Heroes Program for 2026. Up to $35,000 in down payment assistance for teachers, nurses, law enforcement, and 50+ professions.",
   alternates: { canonical: "/hometown-heroes" },
@@ -29,7 +29,17 @@ export const metadata: Metadata = {
 const heroFeatures = [
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <line x1="12" y1="1" x2="12" y2="23" />
         <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
       </svg>
@@ -38,7 +48,17 @@ const heroFeatures = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M9 11l3 3L22 4" />
         <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
       </svg>
@@ -47,7 +67,17 @@ const heroFeatures = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v-2" />
         <path d="M16 3.13a4 4 0 010 7.75" />
         <path d="M23 21v-2a4 4 0 00-3-3.87" />
@@ -59,7 +89,17 @@ const heroFeatures = [
   },
   {
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       </svg>
     ),
@@ -73,7 +113,11 @@ const stats = [
   { value: "50+", label: "Eligible Professions" },
 ];
 
-const incomeLimitsHeaders = ["County", "1–2 Person Household", "3+ Person Household"];
+const incomeLimitsHeaders = [
+  "County",
+  "1–2 Person Household",
+  "3+ Person Household",
+];
 const incomeLimitsRows = [
   ["Miami-Dade", "$118,800", "$136,620"],
   ["Broward", "$118,800", "$136,620"],
@@ -125,7 +169,8 @@ const steps = [
 const articles = [
   {
     category: "Hometown Heroes",
-    title: "Florida Hometown Heroes Income Limits (2026): County Eligibility Guide",
+    title:
+      "Florida Hometown Heroes Income Limits (2026): County Eligibility Guide",
     description:
       "See Florida Hometown Heroes income limits for 2026, including county-by-county eligibility and who qualifies.",
     href: "/learn/florida-hometown-heroes-income-limits",
@@ -134,7 +179,8 @@ const articles = [
   },
   {
     category: "Hometown Heroes",
-    title: "Florida Hometown Heroes Job Eligibility (2026) | Full Approved Occupation List",
+    title:
+      "Florida Hometown Heroes Job Eligibility (2026) | Full Approved Occupation List",
     description:
       "See which Florida jobs qualify for the Hometown Heroes program. Full eligibility checklist by occupation.",
     href: "/learn/florida-hometown-heroes-job-eligibility",
@@ -143,7 +189,8 @@ const articles = [
   },
   {
     category: "Hometown Heroes",
-    title: "Florida Hometown Heroes Approved Lenders (2026): Find a Participating Company",
+    title:
+      "Florida Hometown Heroes Approved Lenders (2026): Find a Participating Company",
     description:
       "Learn how to verify participating mortgage companies and secure up to $35,000 in assistance.",
     href: "/learn/florida-hometown-heroes-approved-lenders",
@@ -156,7 +203,8 @@ const articles = [
     description:
       "See 2026 Florida Housing income limits and purchase price caps by county.",
     href: "/learn/florida-housing-income-purchase-price-limits",
-    image: "/images/learn/florida-housing-income-purchase-price-limits-2026.webp",
+    image:
+      "/images/learn/florida-housing-income-purchase-price-limits-2026.webp",
     readTime: "8 min read",
   },
 ];
@@ -241,7 +289,12 @@ const breadcrumbSchema = {
       name: "Home",
       item: "https://www.makefloridayourhome.com",
     },
-    { "@type": "ListItem", position: 2, name: "Hometown Heroes Program", item: "https://www.makefloridayourhome.com/hometown-heroes" },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Hometown Heroes Program",
+      item: "https://www.makefloridayourhome.com/hometown-heroes",
+    },
   ],
 };
 
@@ -272,8 +325,8 @@ export default function HometownHeroesPage() {
       <PageHero
         title={
           <>
-            <span className="text-brand-green">Hometown Heroes</span>{" "}
-            Program — Up to $35,000 in DPA
+            <span className="text-brand-green">Hometown Heroes</span> Program —
+            Up to $35,000 in DPA
           </>
         }
         subtitle={
@@ -313,6 +366,17 @@ export default function HometownHeroesPage() {
                 mortgage — meaning you make no monthly payments on it. Repayment
                 is only triggered when you sell, refinance, or pay off your
                 first mortgage.
+              </p>
+              <p className="mt-4 text-[16px] leading-relaxed text-dark-green/60">
+                Hometown Heroes is only one possible layer. Use the{" "}
+                <Link
+                  href="/florida-down-payment-assistance-calculator"
+                  className="font-bold text-brand-green underline decoration-brand-green/25 underline-offset-4 hover:text-dark-green"
+                >
+                  Florida DPA calculator
+                </Link>{" "}
+                to compare it against local county and city assistance programs
+                that may also be worth checking.
               </p>
             </div>
 
@@ -372,8 +436,7 @@ export default function HometownHeroesPage() {
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-center text-[28px] font-bold leading-tight text-dark-green sm:text-[36px] lg:text-[42px]">
-              <span className="text-brand-green">Eligibility</span>{" "}
-              Requirements
+              <span className="text-brand-green">Eligibility</span> Requirements
             </h2>
             <p className="mt-4 text-center text-[16px] leading-relaxed text-dark-green/60">
               You must meet all of these criteria to qualify for Hometown

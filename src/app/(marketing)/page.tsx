@@ -217,6 +217,12 @@ const siteNavSchema = {
     {
       "@type": "SiteNavigationElement",
       position: 9,
+      name: "Florida Down Payment Assistance Calculator",
+      url: `${siteConfig.url}/florida-down-payment-assistance-calculator`,
+    },
+    {
+      "@type": "SiteNavigationElement",
+      position: 10,
       name: "About Us",
       url: `${siteConfig.url}/about-us`,
     },

@@ -11,6 +11,10 @@ const navColumns = [
         href: "/home-affordability-calculator",
         label: "Affordability Calculator",
       },
+      {
+        href: "/florida-down-payment-assistance-calculator",
+        label: "DPA Calculator",
+      },
       { href: "/learn", label: "Mortgage Articles" },
     ],
   },
@@ -105,7 +109,7 @@ export function Footer() {
                 </h3>
                 <ul className="space-y-2.5 text-[13px] sm:space-y-3 sm:text-[14px]">
                   {col.links.map((link) => (
-                    <li key={link.href}>
+                    <li key={`${link.href}-${link.label}`}>
                       {link.href === "/mortgage-rates" ? (
                         <a
                           href={link.href}

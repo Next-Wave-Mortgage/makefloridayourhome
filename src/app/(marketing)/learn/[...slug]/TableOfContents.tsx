@@ -96,11 +96,22 @@ function ProgramsPromoCard() {
           105 Florida DPA Programs
         </div>
         <p className="mt-1 text-[12px] leading-relaxed text-dark-green/60">
-          The complete guide to every down payment assistance program in Florida for 2026.
+          The complete guide to every down payment assistance program in Florida
+          for 2026.
         </p>
         <span className="mt-2 inline-flex items-center gap-1 text-[12px] font-bold text-brand-green transition-colors group-hover:text-brand-green/80">
           View All Programs
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-0.5">
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="transition-transform group-hover:translate-x-0.5"
+          >
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </span>
@@ -127,11 +138,22 @@ function MapPromoCard() {
           Interactive DPA Map
         </div>
         <p className="mt-1 text-[12px] leading-relaxed text-dark-green/60">
-          Explore 105 programs across 67 Florida counties. Click your county to find assistance near you.
+          Explore 105 programs across 67 Florida counties. Click your county to
+          find assistance near you.
         </p>
         <span className="mt-2 inline-flex items-center gap-1 text-[12px] font-bold text-brand-green transition-colors group-hover:text-brand-green/80">
           Explore the Map
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-0.5">
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="transition-transform group-hover:translate-x-0.5"
+          >
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </span>
@@ -140,8 +162,47 @@ function MapPromoCard() {
   );
 }
 
+function CalculatorPromoCard() {
+  return (
+    <Link
+      href="/florida-down-payment-assistance-calculator"
+      className="group mt-5 block rounded-2xl border border-brand-green/20 bg-green-tint p-4 transition-all hover:border-brand-green/40 hover:shadow-[0_4px_20px_rgba(0,105,72,0.1)]"
+    >
+      <div className="text-[14px] font-bold leading-snug text-dark-green">
+        Florida DPA Calculator
+      </div>
+      <p className="mt-1 text-[12px] leading-relaxed text-dark-green/60">
+        Find programs that may match your county, income, buyer status, and loan
+        type.
+      </p>
+      <span className="mt-2 inline-flex items-center gap-1 text-[12px] font-bold text-brand-green transition-colors group-hover:text-brand-green/80">
+        Open Calculator
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="transition-transform group-hover:translate-x-0.5"
+        >
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </span>
+    </Link>
+  );
+}
+
 /** Desktop sidebar TOC */
-export function TableOfContents({ showMapPromo = false, currentSlug = "" }: { showMapPromo?: boolean; currentSlug?: string }) {
+export function TableOfContents({
+  showMapPromo = false,
+  currentSlug = "",
+}: {
+  showMapPromo?: boolean;
+  currentSlug?: string;
+}) {
   const { headings, activeId } = useHeadings();
 
   if (headings.length === 0) return null;
@@ -149,14 +210,21 @@ export function TableOfContents({ showMapPromo = false, currentSlug = "" }: { sh
   const isOnProgramsPage = currentSlug === PROGRAMS_SLUG;
 
   const hasCards = !isOnProgramsPage || showMapPromo;
-  const cardCount = (!isOnProgramsPage ? 1 : 0) + (showMapPromo ? 1 : 0);
+  const cardCount = (!isOnProgramsPage ? 1 : 0) + (showMapPromo ? 2 : 0);
   /* Reserve space for cards below the scrollable TOC list:
      each card is roughly 260px (h-36 image + padding + text) + 20px margin */
   const cardSpace = hasCards ? cardCount * 280 : 0;
 
   return (
     <div className="sticky top-24 hidden max-h-[calc(100vh-120px)] lg:block">
-      <nav className={`overflow-y-auto ${hasCards ? `max-h-[calc(100vh-120px-${cardSpace}px)]` : "max-h-[calc(100vh-120px)]"}`} style={hasCards ? { maxHeight: `calc(100vh - 120px - ${cardSpace}px)` } : undefined}>
+      <nav
+        className={`overflow-y-auto ${hasCards ? `max-h-[calc(100vh-120px-${cardSpace}px)]` : "max-h-[calc(100vh-120px)]"}`}
+        style={
+          hasCards
+            ? { maxHeight: `calc(100vh - 120px - ${cardSpace}px)` }
+            : undefined
+        }
+      >
         <div className="text-[11px] font-bold uppercase tracking-wider text-brand-green">
           In This Article
         </div>
@@ -186,13 +254,23 @@ export function TableOfContents({ showMapPromo = false, currentSlug = "" }: { sh
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-lg border border-border-gray/60 py-2 text-[12px] font-semibold text-dark-green/40 transition-colors hover:border-brand-green/40 hover:text-brand-green"
         >
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <polyline points="18 15 12 9 6 15" />
           </svg>
           Back to top
         </button>
       </nav>
       {!isOnProgramsPage && <ProgramsPromoCard />}
+      {showMapPromo && <CalculatorPromoCard />}
       {showMapPromo && <MapPromoCard />}
     </div>
   );

@@ -13,6 +13,87 @@ import {
   DPA_PROGRAMS as LEGACY_DPA_PROGRAMS,
   getCountyPrograms as getLegacyCountyPrograms,
 } from "../src/data/dpa-programs";
+import {
+  getFeaturedDpaMatch,
+  matchDpaPrograms,
+  type DpaMatchResult,
+  toDpaCalculatorProgramSummaries,
+} from "../src/lib/dpa-calculator";
+
+const DPA_CALCULATOR_PROGRAMS =
+  toDpaCalculatorProgramSummaries(FLORIDA_DPA_PROGRAMS);
+
+function makeDpaMatch({
+  id,
+  scope,
+  counties,
+  confidence = "high",
+  score = 50,
+}: {
+  id: string;
+  scope: DpaMatchResult["program"]["geography"]["scope"];
+  counties: string[];
+  confidence?: DpaMatchResult["program"]["calculator"]["confidence"];
+  score?: number;
+}): DpaMatchResult {
+  return {
+    program: {
+      id,
+      name: `${id} Program`,
+      description: "Test program for DPA featured-match ordering.",
+      assistanceDisplay: "Up to $10,000",
+      assistanceMaxAmount: 10000,
+      typeDisplay: "Grant",
+      repaymentType: "grant",
+      compatibleLoanTypes: ["fha"],
+      geography: {
+        scope,
+        display:
+          scope === "statewide" ? "Florida statewide" : counties.join(", "),
+        counties,
+        region: "Florida",
+      },
+      eligibility: {
+        firstTimeBuyerRequired: false,
+        incomeLimitRequired: "unknown",
+        purchasePriceLimitRequired: "unknown",
+        primaryResidenceRequired: "unknown",
+        homebuyerEducationRequired: "unknown",
+        householdSizeRequired: "unknown",
+        approvedLenderRequired: "unknown",
+        militaryEligible: "unknown",
+      },
+      limits: {
+        incomeLimitRequired: "unknown",
+        purchasePriceLimitRequired: "unknown",
+      },
+      availability: {
+        status: "available",
+        statusLastChecked: "2026-01-01",
+      },
+      calculator: {
+        confidence,
+        canEstimateAmount: true,
+        canDetermineBasicEligibility: true,
+        missingData: [],
+      },
+      maintenance: {
+        status: "active",
+        lastVerified: "2026-01-01",
+        needsReviewReasons: [],
+      },
+      source: {
+        label: "Test source",
+        url: null,
+        quality: "official",
+      },
+    },
+    tier: "possible",
+    score,
+    whyMatched: ["Serves the selected area."],
+    needsVerification: ["Final program details must be verified."],
+  };
+}
 
 const marketNoteInput: MarketNoteInput = {
   benchmarks: [
@@ -172,6 +253,175 @@ test("legacy DPA exports preserve county lookup behavior", () => {
   expect(legacyBroward).toContain("broward-county-hpa");
 });
 
+test("DPA calculator matcher returns results for common Florida counties", () => {
+  for (const county of [
+    "Broward",
+    "Miami-Dade",
+    "Orange",
+    "Hillsborough",
+    "Duval",
+  ]) {
+    const matches = matchDpaPrograms(
+      {
+        county,
+        firstTimeBuyer: "yes",
+        buyerStatuses: [],
+        creditScoreRange: "640-679",
+        loanType: "not-sure",
+      },
+      DPA_CALCULATOR_PROGRAMS,
+    );
+
+    expect(matches.length).toBeGreaterThan(0);
+    expect(matches[0].whyMatched.length).toBeGreaterThan(0);
+  }
+});
+
+test("DPA featured match prioritizes local and statewide trust signals", () => {
+  const browardMatches = matchDpaPrograms(
+    {
+      county: "Broward",
+      firstTimeBuyer: "yes",
+      buyerStatuses: [],
+      creditScoreRange: "640-679",
+      loanType: "not-sure",
+    },
+    DPA_CALCULATOR_PROGRAMS,
+  );
+  const browardFeatured = getFeaturedDpaMatch(browardMatches, {
+    county: "Broward",
+    firstTimeBuyer: "yes",
+    buyerStatuses: [],
+    creditScoreRange: "640-679",
+    loanType: "not-sure",
+  });
+
+  expect(browardMatches.map((match) => match.program.id)).toContain(
+    "lee-county-firstplus",
+  );
+  expect(browardFeatured?.program.id).not.toBe("lee-county-firstplus");
+  expect(
+    `${browardFeatured?.program.name} ${browardFeatured?.program.geography.display}`,
+  ).toContain("Broward");
+
+  const statewide = makeDpaMatch({
+    id: "statewide-high-confidence",
+    scope: "statewide",
+    counties: [],
+    score: 20,
+  });
+  const regional = makeDpaMatch({
+    id: "regional-includes-county",
+    scope: "regional",
+    counties: ["Broward", "Lee"],
+    score: 90,
+  });
+  const syntheticFeatured = getFeaturedDpaMatch([regional, statewide], {
+    county: "Broward",
+    firstTimeBuyer: "yes",
+    buyerStatuses: [],
+    creditScoreRange: "640-679",
+    loanType: "not-sure",
+  });
+
+  expect(syntheticFeatured?.program.id).toBe("statewide-high-confidence");
+  expect([regional, statewide].map((match) => match.program.id)).toContain(
+    "regional-includes-county",
+  );
+});
+
+test("DPA calculator matcher respects first-time buyer mismatches", () => {
+  const matches = matchDpaPrograms(
+    {
+      county: "Broward",
+      firstTimeBuyer: "no",
+      buyerStatuses: [],
+      creditScoreRange: "680-plus",
+      loanType: "fha",
+    },
+    DPA_CALCULATOR_PROGRAMS,
+  );
+
+  expect(matches.map((match) => match.program.id)).not.toContain(
+    "florida-assist",
+  );
+});
+
+test("DPA calculator matcher uses occupation and military signals", () => {
+  const educatorMatches = matchDpaPrograms(
+    {
+      county: "Orange",
+      firstTimeBuyer: "yes",
+      buyerStatuses: ["education"],
+      creditScoreRange: "680-plus",
+      loanType: "fha",
+    },
+    DPA_CALCULATOR_PROGRAMS,
+  );
+  const hometownHeroes = educatorMatches.find(
+    (match) => match.program.id === "florida-hometown-heroes",
+  );
+
+  expect(hometownHeroes).toBeTruthy();
+  expect(hometownHeroes?.whyMatched.join(" ")).toContain("occupation");
+
+  const militaryMatches = matchDpaPrograms(
+    {
+      county: "Duval",
+      firstTimeBuyer: "yes",
+      buyerStatuses: ["military"],
+      creditScoreRange: "640-679",
+      loanType: "va",
+    },
+    DPA_CALCULATOR_PROGRAMS,
+  );
+
+  expect(militaryMatches.map((match) => match.program.id)).toContain(
+    "salute-our-soldiers",
+  );
+});
+
+test("DPA calculator matcher flags city-specific and low-confidence records for review", () => {
+  const citySpecificMatches = matchDpaPrograms(
+    {
+      county: "Miami-Dade",
+      firstTimeBuyer: "yes",
+      buyerStatuses: [],
+      creditScoreRange: "640-679",
+      loanType: "not-sure",
+    },
+    DPA_CALCULATOR_PROGRAMS,
+  );
+  const northMiami = citySpecificMatches.find(
+    (match) => match.program.id === "north-miami-fthb",
+  );
+
+  expect(northMiami?.needsVerification.join(" ")).toContain("city-specific");
+
+  const lowConfidenceProgram = DPA_CALCULATOR_PROGRAMS.find(
+    (program) =>
+      program.calculator.confidence === "low" &&
+      program.geography.counties.length > 0,
+  );
+  expect(lowConfidenceProgram).toBeTruthy();
+
+  const lowConfidenceCounty = lowConfidenceProgram?.geography.counties[0];
+  expect(lowConfidenceCounty).toBeTruthy();
+
+  const lowConfidenceMatch = matchDpaPrograms(
+    {
+      county: lowConfidenceCounty ?? "Broward",
+      firstTimeBuyer: "yes",
+      buyerStatuses: [],
+      creditScoreRange: "unknown",
+      loanType: "not-sure",
+    },
+    DPA_CALCULATOR_PROGRAMS,
+  ).find((match) => match.program.id === lowConfidenceProgram?.id);
+
+  expect(lowConfidenceMatch?.tier).toBe("manual-review");
+});
+
 test("rates API returns benchmark mortgage products", async ({ request }) => {
   const response = await request.get("/api/rates");
   expect(response.ok()).toBeTruthy();
@@ -227,6 +477,43 @@ test("rates API returns benchmark mortgage products", async ({ request }) => {
     }),
   );
   expect(body.rateTrend.points.length).toBeGreaterThan(100);
+});
+
+test("Florida DPA calculator page renders and returns county results", async ({
+  page,
+}) => {
+  await page.goto("/florida-down-payment-assistance-calculator");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText(
+    "Florida Down Payment Assistance Calculator",
+  );
+
+  await page.locator("#dpa-county").click();
+  await page.getByRole("option", { name: "Broward", exact: true }).click();
+  await expect(
+    page.getByText(/programs worth checking in Broward/),
+  ).toBeHidden();
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
+  await expect(
+    page.getByRole("heading", { name: "What kind of buyer are you?" }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "Continue", exact: true }).click();
+  await expect(
+    page.getByRole("heading", { name: "What do you know so far?" }),
+  ).toBeVisible();
+  await page
+    .getByRole("button", { name: "Show programs", exact: true })
+    .click();
+
+  await expect(
+    page.getByText(/programs worth checking in Broward/),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Start here", exact: true }),
+  ).toBeVisible();
+  await expect(page.getByText("See why this matched").first()).toBeVisible();
+  await expect(page.getByText("Program details").first()).toBeVisible();
+  await expect(page.getByText("Other good options")).toBeVisible();
+  await expect(page.getByText("Why some programs are not shown")).toBeVisible();
 });
 
 test("Gemini market note prompt includes live rate values", () => {
