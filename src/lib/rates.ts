@@ -1,5 +1,9 @@
 import { getCache } from "@vercel/functions";
 import { generateMarketNote, type MarketNote } from "@/lib/rate-market-note";
+import {
+  readMortgageRatesSnapshotFromBlob,
+  writeMortgageRatesSnapshotToBlob,
+} from "@/lib/rate-snapshot-store";
 import seedMortgageRatesSnapshot from "@/data/mortgage-rates-seed.json";
 
 export type RateProductId =
@@ -606,8 +610,24 @@ async function readMortgageMarketSnapshotFromRuntimeCache(): Promise<MortgageMar
   }
 }
 
+async function readMortgageMarketSnapshotFromBlob(): Promise<MortgageMarketSnapshot | null> {
+  try {
+    const snapshot = await readMortgageRatesSnapshotFromBlob();
+
+    if (!isMortgageMarketSnapshot(snapshot)) {
+      return null;
+    }
+
+    return snapshot;
+  } catch {
+    return null;
+  }
+}
+
 export async function refreshMortgageMarketSnapshot(): Promise<MortgageMarketSnapshot> {
   const snapshot = await fetchLatestMortgageMarketSnapshot();
+
+  await writeMortgageRatesSnapshotToBlob(snapshot);
 
   await getMortgageRatesRuntimeCache().set(
     MORTGAGE_RATES_RUNTIME_CACHE_KEY,
@@ -661,6 +681,22 @@ export async function getStoredMortgageMarketSnapshot(): Promise<MortgageMarketS
 
   if (cachedSnapshot) {
     return cachedSnapshot;
+  }
+
+  const blobSnapshot = await readMortgageMarketSnapshotFromBlob();
+
+  if (blobSnapshot) {
+    await getMortgageRatesRuntimeCache().set(
+      MORTGAGE_RATES_RUNTIME_CACHE_KEY,
+      blobSnapshot,
+      {
+        ttl: MORTGAGE_RATES_RUNTIME_CACHE_TTL_SECONDS,
+        tags: [MORTGAGE_RATES_CACHE_TAG],
+        name: "Mortgage rates snapshot",
+      },
+    );
+
+    return blobSnapshot;
   }
 
   return getSeedMortgageMarketSnapshot();
