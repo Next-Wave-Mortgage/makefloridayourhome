@@ -4,7 +4,6 @@ import {
   readMortgageRatesSnapshotFromBlob,
   writeMortgageRatesSnapshotToBlob,
 } from "@/lib/rate-snapshot-store";
-import seedMortgageRatesSnapshot from "@/data/mortgage-rates-seed.json";
 
 export type RateProductId =
   | "30-year-fixed"
@@ -683,14 +682,6 @@ function isMortgageMarketSnapshot(
   );
 }
 
-function getSeedMortgageMarketSnapshot(): MortgageMarketSnapshot {
-  if (!isMortgageMarketSnapshot(seedMortgageRatesSnapshot)) {
-    throw new Error("Seed mortgage rates snapshot is invalid");
-  }
-
-  return seedMortgageRatesSnapshot;
-}
-
 export async function getStoredMortgageMarketSnapshot(): Promise<MortgageMarketSnapshot> {
   const cachedSnapshot = await readMortgageMarketSnapshotFromRuntimeCache();
 
@@ -714,7 +705,9 @@ export async function getStoredMortgageMarketSnapshot(): Promise<MortgageMarketS
     return blobSnapshot;
   }
 
-  return getSeedMortgageMarketSnapshot();
+  throw new Error(
+    "No valid mortgage rates snapshot found in Runtime Cache or Vercel Blob",
+  );
 }
 
 export async function getMortgageMarketSnapshot(): Promise<MortgageMarketSnapshot> {
