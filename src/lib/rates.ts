@@ -141,7 +141,7 @@ const DISCLAIMER =
 export const MORTGAGE_RATES_CACHE_TAG = "mortgage-rates";
 const MORTGAGE_RATES_RUNTIME_CACHE_KEY = "current-snapshot";
 const MORTGAGE_RATES_RUNTIME_CACHE_TTL_SECONDS = 60 * 60 * 24 * 14;
-const FRED_REQUEST_TIMEOUT_MS = 10_000;
+const FRED_REQUEST_TIMEOUT_MS = 20_000;
 const FRED_REQUEST_SPACING_MS = 1_200;
 const FRED_RETRY_DELAYS_MS = [2_000, 5_000, 10_000];
 
@@ -497,6 +497,21 @@ async function fetchFredObservations(
       throw new Error(
         `FRED request failed for ${seriesId}: ${response.status}`,
       );
+    } catch (error) {
+      if (
+        attempt < FRED_RETRY_DELAYS_MS.length &&
+        error instanceof Error &&
+        error.name === "AbortError"
+      ) {
+        await sleep(FRED_RETRY_DELAYS_MS[attempt]);
+        continue;
+      }
+
+      if (error instanceof Error && error.name === "AbortError") {
+        throw new Error(`FRED request timed out for ${seriesId}`);
+      }
+
+      throw error;
     } finally {
       clearTimeout(timeout);
     }

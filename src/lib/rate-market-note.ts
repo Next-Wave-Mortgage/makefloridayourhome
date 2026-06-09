@@ -206,39 +206,48 @@ export async function generateMarketNote(
   );
 
   try {
-    const response = await fetch(GEMINI_API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-goog-api-key": apiKey,
-      },
-      signal: controller.signal,
-      body: JSON.stringify({
-        contents: [
-          {
-            role: "user",
-            parts: [{ text: prompt }],
-          },
-        ],
-        generationConfig: {
-          temperature: 0.4,
-          maxOutputTokens: 2048,
-          responseMimeType: "application/json",
-          responseSchema: {
-            type: "OBJECT",
-            properties: {
-              headline: { type: "STRING" },
-              body: { type: "STRING" },
-              dataPointsUsed: {
-                type: "ARRAY",
-                items: { type: "STRING" },
-              },
-            },
-            required: ["headline", "body", "dataPointsUsed"],
-          },
+    let response: Response;
+    try {
+      response = await fetch(GEMINI_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-goog-api-key": apiKey,
         },
-      }),
-    });
+        signal: controller.signal,
+        body: JSON.stringify({
+          contents: [
+            {
+              role: "user",
+              parts: [{ text: prompt }],
+            },
+          ],
+          generationConfig: {
+            temperature: 0.4,
+            maxOutputTokens: 2048,
+            responseMimeType: "application/json",
+            responseSchema: {
+              type: "OBJECT",
+              properties: {
+                headline: { type: "STRING" },
+                body: { type: "STRING" },
+                dataPointsUsed: {
+                  type: "ARRAY",
+                  items: { type: "STRING" },
+                },
+              },
+              required: ["headline", "body", "dataPointsUsed"],
+            },
+          },
+        }),
+      });
+    } catch (error) {
+      if (error instanceof Error && error.name === "AbortError") {
+        throw new Error("Gemini market note request timed out");
+      }
+
+      throw error;
+    }
 
     if (!response.ok) {
       throw new Error(`Gemini market note request failed: ${response.status}`);
