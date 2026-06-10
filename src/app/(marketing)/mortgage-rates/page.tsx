@@ -5,9 +5,9 @@ import { getMortgageMarketSnapshot } from "@/lib/rates";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Florida Mortgage Rates Today | Live Benchmark Dashboard",
+  title: "Florida Mortgage Rates Today | FHA, VA & Conventional Rates",
   description:
-    "Compare current Florida mortgage rate benchmarks, daily rate-lock indices, Florida housing market context, and compliant mortgage rate methodology.",
+    "Compare current mortgage rate benchmarks for Florida buyers, including conventional, FHA, VA, jumbo, and USDA loan options, plus Florida housing market context.",
   openGraph: {
     title: "Florida Mortgage Rates Today",
     description:
