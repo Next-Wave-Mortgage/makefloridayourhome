@@ -41,28 +41,49 @@ function useHeadings() {
   const [activeId, setActiveId] = useState("");
 
   useEffect(() => {
-    const items = getHeadingsFromDom();
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time DOM read on mount; no cascading render risk
-    setHeadings(items);
+    let intersectionObserver: IntersectionObserver | null = null;
+    let headingKey = "";
 
-    if (items.length === 0) return;
+    function observeHeadings(items: TocItem[]) {
+      intersectionObserver?.disconnect();
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.filter((e) => e.isIntersecting);
-        if (visible.length > 0) {
-          setActiveId(visible[0].target.id);
-        }
-      },
-      { rootMargin: "-80px 0px -60% 0px", threshold: 0 },
-    );
+      if (items.length === 0) return;
 
-    items.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+      intersectionObserver = new IntersectionObserver(
+        (entries) => {
+          const visible = entries.filter((e) => e.isIntersecting);
+          if (visible.length > 0) {
+            setActiveId(visible[0].target.id);
+          }
+        },
+        { rootMargin: "-80px 0px -60% 0px", threshold: 0 },
+      );
 
-    return () => observer.disconnect();
+      items.forEach(({ id }) => {
+        const el = document.getElementById(id);
+        if (el) intersectionObserver?.observe(el);
+      });
+    }
+
+    function refreshHeadings() {
+      const items = getHeadingsFromDom();
+      const nextHeadingKey = items.map((item) => item.id).join("|");
+      if (nextHeadingKey === headingKey) return;
+
+      headingKey = nextHeadingKey;
+      setHeadings(items);
+      observeHeadings(items);
+    }
+
+    refreshHeadings();
+
+    const mutationObserver = new MutationObserver(refreshHeadings);
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      mutationObserver.disconnect();
+      intersectionObserver?.disconnect();
+    };
   }, []);
 
   return { headings, activeId };
@@ -210,21 +231,13 @@ export function TableOfContents({
   const isOnProgramsPage = currentSlug === PROGRAMS_SLUG;
 
   const hasCards = !isOnProgramsPage || showMapPromo;
-  const cardCount = (!isOnProgramsPage ? 1 : 0) + (showMapPromo ? 2 : 0);
-  /* Reserve space for cards below the scrollable TOC list:
-     each card is roughly 260px (h-36 image + padding + text) + 20px margin */
-  const cardSpace = hasCards ? cardCount * 280 : 0;
+  const navMaxHeight = hasCards
+    ? "min(420px, calc(100vh - 180px))"
+    : "calc(100vh - 120px)";
 
   return (
-    <div className="sticky top-24 hidden max-h-[calc(100vh-120px)] lg:block">
-      <nav
-        className={`overflow-y-auto ${hasCards ? `max-h-[calc(100vh-120px-${cardSpace}px)]` : "max-h-[calc(100vh-120px)]"}`}
-        style={
-          hasCards
-            ? { maxHeight: `calc(100vh - 120px - ${cardSpace}px)` }
-            : undefined
-        }
-      >
+    <div className="sticky top-24 hidden max-h-[calc(100vh-120px)] md:block">
+      <nav className="overflow-y-auto" style={{ maxHeight: navMaxHeight }}>
         <div className="text-[11px] font-bold uppercase tracking-wider text-brand-green">
           In This Article
         </div>
@@ -286,7 +299,7 @@ export function MobileTableOfContents() {
   const h2s = headings.filter((h) => h.level === 2);
 
   return (
-    <div className="mb-6 lg:hidden">
+    <div className="mb-6 md:hidden">
       <button
         onClick={() => setOpen(!open)}
         className="flex w-full items-center justify-between rounded-xl border border-border-gray/60 bg-green-tint/50 px-4 py-3"

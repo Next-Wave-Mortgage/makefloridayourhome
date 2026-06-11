@@ -20,6 +20,7 @@ export interface BlogPost {
   featuredImage?: string;
   imageAlt?: string;
   tags?: string[];
+  faqs?: { question: string; answer: string }[];
   readTime: number;
   content: string;
 }
@@ -112,6 +113,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
     featuredImage: data.featuredImage || null,
     imageAlt: data.imageAlt || null,
     tags: data.tags || [],
+    faqs: Array.isArray(data.faqs) ? data.faqs : [],
     readTime: estimateReadTime(content),
     content,
   };

@@ -6,11 +6,29 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import { ArticleHero } from "@/components/shared/ArticleHero";
+import { PageFAQ } from "@/components/shared/PageFAQ";
 import { getAllSlugs, getPostBySlug } from "@/lib/blog";
 import { TableOfContents, MobileTableOfContents } from "./TableOfContents";
 
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug: slug.split("/") }));
+}
+
+function formatArticleDate(date: string) {
+  const dateOnlyMatch = date.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  const parsedDate = dateOnlyMatch
+    ? new Date(
+        Number(dateOnlyMatch[1]),
+        Number(dateOnlyMatch[2]) - 1,
+        Number(dateOnlyMatch[3]),
+      )
+    : new Date(date);
+
+  return parsedDate.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
 }
 
 export async function generateMetadata({
@@ -87,18 +105,10 @@ export default async function BlogPostPage({
   const post = getPostBySlug(slugStr);
   if (!post) notFound();
 
-  const publishedDate = new Date(post.date).toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
+  const publishedDate = formatArticleDate(post.date);
 
   const updatedDate = post.updatedDate
-    ? new Date(post.updatedDate).toLocaleDateString("en-US", {
-        month: "long",
-        day: "numeric",
-        year: "numeric",
-      })
+    ? formatArticleDate(post.updatedDate)
     : null;
 
   const canonicalUrl = `https://www.makefloridayourhome.com/learn/${slugStr}`;
@@ -183,8 +193,26 @@ export default async function BlogPostPage({
         }
       : null;
 
-  // Extract FAQ pairs from <details><summary>Q</summary><div>A</div></details> pattern
+  // Prefer frontmatter FAQs; keep legacy MDX details support for older articles.
   const faqSchema = (() => {
+    const frontmatterFaqs =
+      post.faqs?.filter((faq) => faq.question && faq.answer) ?? [];
+
+    if (frontmatterFaqs.length > 0) {
+      return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: frontmatterFaqs.map((qa) => ({
+          "@type": "Question",
+          name: qa.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: qa.answer,
+          },
+        })),
+      };
+    }
+
     const summaryRegex = new RegExp(
       "<summary>(.*?)</summary>\\s*<div[^>]*>(.*?)</div>",
       "gs",
@@ -309,7 +337,7 @@ export default async function BlogPostPage({
         }}
       >
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
-          <div className="grid lg:grid-cols-[minmax(0,860px)_1fr] lg:gap-10">
+          <div className="grid md:grid-cols-[minmax(0,1fr)_260px] md:gap-8 lg:grid-cols-[minmax(0,860px)_1fr] lg:gap-10">
             <article className="overflow-hidden rounded-t-3xl bg-white shadow-[0_4px_30px_rgba(0,0,0,0.07)]">
               {/* Mobile featured image — sits at top of card, edge to edge */}
               {post.featuredImage && (
@@ -388,7 +416,7 @@ export default async function BlogPostPage({
             </article>
 
             {/* Sidebar TOC */}
-            <aside className="pt-20">
+            <aside className="pt-8">
               <TableOfContents
                 showMapPromo={
                   post.tags?.some((t) =>
@@ -403,6 +431,19 @@ export default async function BlogPostPage({
           </div>
         </div>
       </div>
+      {post.faqs && post.faqs.length > 0 && (
+        <PageFAQ
+          faqs={post.faqs}
+          heading={
+            <>
+              Florida Housing{" "}
+              <span className="text-brand-green">Questions</span>
+            </>
+          }
+          description="Quick answers about income limits, purchase price caps, loan limits, and which Florida Housing table applies."
+          bg="white"
+        />
+      )}
     </>
   );
 }

@@ -317,8 +317,8 @@ export default function DownPaymentAssistancePage() {
                 Complete Guide
               </p>
               <h2 className="mt-3 text-[26px] font-bold leading-tight text-dark-green sm:text-[32px] lg:text-[36px]">
-                <span className="text-brand-green">105</span> Florida First-Time
-                Home Buyer Grants &amp; Programs
+                <span className="mr-2 inline-block text-brand-green">105</span>{" "}
+                Florida First-Time Home Buyer Grants &amp; Programs
               </h2>
               <p className="mt-4 max-w-xl text-[16px] leading-relaxed text-dark-green/60">
                 Every grant, forgivable loan, and deferred program available to
