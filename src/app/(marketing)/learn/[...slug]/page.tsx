@@ -7,6 +7,11 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import { ArticleHero } from "@/components/shared/ArticleHero";
 import { PageFAQ } from "@/components/shared/PageFAQ";
+import {
+  CheapestPlacesListicle,
+  cheapestFloridaPlaces,
+  getCheapestPlacesItemList,
+} from "@/components/sections/CheapestPlacesListicle";
 import { getAllSlugs, getPostBySlug } from "@/lib/blog";
 import { TableOfContents, MobileTableOfContents } from "./TableOfContents";
 
@@ -114,6 +119,8 @@ export default async function BlogPostPage({
   const canonicalUrl = `https://www.makefloridayourhome.com/learn/${slugStr}`;
 
   const wordCount = post.content.trim().split(/\s+/).length;
+  const isCheapestPlacesPage =
+    slugStr === "cheapest-places-to-buy-house-in-florida";
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -172,8 +179,16 @@ export default async function BlogPostPage({
 
   // Extract H3 headings for ItemList schema (listicle programs)
   const h3Matches = post.content.match(/^### .+$/gm);
-  const itemListSchema =
-    h3Matches && h3Matches.length > 5
+  const itemListSchema = isCheapestPlacesPage
+    ? {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: post.title,
+        description: post.description,
+        numberOfItems: cheapestFloridaPlaces.length,
+        itemListElement: getCheapestPlacesItemList(canonicalUrl),
+      }
+    : h3Matches && h3Matches.length > 5
       ? {
           "@context": "https://schema.org",
           "@type": "ItemList",
@@ -364,6 +379,7 @@ export default async function BlogPostPage({
                       },
                     }}
                     components={{
+                      CheapestPlacesListicle,
                       table: (props: React.ComponentProps<"table">) => (
                         <div className="table-wrap">
                           <table {...props} />

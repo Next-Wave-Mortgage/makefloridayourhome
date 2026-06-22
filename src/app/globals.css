@@ -219,6 +219,33 @@
   border-radius: 12px;
   margin: 1.5em 0;
 }
+
+/* Rich listicle modules inside MDX articles */
+.prose-mfyh .cheap-listicle {
+  color: #333333;
+  line-height: 1.5;
+}
+.prose-mfyh .cheap-listicle h2,
+.prose-mfyh .cheap-listicle p,
+.prose-mfyh .cheap-listicle ul,
+.prose-mfyh .cheap-listicle li,
+.prose-mfyh .cheap-listicle figure {
+  margin: 0;
+}
+.prose-mfyh .cheap-listicle ul {
+  padding-left: 0;
+}
+.prose-mfyh .cheap-listicle li {
+  list-style: none;
+}
+.prose-mfyh .cheap-listicle img {
+  margin: 0;
+  border-radius: 0;
+}
+.prose-mfyh .cheap-listicle a {
+  text-decoration: none;
+}
+
 /* Comparison table amount highlight */
 .prose-mfyh table td:nth-child(2) {
   color: #006948;
