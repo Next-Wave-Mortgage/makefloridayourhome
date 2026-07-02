@@ -415,6 +415,28 @@
   box-shadow: none !important;
 }
 
+.nextwave-widget-container {
+  min-height: 640px;
+  width: 100%;
+}
+
+.nextwave-widget-container nextwave-lead-form,
+.nextwave-widget-container nextwave-booking-widget {
+  --nwl-primary: #006948;
+  --nwl-accent: #1c96c5;
+  --nwl-text: #2e4136;
+  --nwl-background: #f6fcf6;
+
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .nextwave-widget-container {
+    min-height: 580px;
+  }
+}
+
 /* Custom range slider */
 .slider {
   -webkit-appearance: none;

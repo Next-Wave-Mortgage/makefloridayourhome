@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { FunnelFormPage } from "../FunnelFormPage";
+import { HometownHeroesWidgets } from "./HometownHeroesWidgets";
 
 export const metadata: Metadata = {
   title:
@@ -24,7 +25,8 @@ export default function CheckHometownHeroesEligibilityPage() {
     <FunnelFormPage
       heading="See if you qualify for up to $35,000 with Hometown Heroes"
       subtitle="Florida's Hometown Heroes program covers down payment and closing costs — find out if you're eligible."
-      fcKey="fmzdqbu"
-    />
+    >
+      <HometownHeroesWidgets />
+    </FunnelFormPage>
   );
 }
