@@ -1,3 +1,5 @@
+"use client";
+
 import { FormCraftsEmbed } from "@/components/FormCraftsEmbed";
 
 /* ── Checkmark icon ── */
@@ -44,15 +46,13 @@ function Shield() {
 interface FunnelFormPageProps {
   heading: string;
   subtitle?: string;
-  fcKey?: string;
-  children?: React.ReactNode;
+  fcKey: string;
 }
 
 export function FunnelFormPage({
   heading,
   subtitle,
   fcKey,
-  children,
 }: FunnelFormPageProps) {
   return (
     <div className="flex flex-1 flex-col bg-green-tint/40">
@@ -92,7 +92,7 @@ export function FunnelFormPage({
 
             {/* Form */}
             <div className="mt-4 lg:mt-5">
-              {children ?? (fcKey ? <FormCraftsEmbed fcKey={fcKey} /> : null)}
+              <FormCraftsEmbed fcKey={fcKey} />
             </div>
           </div>
 
