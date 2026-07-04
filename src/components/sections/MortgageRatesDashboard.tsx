@@ -906,11 +906,18 @@ export function MortgageRatesDashboard({
                 financing.
               </p>
               <p>
-                In higher-priced Florida markets, jumbo financing can become
-                part of the conversation when the loan amount rises above
-                conforming limits. The best next step is to compare the loan
-                type, cash-to-close, mortgage insurance, and payment together,
-                not just the headline rate. For a broader overview, see our{" "}
+                In higher-priced Florida markets,{" "}
+                <Link
+                  href="/check-jumbo-loan-eligibility"
+                  className="font-bold text-brand-green underline underline-offset-2 hover:text-dark-green"
+                >
+                  jumbo financing
+                </Link>{" "}
+                can become part of the conversation when the loan amount rises
+                above conforming limits. The best next step is to compare the
+                loan type, cash-to-close, mortgage insurance, and payment
+                together, not just the headline rate. For a broader overview,
+                see our{" "}
                 <Link
                   href="/home-loan"
                   className="font-bold text-brand-green underline underline-offset-2 hover:text-dark-green"

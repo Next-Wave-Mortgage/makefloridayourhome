@@ -81,4 +81,74 @@ export const leadFunnelConfigs = {
       "Up to $35,000 toward your down payment and closing costs for Florida's frontline community workers - teachers, nurses, first responders, and more.",
     canonicalPath: "/check-hometown-heroes-eligibility",
   },
+  reverseMortgage: {
+    source: "mfyh-reverse-mortgage",
+    leadIntent: "reverse-mortgage",
+    programSlug: "mfyh-reverse-mortgage",
+    programName: "Florida Reverse Mortgage Program",
+    programCategory: "reverse-mortgage",
+    description:
+      "See if a Florida reverse mortgage or HECM option could help you access home equity with no required monthly mortgage payment.",
+    canonicalPath: "/check-reverse-mortgage-eligibility",
+  },
+  heloc: {
+    source: "mfyh-heloc",
+    leadIntent: "heloc",
+    programSlug: "mfyh-heloc",
+    programName: "Florida HELOC and Home Equity Program",
+    programCategory: "heloc",
+    description:
+      "Find out if a Florida HELOC or home equity option fits your goals for renovations, debt payoff, or cash access.",
+    canonicalPath: "/check-heloc-eligibility",
+  },
+  manufacturedHome: {
+    source: "mfyh-manufactured-home",
+    leadIntent: "manufactured-home",
+    programSlug: "mfyh-manufactured-home",
+    programName: "Florida Manufactured Home Loan Program",
+    programCategory: "manufactured-home",
+    description:
+      "Check eligibility for manufactured home financing in Florida, including FHA, VA, USDA, and conventional options where available.",
+    canonicalPath: "/check-manufactured-home-loan-eligibility",
+  },
+  nonQm: {
+    source: "mfyh-non-qm",
+    leadIntent: "non-qm",
+    programSlug: "mfyh-non-qm",
+    programName: "Florida Non-QM and Self-Employed Mortgage Program",
+    programCategory: "non-qm",
+    description:
+      "See options for self-employed, 1099, bank-statement, DSCR, and non-traditional income mortgage scenarios in Florida.",
+    canonicalPath: "/check-non-qm-loan-eligibility",
+  },
+  jumbo: {
+    source: "mfyh-jumbo",
+    leadIntent: "jumbo",
+    programSlug: "mfyh-jumbo",
+    programName: "Florida Jumbo Mortgage Program",
+    programCategory: "jumbo",
+    description:
+      "Check options for higher-balance Florida mortgage financing when your loan amount may exceed conforming limits.",
+    canonicalPath: "/check-jumbo-loan-eligibility",
+  },
+  renovation: {
+    source: "mfyh-renovation",
+    leadIntent: "renovation",
+    programSlug: "mfyh-renovation",
+    programName: "Florida Renovation and FHA 203(k) Loan Program",
+    programCategory: "renovation",
+    description:
+      "See if a renovation mortgage, FHA 203(k), or fixer-upper financing option can help you buy and repair a Florida home.",
+    canonicalPath: "/check-renovation-loan-eligibility",
+  },
+  alternativeLoans: {
+    source: "mfyh-alternative-loans",
+    leadIntent: "alternative-loans",
+    programSlug: "mfyh-alternative-loans",
+    programName: "Florida Alternative Mortgage Program",
+    programCategory: "alternative-loans",
+    description:
+      "Explore mortgage options for DACA, ITIN, foreign buyer, tribal housing, and other alternative borrower scenarios in Florida.",
+    canonicalPath: "/check-alternative-loan-eligibility",
+  },
 } satisfies Record<string, LeadFunnelConfig>;

@@ -45,6 +45,92 @@ function getArticleLeadFunnel(post: {
   const tags = (post.tags || []).map((tag) => tag.toLowerCase());
   const taggedAs = (value: string) => tags.some((tag) => tag.includes(value));
 
+  if (
+    titleSlug.includes("reverse mortgage") ||
+    titleSlug.includes("hecm") ||
+    taggedAs("reverse mortgage")
+  ) {
+    return {
+      href: "/check-reverse-mortgage-eligibility",
+      text: "Check Reverse Mortgage Eligibility",
+    };
+  }
+
+  if (
+    titleSlug.includes("heloc") ||
+    titleSlug.includes("home equity") ||
+    taggedAs("heloc") ||
+    taggedAs("home equity")
+  ) {
+    return {
+      href: "/check-heloc-eligibility",
+      text: "Check HELOC Eligibility",
+    };
+  }
+
+  if (
+    titleSlug.includes("manufactured home") ||
+    titleSlug.includes("manufactured housing") ||
+    taggedAs("manufactured")
+  ) {
+    return {
+      href: "/check-manufactured-home-loan-eligibility",
+      text: "Check Manufactured Home Eligibility",
+    };
+  }
+
+  if (
+    titleSlug.includes("203k") ||
+    titleSlug.includes("203(k)") ||
+    titleSlug.includes("renovation loan") ||
+    titleSlug.includes("fixer-upper") ||
+    taggedAs("renovation")
+  ) {
+    return {
+      href: "/check-renovation-loan-eligibility",
+      text: "Check Renovation Loan Eligibility",
+    };
+  }
+
+  if (
+    titleSlug.includes("non-qm") ||
+    titleSlug.includes("self-employed") ||
+    titleSlug.includes("1099") ||
+    titleSlug.includes("bank statement") ||
+    titleSlug.includes("dscr") ||
+    taggedAs("self-employed") ||
+    taggedAs("1099")
+  ) {
+    return {
+      href: "/check-non-qm-loan-eligibility",
+      text: "Check Non-QM Eligibility",
+    };
+  }
+
+  if (
+    titleSlug.includes("daca") ||
+    titleSlug.includes("itin") ||
+    titleSlug.includes("foreign buyer") ||
+    titleSlug.includes("tribal housing") ||
+    taggedAs("daca") ||
+    taggedAs("itin") ||
+    taggedAs("foreign buyers") ||
+    taggedAs("tribal housing") ||
+    taggedAs("alternative loans")
+  ) {
+    return {
+      href: "/check-alternative-loan-eligibility",
+      text: "Check Alternative Mortgage Eligibility",
+    };
+  }
+
+  if (titleSlug.includes("jumbo") || taggedAs("jumbo")) {
+    return {
+      href: "/check-jumbo-loan-eligibility",
+      text: "Check Jumbo Eligibility",
+    };
+  }
+
   if (titleSlug.includes("hometown heroes") || taggedAs("hometown heroes")) {
     return {
       href: "/check-hometown-heroes-eligibility",

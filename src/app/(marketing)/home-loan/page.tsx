@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title:
     "Florida Home Loan Options (2026) — FHA, VA, USDA, Conventional & More",
   description:
-    "Compare Florida home loan options for 2026: FHA, Conventional, VA, USDA, Reverse Mortgage, Manufactured Home, and HELOC. Find the best fit for your situation.",
+    "Compare Florida home loan options for 2026: FHA, Conventional, VA, USDA, Jumbo, Renovation, Reverse Mortgage, Manufactured Home, HELOC, Non-QM, and alternative programs.",
   openGraph: {
     title: "Florida Home Loan Options (2026)",
     description:
-      "Compare FHA, VA, USDA, Conventional, and specialty loan programs available in Florida.",
+      "Compare FHA, VA, USDA, Conventional, Jumbo, HELOC, reverse mortgage, and specialty loan programs available in Florida.",
     url: "https://www.makefloridayourhome.com/home-loan",
     type: "website",
   },
@@ -77,9 +77,13 @@ const mortgageOptionsRows = [
   ["Conventional", "3%", "620", "Good credit, want to drop MI", "Yes (removable at 80% LTV)", "Yes"],
   ["VA", "0%", "580–620*", "Veterans & active military", "No", "Yes (closing costs)"],
   ["USDA", "0%", "640", "Rural area buyers", "Yes (reduced rate)", "Yes"],
+  ["Jumbo", "10%-20%", "680+", "Higher-balance purchases", "No", "Varies"],
+  ["Renovation / FHA 203(k)", "3.5%+", "580+", "Fixer-uppers and repairs", "Varies", "Sometimes"],
   ["Reverse Mortgage", "N/A", "N/A", "Homeowners 62+", "Yes (FHA HECM)", "No"],
   ["Manufactured Home", "3.5%–5%", "580–620", "Factory-built homes", "Varies by loan type", "Yes"],
   ["HELOC", "N/A", "620–680", "Existing homeowners", "No", "No"],
+  ["Non-QM", "Varies", "Varies", "Self-employed and 1099 borrowers", "Varies", "No"],
+  ["Alternative Programs", "Varies", "Varies", "ITIN, DACA, foreign buyer scenarios", "Varies", "Varies"],
 ];
 
 const bestByBuyerHeaders = ["Buyer Profile", "Recommended Loan", "Why"];
@@ -88,9 +92,12 @@ const bestByBuyerRows = [
   ["First-time buyer, good credit", "Conventional", "Lower MI costs, MI removable at 80% LTV, competitive rates"],
   ["Veteran or active military", "VA", "0% down, no MI, competitive rates — best deal for eligible borrowers"],
   ["Buying in a rural area", "USDA", "0% down, reduced MI, designed for rural communities"],
+  ["Buying above conforming limits", "Jumbo", "Higher loan amounts with stronger reserve and credit requirements"],
+  ["Buying a fixer-upper", "Renovation / FHA 203(k)", "Purchase and eligible repairs can be financed into one mortgage"],
   ["Self-employed, non-traditional income", "Non-QM", "Flexible income documentation — bank statements, 1099s accepted"],
   ["Homeowner 62+, need cash flow", "Reverse Mortgage", "Convert home equity to income — no monthly mortgage payments"],
   ["Own a home, need cash", "HELOC", "Access equity without refinancing your first mortgage"],
+  ["ITIN, DACA, foreign buyer, or tribal housing", "Alternative Programs", "Specialty financing depends on borrower status and documentation"],
 ];
 
 const loanTypes = [
@@ -102,6 +109,8 @@ const loanTypes = [
       "Backed by the Federal Housing Administration, FHA loans are the most popular choice for Florida first-time buyers. With just 3.5% down and a 580 credit score, they offer the lowest barrier to entry. FHA loans can be paired with Hometown Heroes and other Florida DPA programs.",
     href: "/home-loan/fha-loan",
     linkText: "FHA Loan Details",
+    eligibilityHref: "/check-fha-loan-eligibility",
+    eligibilityText: "Check FHA Eligibility",
     articles: [
       { title: "FHA Loan Eligibility Requirements in Florida", href: "/learn/fha-loan-eligibility-requirements-florida", image: "/images/learn/fha-loan-eligibility-requirements-florida-2026.webp" },
       { title: "Florida FHA Loan Limits by County (2026)", href: "/learn/florida-fha-loan-limits", image: "/images/learn/florida-fha-loan-limits-2026.webp" },
@@ -114,6 +123,8 @@ const loanTypes = [
     accentWord: "Conventional",
     description:
       "Conventional loans aren't backed by a government agency — they follow guidelines set by Fannie Mae and Freddie Mac. They require a 620+ credit score and as little as 3% down. The big advantage: private mortgage insurance (PMI) can be removed once you reach 80% loan-to-value, saving you money over time.",
+    eligibilityHref: "/check-conventional-loan-eligibility",
+    eligibilityText: "Check Conventional Eligibility",
     articles: [
       { title: "Conventional Mortgages in Florida: Full Guide", href: "/learn/conventional-mortgages-in-florida", image: "/images/learn/conventional-mortgages-in-florida-2026.webp" },
       { title: "Requirements to Buy a House in Florida", href: "/learn/requirements-to-buy-a-house-in-florida", image: "/images/learn/requirements-to-buy-a-house-in-florida-2026.webp" },
@@ -125,6 +136,8 @@ const loanTypes = [
     accentWord: "VA",
     description:
       "Available to veterans, active-duty service members, and eligible surviving spouses, VA loans offer 0% down payment and no mortgage insurance. They're backed by the Department of Veterans Affairs and typically offer the best rates available. VA loans can be combined with county DPA programs for closing cost assistance.",
+    eligibilityHref: "/check-va-loan-eligibility",
+    eligibilityText: "Check VA Eligibility",
     articles: [
       { title: "Florida VA Disability Property Tax Exemptions", href: "/learn/florida-va-disability-property-tax-exemptions", image: "/images/learn/florida-va-disability-property-tax-exemptions-2026.webp" },
       { title: "Florida Housing Income & Purchase Price Limits (2026)", href: "/learn/florida-housing-income-purchase-price-limits", image: "/images/learn/florida-housing-income-purchase-price-limits-2026.webp" },
@@ -136,8 +149,34 @@ const loanTypes = [
     accentWord: "USDA",
     description:
       "USDA loans are designed for buyers purchasing in USDA-eligible rural areas — and many Florida suburbs qualify. They offer 0% down payment and reduced mortgage insurance rates. Income limits apply based on your county and household size.",
+    eligibilityHref: "/check-usda-loan-eligibility",
+    eligibilityText: "Check USDA Eligibility",
     articles: [
       { title: "USDA Loans in Florida: Eligibility, Income Limits & Map", href: "/learn/usda-loans-florida", image: "/images/learn/usda-loans-florida-2026.webp" },
+    ],
+  },
+  {
+    id: "jumbo",
+    title: "Jumbo Loans",
+    accentWord: "Jumbo",
+    description:
+      "Jumbo loans are used when the mortgage amount is above conforming loan limits. They are common in higher-priced Florida markets and usually require stronger credit, larger reserves, and a more detailed review of income and assets.",
+    eligibilityHref: "/check-jumbo-loan-eligibility",
+    eligibilityText: "Check Jumbo Eligibility",
+    articles: [
+      { title: "2026 Conforming Loan Limits for Every County in Florida", href: "/learn/florida-conforming-loan-limits-by-county", image: "/images/learn/florida-conforming-loan-limits-by-county-2026.webp" },
+    ],
+  },
+  {
+    id: "renovation",
+    title: "Renovation Loans",
+    accentWord: "Renovation",
+    description:
+      "Renovation loans, including FHA 203(k), can help buyers finance a home purchase and eligible repairs in one mortgage. They are useful for fixer-uppers, required property repairs, or homes that need improvements before move-in.",
+    eligibilityHref: "/check-renovation-loan-eligibility",
+    eligibilityText: "Check Renovation Eligibility",
+    articles: [
+      { title: "FHA 203k Loan in Florida: Rehab & Renovation Guide", href: "/learn/fha-203k-loan-florida", image: "/images/learn/fha-203k-loan-florida-2026.webp" },
     ],
   },
   {
@@ -146,6 +185,8 @@ const loanTypes = [
     accentWord: "Reverse",
     description:
       "A reverse mortgage (HECM) lets homeowners age 62 and older convert home equity into cash — either as a lump sum, monthly payments, or a line of credit. No monthly mortgage payments are required. The loan is repaid when the borrower sells, moves, or passes away.",
+    eligibilityHref: "/check-reverse-mortgage-eligibility",
+    eligibilityText: "Check Reverse Mortgage Eligibility",
     articles: [
       { title: "Reverse Mortgage Closing Costs in Florida", href: "/learn/reverse-mortgage-closing-costs-florida", image: "/images/learn/reverse-mortgage-closing-costs-florida-2026.webp" },
     ],
@@ -156,6 +197,8 @@ const loanTypes = [
     accentWord: "Manufactured",
     description:
       "Florida has one of the largest manufactured housing markets in the country. FHA, VA, and conventional loans are all available for manufactured homes on permanent foundations. Down payments start at 3.5% for FHA. The home must meet HUD code standards and be classified as real property.",
+    eligibilityHref: "/check-manufactured-home-loan-eligibility",
+    eligibilityText: "Check Manufactured Home Eligibility",
     articles: [
       { title: "Florida Manufactured Home Loan Program Guide", href: "/learn/florida-manufactured-home-loan-program", image: "/images/learn/florida-manufactured-home-loan-program-2026.webp" },
     ],
@@ -166,8 +209,36 @@ const loanTypes = [
     accentWord: "HELOCs",
     description:
       "A Home Equity Line of Credit lets existing homeowners borrow against their home's equity. It works like a credit card with a revolving balance. HELOCs are ideal for home improvements, debt consolidation, or large expenses. Most lenders require at least 15–20% equity and a 620+ credit score.",
+    eligibilityHref: "/check-heloc-eligibility",
+    eligibilityText: "Check HELOC Eligibility",
     articles: [
       { title: "How a HELOC Works in Florida: Rates, Limits & Examples", href: "/learn/how-does-heloc-work-in-florida", image: "/images/learn/how-does-heloc-work-in-florida-2026.webp" },
+    ],
+  },
+  {
+    id: "non-qm",
+    title: "Non-QM & Self-Employed Loans",
+    accentWord: "Non-QM",
+    description:
+      "Non-QM and self-employed mortgage options can help borrowers whose income does not fit a standard W-2 file. That can include bank-statement income, 1099 income, DSCR investor scenarios, and other non-traditional documentation.",
+    eligibilityHref: "/check-non-qm-loan-eligibility",
+    eligibilityText: "Check Non-QM Eligibility",
+    articles: [
+      { title: "Florida Mortgage & Assistance Programs for Self-Employed & 1099 Buyers", href: "/learn/florida-mortgage-assistance-programs-self-employed-1099", image: "/images/learn/florida-mortgage-assistance-programs-self-employed-1099-2026.webp" },
+    ],
+  },
+  {
+    id: "alternative",
+    title: "Alternative Borrower Programs",
+    accentWord: "Alternative",
+    description:
+      "Some Florida buyers need a more specialized path because of immigration status, documentation, foreign income, or tribal housing program rules. These scenarios need a careful eligibility review before choosing a loan path.",
+    eligibilityHref: "/check-alternative-loan-eligibility",
+    eligibilityText: "Check Alternative Mortgage Eligibility",
+    articles: [
+      { title: "DACA Homebuyers in Florida: Mortgage Options", href: "/learn/daca-homebuyers-florida-mortgage-options", image: "/images/learn/daca-homebuyers-florida-mortgage-options-2026.webp" },
+      { title: "Foreign Buyer's Guide to Buying Florida Real Estate", href: "/learn/foreign-buyers-guide-florida-real-estate", image: "/images/learn/foreign-buyers-guide-florida-real-estate-2026.webp" },
+      { title: "What Florida Homebuyers Should Know About Tribal Housing Programs", href: "/learn/florida-homebuyers-tribal-housing-programs", image: "/images/learn/florida-homebuyers-tribal-housing-programs-2026.webp" },
     ],
   },
 ];
@@ -224,8 +295,8 @@ export default function HomeLoanPage() {
             Options
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-center text-[16px] leading-relaxed text-dark-green/60">
-            A side-by-side look at the 7 most common loan types available to
-            Florida buyers.
+            A side-by-side look at the major loan types and specialty mortgage
+            paths available to Florida buyers.
           </p>
           <div className="mt-10">
             <DataTable
@@ -275,29 +346,57 @@ export default function HomeLoanPage() {
                   {loan.description}
                 </p>
 
-                {loan.href && (
-                  <Link
-                    href={loan.href}
-                    className="group mt-6 inline-flex items-center gap-2 rounded-full bg-brand-green px-7 py-3.5 text-[15px] font-bold text-white transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,105,72,0.4)]"
-                  >
-                    {loan.linkText}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="transition-transform duration-300 group-hover:translate-x-1"
+                <div className="mt-6 flex flex-wrap items-center gap-3">
+                  {loan.eligibilityHref && (
+                    <Link
+                      href={loan.eligibilityHref}
+                      data-lead-cta-id={`${loan.id}-loan-section`}
+                      data-lead-cta-location="home-loan-section"
+                      className="group inline-flex items-center gap-2 rounded-full bg-brand-green px-7 py-3.5 text-[15px] font-bold text-white transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,105,72,0.4)]"
                     >
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                      <polyline points="12 5 19 12 12 19" />
-                    </svg>
-                  </Link>
-                )}
+                      {loan.eligibilityText}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="transition-transform duration-300 group-hover:translate-x-1"
+                      >
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                      </svg>
+                    </Link>
+                  )}
+
+                  {loan.href && (
+                    <Link
+                      href={loan.href}
+                      className="group inline-flex items-center gap-2 rounded-full border-2 border-brand-green/20 px-7 py-3.5 text-[15px] font-bold text-brand-green transition-all hover:bg-brand-green/5"
+                    >
+                      {loan.linkText}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="transition-transform duration-300 group-hover:translate-x-1"
+                      >
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                      </svg>
+                    </Link>
+                  )}
+                </div>
 
                 {loan.articles.length > 0 && (
                   <div className="mt-10">

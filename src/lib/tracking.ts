@@ -13,6 +13,13 @@ const ELIGIBILITY_PATHS = new Set([
   "/check-conventional-loan-eligibility",
   "/check-usda-loan-eligibility",
   "/check-hometown-heroes-eligibility",
+  "/check-reverse-mortgage-eligibility",
+  "/check-heloc-eligibility",
+  "/check-manufactured-home-loan-eligibility",
+  "/check-non-qm-loan-eligibility",
+  "/check-jumbo-loan-eligibility",
+  "/check-renovation-loan-eligibility",
+  "/check-alternative-loan-eligibility",
 ]);
 
 interface LeadCtaData {

@@ -12,6 +12,13 @@ const backLinks: Record<string, string> = {
   "/check-conventional-loan-eligibility": "/home-loan",
   "/check-usda-loan-eligibility": "/home-loan",
   "/check-hometown-heroes-eligibility": "/hometown-heroes",
+  "/check-reverse-mortgage-eligibility": "/home-loan",
+  "/check-heloc-eligibility": "/home-loan",
+  "/check-manufactured-home-loan-eligibility": "/home-loan",
+  "/check-non-qm-loan-eligibility": "/home-loan",
+  "/check-jumbo-loan-eligibility": "/home-loan",
+  "/check-renovation-loan-eligibility": "/home-loan",
+  "/check-alternative-loan-eligibility": "/home-loan",
   "/eligibility/schedule-a-free-call": "/",
   "/schedule-a-call": "/",
 };
