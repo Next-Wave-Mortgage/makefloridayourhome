@@ -1,28 +1,23 @@
 import type { Metadata } from "next";
-import { FunnelFormPage } from "../FunnelFormPage";
+import { MfyhLeadFunnelPage } from "../MfyhLeadFunnelPage";
+import { leadFunnelConfigs } from "../leadFunnelConfigs";
 
 export const metadata: Metadata = {
   title: "Check Your FHA Loan Eligibility",
   description:
-    "See if you qualify for an FHA loan in Florida. Low down payment, flexible credit — takes 2 minutes, no credit pull.",
+    "See if you qualify for an FHA loan in Florida. Low down payment, flexible credit - takes 2 minutes, no credit pull.",
   alternates: {
     canonical: "/check-fha-loan-eligibility",
   },
   openGraph: {
     title: "Check Your FHA Loan Eligibility",
     description:
-      "See if you qualify for an FHA loan in Florida. Low down payment, flexible credit — takes 2 minutes.",
+      "See if you qualify for an FHA loan in Florida. Low down payment, flexible credit - takes 2 minutes.",
     url: "https://www.makefloridayourhome.com/check-fha-loan-eligibility",
     type: "website",
   },
 };
 
 export default function CheckFhaLoanEligibilityPage() {
-  return (
-    <FunnelFormPage
-      heading="See if you qualify for an FHA loan in Florida"
-      subtitle="As little as 3.5% down with flexible credit requirements — find out in 2 minutes."
-      fcKey="wkjetxp"
-    />
-  );
+  return <MfyhLeadFunnelPage config={leadFunnelConfigs.fha} />;
 }

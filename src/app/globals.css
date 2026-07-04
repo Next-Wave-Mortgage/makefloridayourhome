@@ -409,12 +409,6 @@
   }
 }
 
-/* FormCrafts seamless embed — strip iframe border/shadow */
-.fc-seamless iframe {
-  border: none !important;
-  box-shadow: none !important;
-}
-
 .nextwave-widget-container {
   min-height: 640px;
   width: 100%;

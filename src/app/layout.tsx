@@ -53,7 +53,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://app.formcrafts.com" />
       </head>
       <body className="font-sans text-dark-green antialiased">
         {GA4_ID && (

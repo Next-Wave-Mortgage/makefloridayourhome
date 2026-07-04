@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { FunnelFormPage } from "../FunnelFormPage";
+import { MfyhLeadFunnelPage } from "../MfyhLeadFunnelPage";
+import { leadFunnelConfigs } from "../leadFunnelConfigs";
 
 export const metadata: Metadata = {
   title: "Free Home Purchase Eligibility",
@@ -18,11 +19,5 @@ export const metadata: Metadata = {
 };
 
 export default function HomePurchaseEligibilityPage() {
-  return (
-    <FunnelFormPage
-      heading="See every loan program you qualify for in Florida"
-      subtitle="Answer a few quick questions and we'll match you with every program, grant, and rate available to you."
-      fcKey="wkjetxp"
-    />
-  );
+  return <MfyhLeadFunnelPage config={leadFunnelConfigs.homePurchase} />;
 }
