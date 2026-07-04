@@ -7,12 +7,12 @@ type MfyhLeadFunnelPageProps = {
 
 export function MfyhLeadFunnelPage({ config }: MfyhLeadFunnelPageProps) {
   return (
-    <div className="flex flex-1 flex-col bg-green-tint/40">
-      <div className="flex flex-1 items-start justify-center px-4 py-5 sm:px-6 sm:py-10 lg:py-14">
-        <div className="mx-auto w-full max-w-2xl">
+    <section className="flex flex-1 flex-col bg-white pt-10 pb-8 sm:pt-12">
+      <div className="mx-auto w-full max-w-[760px] px-5 sm:px-8">
+        <div className="mx-auto w-full max-w-[720px]">
           <MfyhLeadWidgets config={config} />
         </div>
       </div>
-    </div>
+    </section>
   );
 }

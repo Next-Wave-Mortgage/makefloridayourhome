@@ -1,5 +1,4 @@
-import Link from "next/link";
-import Image from "next/image";
+import { FunnelHeader } from "./FunnelHeader";
 
 export default function FunnelLayout({
   children,
@@ -8,18 +7,15 @@ export default function FunnelLayout({
 }) {
   return (
     <div className="flex min-h-screen flex-col bg-white">
-      <header className="flex h-16 shrink-0 items-center border-b border-border-gray/40 px-6 sm:px-10">
-        <Link href="/">
-          <Image
-            src="/images/logo.webp"
-            alt="Make Florida Your Home"
-            width={148}
-            height={42}
-            priority
-          />
-        </Link>
-      </header>
+      <FunnelHeader />
       <main className="flex flex-1 flex-col">{children}</main>
+      <footer
+        className="px-5 pb-6 text-center text-[11px] leading-5 text-dark-green/35"
+        role="contentinfo"
+      >
+        Next Wave Mortgage, LLC &middot; NMLS ID 2536820 &middot; 256-bit
+        encryption
+      </footer>
     </div>
   );
 }

@@ -36,6 +36,72 @@ function formatArticleDate(date: string) {
   });
 }
 
+function getArticleLeadFunnel(post: {
+  title: string;
+  description: string;
+  tags?: string[];
+}, slug: string) {
+  const titleSlug = `${slug} ${post.title} ${post.description}`.toLowerCase();
+  const tags = (post.tags || []).map((tag) => tag.toLowerCase());
+  const taggedAs = (value: string) => tags.some((tag) => tag.includes(value));
+
+  if (titleSlug.includes("hometown heroes") || taggedAs("hometown heroes")) {
+    return {
+      href: "/check-hometown-heroes-eligibility",
+      text: "Check Hometown Heroes Eligibility",
+    };
+  }
+
+  if (titleSlug.includes("usda loan") || taggedAs("usda loans")) {
+    return {
+      href: "/check-usda-loan-eligibility",
+      text: "Check USDA Eligibility",
+    };
+  }
+
+  if (titleSlug.includes("fha") && !titleSlug.includes("manufactured")) {
+    return {
+      href: "/check-fha-loan-eligibility",
+      text: "Check FHA Eligibility",
+    };
+  }
+
+  if (
+    titleSlug.includes("conventional") ||
+    titleSlug.includes("conforming loan") ||
+    titleSlug.includes("family opportunity mortgage")
+  ) {
+    return {
+      href: "/check-conventional-loan-eligibility",
+      text: "Check Conventional Eligibility",
+    };
+  }
+
+  if (titleSlug.includes("va loan") || titleSlug.includes("va loans")) {
+    return {
+      href: "/check-va-loan-eligibility",
+      text: "Check VA Loan Eligibility",
+    };
+  }
+
+  if (
+    taggedAs("down payment assistance") ||
+    taggedAs("grants") ||
+    titleSlug.includes("down payment assistance") ||
+    titleSlug.includes("florida assist")
+  ) {
+    return {
+      href: "/check-dpa-eligibility",
+      text: "Check DPA Eligibility",
+    };
+  }
+
+  return {
+    href: "/home-purchase-eligibility",
+    text: "Check My Eligibility",
+  };
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -117,6 +183,7 @@ export default async function BlogPostPage({
     : null;
 
   const canonicalUrl = `https://www.makefloridayourhome.com/learn/${slugStr}`;
+  const articleLeadFunnel = getArticleLeadFunnel(post, slugStr);
 
   const wordCount = post.content.trim().split(/\s+/).length;
   const isCheapestPlacesPage =
@@ -400,10 +467,12 @@ export default async function BlogPostPage({
                   </p>
                   <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
                     <Link
-                      href="/home-purchase-eligibility"
+                      href={articleLeadFunnel.href}
+                      data-lead-cta-id={`${slugStr}-article-primary`}
+                      data-lead-cta-location="article-final-cta"
                       className="group inline-flex items-center gap-2 rounded-full bg-brand-green px-8 py-4 text-[15px] font-bold text-white transition-all duration-300 hover:shadow-[0_4px_20px_rgba(0,105,72,0.4)]"
                     >
-                      Check My Eligibility
+                      {articleLeadFunnel.text}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"

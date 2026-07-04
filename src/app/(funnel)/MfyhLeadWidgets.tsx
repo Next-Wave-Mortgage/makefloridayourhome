@@ -70,6 +70,7 @@ export function MfyhLeadWidgets({ config }: MfyhLeadWidgetsProps) {
     const onSuccess = (event: Event) => {
       const successEvent = event as CustomEvent<{ leadId?: string }>;
       const leadId = successEvent.detail?.leadId?.trim() || "";
+      const backToProgram = document.getElementById("back-to-program");
       if (!leadId) return;
 
       successEvent.preventDefault();
@@ -84,6 +85,9 @@ export function MfyhLeadWidgets({ config }: MfyhLeadWidgetsProps) {
         host.setAttribute("aria-hidden", "true");
         widget.style.display = "block";
         widget.setAttribute("aria-hidden", "false");
+        if (backToProgram) {
+          backToProgram.style.display = "none";
+        }
 
         window.requestAnimationFrame(() => {
           widget.style.opacity = "1";
