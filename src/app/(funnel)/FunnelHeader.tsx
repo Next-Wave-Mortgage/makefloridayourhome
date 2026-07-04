@@ -56,9 +56,9 @@ export function FunnelHeader() {
           id="back-to-program"
           href={backHref}
           className="flex min-h-11 items-center justify-center whitespace-nowrap rounded-full bg-brand-green px-4 py-2.5 text-sm font-bold text-white shadow-lg transition-colors duration-300 hover:bg-dark-green md:px-6 md:text-base"
-          aria-label="Return to the program overview"
+          aria-label="Return to Make Florida Your Home"
         >
-          Back to Program
+          Back to Site
         </Link>
       </div>
     </header>
