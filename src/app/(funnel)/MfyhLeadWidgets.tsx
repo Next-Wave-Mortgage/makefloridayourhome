@@ -32,6 +32,7 @@ function manifestFor(config: LeadFunnelConfig) {
       accent: "#1c96c5",
       text: "#2e4136",
       background: "#f6fcf6",
+      logoUrl: "https://www.makefloridayourhome.com/images/logo.webp",
     },
   };
 }
