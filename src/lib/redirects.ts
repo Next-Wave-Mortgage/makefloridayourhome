@@ -9790,7 +9790,12 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/hometown-heroes/florida-hometown-heroes-approved-lenders-list",
-    destination: "/learn/florida-hometown-heroes-approved-lenders",
+    destination: "/hometown-heroes",
+    permanent: true,
+  },
+  {
+    source: "/learn/florida-hometown-heroes-approved-lenders",
+    destination: "/hometown-heroes",
     permanent: true,
   },
   {

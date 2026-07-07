@@ -6,6 +6,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import { ArticleHero } from "@/components/shared/ArticleHero";
+import { HthUrgencyBanner } from "@/components/shared/HthUrgencyBanner";
 import { PageFAQ } from "@/components/shared/PageFAQ";
 import {
   CheapestPlacesListicle,
@@ -468,6 +469,9 @@ export default async function BlogPostPage({
           }}
         />
       )}
+
+      {/* Urgency banner on dedicated Hometown Heroes articles */}
+      {slugStr.includes("hometown-heroes") && <HthUrgencyBanner />}
 
       {/* Article Hero */}
       <ArticleHero
