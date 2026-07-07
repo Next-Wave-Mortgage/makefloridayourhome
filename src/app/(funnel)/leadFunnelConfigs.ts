@@ -7,6 +7,7 @@ export type LeadFunnelConfig = {
   programSponsor?: string;
   description: string;
   canonicalPath: string;
+  heroHeadline?: string;
 };
 
 export const leadFunnelConfigs = {
@@ -140,6 +141,17 @@ export const leadFunnelConfigs = {
     description:
       "See if a renovation mortgage, FHA 203(k), or fixer-upper financing option can help you buy and repair a Florida home.",
     canonicalPath: "/check-renovation-loan-eligibility",
+  },
+  scheduleCall: {
+    source: "mfyh-schedule-call",
+    leadIntent: "schedule-call",
+    programSlug: "mfyh-schedule-call",
+    programName: "Free Mortgage Consultation",
+    programCategory: "consultation",
+    description:
+      "Answer a few quick questions so your Florida mortgage expert calls prepared - then pick your time.",
+    canonicalPath: "/eligibility/schedule-a-free-call",
+    heroHeadline: "Let's Get You on the Calendar",
   },
   alternativeLoans: {
     source: "mfyh-alternative-loans",

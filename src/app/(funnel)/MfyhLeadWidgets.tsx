@@ -102,6 +102,19 @@ export function MfyhLeadWidgets({ config }: MfyhLeadWidgetsProps) {
       }, 200);
     };
 
+    const applyHeroHeadline = () => {
+      const heroHeadline = config.heroHeadline;
+      if (!heroHeadline) return;
+
+      const heading = host.shadowRoot
+        ?.querySelector("nwl-lead-form-view")
+        ?.shadowRoot?.querySelector(".hero-block h1");
+
+      if (heading && heading.textContent !== heroHeadline) {
+        heading.textContent = heroHeadline;
+      }
+    };
+
     const skipStateStep = () => {
       const view = host.shadowRoot?.querySelector("nwl-lead-form-view") as
         | (HTMLElement & {
@@ -150,13 +163,17 @@ export function MfyhLeadWidgets({ config }: MfyhLeadWidgetsProps) {
         return;
       }
 
-      observer = new MutationObserver(skipStateStep);
+      observer = new MutationObserver(() => {
+        skipStateStep();
+        applyHeroHeadline();
+      });
       observer.observe(root, {
         childList: true,
         subtree: true,
         characterData: true,
       });
       skipStateStep();
+      applyHeroHeadline();
     };
 
     host.addEventListener("nextwave-lead-form:submit", onSubmit);
