@@ -157,18 +157,20 @@ test("homepage loads and has an H1", async ({ page }) => {
   await expect(h1).toBeVisible();
 });
 
-test("DPA funnel reveals the scheduler for a secure reschedule link", async ({
-  page,
-}) => {
-  await page.goto("/check-dpa-eligibility#reschedule=test-token");
+for (const path of ["/check-dpa-eligibility", "/check-eligibility"]) {
+  test(`DPA funnel reveals the scheduler for a secure reschedule link at ${path}`, async ({
+    page,
+  }) => {
+    await page.goto(`${path}#reschedule=test-token`);
 
-  const leadForm = page.locator("nextwave-lead-form");
-  const bookingWidget = page.locator("nextwave-booking-widget");
-  await expect(leadForm).toHaveCSS("display", "none");
-  await expect(leadForm).toHaveAttribute("aria-hidden", "true");
-  await expect(bookingWidget).toHaveCSS("display", "block");
-  await expect(bookingWidget).not.toHaveAttribute("aria-hidden", "true");
-});
+    const leadForm = page.locator("nextwave-lead-form");
+    const bookingWidget = page.locator("nextwave-booking-widget");
+    await expect(leadForm).toHaveCSS("display", "none");
+    await expect(leadForm).toHaveAttribute("aria-hidden", "true");
+    await expect(bookingWidget).toHaveCSS("display", "block");
+    await expect(bookingWidget).not.toHaveAttribute("aria-hidden", "true");
+  });
+}
 
 test("DPA database contains 105 uniquely identified programs", () => {
   expect(FLORIDA_DPA_PROGRAMS).toHaveLength(105);
