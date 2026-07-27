@@ -54,6 +54,25 @@ export function MfyhLeadWidgets({ config }: MfyhLeadWidgetsProps) {
     host.style.transition = "opacity 200ms ease";
     widget.style.transition = "opacity 200ms ease";
 
+    const rescheduleToken =
+      new URLSearchParams(window.location.hash.replace(/^#/, ""))
+        .get("reschedule")
+        ?.trim() || "";
+    if (rescheduleToken) {
+      const backToProgram = document.getElementById("back-to-program");
+      host.style.display = "none";
+      host.style.opacity = "0";
+      host.setAttribute("aria-hidden", "true");
+      widget.style.display = "block";
+      widget.style.opacity = "1";
+      widget.removeAttribute("aria-hidden");
+      if (backToProgram) {
+        backToProgram.style.display = "none";
+      }
+      document.title = `Reschedule your call - ${config.programName}`;
+      return;
+    }
+
     let active = true;
     let observer: MutationObserver | null = null;
     let frame = 0;
@@ -154,9 +173,8 @@ export function MfyhLeadWidgets({ config }: MfyhLeadWidgetsProps) {
     const watchForm = () => {
       if (!active) return;
 
-      const root = host.shadowRoot
-        ?.querySelector("nwl-lead-form-view")
-        ?.shadowRoot;
+      const root =
+        host.shadowRoot?.querySelector("nwl-lead-form-view")?.shadowRoot;
 
       if (!root) {
         frame = window.requestAnimationFrame(watchForm);
