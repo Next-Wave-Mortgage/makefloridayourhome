@@ -188,7 +188,7 @@ const redirects: Redirect[] = [
   { source: "/our-partners", destination: "/", permanent: true },
   {
     source: "/general-policies-make-florida-your-home",
-    destination: "https://www.nextwavemortgage.com/terms-and-privacy",
+    destination: "/privacy-policy",
     permanent: true,
   },
   {
@@ -7185,7 +7185,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/general-policies",
-    destination: "https://www.nextwavemortgage.com/terms-and-privacy",
+    destination: "/privacy-policy",
     permanent: true,
   },
   {
@@ -9353,7 +9353,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/general-policies",
-    destination: "https://www.nextwavemortgage.com/terms-and-privacy",
+    destination: "/privacy-policy",
     permanent: true,
   },
   {
@@ -10071,7 +10071,7 @@ const redirects: Redirect[] = [
   // Missing alias — old HubSpot URL without the suffix
   {
     source: "/general-policies",
-    destination: "https://www.nextwavemortgage.com/terms-and-privacy",
+    destination: "/privacy-policy",
     permanent: true,
   },
 ];
