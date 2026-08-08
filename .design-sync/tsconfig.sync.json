@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": "..",
+    "paths": {
+      "@/data/dpa": ["src/data/dpa/index.ts"],
+      "@/*": ["src/*"],
+      "next/link": [".design-sync/shims/next-link.tsx"],
+      "next/image": [".design-sync/shims/next-image.tsx"],
+      "next/navigation": [".design-sync/shims/next-navigation.ts"],
+      "@vercel/functions": [".design-sync/shims/vercel-functions.ts"],
+      "@vercel/blob": [".design-sync/shims/vercel-blob.ts"]
+    }
+  }
+}

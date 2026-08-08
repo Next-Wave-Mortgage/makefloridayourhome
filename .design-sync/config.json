@@ -1,0 +1,37 @@
+{
+  "projectId": "7141b13f-1d6c-4b8b-8d04-3b1c2945256f",
+  "shape": "package",
+  "pkg": "makefloridayourhome",
+  "entry": "./src/index.ts",
+  "globalName": "MFYH",
+  "srcDir": "src/components",
+  "tsconfig": ".design-sync/tsconfig.sync.json",
+  "buildCmd": "npx @tailwindcss/cli -i src/app/globals.css -o .design-sync/.cache/tailwind.css",
+  "cssEntry": ".design-sync/.cache/tailwind.css",
+  "extraEntries": ["./.design-sync/extra/preview-data.ts"],
+  "readmeHeader": ".design-sync/conventions.md",
+  "libOverrides": {
+    "dts.mjs": "FAQ is a real component; the ALL-CAPS constant heuristic excluded it"
+  },
+  "overrides": {
+    "DpaCalculator": { "cardMode": "column" },
+    "PageFAQ": { "cardMode": "column" }
+  },
+  "componentSrcMap": {
+    "TrackPageView": null
+  },
+  "dtsPropsFor": {
+    "DataTable": "headers: string[];\nrows: string[][];\ncaption?: string;",
+    "PageCTA": "heading: string;\nsubtitle: string;\nctaText?: string;\nctaHref?: string;",
+    "PageFAQ": "heading?: React.ReactNode;\ndescription?: string;\nfaqs: { question: string; answer: string }[] /* @arr */;\nbg?: \"green-tint\" | \"white\";",
+    "StepProcess": "heading: React.ReactNode;\nsteps: { title: string; description: string }[] /* @arr */;\nbg?: \"green-tint\" | \"white\";",
+    "ExpertGuidesRow": "heading?: React.ReactNode;\narticles: { category: string; title: string; description: string; href: string; image: string; readTime: string }[] /* @arr */;\nbg?: \"green-tint\" | \"white\";",
+    "ToolHero": "title: string;\ndescription?: string;\ntags?: string[];\nbreadcrumbs?: { label: string; href: string }[] /* @arr */;\ncta?: { href: string; label: string; note?: string };",
+    "PageHero": "title: React.ReactNode;\nsubtitle: React.ReactNode;\nfeatures?: { icon: React.ReactNode; text: string }[] /* @arr */;\nctaText?: string;\nctaHref?: string;\nimage: string;\nimageAlt: string;",
+    "ArticleHero": "title: string;\ndescription?: string;\ntags?: string[];\nauthor: { name: string; title?: string; image?: string; slug?: string };\nreviewer?: { name: string; title?: string; image?: string; slug?: string };\npublishedDate?: string;\nupdatedDate?: string | null;\nreadTimeLabel: string;\nfeaturedImage?: string | null;\nimageAlt?: string | null;\nbreadcrumbs?: { label: string; href: string }[] /* @arr */;",
+    "FloridaCountyMap": "countiesWithPrograms: Map<string, number>;\nselectedCounty: string | null;\nonCountyClick: (county: string) => void /* @fn */;\nonCountyHover: (county: string | null) => void /* @fn */;",
+    "DpaCalculator": "/** Florida county names — use MFYH.FLORIDA_COUNTIES */\ncounties: string[];\n/** Program summaries — build with MFYH.toDpaCalculatorProgramSummaries(MFYH.FLORIDA_DPA_PROGRAMS) */\nprograms: { id: string; name: string; description: string; assistanceDisplay: string; assistanceMaxAmount?: number; typeDisplay: string; repaymentType: string; compatibleLoanTypes: string[]; geography: { scope: \"statewide\" | \"county\" | \"city\" | \"regional\"; display: string; counties: string[]; cities?: string[]; region: string }; eligibility: Record<string, unknown>; limits: Record<string, unknown>; availability: { status: string; statusLastChecked: string }; calculator: { confidence: \"high\" | \"medium\" | \"low\"; canEstimateAmount: boolean; canDetermineBasicEligibility: boolean; missingData: string[] }; maintenance: { status: string; lastVerified: string; needsReviewReasons: string[] }; source: { label: string; url: string | null; quality: string; accessedDate?: string } }[] /* @arr */;",
+    "DpaCalculatorSeoSections": "/** Per-county program counts — build with MFYH.getDpaProgramCountsByCounty(MFYH.FLORIDA_COUNTIES, MFYH.toDpaCalculatorProgramSummaries(MFYH.FLORIDA_DPA_PROGRAMS)) */\ncountyCounts: { county: string; count: number }[] /* @arr */;\n/** Program summaries — build with MFYH.toDpaCalculatorProgramSummaries(MFYH.FLORIDA_DPA_PROGRAMS) */\ncommonPrograms: { id: string; name: string; description: string; assistanceDisplay: string; typeDisplay: string; repaymentType: string; compatibleLoanTypes: string[]; geography: { scope: string; display: string; counties: string[]; region: string }; eligibility: Record<string, unknown>; limits: Record<string, unknown>; availability: { status: string; statusLastChecked: string }; calculator: Record<string, unknown>; maintenance: Record<string, unknown>; source: { label: string; url: string | null; quality: string } }[] /* @arr */;",
+    "MortgageRatesDashboard": "/** Live FRED-backed market snapshot — for previews/designs use MFYH.sampleMortgageMarketSnapshot */\nsnapshot: { retrievedAt: string; effectiveDate: string; benchmarks: { id: string; label: string; rate: number; effectiveDate: string; frequency: \"weekly\" | \"daily\"; changes: { period: \"1w\" | \"1m\" | \"1y\"; value: number | null; direction: \"up\" | \"down\" | \"flat\" | \"unavailable\" }[] }[]; dailyIndices: { id: string; label: string; rate: number; effectiveDate: string; frequency: \"weekly\" | \"daily\"; changes: { period: \"1w\" | \"1m\" | \"1y\"; value: number | null; direction: \"up\" | \"down\" | \"flat\" | \"unavailable\" }[] }[]; floridaMarket: { id: string; label: string; value: number; effectiveDate: string; unit: \"dollars\" | \"count\" | \"index\"; changes: { period: \"1w\" | \"1m\" | \"1y\"; value: number | null; direction: \"up\" | \"down\" | \"flat\" | \"unavailable\" }[] }[]; rateTrend: { label: string; points: { date: string; rate: number }[] }; marketNote: { headline: string; body: string; dataPointsUsed: string[]; generatedAt: string; model: string }; sources: { id: string; label: string; sourceUrl: string; updateFrequency: string }[]; disclaimer: string };"
+  }
+}
