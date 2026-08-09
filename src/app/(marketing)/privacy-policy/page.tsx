@@ -149,10 +149,13 @@ export default function PrivacyPolicyPage() {
           or {siteConfig.contact.phone}.
         </li>
       </ul>
+      <p>Mobile carriers are not liable for delayed or undelivered messages.</p>
       <p>
-        Mobile carriers are not liable for delayed or undelivered messages. We
-        do not share your mobile phone number or SMS opt-in consent with third
-        parties or affiliates for their own marketing purposes.
+        <strong>
+          No mobile information will be shared with third parties/affiliates for
+          marketing/promotional purposes. Text messaging originator opt-in data
+          and consent will not be shared with any third parties.
+        </strong>
       </p>
 
       <h2>4. How We Share Information</h2>
@@ -186,6 +189,14 @@ export default function PrivacyPolicyPage() {
           financing, reorganization, or sale of all or part of our business.
         </li>
       </ul>
+      <p>
+        <strong>
+          No mobile information will be shared with third parties/affiliates for
+          marketing/promotional purposes. All the above categories exclude text
+          messaging originator opt-in data and consent; this information will
+          not be shared with any third parties.
+        </strong>
+      </p>
       <p>
         We do not sell your personal information for money. Except as described
         in this Privacy Policy, we do not share your personal information with
