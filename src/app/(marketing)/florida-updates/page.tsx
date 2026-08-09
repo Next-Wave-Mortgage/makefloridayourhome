@@ -85,12 +85,11 @@ export default function FloridaUpdatesPage() {
                 Text Message Program Terms
               </h3>
               <p className="mt-3">
-                The Make Florida Your Home updates program is operated by{" "}
-                {siteConfig.company} (NMLS ID {siteConfig.contact.nmls}).
-                Messages include Florida down payment assistance updates,
-                program funding alerts, and homebuying tips. We typically send
-                2&ndash;4 messages per month; message frequency varies. Message
-                and data rates may apply.
+                The Make Florida Your Home updates program sends messages that
+                include Florida down payment assistance updates, program funding
+                alerts, and homebuying tips. We typically send 2&ndash;4
+                messages per month; message frequency varies. Message and data
+                rates may apply.
               </p>
               <p className="mt-3">
                 Text messages are sent only to people who opt in by checking the

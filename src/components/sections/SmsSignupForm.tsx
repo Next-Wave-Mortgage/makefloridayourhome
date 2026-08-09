@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { siteConfig } from "@/lib/site";
 
 const CONSENT_VERSION = "2026-08-09";
 
@@ -169,11 +168,10 @@ export function SmsSignupForm() {
         <span className="text-[12.5px] leading-relaxed text-dark-green/70">
           I agree to receive recurring informational and marketing text messages
           (such as Florida down payment assistance updates and homebuying tips)
-          from Make Florida Your Home, a {siteConfig.company} website, at the
-          mobile number provided, including messages sent using automated
-          technology. Message frequency varies. Message and data rates may
-          apply. Reply STOP to opt out or HELP for help. Consent is not a
-          condition of purchase.
+          from Make Florida Your Home at the mobile number provided, including
+          messages sent using automated technology. Message frequency varies.
+          Message and data rates may apply. Reply STOP to opt out or HELP for
+          help. Consent is not a condition of purchase.
         </span>
       </label>
 
