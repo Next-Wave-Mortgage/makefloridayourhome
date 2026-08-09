@@ -80,9 +80,9 @@ export default function PrivacyPolicyPage() {
       <h3>Information from third parties</h3>
       <p>
         We may receive information about you from third parties such as
-        advertising and analytics providers, marketing partners, real estate
-        professionals who refer you to us, and publicly available sources, and
-        we may combine it with information we already have.
+        advertising and analytics providers, real estate professionals who refer
+        you to us, and publicly available sources, and we may combine it with
+        information we already have.
       </p>
 
       <h2>2. How We Use Your Information</h2>
@@ -149,6 +149,16 @@ export default function PrivacyPolicyPage() {
           or {siteConfig.contact.phone}.
         </li>
       </ul>
+      <p>
+        If you opt in to our text message updates program (for example, at{" "}
+        <Link href="/florida-updates">
+          makefloridayourhome.com/florida-updates
+        </Link>
+        ), we collect your name, mobile phone number, and a record of your
+        consent (the date, time, and page where you opted in), and we use that
+        information solely to send you the messages described above and to honor
+        your opt-out requests.
+      </p>
       <p>Mobile carriers are not liable for delayed or undelivered messages.</p>
       <p>
         <strong>
@@ -198,9 +208,9 @@ export default function PrivacyPolicyPage() {
         </strong>
       </p>
       <p>
-        We do not sell your personal information for money. Except as described
-        in this Privacy Policy, we do not share your personal information with
-        unaffiliated third parties for their own independent marketing use.
+        We do not sell your personal information. We do not share, sell, or
+        provide your mobile phone number or messaging consent data to third
+        parties or affiliates for marketing or promotional purposes.
       </p>
 
       <h2>5. Financial Privacy (GLBA)</h2>
