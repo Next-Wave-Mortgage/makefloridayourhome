@@ -4,13 +4,13 @@ import { SmsSignupForm } from "@/components/sections/SmsSignupForm";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Request a Free Homebuying Consultation",
+  title: "Request a Free Florida Consultation",
   description:
-    "Request a free Florida homebuying consultation with Make Florida Your Home and get your appointment confirmations and reminders by text message.",
+    "Request a free consultation about moving to Florida and Florida down payment assistance with Make Florida Your Home, with appointment confirmations and reminders by text message.",
   openGraph: {
-    title: "Request a Free Homebuying Consultation",
+    title: "Request a Free Florida Consultation",
     description:
-      "Request a free Florida homebuying consultation and get appointment confirmations and reminders by text message.",
+      "Request a free consultation about moving to Florida and Florida down payment assistance, with appointment confirmations and reminders by text message.",
     url: `${siteConfig.url}/florida-updates`,
     type: "website",
   },
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
 
 const benefits = [
   {
-    title: "Talk to a Florida homebuying expert",
-    body: "Get one-on-one answers about down payment assistance, Hometown Heroes, loan options, and moving to Florida.",
+    title: "Talk to a Florida expert",
+    body: "Get one-on-one answers about moving to Florida, Florida down payment assistance, and the Hometown Heroes program.",
   },
   {
     title: "A plan for making Florida your home",
@@ -41,12 +41,11 @@ export default function FloridaUpdatesPage() {
       <section className="bg-green-tint py-14 text-center sm:py-16">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
           <h1 className="text-[32px] font-bold leading-tight text-dark-green sm:text-[40px] lg:text-[48px]">
-            <span className="text-brand-green">Free</span> Homebuying
-            Consultation
+            <span className="text-brand-green">Free</span> Florida Consultation
           </h1>
           <p className="mx-auto mt-3 max-w-2xl text-[17px] text-dark-green/60">
-            Request a free call about down payment assistance and buying a home
-            in Florida — with appointment confirmations and reminders by text
+            Request a free call about moving to Florida and Florida down payment
+            assistance — with appointment confirmations and reminders by text
             message.
           </p>
         </div>
