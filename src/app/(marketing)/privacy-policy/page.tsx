@@ -150,14 +150,16 @@ export default function PrivacyPolicyPage() {
         </li>
       </ul>
       <p>
-        If you opt in to our text message updates program (for example, at{" "}
+        If you opt in to our text message program (for example, when requesting
+        a consultation at{" "}
         <Link href="/florida-updates">
           makefloridayourhome.com/florida-updates
         </Link>
         ), we collect your name, mobile phone number, and a record of your
         consent (the date, time, and page where you opted in), and we use that
-        information solely to send you the messages described above and to honor
-        your opt-out requests.
+        information solely to send you the messages described above — such as
+        appointment confirmations and reminders — and to honor your opt-out
+        requests.
       </p>
       <p>Mobile carriers are not liable for delayed or undelivered messages.</p>
       <p>

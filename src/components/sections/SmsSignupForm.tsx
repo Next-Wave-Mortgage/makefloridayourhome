@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const CONSENT_VERSION = "2026-08-09";
+const CONSENT_VERSION = "2026-08-09.2";
 
 const inputClasses =
   "w-full rounded-lg border border-border-gray bg-white px-4 py-3 text-[15px] text-dark-green placeholder:text-mid-gray focus:border-brand-green focus:outline-none focus:ring-2 focus:ring-brand-green/20";
@@ -26,7 +26,7 @@ export function SmsSignupForm() {
     const digits = phone.replace(/\D/g, "");
     if (smsConsent && digits.length < 10) {
       setErrorMsg(
-        "Please enter a valid 10-digit mobile number to receive text updates.",
+        "Please enter a valid 10-digit mobile number to receive text reminders.",
       );
       return;
     }
@@ -34,8 +34,8 @@ export function SmsSignupForm() {
     setStatus("submitting");
 
     const consentRecord = smsConsent
-      ? `SMS opt-in: YES (checkbox checked) at ${new Date().toISOString()} on ${window.location.href} — consent language v${CONSENT_VERSION}`
-      : `SMS opt-in: NO (checkbox not checked) at ${new Date().toISOString()} on ${window.location.href} — email updates only`;
+      ? `SMS opt-in: YES (checkbox checked) at ${new Date().toISOString()} on ${window.location.href} — appointment confirmations/reminders — consent language v${CONSENT_VERSION}`
+      : `SMS opt-in: NO (checkbox not checked) at ${new Date().toISOString()} on ${window.location.href} — contact by email/phone call only`;
 
     try {
       const res = await fetch("/api/lead", {
@@ -48,8 +48,8 @@ export function SmsSignupForm() {
           phone: digits,
           source: "/florida-updates",
           tags: smsConsent
-            ? ["florida-updates", "sms-opt-in"]
-            : ["florida-updates", "email-updates"],
+            ? ["consultation-request", "sms-opt-in"]
+            : ["consultation-request"],
           customFields: { contact_message: consentRecord },
         }),
       });
@@ -65,12 +65,12 @@ export function SmsSignupForm() {
     return (
       <div className="rounded-2xl border border-border-gray bg-white p-8 text-center shadow-sm">
         <p className="text-[22px] font-bold text-brand-green">
-          You&apos;re on the list!
+          Request received!
         </p>
         <p className="mt-3 text-[15px] leading-relaxed text-dark-green/70">
-          {smsConsent
-            ? "Watch for a welcome text message. You can reply STOP at any time to opt out, or HELP for help."
-            : "We'll send Florida homebuying updates to your email."}
+          Our team will reach out to schedule your free consultation.
+          {smsConsent &&
+            " You'll receive your appointment confirmation and reminders by text — reply STOP at any time to opt out, or HELP for help."}
         </p>
       </div>
     );
@@ -166,12 +166,11 @@ export function SmsSignupForm() {
           className="mt-0.5 size-5 shrink-0 cursor-pointer accent-brand-green"
         />
         <span className="text-[12.5px] leading-relaxed text-dark-green/70">
-          I agree to receive recurring informational and marketing text messages
-          (such as Florida down payment assistance updates and homebuying tips)
-          from Make Florida Your Home at the mobile number provided, including
-          messages sent using automated technology. Message frequency varies.
-          Message and data rates may apply. Reply STOP to opt out or HELP for
-          help. Consent is not a condition of purchase.
+          I agree to receive appointment confirmation, appointment reminder, and
+          customer-care text messages from Make Florida Your Home at the mobile
+          number provided, including messages sent using automated technology.
+          Message frequency varies. Message and data rates may apply. Reply STOP
+          to opt out or HELP for help. Consent is not a condition of purchase.
         </span>
       </label>
 
@@ -186,11 +185,11 @@ export function SmsSignupForm() {
         disabled={status === "submitting"}
         className="mt-6 w-full rounded-full bg-brand-green px-8 py-3.5 text-[16px] font-bold text-white transition-opacity hover:opacity-90 disabled:opacity-60"
       >
-        {status === "submitting" ? "Submitting..." : "Get Free Updates"}
+        {status === "submitting" ? "Submitting..." : "Request My Consultation"}
       </button>
 
       <p className="mt-4 text-[11.5px] leading-relaxed text-dark-green/50">
-        By clicking &quot;Get Free Updates&quot; you agree to our{" "}
+        By clicking &quot;Request My Consultation&quot; you agree to our{" "}
         <Link
           href="/terms-of-service"
           className="underline underline-offset-2 hover:text-brand-green"
@@ -205,9 +204,9 @@ export function SmsSignupForm() {
           Privacy Policy
         </Link>
         . Checking the text-message box is optional and is not required to
-        receive updates by email or to obtain any product or service. No mobile
-        information will be shared with third parties/affiliates for
-        marketing/promotional purposes.
+        request a consultation — if unchecked, we will contact you by email or a
+        phone call instead. No mobile information will be shared with third
+        parties/affiliates for marketing/promotional purposes.
       </p>
     </form>
   );

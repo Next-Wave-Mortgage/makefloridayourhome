@@ -4,13 +4,13 @@ import { SmsSignupForm } from "@/components/sections/SmsSignupForm";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Get Florida Homebuying Updates",
+  title: "Request a Free Homebuying Consultation",
   description:
-    "Sign up for free Florida down payment assistance updates, program funding alerts, and homebuying guidance from Make Florida Your Home by text message or email.",
+    "Request a free Florida homebuying consultation with Make Florida Your Home and get your appointment confirmations and reminders by text message.",
   openGraph: {
-    title: "Get Florida Homebuying Updates",
+    title: "Request a Free Homebuying Consultation",
     description:
-      "Free Florida down payment assistance updates, program funding alerts, and homebuying guidance by text message or email.",
+      "Request a free Florida homebuying consultation and get appointment confirmations and reminders by text message.",
     url: `${siteConfig.url}/florida-updates`,
     type: "website",
   },
@@ -21,16 +21,16 @@ export const metadata: Metadata = {
 
 const benefits = [
   {
-    title: "Down payment assistance alerts",
-    body: "Know when Florida programs like Hometown Heroes and county assistance funds open, change, or run low on funding.",
+    title: "Talk to a Florida homebuying expert",
+    body: "Get one-on-one answers about down payment assistance, Hometown Heroes, loan options, and moving to Florida.",
   },
   {
-    title: "Homebuying guidance",
-    body: "Step-by-step tips for buying a home in Florida — from credit preparation to closing day.",
+    title: "A plan for making Florida your home",
+    body: "Walk away from your call knowing which programs you may qualify for and what your next steps are.",
   },
   {
-    title: "Moving to Florida resources",
-    body: "Practical guidance for relocating and making Florida your home, including cost-of-living and neighborhood insights.",
+    title: "Never miss your appointment",
+    body: "Opt in to text messages and we'll send your appointment confirmation, reminders, and your meeting link before the call.",
   },
 ];
 
@@ -41,11 +41,13 @@ export default function FloridaUpdatesPage() {
       <section className="bg-green-tint py-14 text-center sm:py-16">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
           <h1 className="text-[32px] font-bold leading-tight text-dark-green sm:text-[40px] lg:text-[48px]">
-            <span className="text-brand-green">Florida</span> Homebuying Updates
+            <span className="text-brand-green">Free</span> Homebuying
+            Consultation
           </h1>
           <p className="mx-auto mt-3 max-w-2xl text-[17px] text-dark-green/60">
-            Free down payment assistance news, program funding alerts, and
-            guidance for making Florida your home — by text message or email.
+            Request a free call about down payment assistance and buying a home
+            in Florida — with appointment confirmations and reminders by text
+            message.
           </p>
         </div>
       </section>
@@ -56,7 +58,7 @@ export default function FloridaUpdatesPage() {
           {/* Left — what you get + program terms */}
           <div>
             <h2 className="text-[24px] font-bold leading-snug text-dark-green sm:text-[28px]">
-              What you&apos;ll <span className="text-brand-green">receive</span>
+              How it <span className="text-brand-green">works</span>
             </h2>
             <ul className="mt-6 space-y-5">
               {benefits.map((b) => (
@@ -85,18 +87,20 @@ export default function FloridaUpdatesPage() {
                 Text Message Program Terms
               </h3>
               <p className="mt-3">
-                The Make Florida Your Home updates program sends messages that
-                include Florida down payment assistance updates, program funding
-                alerts, and homebuying tips. We typically send 2&ndash;4
-                messages per month; message frequency varies. Message and data
-                rates may apply.
+                If you check the optional text-message box on this form, Make
+                Florida Your Home will send you appointment confirmations,
+                appointment reminders, meeting links, and replies to your
+                inquiry by SMS at the mobile number you provide. Message
+                frequency varies based on your appointments and inquiries.
+                Message and data rates may apply.
               </p>
               <p className="mt-3">
                 Text messages are sent only to people who opt in by checking the
                 consent box on this page. Consent is not a condition of
-                purchasing any property, goods, or services. You can cancel at
-                any time by replying <strong>STOP</strong> to any message, and
-                get help by replying <strong>HELP</strong> or contacting us at{" "}
+                purchasing any property, goods, or services, and is not required
+                to request a consultation. You can cancel at any time by
+                replying <strong>STOP</strong> to any message, and get help by
+                replying <strong>HELP</strong> or contacting us at{" "}
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
                   className="underline underline-offset-2 hover:text-brand-green"
