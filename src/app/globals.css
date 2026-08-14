@@ -311,6 +311,10 @@
   transition: all 0.2s;
   white-space: nowrap;
 }
+.prose-mfyh .dpa-btn p {
+  margin: 0;
+  line-height: 1;
+}
 .prose-mfyh .dpa-btn-primary {
   background: #006948;
   color: white !important;
