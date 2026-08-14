@@ -293,15 +293,20 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  align-items: center;
   margin-bottom: 1.25em;
 }
 .prose-mfyh .dpa-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  height: 40px;
+  min-height: 0;
   padding: 8px 16px;
   border-radius: 8px;
   font-size: 13px;
   font-weight: 600;
+  line-height: 1.2;
   text-decoration: none !important;
   transition: all 0.2s;
   white-space: nowrap;

@@ -31,7 +31,7 @@ interface DpaProgramSeed {
 }
 
 const LAST_VERIFIED = "2026-03-24";
-const VERIFIED_SOURCE_DATE = "2026-06-05";
+const VERIFIED_SOURCE_DATE = "2026-08-14";
 
 export const FLORIDA_COUNTIES: string[] = [
   "Alachua",
@@ -1441,31 +1441,30 @@ const FLORIDA_HOUSING_PROGRAM_HIGHLIGHTS_URL =
   "https://www.ehousingplus.com/homeownership/florida-housing-finance-corporation/program-highlights/";
 
 const FLORIDA_HOUSING_STANDARD_TERM_SHEET_URL =
-  "https://www.ehousingplus.com/wp-content/uploads/FHFC-Standard-Programs-Master-Term-Sheet-03-23-26.pdf";
+  "https://www.ehousingplus.com/wp-content/uploads/FHFC-Standard-Programs-Master-Term-Sheet-06-11-26.pdf";
 
 const FLORIDA_HOUSING_TBA_GUIDE_URL =
   "https://www.ehousingplus.com/wp-content/uploads/TBA-GUIDE-5.16.24b.pdf";
 
 const FLORIDA_HOUSING_HOMETOWN_HEROES_URL =
-  "https://www.floridahousing.org/programs/homebuyer-overview-page/hometown-heroes";
+  "https://www.floridahousing.org/live-local-act/hometown-heroes-program";
 
 const FLORIDA_HOUSING_HOMETOWN_HEROES_BOND_GUIDE_URL =
-  "https://www.ehousingplus.com/wp-content/uploads/FHFC-HTH-Bond-Guide-03-31-26.pdf";
+  "https://www.ehousingplus.com/wp-content/uploads/FHFC-HTH-Bond-Guide-08-12-26.pdf";
 
 const FLORIDA_HOUSING_HOMETOWN_HEROES_TBA_GUIDE_URL =
-  "https://www.ehousingplus.com/wp-content/uploads/FHFC-HTH-TBA-Guide-FNMA-Removed-04-07-26.pdf";
+  "https://www.ehousingplus.com/wp-content/uploads/FHFC-HTH-TBA-Guide-FNMA-Removed-08-12-26.pdf";
 
 const MIAMI_DADE_DPA_URL =
   "https://www.miamidade.gov/global/housing/downpayment-assistance.page";
 
 const MIAMI_DADE_HOMEOWNERSHIP_GUIDELINES_URL =
-  "https://www.miamidade.gov/housing/library/guidelines/affordable-housing-and-homeownership-program-guidelines.pdf";
+  "https://www.miamidade.gov/resources/housing/documents/guidelines/affordable-housing-and-homeownership-program-guidelines.pdf";
 
-const BROWARD_HPA_URL =
-  "https://www.broward.org/Housing/pages/homebuyer.aspx/1000";
+const BROWARD_HPA_URL = "https://www.broward.org/Housing/pages/homebuyer.aspx";
 
 const BROWARD_HPA_FUNDS_URL =
-  "https://www.broward.org/Housing/Documents/Broward%20County%20HPA%20funds%209.2.2025.pdf";
+  "https://www.browardcdn.org/api/public/content/9acc83ccc0dd4bdfbca676cb3a5e54ed?v=f80dea7a";
 
 const LAUDERHILL_PURCHASE_ASSISTANCE_URL =
   "https://www.lauderhill-fl.gov/departments/city-manager-administration/housing-grants/purchase-assistance-program";
@@ -1508,15 +1507,15 @@ const MARGATE_HPA_URL =
   "https://www.margatefl.com/627/Homebuyer-Purchase-Assistance";
 
 const FORT_LAUDERDALE_HOME_URL =
-  "https://www.fortlauderdale.gov/government/departments-a-h/community-services/housing-community-development-and-homelessness/home-investment-partnerships";
+  "https://www.fortlauderdale.gov/Government/Departments/Community-Services/Housing-Community-Development-and-Homelessness/State-Housing-Initiatives-Partnership-Program-SHIP";
 
 const FORT_LAUDERDALE_PURCHASE_ASSISTANCE_BROCHURE_URL =
-  "https://www.fortlauderdale.gov/home/showpublisheddocument/95935/639123755015770000";
+  "https://www.fortlauderdale.gov/files/35bdf51e-a593-4292-9289-8f8d2cf9f5c1/2024%E2%80%932025-Annual-Action-Plan-Amendment-Proposal.pdf";
 
 const PEMBROKE_PINES_HOUSING_URL = "https://ppines.com/371/Housing-Programs";
 
 const SUNRISE_HOUSING_PROGRAMS_URL =
-  "https://www.sunrisefl.gov/departments-services/finance-administrative-services/grants/grant-programs";
+  "https://www.sunrisefl.gov/residents/homeowners-assistance-programs";
 
 const NORTH_MIAMI_FTHB_URL =
   "https://www.northmiamifl.gov/243/First-Time-Homebuyer";
@@ -1531,13 +1530,12 @@ const HOLLYWOOD_FTHB_URL =
   "https://www.broward.org/Housing/Pages/Hollywood%20Homebuyer%20Purchase%20Assistance%20Program.aspx";
 
 const PALM_BEACH_MHI_URL =
-  "https://discover.pbcgov.org/HED/Pages/Mortgage%20and%20Housing%20Investments.aspx";
+  "https://discover.pbc.gov/HED/Pages/Mortgage%20and%20Housing%20Investments.aspx";
 
 const PALM_BEACH_HOME_FTHB_URL =
-  "https://discover.pbcgov.org/HED/Pages/HOME-First-Time-Homebuyer-Program.aspx";
+  "https://discover.pbc.gov/HED/Pages/HOME-First-Time-Homebuyer-Program.aspx";
 
-const PALM_BEACH_PURCHASE_ASSISTANCE_ORIENTATION_URL =
-  "https://discover.pbcgov.org/HED/PDF/MHI/Purchase%20Assistance%20Orientation%20Presentation%204.2025%20%28Phase%201%29.pdf";
+const PALM_BEACH_PURCHASE_ASSISTANCE_ORIENTATION_URL = PALM_BEACH_MHI_URL;
 
 const BOCA_SHIP_URL =
   "https://www.myboca.us/396/SHIP-Purchase-Assistance-Programs";
@@ -1552,7 +1550,7 @@ const BOYNTON_SHIP_FLYER_URL =
   "https://www.boynton-beach.org/DocumentCenter/View/3596/2025-SHIP-FLYER";
 
 const PALM_BEACH_MATCH_PILOT_URL =
-  "https://discover.pbcgov.org/HED/Pages/Homebuyer-Match-Pilot-Program-.aspx";
+  "https://discover.pbc.gov/HED/Pages/Homebuyer-Match-Pilot-Program-.aspx";
 
 const JUPITER_HELP_PROGRAMS_URL =
   "https://www.jupiter.fl.us/515/Help-Assistance-Programs";
@@ -1657,7 +1655,7 @@ const MARION_HOUSING_URL =
   "https://www.marionfl.org/agencies-departments/departments-facilities-offices/community-services/housing";
 
 const MARION_PURCHASE_ASSISTANCE_OVERVIEW_URL =
-  "https://www.marionfl.org/home/showpublisheddocument/6843/635628774788770000";
+  "https://www.marionfl.org/agencies-departments/departments-facilities-offices/community-services/apply-here";
 
 const GAINESVILLE_DPA_URL =
   "https://www.gainesvillefl.gov/Government-Pages/Government/Departments/Housing-Community-Development/Down-Payment-Assistance";
@@ -1671,10 +1669,10 @@ const ALACHUA_HOUSING_PROGRAMS_URL =
 const ALACHUA_SHIP_NOFA_URL =
   "https://alachuacounty.us/Depts/CSS/House/Documents/ADACompliant/ACHP_SHIPNOFA23-24.pdf";
 
-const LEVY_HOUSING_URL = "https://levycounty.org/388/Housing";
+const LEVY_HOUSING_URL = "https://levycounty.org/410/Housing";
 
 const LEVY_HOUSING_APPLICATION_URL =
-  "https://www.levycounty.org/DocumentCenter/View/775/Housing-Application-Update-1025-2";
+  "https://www.levycounty.org/DocumentCenter/View/1038/SHIP-Purchase-Assistance-Application-Form-2026";
 
 const LEVY_LHAP_URL =
   "https://www.levycounty.org/DocumentCenter/View/938/levy-25-28-LHAP";
@@ -1689,13 +1687,16 @@ const SREC_COLUMBIA_PURCHASE_APPLICATION_URL =
 const JACKSONVILLE_HOUSING_SERVICES_URL =
   "https://www.jacksonville.gov/departments/neighborhoods/housing-and-community-development/housing-services";
 
+const JACKSONVILLE_HFA_URL =
+  "https://www.jacksonville.gov/departments/neighborhoods/housing-and-community-development/jacksonville-housing-finance-authority";
+
 const ST_JOHNS_DPA_URL = "https://www.sjcfl.us/ship-down-payment-assistance/";
 
 const ST_JOHNS_SHIP_URL =
   "https://www.sjcfl.us/state-housing-initiatives-partnership-ship/";
 
 const CLAY_FTHB_DPA_URL =
-  "https://www.claycountygov.com/community/state-housing-initiative-program-ship/first-time-homebuyer-down-payment-assistance";
+  "https://www.claycountygov.com/community/state-housing-initiative-program-ship";
 
 const PENSACOLA_HOME_BUYER_PROGRAMS_URL =
   "https://www.cityofpensacola.com/183/Home-Buyers-Programs";
@@ -1722,17 +1723,16 @@ const OKALOOSA_SHIP_APPLICATION_URL =
 const SANTA_ROSA_HOUSING_PROGRAMS_URL =
   "https://www.santarosa.fl.gov/341/Housing-Programs";
 
-const SANTA_ROSA_SHIP_SUMMARY_URL =
-  "https://www.santarosa.fl.gov/DocumentCenter/View/5872";
+const SANTA_ROSA_SHIP_SUMMARY_URL = SANTA_ROSA_HOUSING_PROGRAMS_URL;
 
 const PANAMA_CITY_HOUSING_PROGRAMS_URL =
   "https://www.panamacity.gov/857/Housing-Assistance-Programs";
 
 const PANAMA_CITY_COMMUNITY_DEVELOPMENT_URL =
-  "https://www.panamacity.gov/157/Community-Development";
+  "https://www.panamacity.gov/157/Housing-Community-Services";
 
 const BAY_COUNTY_SHIP_APPLICATION_PROCEDURES_URL =
-  "https://www.baycountyfl.gov/DocumentCenter/View/16444";
+  "https://www.baycountyfl.gov/573/General-Information";
 
 const GULF_SHIP_URL = "https://www.gulfcounty-fl.gov/county_government/s_h_i_p";
 
@@ -1740,7 +1740,7 @@ const GULF_LHAP_URL =
   "https://www.gulfcounty-fl.gov/UserFiles/Servers/Server_6500990/File/County%20Government/SHIP/GULF-2024-2027-LHAP-FINAL%202024-05282024.pdf";
 
 const JACKSON_HOUSING_GRANTS_URL =
-  "https://jacksoncountyfl.gov/services/community-development/housing-grants-office/";
+  "https://www.jacksoncountyfl.gov/services/community-development/housing-grants-office/";
 
 const JACKSON_LHAP_URL =
   "https://jacksoncountyfl.gov/uploads/2026/03/jackson-county-lhap-2024-2027-technical-rev-2.pdf";
@@ -2473,11 +2473,11 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
     },
     limits: floridaHousingCommonLimits,
     availability: {
-      status: "waitlist",
+      status: "available",
       statusLastChecked: VERIFIED_SOURCE_DATE,
       sourceUrl: FLORIDA_HOUSING_PROGRAM_HIGHLIGHTS_URL,
       notes: [
-        "Program highlights on 2026-06-04 stated no funds were available that day and the waitlist was at capacity.",
+        "Program highlights reviewed on 2026-08-14 showed over $35 million available in 2026 Hometown Heroes DPA as of the August 13, 2026 rate sheet.",
       ],
     },
     stacking: floridaHousingStacking,
@@ -2520,10 +2520,10 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       },
     ],
     maintenance: {
-      status: "limited",
+      status: "active",
       lastVerified: VERIFIED_SOURCE_DATE,
       needsReviewReasons: [
-        "Monitor real-time Hometown Heroes funds and waitlist notices before recommending availability.",
+        "Monitor real-time Hometown Heroes funds and rate-sheet notices before recommending availability.",
         "Verify current occupation checklist and income/loan limits during each calculator data refresh.",
       ],
     },
@@ -5639,13 +5639,13 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
   },
   "levy-county-ship": {
     description:
-      "Levy County Homebuyer Assistance helps first-time buyers with up to $30,000 for down payment, closing costs, and possible repairs as a 0% deferred loan, but current county page says SHIP purchase-assistance applications are not being accepted until August 1, 2026.",
+      "Levy County Homebuyer Assistance helps first-time buyers with up to $30,000 for down payment, closing costs, and possible repairs as a 0% deferred loan. The county began accepting SHIP Housing Assistance applications on August 3, 2026.",
     assistance: {
       display: "Up to $30,000",
       maxAmount: 30000,
       maxAmountSourceUrl: LEVY_HOUSING_APPLICATION_URL,
       calculationNotes:
-        "Official October 2025 housing application update and 2025-2028 LHAP list a $30,000 maximum purchase-assistance award.",
+        "Official 2026 purchase-assistance application and 2025-2028 LHAP list a $30,000 maximum purchase-assistance award.",
     },
     repaymentType: "forgivable",
     forgivenessYears: {
@@ -5665,7 +5665,7 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
     eligibility: {
       firstTimeBuyerRequired: true,
       incomeLimitRequired: true,
-      purchasePriceLimitRequired: "unknown",
+      purchasePriceLimitRequired: true,
       primaryResidenceRequired: true,
       homebuyerEducationRequired: true,
       householdSizeRequired: true,
@@ -5684,21 +5684,22 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
     },
     limits: {
       incomeLimitRequired: true,
-      purchasePriceLimitRequired: "unknown",
+      purchasePriceLimitRequired: true,
       incomeBasis: "ami",
       usesFloridaHousingLimits: false,
       limitsSourceUrl: LEVY_LHAP_URL,
-      effectiveDate: "2025-06-17",
+      effectiveDate: VERIFIED_SOURCE_DATE,
       notes: [
-        "Official 2025-2028 LHAP serves very-low, low, and moderate-income households under HUD/FHFC income guidelines; current purchase price cap was not found in reviewed materials.",
+        "Official 2026 purchase-assistance application says the home purchase price must be $299,000 or less.",
+        "Official 2025-2028 LHAP serves very-low, low, and moderate-income households under HUD/FHFC income guidelines.",
       ],
     },
     availability: {
-      status: "paused",
+      status: "limited",
       statusLastChecked: VERIFIED_SOURCE_DATE,
       sourceUrl: LEVY_HOUSING_URL,
       notes: [
-        "Official Levy County Housing page says SHIP Purchase Assistance applications are not currently being accepted and the next submission period begins August 1, 2026.",
+        "Official Levy County Housing page says the county began accepting SHIP Housing Assistance applications on Monday, August 3, 2026.",
       ],
     },
     stacking: {
@@ -5714,20 +5715,19 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       canEstimateAmount: true,
       canDetermineBasicEligibility: true,
       missingData: [
-        "current application packet after August 1, 2026",
-        "purchase price cap",
         "compatible first mortgage loan types",
+        "real-time remaining fund balance",
         "stacking compatibility",
       ],
     },
     source: levyHousingSource,
     sources: [levyHousingSource, levyHousingApplicationSource, levyLhapSource],
     maintenance: {
-      status: "paused",
+      status: "limited",
       lastVerified: VERIFIED_SOURCE_DATE,
       needsReviewReasons: [
-        "Re-check Levy County on or after August 1, 2026 for reopened application materials and any changed limits.",
-        "Confirm purchase price cap and first mortgage requirements from the next application packet.",
+        "Monitor current application intake and remaining funds because the 2026 cycle opened August 3, 2026.",
+        "Confirm exact first mortgage product compatibility and stacking rules with Levy County before final calculator recommendations.",
       ],
     },
   },
@@ -7210,11 +7210,11 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
   },
   "broward-county-hpa": {
     assistance: {
-      display: "Up to $80,000; community-specific amounts vary",
-      maxAmount: 80000,
+      display: "Up to $120,000; community-specific amounts vary",
+      maxAmount: 120000,
       maxAmountSourceUrl: BROWARD_HPA_FUNDS_URL,
       calculationNotes:
-        "County flyer lists up to $80,000 for many service areas, with some community exceptions; verify the property city before estimating.",
+        "County flyer updated 6/26 lists up to $120,000 per property, with several communities showing no funds; verify the property city before estimating.",
     },
     repaymentType: "deferred",
     compatibleLoanTypes: ["fha", "va", "usda", "conventional", "portfolio"],
@@ -7265,7 +7265,7 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       limitsSourceUrl: BROWARD_HPA_URL,
       effectiveDate: "2026-05-01",
       notes: [
-        "Official page shows 80% AMI limits effective May 2026 and a maximum sales price of $679,324, with higher Weston pricing possibly available.",
+        "Official 6/26 flyer lists 80% AMI and 120% AMI limits and a maximum sales price of $679,324, with higher maximum price possibly available in certain communities.",
       ],
     },
     availability: {
@@ -7273,7 +7273,7 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       statusLastChecked: VERIFIED_SOURCE_DATE,
       sourceUrl: BROWARD_HPA_URL,
       notes: [
-        "Funds are first-come, first-qualified, first-served; official page lists several cities with no funds and only specific service areas currently available.",
+        "Funds are first-come, first-qualified, first-served; the 6/26 flyer lists Hollywood up to $50,000 and Pembroke Pines up to $75,000, while most listed communities show no funds.",
       ],
     },
     stacking: {
@@ -9487,10 +9487,9 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
     assistance: {
       display: "Up to $10,000",
       maxAmount: 10000,
-      maxAmountSourceUrl:
-        "https://www.jacksonville.gov/departments/neighborhoods/housing-and-community-development/jacksonville-housing-finance-authority/jhfa-docs-%281%29/jhfa-other-docs/annual-reports/jhfa-2024-annual-report-final",
+      maxAmountSourceUrl: JACKSONVILLE_HFA_URL,
       calculationNotes:
-        "JHFA annual report says Home Sweet Home DPA was lowered in June 2023 to $10,000 and can change during the year.",
+        "Prior JHFA annual-report evidence listed $10,000 DPA, but the public annual-report file has moved offline; verify live terms with JHFA or a participating lender before exact recommendations.",
     },
     repaymentType: "deferred",
     forgivenessYears: undefined,
@@ -9519,7 +9518,7 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       propertyTypes: ["unknown"],
       notes: [
         "Program is accessed through participating lenders with an affordable 30-year fixed-rate first mortgage.",
-        "Annual report lists FY2023-2024 household income limits of $95,365 for 1-2 person households and $109,670 for 3+ person households.",
+        "Current JHFA public page confirms the authority and MCC program but does not expose the latest Home Sweet Home term sheet.",
       ],
     },
     limits: {
@@ -9527,20 +9526,18 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       purchasePriceLimitRequired: true,
       incomeBasis: "program_specific",
       usesFloridaHousingLimits: false,
-      limitsSourceUrl:
-        "https://www.jacksonville.gov/departments/neighborhoods/housing-and-community-development/jacksonville-housing-finance-authority/jhfa-docs-%281%29/jhfa-other-docs/annual-reports/jhfa-2024-annual-report-final",
+      limitsSourceUrl: JACKSONVILLE_HFA_URL,
       effectiveDate: VERIFIED_SOURCE_DATE,
       notes: [
-        "Annual report lists an effective sales price limit of $299,999 for FY2023-2024; verify current limits with JHFA/lender before calculator decisions.",
+        "Current public JHFA page does not publish borrower income, purchase price, or DPA term limits; verify current limits with JHFA/lender before calculator decisions.",
       ],
     },
     availability: {
-      status: "available",
+      status: "unknown",
       statusLastChecked: VERIFIED_SOURCE_DATE,
-      sourceUrl:
-        "https://www.jacksonville.gov/departments/neighborhoods/housing-and-community-development/jacksonville-housing-finance-authority/jhfa-docs-%281%29/jhfa-other-docs/annual-reports/jhfa-2024-annual-report-final",
+      sourceUrl: JACKSONVILLE_HFA_URL,
       notes: [
-        "JHFA annual report says Home Sweet Home is continuously funded and never runs out of money, but rate/DPA terms can change.",
+        "JHFA page remains live and says annual reports can be requested by email; current Home Sweet Home rate/DPA terms were not published on the reviewed page.",
       ],
     },
     stacking: {
@@ -9552,56 +9549,51 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       ],
     },
     calculator: {
-      confidence: "medium",
+      confidence: "low",
       canEstimateAmount: true,
-      canDetermineBasicEligibility: true,
+      canDetermineBasicEligibility: false,
       missingData: [
         "current lender term sheet",
         "current interest rate",
+        "current income and purchase price limits",
         "homebuyer education rule",
         "borrower contribution rule",
         "stacking compatibility",
       ],
     },
     source: {
-      label: "Jacksonville HFA 2024 annual report",
-      url: "https://www.jacksonville.gov/departments/neighborhoods/housing-and-community-development/jacksonville-housing-finance-authority/jhfa-docs-%281%29/jhfa-other-docs/annual-reports/jhfa-2024-annual-report-final",
+      label: "Jacksonville Housing Finance Authority",
+      url: JACKSONVILLE_HFA_URL,
       quality: "official",
       accessedDate: VERIFIED_SOURCE_DATE,
     },
     sources: [
       {
-        label: "Jacksonville HFA 2024 annual report",
-        url: "https://www.jacksonville.gov/departments/neighborhoods/housing-and-community-development/jacksonville-housing-finance-authority/jhfa-docs-%281%29/jhfa-other-docs/annual-reports/jhfa-2024-annual-report-final",
-        quality: "official",
-        accessedDate: VERIFIED_SOURCE_DATE,
-      },
-      {
         label: "Jacksonville Housing Finance Authority",
-        url: "https://www.jacksonville.gov/departments/neighborhoods/housing-and-community-development/jacksonville-housing-finance-authority",
+        url: JACKSONVILLE_HFA_URL,
         quality: "official",
         accessedDate: VERIFIED_SOURCE_DATE,
       },
     ],
     maintenance: {
-      status: "active",
+      status: "unknown",
       lastVerified: VERIFIED_SOURCE_DATE,
       needsReviewReasons: [
+        "Prior annual-report source URL is no longer live; request current JHFA annual report or lender term sheet.",
         "Pull current JHFA participating-lender term sheet for live rate, DPA amount, and exact borrower eligibility.",
       ],
     },
   },
   "jacksonville-h2h": {
     description:
-      "City of Jacksonville down-payment assistance pilot providing up to 75% of required down payment or closing costs, capped at $25,000, for eligible first-time buyers purchasing in Jacksonville/Duval County.",
+      "City of Jacksonville Headstart to Homeownership (H2H) Program providing up to $25,000 for down payment and closing-cost assistance to eligible buyers purchasing in Jacksonville/Duval County.",
     assistance: {
-      display: "Up to 75% of required down payment/closing costs, max $25,000",
+      display: "Up to $25,000",
       maxAmount: 25000,
       percentOfPurchasePrice: undefined,
-      maxAmountSourceUrl:
-        "https://www.jacksonville.gov/departments/neighborhoods/housing-and-community-development/housing-services/docs-housing-services/h2h-docs/flyer-dpa-april-2025",
+      maxAmountSourceUrl: JACKSONVILLE_HOUSING_SERVICES_URL,
       calculationNotes:
-        "Official 2025 flyer states assistance provides up to 75% of the total down payment or closing costs required by the mortgage writer, not to exceed $25,000.",
+        "Current Jacksonville Housing Services page states H2H offers financial assistance up to $25,000 for down payment and closing costs; old detailed flyer URL is no longer live.",
     },
     repaymentType: "deferred",
     forgivenessYears: {
@@ -9630,9 +9622,8 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       militaryEligible: "unknown",
       propertyTypes: ["single-family", "patio home", "townhome", "condominium"],
       notes: [
-        "Income may be up to 120% AMI.",
-        "Applicant must have a minimum $500 down payment and cover the cost of a general home inspection.",
-        "Mobile homes and manufactured housing are excluded.",
+        "Current official page says applicants must meet HUD household income criteria, must not currently own a home, and must occupy the home as a primary residence.",
+        "All homes must comply with Section 8 Housing Quality Standards before closing.",
         "Eligible homes cannot be tenant occupied unless the tenant is the buyer.",
       ],
     },
@@ -9641,20 +9632,19 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       purchasePriceLimitRequired: true,
       incomeBasis: "ami",
       usesFloridaHousingLimits: false,
-      limitsSourceUrl:
-        "https://www.jacksonville.gov/departments/neighborhoods/housing-and-community-development/housing-services/docs-housing-services/h2h-docs/flyer-dpa-april-2025",
+      limitsSourceUrl: JACKSONVILLE_HOUSING_SERVICES_URL,
       effectiveDate: VERIFIED_SOURCE_DATE,
       notes: [
-        "Official 2025 flyer lists maximum gross income up to 120% AMI and maximum purchase price/value of $335,000.",
+        "Current official page says total gross household income cannot exceed 80% AMI for Duval County as established by HUD.",
+        "Old 2025 flyer purchase-price details are no longer available at the prior URL; verify current cap with Housing Services before exact eligibility.",
       ],
     },
     availability: {
       status: "available",
       statusLastChecked: VERIFIED_SOURCE_DATE,
-      sourceUrl:
-        "https://www.jacksonville.gov/departments/housing-and-neighborhoods/housing-services",
+      sourceUrl: JACKSONVILLE_HOUSING_SERVICES_URL,
       notes: [
-        "Jacksonville Housing Services page lists H2H assistance up to $25,000; flyer is dated April 2025.",
+        "Jacksonville Housing Services page lists H2H assistance up to $25,000 and says the program is subject to funding limitations.",
       ],
     },
     stacking: {
@@ -9677,21 +9667,15 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       ],
     },
     source: {
-      label: "City of Jacksonville 2025 Down-Payment Assistance flyer",
-      url: "https://www.jacksonville.gov/departments/neighborhoods/housing-and-community-development/housing-services/docs-housing-services/h2h-docs/flyer-dpa-april-2025",
+      label: "City of Jacksonville Housing Services",
+      url: JACKSONVILLE_HOUSING_SERVICES_URL,
       quality: "official",
       accessedDate: VERIFIED_SOURCE_DATE,
     },
     sources: [
       {
-        label: "City of Jacksonville 2025 Down-Payment Assistance flyer",
-        url: "https://www.jacksonville.gov/departments/neighborhoods/housing-and-community-development/housing-services/docs-housing-services/h2h-docs/flyer-dpa-april-2025",
-        quality: "official",
-        accessedDate: VERIFIED_SOURCE_DATE,
-      },
-      {
         label: "City of Jacksonville Housing Services",
-        url: "https://www.jacksonville.gov/departments/housing-and-neighborhoods/housing-services",
+        url: JACKSONVILLE_HOUSING_SERVICES_URL,
         quality: "official",
         accessedDate: VERIFIED_SOURCE_DATE,
       },
@@ -9700,6 +9684,7 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       status: "active",
       lastVerified: VERIFIED_SOURCE_DATE,
       needsReviewReasons: [
+        "Prior April 2025 flyer URL is no longer live; locate current detailed H2H program flyer or application packet.",
         "Confirm current participating lender list and whether the pilot remains open before borrower-facing recommendations.",
       ],
     },
@@ -10031,13 +10016,13 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
   },
   "desoto-county-ship": {
     assistance: {
-      display: "Up to 30% of purchase price, max $70,000",
-      maxAmount: 70000,
-      percentOfPurchasePrice: { max: 30 },
-      maxAmountSourceUrl:
-        "https://www.desotobocc.com/DocumentCenter/View/1149/Approved-2025-Local-Housing-Assistance-Plan---LHAP-PDF",
+      display:
+        "SHIP purchase assistance; current maximum requires verification",
+      maxAmount: undefined,
+      percentOfPurchasePrice: undefined,
+      maxAmountSourceUrl: "https://www.desotobocc.com/242/Housing-Assistance",
       calculationNotes:
-        "Official LHAP lists up to 30% of purchase price, not to exceed $70,000, for purchase assistance with or without rehab.",
+        "Current county page confirms SHIP down payment assistance for potential homeowners, but the prior LHAP PDF URL with the $70,000 maximum is no longer live.",
     },
     repaymentType: "deferred",
     forgivenessYears: {
@@ -10074,11 +10059,11 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       purchasePriceLimitRequired: true,
       incomeBasis: "ship",
       usesFloridaHousingLimits: "unknown",
-      limitsSourceUrl:
-        "https://www.desotobocc.com/DocumentCenter/View/1149/Approved-2025-Local-Housing-Assistance-Plan---LHAP-PDF",
+      limitsSourceUrl: "https://www.desotobocc.com/242/Housing-Assistance",
       effectiveDate: VERIFIED_SOURCE_DATE,
       notes: [
-        "Official LHAP lists purchase price up to $350,000, while the public county page says home price cannot exceed $230,000; use manual review before exact eligibility.",
+        "Current public county page says applicants must be pre-approved by a Florida-certified lender and the price of the home cannot exceed $230,000.",
+        "Prior LHAP PDF URL is no longer live; use manual review before exact eligibility.",
       ],
     },
     availability: {
@@ -10098,29 +10083,23 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       ],
     },
     calculator: {
-      confidence: "medium",
-      canEstimateAmount: true,
+      confidence: "low",
+      canEstimateAmount: false,
       canDetermineBasicEligibility: true,
       missingData: [
-        "resolved purchase price cap conflict",
+        "current purchase assistance maximum",
         "current funding/application status",
         "compatible first mortgage loan types",
         "program-specific stacking confirmation",
       ],
     },
     source: {
-      label: "DeSoto County SHIP LHAP 2023-2026",
-      url: "https://www.desotobocc.com/DocumentCenter/View/1149/Approved-2025-Local-Housing-Assistance-Plan---LHAP-PDF",
+      label: "DeSoto County Housing Assistance",
+      url: "https://www.desotobocc.com/242/Housing-Assistance",
       quality: "official",
       accessedDate: VERIFIED_SOURCE_DATE,
     },
     sources: [
-      {
-        label: "DeSoto County SHIP LHAP 2023-2026",
-        url: "https://www.desotobocc.com/DocumentCenter/View/1149/Approved-2025-Local-Housing-Assistance-Plan---LHAP-PDF",
-        quality: "official",
-        accessedDate: VERIFIED_SOURCE_DATE,
-      },
       {
         label: "DeSoto County Housing Assistance",
         url: "https://www.desotobocc.com/242/Housing-Assistance",
@@ -10132,7 +10111,7 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       status: "unknown",
       lastVerified: VERIFIED_SOURCE_DATE,
       needsReviewReasons: [
-        "Resolve public page $230,000 price cap versus LHAP $350,000 price cap before exact calculator eligibility.",
+        "Prior LHAP PDF URL is no longer live; locate current LHAP or application packet for exact assistance maximum.",
         "Confirm current funding/application status with DeSoto County Social Services.",
       ],
     },
@@ -10765,7 +10744,7 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       },
       {
         label: "HFA of Manatee County second mortgage lender guide",
-        url: "https://www.ehousingplus.com/wp-content/uploads/Manatee-Final-2nd-Mtg-Guide-08-27-25.pdf",
+        url: "https://www.ehousingplus.com/wp-content/uploads/Manatee-Final-2nd-Mtg-Guide-05-20-26v2.pdf",
         quality: "partner",
         accessedDate: VERIFIED_SOURCE_DATE,
       },
@@ -10839,7 +10818,7 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       statusLastChecked: VERIFIED_SOURCE_DATE,
       sourceUrl: "https://www.herosrq.net/ship",
       notes: [
-        "HERO page states applications for SHIP purchase assistance and owner-occupied rehabilitation for 2025-2026 are currently closed and tentatively reopen in October 2026.",
+        "HERO page states applications for SHIP purchase assistance and owner-occupied rehabilitation for 2025-2026 are currently closed and the new application cycle begins September 1, 2026.",
       ],
     },
     stacking: {
@@ -10886,7 +10865,7 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       status: "paused",
       lastVerified: VERIFIED_SOURCE_DATE,
       needsReviewReasons: [
-        "Refresh application status near the tentative October 2026 reopening.",
+        "Refresh application status near the September 1, 2026 reopening.",
         "Confirm exact current purchase price cap and lender compatibility before exact calculator recommendations.",
       ],
     },
@@ -10997,9 +10976,10 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
     assistance: {
       display: "$20,000 grant",
       maxAmount: 20000,
-      maxAmountSourceUrl: "https://palatka-fl.gov/CivicAlerts.aspx?AID=959",
+      maxAmountSourceUrl:
+        "https://www.palatka-fl.gov/calendar.aspx?CID=14%2C26&month=3&view=list&year=2025",
       calculationNotes:
-        "Official city news states each approved applicant received $20,000 in down payment assistance.",
+        "Prior city news evidence stated each approved applicant received $20,000 in down payment assistance; current live city calendar confirms the DPA launch but not a remaining fund balance.",
     },
     repaymentType: "grant",
     forgivenessYears: undefined,
@@ -11025,8 +11005,8 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       militaryEligible: "unknown",
       propertyTypes: ["unknown"],
       notes: [
-        "Official city article says buyers must purchase within City of Palatka, have at least a 620 credit score, show verifiable income for 24 months, and complete a certified HUD first-time homebuyer course.",
-        "Official workshop article states household income must be at or below 80% AMI and participants must secure mortgage preapproval.",
+        "Prior city article said buyers must purchase within City of Palatka, have at least a 620 credit score, show verifiable income for 24 months, and complete a certified HUD first-time homebuyer course.",
+        "Current city calendar confirms a 2025 housing launch event for the Down Payment Assistance Program and City of Palatka HOME Repair Program.",
       ],
     },
     limits: {
@@ -11035,18 +11015,19 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       incomeBasis: "ami",
       usesFloridaHousingLimits: false,
       limitsSourceUrl:
-        "https://palatka-fl.gov/599/Workshop-highlights-housing-programs",
+        "https://www.palatka-fl.gov/calendar.aspx?CID=14%2C26&month=3&view=list&year=2025",
       effectiveDate: VERIFIED_SOURCE_DATE,
       notes: [
-        "Official workshop article confirms income at or below 80% AMI; purchase price cap was not confirmed.",
+        "Prior workshop article confirmed income at or below 80% AMI; current live city calendar does not publish calculator-grade limits.",
       ],
     },
     availability: {
-      status: "limited",
+      status: "unknown",
       statusLastChecked: VERIFIED_SOURCE_DATE,
-      sourceUrl: "https://palatka-fl.gov/CivicAlerts.aspx?AID=959",
+      sourceUrl:
+        "https://www.palatka-fl.gov/calendar.aspx?CID=14%2C26&month=3&view=list&year=2025",
       notes: [
-        "Official July 2025 city article says six loans had closed and more were in process; current remaining funds were not stated.",
+        "Current live city calendar confirms the Down Payment Assistance Program launch event, but the old detailed alert URLs are no longer live and current remaining funds were not stated.",
       ],
     },
     stacking: {
@@ -11056,9 +11037,9 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       notes: ["Stacking rules were not confirmed in reviewed city articles."],
     },
     calculator: {
-      confidence: "medium",
+      confidence: "low",
       canEstimateAmount: true,
-      canDetermineBasicEligibility: true,
+      canDetermineBasicEligibility: false,
       missingData: [
         "current remaining funds/application status",
         "purchase price cap",
@@ -11068,30 +11049,25 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       ],
     },
     source: {
-      label: "City of Palatka down payment assistance update",
-      url: "https://palatka-fl.gov/CivicAlerts.aspx?AID=959",
+      label: "City of Palatka housing launch event",
+      url: "https://www.palatka-fl.gov/calendar.aspx?CID=14%2C26&month=3&view=list&year=2025",
       quality: "official",
       accessedDate: VERIFIED_SOURCE_DATE,
     },
     sources: [
       {
-        label: "City of Palatka down payment assistance update",
-        url: "https://palatka-fl.gov/CivicAlerts.aspx?AID=959",
-        quality: "official",
-        accessedDate: VERIFIED_SOURCE_DATE,
-      },
-      {
-        label: "City of Palatka housing programs workshop",
-        url: "https://palatka-fl.gov/599/Workshop-highlights-housing-programs",
+        label: "City of Palatka housing launch event",
+        url: "https://www.palatka-fl.gov/calendar.aspx?CID=14%2C26&month=3&view=list&year=2025",
         quality: "official",
         accessedDate: VERIFIED_SOURCE_DATE,
       },
     ],
     maintenance: {
-      status: "limited",
+      status: "unknown",
       lastVerified: VERIFIED_SOURCE_DATE,
       needsReviewReasons: [
-        "Confirm remaining grant funds and current application packet with Azcarate Consulting Group or the City of Palatka.",
+        "Old detailed Palatka article/workshop URLs are no longer live; locate current application packet or confirm terms with Azcarate Consulting Group or the City of Palatka.",
+        "Confirm remaining grant funds before borrower-facing recommendations.",
       ],
     },
   },
@@ -11205,13 +11181,13 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
   },
   "fort-pierce-hpa": {
     assistance: {
-      display: "$10,000-$15,000 typical assistance",
-      minAmount: 10000,
-      maxAmount: 15000,
+      display: "$45,000-$50,000 typical assistance",
+      minAmount: 45000,
+      maxAmount: 50000,
       maxAmountSourceUrl:
-        "https://www.cityoffortpierce.com/DocumentCenter/View/28919/Purchase-Assistance-Program-FAQ",
+        "https://www.cityoffortpierce.com/DocumentCenter/View/86951/Purchase-Assistance-Program-FAQ",
       calculationNotes:
-        "Official FAQ says assistance normally ranges between $10,000 and $15,000, depending on applicant situation and costs.",
+        "Official FAQ revised 7.9.2026 says assistance normally ranges between $45,000 and $50,000, depending on applicant situation and down payment/closing costs.",
     },
     repaymentType: "forgivable",
     forgivenessYears: {
@@ -11241,7 +11217,7 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       propertyTypes: ["home ten years old or newer"],
       notes: [
         "Applicants must secure a first mortgage from an approved lender and contribute at least $500 toward closing.",
-        "Applicants must attend a mandatory orientation before submitting an application.",
+        "Applicants must complete a pre-purchase homebuyer education program before approval.",
         "FAQ says the home must be located in Fort Pierce city limits and be ten years old or newer.",
       ],
     },
@@ -11251,20 +11227,19 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       incomeBasis: "ship",
       usesFloridaHousingLimits: "unknown",
       limitsSourceUrl:
-        "https://www.cityoffortpierce.com/DocumentCenter/View/28919/Purchase-Assistance-Program-FAQ",
+        "https://www.cityoffortpierce.com/DocumentCenter/View/86951/Purchase-Assistance-Program-FAQ",
       effectiveDate: VERIFIED_SOURCE_DATE,
       notes: [
-        "FAQ lists 2024 income limits and minimum gross yearly income of $30,000; purchase price cap was not confirmed in the FAQ.",
+        "FAQ revised 7.9.2026 lists 2026 low/moderate income limits and minimum gross yearly income of $50,000; purchase price cap was not confirmed in the FAQ.",
       ],
     },
     availability: {
       status: "paused",
       statusLastChecked: VERIFIED_SOURCE_DATE,
       sourceUrl:
-        "https://www.cityoffortpierce.com/503/Open-Grant-Opportunities?randid=285336",
+        "https://www.cityoffortpierce.com/503/Open-Grant-Opportunities",
       notes: [
-        "Official grant page lists the Home Purchase Assistance Program as closed.",
-        "Page lists mandatory orientations for December 4 and December 18, 2025, and says applications are subject to funding availability.",
+        "Official grant page lists the Home Purchase Assistance Program as closed and says all program funds are fully encumbered.",
       ],
     },
     stacking: {
@@ -11287,20 +11262,20 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
     },
     source: {
       label: "City of Fort Pierce Home Purchase Assistance FAQ",
-      url: "https://www.cityoffortpierce.com/DocumentCenter/View/28919/Purchase-Assistance-Program-FAQ",
+      url: "https://www.cityoffortpierce.com/DocumentCenter/View/86951/Purchase-Assistance-Program-FAQ",
       quality: "official",
       accessedDate: VERIFIED_SOURCE_DATE,
     },
     sources: [
       {
         label: "City of Fort Pierce Home Purchase Assistance FAQ",
-        url: "https://www.cityoffortpierce.com/DocumentCenter/View/28919/Purchase-Assistance-Program-FAQ",
+        url: "https://www.cityoffortpierce.com/DocumentCenter/View/86951/Purchase-Assistance-Program-FAQ",
         quality: "official",
         accessedDate: VERIFIED_SOURCE_DATE,
       },
       {
         label: "City of Fort Pierce Grant Programs",
-        url: "https://www.cityoffortpierce.com/503/Open-Grant-Opportunities?randid=285336",
+        url: "https://www.cityoffortpierce.com/503/Open-Grant-Opportunities",
         quality: "official",
         accessedDate: VERIFIED_SOURCE_DATE,
       },
@@ -11315,12 +11290,12 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
   },
   "st-lucie-martin-home-consortium": {
     assistance: {
-      display: "Need-based assistance up to $50,000",
-      maxAmount: 50000,
-      maxAmountSourceUrl:
-        "https://www.martin.fl.us/resources/home-down-payment-application",
+      display:
+        "Need-based HOME purchase assistance; current award requires verification",
+      maxAmount: undefined,
+      maxAmountSourceUrl: undefined,
       calculationNotes:
-        "Official HOME Consortium application states assistance is the amount needed for affordability, not to exceed $50,000.",
+        "Prior HOME Consortium application evidence listed need-based assistance up to $50,000, but the official application URL is no longer live; find current county packet before exact calculator estimates.",
     },
     repaymentType: "deferred",
     forgivenessYears: undefined,
@@ -11357,19 +11332,19 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       incomeBasis: "hud",
       usesFloridaHousingLimits: false,
       limitsSourceUrl:
-        "https://www.martin.fl.us/resources/home-down-payment-application",
+        "https://www.stlucieco.gov/departments-and-services/community-services/housing",
       effectiveDate: VERIFIED_SOURCE_DATE,
       notes: [
-        "Application is revised 2018 and lists maximum purchase price of $185,000 existing or $229,000 new construction; verify whether caps remain current before exact eligibility.",
+        "Prior application was revised 2018 and listed maximum purchase price of $185,000 existing or $229,000 new construction; the old official application URL is no longer live and caps require current county verification.",
       ],
     },
     availability: {
       status: "unknown",
       statusLastChecked: VERIFIED_SOURCE_DATE,
       sourceUrl:
-        "https://www.martin.fl.us/resources/home-down-payment-application",
+        "https://www.stlucieco.gov/departments-and-services/community-services/housing",
       notes: [
-        "Official application says assistance is contingent on availability of funds; current fund status was not confirmed.",
+        "St. Lucie County Housing Division page remains live, but current HOME Consortium purchase-assistance packet and fund status were not confirmed.",
       ],
     },
     stacking: {
@@ -11380,8 +11355,8 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
     },
     calculator: {
       confidence: "low",
-      canEstimateAmount: true,
-      canDetermineBasicEligibility: true,
+      canEstimateAmount: false,
+      canDetermineBasicEligibility: false,
       missingData: [
         "current application packet",
         "current purchase price caps",
@@ -11392,20 +11367,24 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       ],
     },
     source: {
-      label:
-        "St. Lucie/Martin County HOME Consortium purchase assistance application",
-      url: "https://www.martin.fl.us/resources/home-down-payment-application",
+      label: "St. Lucie County Housing Division",
+      url: "https://www.stlucieco.gov/departments-and-services/community-services/housing",
       quality: "official",
       accessedDate: VERIFIED_SOURCE_DATE,
       notes: [
-        "Official document is older and should be refreshed against current program staff before exact calculator decisions.",
+        "Current detailed HOME Consortium purchase-assistance packet was not found in this refresh.",
       ],
     },
     sources: [
       {
-        label:
-          "St. Lucie/Martin County HOME Consortium purchase assistance application",
-        url: "https://www.martin.fl.us/resources/home-down-payment-application",
+        label: "St. Lucie County Housing Division",
+        url: "https://www.stlucieco.gov/departments-and-services/community-services/housing",
+        quality: "official",
+        accessedDate: VERIFIED_SOURCE_DATE,
+      },
+      {
+        label: "Martin County Housing Assistance",
+        url: "https://www.martin.fl.us/HousingProgram",
         quality: "official",
         accessedDate: VERIFIED_SOURCE_DATE,
       },
@@ -11414,7 +11393,7 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       status: "unknown",
       lastVerified: VERIFIED_SOURCE_DATE,
       needsReviewReasons: [
-        "Application is revised 2018; find current HOME Consortium guidelines or confirm with St. Lucie/Martin County staff.",
+        "Old HOME Consortium application URL is no longer live; find current HOME Consortium guidelines or confirm with St. Lucie/Martin County staff.",
       ],
     },
   },
@@ -12098,7 +12077,7 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       incomeBasis: "program_specific",
       usesFloridaHousingLimits: false,
       limitsSourceUrl:
-        "https://www.ehousingplus.com/wp-content/uploads/Miami-Final-Guide-06-17-25c.pdf",
+        "https://www.ehousingplus.com/wp-content/uploads/Miami-Final-Guide-06-12-26.pdf",
       effectiveDate: VERIFIED_SOURCE_DATE,
       notes: [
         "Program guide and highlights define income and purchase price limits; borrower-specific limit values depend on target/non-target and household size.",
@@ -12149,7 +12128,7 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       },
       {
         label: "HFA of Miami-Dade administrator guide",
-        url: "https://www.ehousingplus.com/wp-content/uploads/Miami-Final-Guide-06-17-25c.pdf",
+        url: "https://www.ehousingplus.com/wp-content/uploads/Miami-Final-Guide-06-12-26.pdf",
         quality: "partner",
         accessedDate: VERIFIED_SOURCE_DATE,
       },
@@ -12206,17 +12185,16 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       purchasePriceLimitRequired: "unknown",
       incomeBasis: "hud",
       usesFloridaHousingLimits: false,
-      limitsSourceUrl:
-        "https://www.broward.org/Housing/Documents/Broward%20County%20HPA%20funds%209.2.2025.pdf",
+      limitsSourceUrl: BROWARD_HPA_FUNDS_URL,
       effectiveDate: VERIFIED_SOURCE_DATE,
       notes: [
-        "Current funding table lists max gross household income as 80% AMI for many communities and different funding amounts by community.",
+        "Current 6/26 funding table lists 80% AMI for most communities, 120% AMI for Hollywood, and different funding amounts by community.",
       ],
     },
     availability: {
       status: "limited",
       statusLastChecked: VERIFIED_SOURCE_DATE,
-      sourceUrl: "https://www.broward.org/Housing/Pages/Program.aspx",
+      sourceUrl: BROWARD_HPA_URL,
       notes: [
         "Official Broward page says programs are first-come, first-qualified, first-served until funds are expended.",
       ],
@@ -12245,26 +12223,26 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
     },
     source: {
       label: "Broward County Housing Program Services",
-      url: "https://www.broward.org/Housing/Pages/Program.aspx",
+      url: BROWARD_HPA_URL,
       quality: "official",
       accessedDate: VERIFIED_SOURCE_DATE,
     },
     sources: [
       {
         label: "Broward County Housing Program Services",
-        url: "https://www.broward.org/Housing/Pages/Program.aspx",
+        url: BROWARD_HPA_URL,
         quality: "official",
         accessedDate: VERIFIED_SOURCE_DATE,
       },
       {
         label: "Broward County homebuyer programs",
-        url: "https://www.broward.org/Housing/pages/homebuyer.aspx/1000",
+        url: BROWARD_HPA_URL,
         quality: "official",
         accessedDate: VERIFIED_SOURCE_DATE,
       },
       {
         label: "Broward County HPA funds table",
-        url: "https://www.broward.org/Housing/Documents/Broward%20County%20HPA%20funds%209.2.2025.pdf",
+        url: BROWARD_HPA_FUNDS_URL,
         quality: "official",
         accessedDate: VERIFIED_SOURCE_DATE,
       },
@@ -12482,14 +12460,20 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
   },
   "martin-county-ship": {
     assistance: {
-      display: "SHIP/HOME purchase assistance; current award varies",
-      maxAmount: undefined,
-      maxAmountSourceUrl: undefined,
+      display:
+        "Up to $75,000 for very-low/low income; up to $55,000 for moderate income",
+      maxAmount: 75000,
+      maxAmountSourceUrl:
+        "https://www.martin.fl.us/resources/ship-local-housing-assistance-plan-lhap",
       calculationNotes:
-        "Official Martin County page confirms SHIP administration and current LHAP; sampled official text did not clearly expose a current purchase-assistance maximum for this record.",
+        "Official Martin County LHAP effective 5/19/26 lists purchase assistance up to $75,000 for very-low and low-income households and $55,000 for moderate-income households, including project delivery cost.",
     },
     repaymentType: "deferred",
-    forgivenessYears: undefined,
+    forgivenessYears: {
+      min: 15,
+      max: 15,
+      display: "15-year deferred loan with one-third forgiven every 5 years",
+    },
     compatibleLoanTypes: ["unknown"],
     geography: {
       scope: "county",
@@ -12499,18 +12483,19 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       eligibleAreas: ["Martin County"],
     },
     eligibility: {
-      firstTimeBuyerRequired: "unknown",
+      firstTimeBuyerRequired: true,
       incomeLimitRequired: true,
       purchasePriceLimitRequired: true,
       primaryResidenceRequired: true,
-      homebuyerEducationRequired: "unknown",
+      homebuyerEducationRequired: true,
       householdSizeRequired: true,
       borrowerContributionRequired: "unknown",
-      approvedLenderRequired: "unknown",
+      approvedLenderRequired: true,
       militaryEligible: "unknown",
       propertyTypes: ["non-mobile home"],
       notes: [
         "Official SHIP page says applicants must be Martin County residents, occupy the home as primary residence, meet household income guidelines, and mobile homes are not eligible.",
+        "Official LHAP says purchase assistance is for first-time homebuyers, all awarded applicants must qualify for a first mortgage, and all awarded applicants must complete a HUD-approved homebuyer education course.",
       ],
     },
     limits: {
@@ -12518,9 +12503,11 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       purchasePriceLimitRequired: true,
       incomeBasis: "ship",
       usesFloridaHousingLimits: "unknown",
-      limitsSourceUrl: "https://www.martin.fl.us/SHIP",
+      limitsSourceUrl:
+        "https://www.martin.fl.us/resources/ship-local-housing-assistance-plan-lhap",
       effectiveDate: VERIFIED_SOURCE_DATE,
       notes: [
+        "Official LHAP effective 5/19/26 serves very-low, low, and moderate-income households and says purchase price may not exceed 90% of the applicable area purchase price under SHIP rules.",
         "Official SHIP page lists maximum home market value of $619,629.",
       ],
     },
@@ -12539,17 +12526,13 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       notes: ["Stacking rules were not confirmed in reviewed official source."],
     },
     calculator: {
-      confidence: "low",
-      canEstimateAmount: false,
-      canDetermineBasicEligibility: false,
+      confidence: "medium",
+      canEstimateAmount: true,
+      canDetermineBasicEligibility: true,
       missingData: [
-        "current purchase assistance maximum",
         "purchase assistance open/closed status",
-        "first-time buyer rule",
-        "homebuyer education rule",
         "compatible first mortgage loan types",
         "borrower contribution rule",
-        "repayment/forgiveness term",
         "stacking compatibility",
       ],
     },
@@ -12568,7 +12551,7 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       },
       {
         label: "Martin County SHIP LHAP resource",
-        url: "https://www.martin.fl.us/resources/ship-lhap",
+        url: "https://www.martin.fl.us/resources/ship-local-housing-assistance-plan-lhap",
         quality: "official",
         accessedDate: VERIFIED_SOURCE_DATE,
       },
@@ -12577,7 +12560,8 @@ const VERIFIED_PROGRAM_OVERRIDES: Record<string, DpaProgramOverride> = {
       status: "limited",
       lastVerified: VERIFIED_SOURCE_DATE,
       needsReviewReasons: [
-        "Confirm whether purchase assistance is currently accepting applications and extract current maximum award from Martin County LHAP/application packet.",
+        "Confirm whether purchase assistance is currently accepting applications before borrower-facing recommendations.",
+        "Extract current borrower contribution and first-mortgage compatibility from the application packet if published.",
       ],
     },
   },
