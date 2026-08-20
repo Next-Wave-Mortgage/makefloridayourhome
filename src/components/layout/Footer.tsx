@@ -16,6 +16,7 @@ const navColumns = [
         label: "DPA Calculator",
       },
       { href: "/learn", label: "Mortgage Articles" },
+      { href: "/book", label: "The Book" },
     ],
   },
   {

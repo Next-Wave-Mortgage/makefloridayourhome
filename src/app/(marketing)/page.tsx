@@ -8,6 +8,7 @@ import { WhyTrust } from "@/components/sections/WhyTrust";
 import { ExpertGuides } from "@/components/sections/ExpertGuides";
 import { WhatWeDo } from "@/components/sections/WhatWeDo";
 import { DPAMapPromo } from "@/components/sections/DPAMapPromo";
+import { BookPromo } from "@/components/sections/BookPromo";
 import { FAQ } from "@/components/sections/FAQ";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 
@@ -54,6 +55,7 @@ export const metadata: Metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "MortgageBroker",
+  "@id": `${siteConfig.url}/#organization`,
   name: siteConfig.company,
   alternateName: siteConfig.name,
   url: siteConfig.url,
@@ -266,6 +268,7 @@ export default function HomePage() {
       <Programs />
       <WhyTrust />
       <ExpertGuides />
+      <BookPromo bg="green-tint" />
       <WhatWeDo />
       <FAQ />
       <FinalCTA />

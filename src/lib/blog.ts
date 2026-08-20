@@ -104,7 +104,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
     date: data.date || "",
     updatedDate: data.updatedDate || null,
     author: data.author || "Phil Ganz",
-    authorTitle: data.authorTitle || "Mortgage Expert · NMLS #227607",
+    authorTitle: data.authorTitle || "Mortgage Expert · NMLS #37833",
     authorImage: data.authorImage || "/images/team/phil-ganz.webp",
     reviewedBy: data.reviewedBy ?? "Ryan Skerritt",
     reviewedByImage: data.reviewedByImage || "/images/team/ryan-skerritt.webp",

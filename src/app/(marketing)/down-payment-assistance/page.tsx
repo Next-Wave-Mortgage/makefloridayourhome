@@ -7,6 +7,7 @@ import { PageFAQ } from "@/components/shared/PageFAQ";
 import { PageCTA } from "@/components/shared/PageCTA";
 import { ExpertGuidesRow } from "@/components/shared/ExpertGuidesRow";
 import { DPAMapPromo } from "@/components/sections/DPAMapPromo";
+import { BookPromo } from "@/components/sections/BookPromo";
 
 export const metadata: Metadata = {
   title: "Florida Down Payment Assistance Programs (2026)",
@@ -418,6 +419,9 @@ export default function DownPaymentAssistancePage() {
 
       {/* FAQ */}
       <PageFAQ faqs={faqs} bg="white" />
+
+      {/* The Book */}
+      <BookPromo bg="green-tint" />
 
       {/* CTA */}
       <PageCTA

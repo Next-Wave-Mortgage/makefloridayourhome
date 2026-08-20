@@ -31,6 +31,7 @@ export const team: TeamMember[] = [
       "With 26+ years in the mortgage industry, Phil has helped thousands of families move from \"maybe someday\" to keys-in-hand with a clear plan and steady support from application through closing.",
       "Based in Fort Lauderdale, Phil specializes in Florida home financing, especially scenarios that require strong structure and strategy, like jumbo loans in South Florida, self-employed income, and buyers using down payment assistance.",
       "Clients work with Phil for one simple reason: he makes the process feel understandable, organized, and calm, while still moving fast when the deal needs speed.",
+      "Phil is also the author of Make Florida Your Home (2026), the insider's guide to Florida down payment assistance, Hometown Heroes, and buying your first Florida home without draining your savings.",
     ],
     loanOptions: [
       "Conventional, FHA, VA, and Jumbo loans",

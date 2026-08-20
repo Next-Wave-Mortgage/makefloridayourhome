@@ -8,6 +8,7 @@ import { PageCTA } from "@/components/shared/PageCTA";
 import { DataTable } from "@/components/shared/DataTable";
 import { StepProcess } from "@/components/shared/StepProcess";
 import { ExpertGuidesRow } from "@/components/shared/ExpertGuidesRow";
+import { BookPromo } from "@/components/sections/BookPromo";
 
 export const metadata: Metadata = {
   title: "Florida Hometown Heroes Program (2026) — Up to $35,000 in DPA",
@@ -506,6 +507,9 @@ export default function HometownHeroesPage() {
 
       {/* FAQ */}
       <PageFAQ faqs={faqs} bg="green-tint" />
+
+      {/* The Book */}
+      <BookPromo bg="white" />
 
       {/* CTA */}
       <PageCTA
