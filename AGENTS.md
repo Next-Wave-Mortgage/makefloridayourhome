@@ -46,6 +46,26 @@ working in this repository.
 - `src/lib/site.ts` is the single source of truth for site name, URLs, and
   contact info. Import from there; do not hardcode.
 
+## Blog/Page Editing Workflow
+
+When creating or updating a blog post, learn article, program page, or other
+public content page:
+
+- Start from a clean working tree. Run `git status --short` before making
+  edits, and do not mix unrelated changes into the same commit.
+- Keep changes scoped to the specific page/article and any assets/components
+  required only for that page. If a shared template, layout, or global CSS file
+  must change, keep the change narrowly scoped and explain why.
+- Do not run repo-wide formatting for content-only work. Format only the files
+  intentionally changed, or run format checks without rewriting unrelated files.
+- Do not use `git add .`. Stage explicit paths only, then verify with
+  `git diff --cached --name-status` before committing.
+- Before pushing, verify `git show --name-status HEAD` and confirm the commit
+  contains only the intended page/article, assets, and narrowly scoped support
+  files.
+- If replacing images, remove unused old assets only when the page no longer
+  references them and the deletion is part of the intended page update.
+
 ## Environment Variables
 
 - Never commit secrets. Use `.env.local` (git-ignored) for secrets.

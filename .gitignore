@@ -47,6 +47,9 @@ next-env.d.ts
 # image generation working files
 /nanobanana-output
 
+# claude code local config
+/.claude/
+
 # design-sync (claude.ai/design) machine state
 /.ds-sync/
 /ds-bundle/
