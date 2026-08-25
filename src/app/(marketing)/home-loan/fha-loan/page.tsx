@@ -9,13 +9,13 @@ import { ExpertGuidesRow } from "@/components/shared/ExpertGuidesRow";
 
 export const metadata: Metadata = {
   title:
-    "Florida FHA Loans (2026) — Requirements, Limits & How to Qualify",
+    "Get an FHA Loan in Florida — 3.5% Down, Fast Pre-Approval",
   description:
-    "Learn about FHA loans in Florida for 2026. See loan limits by county, credit score requirements, down payment details, and how FHA compares to conventional.",
+    "Apply for an FHA loan in Florida with 3.5% down and a 580 credit score. Check your eligibility in minutes and pair FHA with up to $35,000 in down payment assistance.",
   openGraph: {
-    title: "Florida FHA Loans (2026) — Requirements, Limits & How to Qualify",
+    title: "Get an FHA Loan in Florida — 3.5% Down, Fast Pre-Approval",
     description:
-      "FHA loans in Florida: 3.5% down, 580 credit score. See 2026 loan limits, qualification requirements, and how to apply.",
+      "Apply for an FHA loan in Florida with 3.5% down and a 580 credit score. Check your eligibility in minutes.",
     url: "https://www.makefloridayourhome.com/home-loan/fha-loan",
     type: "website",
   },
@@ -76,14 +76,13 @@ const featureRows = [
   ["Gift Funds", "100% of down payment can come from gift funds"],
 ];
 
-const loanLimitsHeaders = ["County", "1 Unit", "2 Units", "3 Units", "4 Units"];
+const loanLimitsHeaders = ["County", "2026 FHA Limit (1-Unit)"];
 const loanLimitsRows = [
-  ["Miami-Dade", "$621,000", "$795,000", "$961,350", "$1,194,625"],
-  ["Broward", "$621,000", "$795,000", "$961,350", "$1,194,625"],
-  ["Palm Beach", "$621,000", "$795,000", "$961,350", "$1,194,625"],
-  ["Hillsborough (Tampa)", "$498,257", "$637,950", "$771,125", "$958,350"],
-  ["Orange (Orlando)", "$498,257", "$637,950", "$771,125", "$958,350"],
-  ["Duval (Jacksonville)", "$498,257", "$637,950", "$771,125", "$958,350"],
+  ["Most Florida counties (51 of 67)", "$541,287"],
+  ["Duval, St. Johns, Clay, Nassau (Jacksonville area)", "$580,750"],
+  ["Miami-Dade, Broward, Palm Beach", "$667,000"],
+  ["Collier (Naples)", "$764,750"],
+  ["Monroe (Key West)", "$990,150"],
 ];
 
 const qualificationCards = [
@@ -135,13 +134,21 @@ const comparisonRows = [
   ["Mortgage Insurance", "Required for life of loan", "Removable at 80% LTV"],
   ["Upfront MIP", "1.75% of loan amount", "None"],
   ["DTI Limit", "Up to 50%", "Up to 45%"],
-  ["Loan Limits", "County-specific (see above)", "Conforming: $766,550"],
+  ["Loan Limits", "County-specific (see above)", "Conforming: $832,750 (most FL counties)"],
   ["Property Standards", "HUD minimum standards", "Standard appraisal"],
   ["Gift Funds", "100% of down payment", "Varies by program"],
   ["Best For", "Lower credit, lower down payment", "Higher credit, want to drop MI"],
 ];
 
 const articles = [
+  {
+    category: "Complete FHA Guide",
+    title: "Florida FHA Loans (2026): Requirements, Loan Limits by County & How to Qualify",
+    description: "The full guide — credit scores, MIP costs, DTI rules, county limits, and Florida condo and insurance issues.",
+    href: "/learn/fha-loan-eligibility-requirements-florida",
+    image: "/images/learn/fha-loan-eligibility-requirements-florida-2026.webp",
+    readTime: "10 min read",
+  },
   {
     category: "Best Florida Home Buyer Programs",
     title: "105 Florida First-Time Home Buyer Grants & Programs (2026 Guide)",
@@ -168,18 +175,18 @@ const articles = [
   },
   {
     category: "Rent-to-Own Programs",
-    title: "17 Florida Rent-to-Own Programs: Buy With No Down Payment",
-    description: "Explore 17 Florida rent-to-own programs for 2026.",
-    href: "/learn/fha-rent-to-own-florida-guide",
+    title: "10 Florida Rent-to-Own Programs (2026): Buy With Little or No Down Payment",
+    description: "Compare the rent-to-own and lease-purchase programs operating in Florida.",
+    href: "/learn/florida-rent-to-own-programs",
     image: "/images/guides/florida-rent-to-own-programs.webp",
-    readTime: "10 min read",
+    readTime: "8 min read",
   },
 ];
 
 const faqs = [
   {
-    question: "What credit score do I need for an FHA loan in Florida?",
-    answer: "You need a minimum 580 credit score to qualify for the standard 3.5% down payment. With a score between 500 and 579, you can still get an FHA loan but must put 10% down. Most Florida DPA programs require 640+ even when paired with FHA.",
+    question: "How fast can I get pre-approved for an FHA loan in Florida?",
+    answer: "With your documents ready — pay stubs, W-2s, and bank statements — FHA pre-approval typically takes 24 to 48 hours, and often same-day. From accepted offer to closing usually runs 30 to 45 days, including the FHA appraisal. Starting with an eligibility check tells you your price range before you shop.",
   },
   {
     question: "How much is FHA mortgage insurance?",
@@ -191,7 +198,7 @@ const faqs = [
   },
   {
     question: "What are the FHA loan limits in my Florida county?",
-    answer: "FHA loan limits vary by county and are updated annually. For 2026, most Florida counties have a single-family limit of $498,257. Higher-cost counties like Miami-Dade, Broward, and Palm Beach have a limit of $621,000. Multi-unit properties have higher limits.",
+    answer: "FHA loan limits vary by county and are updated annually. For 2026, most Florida counties have a single-family limit of $541,287. Higher-cost counties go up from there — $667,000 in Miami-Dade, Broward, and Palm Beach, and $990,150 in Monroe County. Multi-unit properties have higher limits.",
   },
   {
     question: "Can I use an FHA loan with Hometown Heroes?",
