@@ -1,5 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { ExitIntentPopup } from "@/components/shared/ExitIntentPopup";
 
 export default function MarketingLayout({
   children,
@@ -11,6 +12,7 @@ export default function MarketingLayout({
       <Header />
       <main className="min-h-screen">{children}</main>
       <Footer />
+      <ExitIntentPopup />
     </>
   );
 }
