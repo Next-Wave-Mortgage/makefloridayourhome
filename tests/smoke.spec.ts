@@ -157,6 +157,103 @@ test("homepage loads and has an H1", async ({ page }) => {
   await expect(h1).toBeVisible();
 });
 
+test("exit popup captures email first, then enriches the same contact", async ({
+  page,
+}) => {
+  test.setTimeout(45_000);
+  const captures: Array<Record<string, unknown>> = [];
+  await page.route(
+    "https://www.nextwavemortgage.com/api/public/contact-capture",
+    async (route) => {
+      captures.push(route.request().postDataJSON() as Record<string, unknown>);
+      await route.fulfill({
+        status: 201,
+        contentType: "application/json",
+        body: JSON.stringify({ accepted: true, personId: "test-person" }),
+      });
+    },
+  );
+  await page.addInitScript(() => {
+    window.localStorage.removeItem("mfyh-exit-popup-last-shown");
+    const originalMatchMedia = window.matchMedia.bind(window);
+    window.matchMedia = (query: string) =>
+      query === "(pointer: fine)"
+        ? ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: () => undefined,
+            removeListener: () => undefined,
+            addEventListener: () => undefined,
+            removeEventListener: () => undefined,
+            dispatchEvent: () => true,
+          } as MediaQueryList)
+        : originalMatchMedia(query);
+  });
+
+  await page.goto("/");
+  await expect
+    .poll(() =>
+      page.evaluate(() => ({
+        pointerFine: window.matchMedia("(pointer: fine)").matches,
+        wideViewport: window.innerWidth >= 1024,
+        previouslyShown: window.localStorage.getItem(
+          "mfyh-exit-popup-last-shown",
+        ),
+      })),
+    )
+    .toEqual({
+      pointerFine: true,
+      wideViewport: true,
+      previouslyShown: null,
+    });
+  await page.waitForTimeout(12_000);
+  await page.evaluate(() => {
+    document.documentElement.dispatchEvent(
+      new MouseEvent("mouseout", {
+        bubbles: true,
+        clientY: 0,
+        relatedTarget: null,
+      }),
+    );
+  });
+
+  await expect(
+    page.getByRole("heading", { name: /Take the book/ }),
+  ).toBeVisible();
+  await page.getByLabel("Email address").fill("buyer@example.com");
+  await page.getByRole("button", { name: "Send Me the Free Book" }).click();
+  await expect(
+    page.getByRole("heading", { name: /Your book is on the way/ }),
+  ).toBeVisible();
+  await expect.poll(() => captures.length).toBe(1);
+  expect(captures[0]).toEqual({
+    email: "buyer@example.com",
+    website: "",
+  });
+
+  await page.getByRole("button", { name: "Buying in next few months" }).click();
+  const purchasePrice = page.getByRole("combobox", {
+    name: "Estimated purchase price",
+  });
+  await purchasePrice.click();
+  await expect(page.getByRole("option")).toHaveCount(13);
+  await page
+    .getByRole("option", { name: "$300,000 - $399,999", exact: true })
+    .click();
+  await page.getByLabel("First name").fill("Taylor");
+  await page.getByRole("button", { name: "Done", exact: true }).click();
+
+  await expect.poll(() => captures.length).toBe(2);
+  expect(captures[1]).toEqual({
+    email: "buyer@example.com",
+    firstName: "Taylor",
+    buyingTimeframe: "Buying in next few months",
+    purchasePrice: "$300,000 - $399,999",
+    website: "",
+  });
+});
+
 for (const path of ["/check-dpa-eligibility", "/check-eligibility"]) {
   test(`DPA funnel reveals the scheduler for a secure reschedule link at ${path}`, async ({
     page,

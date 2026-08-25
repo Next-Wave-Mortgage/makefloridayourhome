@@ -20,17 +20,45 @@ const STORAGE_KEY = "mfyh-exit-popup-last-shown";
 const SUPPRESS_DAYS = 30;
 const MIN_DWELL_MS = 10_000;
 const EXCLUDED_PATHS = ["/book", "/contact-us"];
+const CONTACT_CAPTURE_ENDPOINT =
+  process.env.NEXT_PUBLIC_EXIT_POPUP_CONTACT_ENDPOINT ||
+  "https://www.nextwavemortgage.com/api/public/contact-capture";
 
-// The form is NOT wired to the lead system yet — keep production dark until
-// it is. Flip to true once the submit handler posts to the real endpoint.
+// Ebook delivery is not built yet. Keep production dark until the delivery
+// promise in this popup can be fulfilled; CRM capture is already wired.
 const PRODUCTION_ENABLED = false;
 
-const journeyOptions = [
-  "Just researching",
-  "Buying in 3–6 months",
-  "Ready now",
-];
-const priceOptions = ["Under $300K", "$300–450K", "$450K+"];
+const buyingTimeframeOptions = [
+  "Signed Contract",
+  "Making an Offer",
+  "Need Pre Approval",
+  "Buying in next few months",
+  "Buying 6+ months out",
+] as const;
+
+const purchasePriceOptions = [
+  "Under $60,000",
+  "$60,000 - $79,999",
+  "$80,000 - $99,999",
+  "$100,000 - $149,999",
+  "$150,000 - $199,999",
+  "$200,000 - $299,999",
+  "$300,000 - $399,999",
+  "$400,000 - $499,999",
+  "$500,000 - $749,999",
+  "$750,000 - $999,999",
+  "$1,000,000 - $1,249,999",
+  "$1,250,000 - $1,495,999",
+  "Over $1,500,000",
+] as const;
+
+type ContactCapturePayload = {
+  email: string;
+  firstName?: string;
+  buyingTimeframe?: string;
+  purchasePrice?: string;
+  website: string;
+};
 
 function isSuppressed(): boolean {
   try {
@@ -75,6 +103,183 @@ function Chip({
   );
 }
 
+function CustomSelect({
+  id,
+  label,
+  placeholder,
+  options,
+  value,
+  onChange,
+}: {
+  id: string;
+  label: string;
+  placeholder: string;
+  options: readonly string[];
+  value: string | null;
+  onChange: (value: string) => void;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const selectedIndex = value ? options.indexOf(value) : -1;
+  const boundedIndex = Math.max(0, Math.min(options.length - 1, activeIndex));
+  const menuId = `${id}-menu`;
+  const activeId = `${id}-option-${boundedIndex}`;
+
+  const openMenu = useCallback(() => {
+    setActiveIndex(selectedIndex >= 0 ? selectedIndex : 0);
+    setIsOpen(true);
+  }, [selectedIndex]);
+
+  const chooseOption = useCallback(
+    (option: string) => {
+      onChange(option);
+      setIsOpen(false);
+    },
+    [onChange],
+  );
+
+  useEffect(() => {
+    if (!isOpen) return;
+    menuRef.current
+      ?.querySelector<HTMLElement>(`#${activeId}`)
+      ?.scrollIntoView({ block: "nearest" });
+  }, [activeId, isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onPointerDown = (event: PointerEvent) => {
+      if (!wrapperRef.current?.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => document.removeEventListener("pointerdown", onPointerDown);
+  }, [isOpen]);
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (event.key === "Tab") {
+      setIsOpen(false);
+      return;
+    }
+    if (event.key === "Escape") {
+      if (isOpen) {
+        event.preventDefault();
+        setIsOpen(false);
+      }
+      return;
+    }
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      if (!isOpen) {
+        openMenu();
+      } else {
+        chooseOption(options[boundedIndex]);
+      }
+      return;
+    }
+    if (!["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) {
+      return;
+    }
+
+    event.preventDefault();
+    if (!isOpen) {
+      openMenu();
+      return;
+    }
+
+    let nextIndex = boundedIndex;
+    if (event.key === "ArrowDown") nextIndex += 1;
+    if (event.key === "ArrowUp") nextIndex -= 1;
+    if (event.key === "Home") nextIndex = 0;
+    if (event.key === "End") nextIndex = options.length - 1;
+    setActiveIndex(Math.max(0, Math.min(options.length - 1, nextIndex)));
+  };
+
+  return (
+    <div ref={wrapperRef} className={`relative ${isOpen ? "z-30" : "z-10"}`}>
+      <button
+        id={id}
+        type="button"
+        role="combobox"
+        aria-label={label}
+        aria-haspopup="listbox"
+        aria-expanded={isOpen}
+        aria-controls={menuId}
+        aria-activedescendant={isOpen ? activeId : undefined}
+        onClick={() => (isOpen ? setIsOpen(false) : openMenu())}
+        onKeyDown={handleKeyDown}
+        className={`flex min-h-[48px] w-full cursor-pointer items-center justify-between gap-3 rounded-[14px] border-2 px-[15px] py-3 text-left text-[13.5px] text-dark-green transition duration-150 focus:outline-none ${
+          isOpen
+            ? "border-brand-green shadow-[0_0_0_4px_rgba(0,105,72,0.08)]"
+            : "border-border-gray hover:-translate-y-px hover:border-brand-green hover:shadow-[0_0_0_4px_rgba(0,105,72,0.08)]"
+        }`}
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(255,255,255,0.98), rgba(244,250,246,0.3))",
+        }}
+      >
+        <span
+          className={`min-w-0 truncate ${
+            value ? "font-semibold" : "text-mid-gray"
+          }`}
+        >
+          {value || placeholder}
+        </span>
+        <span
+          aria-hidden="true"
+          className={`mr-0.5 h-[10px] w-[10px] flex-none border-b-2 border-r-2 border-dark-green/80 transition-transform duration-150 ${
+            isOpen
+              ? "translate-y-0.5 rotate-[225deg]"
+              : "-translate-y-0.5 rotate-45"
+          }`}
+        />
+      </button>
+
+      {isOpen ? (
+        <div
+          ref={menuRef}
+          id={menuId}
+          role="listbox"
+          aria-label={label}
+          className="absolute left-0 right-0 top-full mt-2 grid max-h-[240px] gap-1 overflow-y-auto overscroll-contain rounded-2xl border border-brand-green/20 bg-[#f9fcfa] p-1.5 shadow-[0_18px_42px_rgba(0,105,72,0.16),0_2px_0_rgba(255,255,255,0.9)_inset] animate-[exit-select-menu-in_140ms_ease_both]"
+        >
+          {options.map((option, index) => {
+            const selected = option === value;
+            const active = index === boundedIndex;
+            return (
+              <div
+                key={option}
+                id={`${id}-option-${index}`}
+                role="option"
+                aria-selected={selected}
+                onMouseDown={(event) => event.preventDefault()}
+                onMouseMove={() => setActiveIndex(index)}
+                onClick={() => chooseOption(option)}
+                className={`grid min-h-[42px] cursor-pointer grid-cols-[1fr_20px] items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] transition duration-150 ${
+                  selected
+                    ? "bg-brand-green/12 font-bold text-brand-green"
+                    : active
+                      ? "translate-x-0.5 bg-brand-green/[0.09] text-dark-green"
+                      : "text-dark-green hover:bg-brand-green/[0.09]"
+                }`}
+              >
+                <span>{option}</span>
+                <span className="grid place-items-center" aria-hidden="true">
+                  {selected ? (
+                    <span className="h-3 w-[7px] rotate-45 border-b-2 border-r-2 border-current" />
+                  ) : null}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 function CloseButton({ onClose }: { onClose: () => void }) {
   return (
     <button
@@ -94,8 +299,9 @@ export function ExitIntentPopup() {
   const [step, setStep] = useState<"capture" | "confirm">("capture");
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
-  const [journey, setJourney] = useState<string | null>(null);
-  const [priceRange, setPriceRange] = useState<string | null>(null);
+  const [buyingTimeframe, setBuyingTimeframe] = useState<string | null>(null);
+  const [purchasePrice, setPurchasePrice] = useState<string | null>(null);
+  const [website, setWebsite] = useState("");
 
   const dialogRef = useRef<HTMLDivElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
@@ -146,7 +352,7 @@ export function ExitIntentPopup() {
       }
       if (e.key !== "Tab" || !dialogRef.current) return;
       const focusables = dialogRef.current.querySelectorAll<HTMLElement>(
-        'button, a[href], input, [tabindex]:not([tabindex="-1"])',
+        'button, a[href], input:not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])',
       );
       if (focusables.length === 0) return;
       const first = focusables[0];
@@ -167,22 +373,41 @@ export function ExitIntentPopup() {
     };
   }, [open, close]);
 
+  const submitContactCapture = useCallback(
+    async (payload: ContactCapturePayload) => {
+      try {
+        const response = await fetch(CONTACT_CAPTURE_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+          keepalive: true,
+        });
+        if (!response.ok) {
+          console.error("[exit-popup] CRM capture failed", {
+            status: response.status,
+            requestId: response.headers.get("x-request-id"),
+          });
+        }
+      } catch (error) {
+        console.error("[exit-popup] CRM capture request failed", { error });
+      }
+    },
+    [],
+  );
+
   const handleCaptureSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: POST { email } to the custom lead system once the endpoint is
-    // provided. Until then this only advances the UI (production is gated
-    // off via PRODUCTION_ENABLED above).
-    console.info("[exit-popup] capture (not yet wired):", { email });
+    void submitContactCapture({ email, website });
     setStep("confirm");
   };
 
   const handleDone = () => {
-    // TODO: POST the enrichment fields to the custom lead system.
-    console.info("[exit-popup] enrichment (not yet wired):", {
+    void submitContactCapture({
       email,
       firstName,
-      journey,
-      priceRange,
+      buyingTimeframe: buyingTimeframe || undefined,
+      purchasePrice: purchasePrice || undefined,
+      website,
     });
     close();
   };
@@ -253,6 +478,19 @@ export function ExitIntentPopup() {
                     aria-label="Email address"
                     className="min-w-0 flex-1 rounded-full border border-border-gray bg-white px-5 py-3 text-[14px] text-dark-green outline-none placeholder:text-mid-gray lg:border-none lg:bg-transparent lg:p-0"
                   />
+                  <label className="sr-only" htmlFor="exit-popup-website">
+                    Website
+                  </label>
+                  <input
+                    id="exit-popup-website"
+                    type="text"
+                    value={website}
+                    onChange={(e) => setWebsite(e.target.value)}
+                    autoComplete="off"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -left-[10000px] h-px w-px opacity-0"
+                  />
                   <button
                     type="submit"
                     className="flex-none cursor-pointer whitespace-nowrap rounded-full bg-brand-green px-[17px] py-3 text-[13.5px] font-bold text-white transition-shadow duration-300 hover:shadow-[0_4px_20px_rgba(0,105,72,0.4)] lg:py-3"
@@ -313,19 +551,21 @@ export function ExitIntentPopup() {
               <div className="mt-7 flex flex-col gap-[18px]">
                 <div className="flex flex-col gap-2.5">
                   <p className="text-[11px] font-bold tracking-[0.13em] text-[#7c8783]">
-                    WHERE ARE YOU IN YOUR JOURNEY?{" "}
+                    BUYING TIMEFRAME?{" "}
                     <span className="font-semibold tracking-[0.06em] text-mid-gray">
                       OPTIONAL
                     </span>
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {journeyOptions.map((option) => (
+                    {buyingTimeframeOptions.map((option) => (
                       <Chip
                         key={option}
                         label={option}
-                        selected={journey === option}
+                        selected={buyingTimeframe === option}
                         onClick={() =>
-                          setJourney(journey === option ? null : option)
+                          setBuyingTimeframe(
+                            buyingTimeframe === option ? null : option,
+                          )
                         }
                       />
                     ))}
@@ -334,23 +574,19 @@ export function ExitIntentPopup() {
 
                 <div className="flex flex-col gap-2.5">
                   <p className="text-[11px] font-bold tracking-[0.13em] text-[#7c8783]">
-                    PRICE RANGE?{" "}
+                    ESTIMATED PURCHASE PRICE?{" "}
                     <span className="font-semibold tracking-[0.06em] text-mid-gray">
                       OPTIONAL
                     </span>
                   </p>
-                  <div className="flex flex-wrap gap-2">
-                    {priceOptions.map((option) => (
-                      <Chip
-                        key={option}
-                        label={option}
-                        selected={priceRange === option}
-                        onClick={() =>
-                          setPriceRange(priceRange === option ? null : option)
-                        }
-                      />
-                    ))}
-                  </div>
+                  <CustomSelect
+                    id="exit-popup-purchase-price"
+                    label="Estimated purchase price"
+                    placeholder="Select a price range"
+                    options={purchasePriceOptions}
+                    value={purchasePrice}
+                    onChange={setPurchasePrice}
+                  />
                 </div>
               </div>
 
