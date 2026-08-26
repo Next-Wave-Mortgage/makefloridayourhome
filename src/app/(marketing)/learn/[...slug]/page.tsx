@@ -8,6 +8,7 @@ import rehypeSlug from "rehype-slug";
 import { ArticleHero } from "@/components/shared/ArticleHero";
 import { HthUrgencyBanner } from "@/components/shared/HthUrgencyBanner";
 import { PageFAQ } from "@/components/shared/PageFAQ";
+import { PreferredSourceButton } from "@/components/shared/PreferredSourceButton";
 import {
   CheapestPlacesListicle,
   cheapestFloridaPlaces,
@@ -587,6 +588,7 @@ export default async function BlogPostPage({
                     </Link>
                   </div>
                 </div>
+                <PreferredSourceButton />
               </div>
             </article>
 
