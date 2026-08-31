@@ -162,9 +162,9 @@ const faqs = [
   },
   {
     question:
-      "What's the difference between the Kindle, paperback, and hardcover editions?",
+      "What's the difference between the Kindle, paperback, hardcover, and Google Play editions?",
     answer:
-      "The content is identical in all three. Kindle delivers instantly and is the least expensive, the paperback is the everyday print edition, and the hardcover is the durable, gift-ready version. A Google Play Books edition is coming soon.",
+      "The content is identical in all four. Kindle and Google Play Books deliver instantly — pick whichever ecosystem you read in. The paperback is the everyday print edition, and the hardcover is the durable, gift-ready version.",
   },
 ];
 
@@ -172,10 +172,17 @@ const faqs = [
 /*  Structured data                                                    */
 /* ------------------------------------------------------------------ */
 
+/**
+ * Canonical Person @id for Phil lives on his profile page
+ * (/team/phil-ganz#person) — the same @id is emitted there, so Google
+ * merges the author of this book with the profile entity.
+ */
+const authorId = `${siteConfig.url}/team/phil-ganz#person`;
+
 const authorSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "@id": `${siteConfig.url}/book#author`,
+  "@id": authorId,
   name: "Phil Ganz",
   jobTitle: "Mortgage Expert / President",
   worksFor: {
@@ -199,9 +206,10 @@ const authorSchema = {
 const bookSchema = {
   "@context": "https://schema.org",
   "@type": "Book",
+  "@id": `${siteConfig.url}/book#book`,
   name: bookConfig.title,
   alternateName: bookConfig.subtitle,
-  author: { "@type": "Person", "@id": `${siteConfig.url}/book#author` },
+  author: { "@type": "Person", "@id": authorId },
   publisher: {
     "@type": "Organization",
     "@id": `${siteConfig.url}/#organization`,
@@ -210,8 +218,10 @@ const bookSchema = {
   datePublished: bookConfig.datePublished,
   inLanguage: "en-US",
   bookFormat: "https://schema.org/EBook",
+  isbn: bookConfig.isbn,
   image: `${siteConfig.url}${bookConfig.coverImage}`,
   url: `${siteConfig.url}/book`,
+  sameAs: [bookConfig.googleBooksUrl],
   description:
     "Florida has quietly built one of the most generous homebuyer assistance systems in the country — 105 programs across all 67 counties, from Hometown Heroes (up to $35,000 at 0% interest) to county programs reaching six figures. Phil Ganz walks first-time Florida buyers through every one, in plain English.",
   genre: ["Real Estate", "Personal Finance"],
@@ -219,6 +229,7 @@ const bookSchema = {
     "@type": "Book",
     bookFormat: edition.schemaFormat,
     name: `${bookConfig.title} (${edition.format})`,
+    ...(edition.isbn ? { isbn: edition.isbn } : {}),
     offers: {
       "@type": "Offer",
       url: edition.url,
@@ -377,7 +388,7 @@ export default function BookPage() {
                     , Mortgage Expert · NMLS #37833
                   </p>
                   <p className="text-[12.5px] text-dark-green/50">
-                    Published August 11, 2026 · Page updated August 20, 2026
+                    Published August 11, 2026 · Page updated August 31, 2026
                   </p>
                 </div>
               </div>
@@ -418,6 +429,75 @@ export default function BookPage() {
                 />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Reader reviews — thin trust strip */}
+      <section className="border-b border-border-gray/40 bg-white py-10 sm:py-12">
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
+          <div className="grid items-center gap-6 lg:grid-cols-[220px_1fr_1fr] lg:gap-8">
+            {/* Rating summary */}
+            <div className="text-center lg:text-left">
+              <div className="flex items-center justify-center gap-1 lg:justify-start">
+                {[...Array(5)].map((_, i) => (
+                  <svg
+                    key={i}
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="text-review-gold"
+                  >
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg>
+                ))}
+              </div>
+              <p className="mt-2 text-[15px] font-bold text-dark-green">
+                5.0 on Amazon
+              </p>
+              <a
+                href="https://www.amazon.com/dp/B0HDRNR5WW"
+                target="_blank"
+                rel="noopener"
+                className="mt-1 inline-block text-[13px] text-dark-green/50 underline underline-offset-2 transition-colors hover:text-brand-green"
+              >
+                Read reviews on Amazon
+              </a>
+            </div>
+
+            {/* Review 1 */}
+            <figure className="rounded-xl border border-border-gray/60 bg-green-tint/50 px-6 py-5">
+              <blockquote>
+                <p className="text-[15px] font-bold leading-snug text-dark-green">
+                  &ldquo;The must read home buying book&rdquo;
+                </p>
+                <p className="mt-2 text-[13.5px] leading-relaxed text-dark-green/60">
+                  &ldquo;If you&rsquo;re thinking about buying your first home
+                  in Florida &hellip; absolutely worth reading.&rdquo;
+                </p>
+              </blockquote>
+              <figcaption className="mt-3 text-[12.5px] font-medium text-dark-green/50">
+                Tara · ★★★★★ · Verified Purchase
+              </figcaption>
+            </figure>
+
+            {/* Review 2 */}
+            <figure className="rounded-xl border border-border-gray/60 bg-green-tint/50 px-6 py-5">
+              <blockquote>
+                <p className="text-[15px] font-bold leading-snug text-dark-green">
+                  &ldquo;Could literally save you thousands of dollars&rdquo;
+                </p>
+                <p className="mt-2 text-[13.5px] leading-relaxed text-dark-green/60">
+                  &ldquo;Didn&rsquo;t realize how much Florida actually offers
+                  first-time buyers until this book laid it out.&rdquo;
+                </p>
+              </blockquote>
+              <figcaption className="mt-3 text-[12.5px] font-medium text-dark-green/50">
+                James · ★★★★★ · Verified Purchase
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -552,59 +632,18 @@ export default function BookPage() {
         </div>
       </section>
 
-      {/* Editions */}
+      {/* About the author */}
       <section className="bg-green-tint py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
-          <h2 className="mx-auto max-w-2xl text-center text-[28px] font-bold leading-tight text-dark-green sm:text-[36px] lg:text-[42px]">
-            Choose Your <span className="text-brand-green">Edition</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-center text-[16px] leading-relaxed text-dark-green/60">
-            Same book, three formats — pick how you like to read.
-          </p>
-          <div className="mx-auto mt-10 grid max-w-4xl gap-4 sm:grid-cols-3">
-            {liveEditions.map((edition) => (
-              <a
-                key={edition.format}
-                href={edition.url}
-                target="_blank"
-                rel="noopener"
-                className="group flex flex-col items-center rounded-xl border border-border-gray/60 bg-white p-8 text-center transition-all duration-300 hover:border-brand-green/30 hover:shadow-[0_4px_24px_rgba(0,105,72,0.08)]"
-              >
-                <h3 className="text-[18px] font-bold text-dark-green">
-                  {edition.format}
-                </h3>
-                <p className="mt-2 text-[14px] leading-relaxed text-dark-green/60">
-                  {edition.format === "Kindle eBook"
-                    ? "Instant delivery. Read on any device."
-                    : edition.format === "Paperback"
-                      ? "The everyday print edition."
-                      : "Durable and gift-ready."}
-                </p>
-                <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-brand-green px-6 py-3 text-[14px] font-bold text-white transition-shadow duration-300 group-hover:shadow-[0_4px_20px_rgba(0,105,72,0.4)]">
-                  Buy on Amazon
-                  <ArrowIcon />
-                </span>
-              </a>
-            ))}
-          </div>
-          <p className="mt-6 text-center text-[13px] text-dark-green/40">
-            Prefer Google Play Books? That edition is coming soon.
-          </p>
-        </div>
-      </section>
-
-      {/* About the author */}
-      <section className="bg-white py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
-          <div className="mx-auto grid max-w-5xl items-start gap-10 lg:grid-cols-[280px_1fr] lg:gap-16">
-            <div className="mx-auto w-full max-w-[240px] lg:max-w-none">
+          <div className="mx-auto grid max-w-5xl items-start gap-10 lg:grid-cols-[320px_1fr] lg:gap-16">
+            <div className="mx-auto w-full max-w-[260px] lg:max-w-none">
               <div className="relative">
                 <div className="absolute -right-3 -bottom-3 h-full w-full rounded-2xl bg-brand-green/10" />
                 <Image
                   src="/images/team/phil-ganz.webp"
                   alt="Phil Ganz, President of Next Wave Mortgage and author of Make Florida Your Home"
-                  width={560}
-                  height={560}
+                  width={640}
+                  height={640}
                   className="relative h-auto w-full rounded-2xl object-cover shadow-lg"
                 />
               </div>
@@ -630,10 +669,33 @@ export default function BookPage() {
               <p className="text-[13px] font-semibold uppercase tracking-[0.2em] text-brand-green">
                 About the Author
               </p>
-              <h2 className="mt-3 text-[28px] font-bold leading-tight text-dark-green sm:text-[36px]">
-                <span className="text-brand-green">Phil Ganz</span>, Mortgage
-                Expert
+              <h2 className="mt-3 text-[28px] font-bold leading-tight text-dark-green sm:text-[36px] lg:text-[40px]">
+                <Link
+                  href="/team/phil-ganz"
+                  className="text-brand-green hover:underline"
+                >
+                  Phil Ganz
+                </Link>
+                , Author of Make Florida Your Home
               </h2>
+              <p className="mt-3 text-[15px] font-medium text-dark-green/60">
+                Mortgage Expert · NMLS #37833 · President, Next Wave Mortgage
+              </p>
+
+              <div className="mt-7 rounded-xl border-l-[3px] border-l-brand-green bg-white px-6 py-5 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+                <p className="text-[13px] font-bold uppercase tracking-[0.13em] text-brand-green">
+                  Why I Wrote This Book
+                </p>
+                <p className="mt-3 text-[15px] leading-relaxed text-dark-green/70">
+                  &ldquo;Florida buyers were constantly asking me the same
+                  question: &lsquo;How much money do I actually need to buy a
+                  home?&rsquo; I wrote Make Florida Your Home to put
+                  Florida&apos;s major assistance programs, eligibility rules,
+                  and homebuying strategies in one place &mdash; without the
+                  jargon.&rdquo;
+                </p>
+              </div>
+
               {authorBio.map((paragraph) => (
                 <p
                   key={paragraph.slice(0, 40)}
@@ -650,6 +712,74 @@ export default function BookPage() {
                 <ArrowIcon />
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Editions */}
+      <section className="bg-white py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
+          <h2 className="mx-auto max-w-2xl text-center text-[28px] font-bold leading-tight text-dark-green sm:text-[36px] lg:text-[42px]">
+            Choose Your <span className="text-brand-green">Edition</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-center text-[16px] leading-relaxed text-dark-green/60">
+            Same book, four ways to read it.
+          </p>
+          <div className="mx-auto mt-10 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {liveEditions.map((edition) => (
+              <a
+                key={edition.format}
+                href={edition.url}
+                target="_blank"
+                rel="noopener"
+                className="group flex flex-col items-center rounded-xl border border-border-gray/60 bg-green-tint/50 p-8 text-center transition-all duration-300 hover:border-brand-green/30 hover:shadow-[0_4px_24px_rgba(0,105,72,0.08)]"
+              >
+                <h3 className="text-[18px] font-bold text-dark-green">
+                  {edition.format}
+                </h3>
+                <p className="mt-2 text-[14px] leading-relaxed text-dark-green/60">
+                  {edition.format === "Kindle eBook"
+                    ? "Instant delivery. Read on any device."
+                    : edition.format === "Paperback"
+                      ? "The everyday print edition."
+                      : edition.format === "Hardcover"
+                        ? "Durable and gift-ready."
+                        : "Preview free, read on Google."}
+                </p>
+                <span className="mt-auto pt-5">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-brand-green px-6 py-3 text-[14px] font-bold text-white transition-shadow duration-300 group-hover:shadow-[0_4px_20px_rgba(0,105,72,0.4)]">
+                    {edition.format === "Google Play Books"
+                      ? "Read on Google Play"
+                      : "Buy on Amazon"}
+                    <ArrowIcon />
+                  </span>
+                </span>
+              </a>
+            ))}
+          </div>
+
+          {/* Publication details */}
+          <div className="mx-auto mt-12 max-w-3xl rounded-xl border border-border-gray/60 px-6 py-5 text-center">
+            <p className="text-[12px] font-bold uppercase tracking-[0.15em] text-dark-green/40">
+              Publication Details
+            </p>
+            <p className="mt-3 text-[13px] leading-relaxed text-dark-green/50">
+              {bookConfig.title} &mdash; 2026&ndash;2027 Edition &middot;
+              Published August 11, 2026 &middot; Author: Phil Ganz &middot;
+              Publisher: {siteConfig.company}
+            </p>
+            <p className="mt-1 text-[13px] leading-relaxed text-dark-green/50">
+              Paperback ISBN 979-8191565255 &middot; Hardcover ISBN
+              979-8192189283 &middot; Kindle ASIN B0HDRNR5WW &middot;{" "}
+              <a
+                href={bookConfig.googleBooksUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 transition-colors hover:text-brand-green"
+              >
+                Google Books record
+              </a>
+            </p>
           </div>
         </div>
       </section>

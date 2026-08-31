@@ -1,3 +1,13 @@
+export interface TeamMemberBook {
+  title: string;
+  tagline: string;
+  cover: string;
+  coverAlt: string;
+  /** Internal landing page for the book */
+  href: string;
+  buyLinks: { label: string; url: string }[];
+}
+
 export interface TeamMember {
   slug: string;
   name: string;
@@ -13,6 +23,10 @@ export interface TeamMember {
   borrowerTypes: string[];
   process: string[];
   closingNote: string;
+  /** Published books — drives the author badge, bookshelf, and Person schema */
+  books?: TeamMemberBook[];
+  /** External profiles for Person schema sameAs (NMLS is added automatically) */
+  sameAs?: string[];
 }
 
 export const team: TeamMember[] = [
@@ -28,7 +42,7 @@ export const team: TeamMember[] = [
     googleReviews: "113+",
     bio: [
       "Phil Ganz is a Senior Mortgage Consultant and President at Next Wave Mortgage (NMLS #2536820), where he leads a people-first team built around fast turn times, transparent guidance, and highly personalized service.",
-      "With 26+ years in the mortgage industry, Phil has helped thousands of families move from \"maybe someday\" to keys-in-hand with a clear plan and steady support from application through closing.",
+      'With 26+ years in the mortgage industry, Phil has helped thousands of families move from "maybe someday" to keys-in-hand with a clear plan and steady support from application through closing.',
       "Based in Fort Lauderdale, Phil specializes in Florida home financing, especially scenarios that require strong structure and strategy, like jumbo loans in South Florida, self-employed income, and buyers using down payment assistance.",
       "Clients work with Phil for one simple reason: he makes the process feel understandable, organized, and calm, while still moving fast when the deal needs speed.",
       "Phil is also the author of Make Florida Your Home (2026), the insider's guide to Florida down payment assistance, Hometown Heroes, and buying your first Florida home without draining your savings.",
@@ -55,6 +69,24 @@ export const team: TeamMember[] = [
     ],
     closingNote:
       "Whether you\u2019re buying in Fort Lauderdale, Broward County, Miami-Dade, Palm Beach, or elsewhere in Florida, Phil helps you choose a loan structure that fits your price point, timeline, and documentation \u2014 without overcomplicating the process.",
+    books: [
+      {
+        title: "Make Florida Your Home",
+        tagline:
+          "The insider's guide to down payment assistance, Hometown Heroes, and buying your first Florida home without draining your savings (2026\u20132027 Edition).",
+        cover: "/images/book/make-florida-your-home-cover.png",
+        coverAlt: "Make Florida Your Home book cover by Phil Ganz",
+        href: "/book",
+        buyLinks: [
+          { label: "Amazon", url: "https://www.amazon.com/dp/B0HDRNR5WW" },
+          {
+            label: "Google Play",
+            url: "https://play.google.com/store/books/details?id=JGQDEgAAQBAJ",
+          },
+        ],
+      },
+    ],
+    sameAs: ["https://www.amazon.com/author/philganz"],
   },
   {
     slug: "ryan-skerritt",
