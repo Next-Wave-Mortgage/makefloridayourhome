@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import type { TeamMemberBook } from "@/app/(marketing)/team/teamData";
 
 /**
  * "The Bookshelf" — an editorial bookshelf carousel for an author's team
@@ -49,6 +48,17 @@ const featureIcons = {
 } as const;
 
 export type FeatureIcon = keyof typeof featureIcons;
+
+/** Display shape one shelf slide needs. TeamMemberBook satisfies it as-is. */
+export interface ShelfBook {
+  title: string;
+  tagline: string;
+  cover: string;
+  coverAlt: string;
+  href: string;
+  buyLinks: { label: string; url: string }[];
+  features: { icon: FeatureIcon; text: string }[];
+}
 
 const FeatureGlyph = ({ icon }: { icon: FeatureIcon }) => (
   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-tint text-brand-green ring-1 ring-brand-green/10">
@@ -210,7 +220,7 @@ const BookDetails = ({
   book,
   center = false,
 }: {
-  book: TeamMemberBook;
+  book: ShelfBook;
   center?: boolean;
 }) => (
   <div className={center ? "text-center" : "text-left"}>
@@ -309,10 +319,18 @@ const Shelf = ({ shadows }: { shadows: { left: string; width: string }[] }) => (
 
 export function BookshelfCarousel({
   books,
-  firstName,
+  firstName = "Phil",
+  showHeader = true,
+  showValueStrip = true,
+  bg = "tint",
 }: {
-  books: TeamMemberBook[];
-  firstName: string;
+  books: ShelfBook[];
+  firstName?: string;
+  /** "The Bookshelf / Books by …" header block (team-page framing). */
+  showHeader?: boolean;
+  /** The Real Strategies / Actionable Advice strip under the shelf. */
+  showValueStrip?: boolean;
+  bg?: "tint" | "white";
 }) {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState<"fwd" | "back">("fwd");
@@ -328,25 +346,32 @@ export function BookshelfCarousel({
   };
 
   return (
-    <section className="relative overflow-hidden bg-green-tint py-10">
+    <section
+      className={`relative overflow-hidden py-10 ${bg === "tint" ? "bg-green-tint" : "bg-white"}`}
+    >
       <PlantShadow className="-top-8 -left-10 w-[280px] rotate-[18deg] opacity-[0.06] blur-[3px] lg:w-[340px]" />
       <PlantShadow className="-right-16 top-16 w-[240px] rotate-[-115deg] opacity-[0.05] blur-[4px]" />
 
       <div className="relative mx-auto max-w-[1440px] px-5 sm:px-8">
-        {/* compact header block */}
-        <p className="text-center text-[11px] font-bold uppercase tracking-[0.3em] text-brand-green">
-          The Bookshelf
-        </p>
-        <h2 className="mt-2 text-center font-serif text-[36px] font-bold leading-tight text-dark-green sm:text-[46px]">
-          Books by <span className="text-brand-green">{firstName}</span>
-        </h2>
-        <p className="mx-auto mt-2 max-w-xl text-center text-[15.5px] leading-relaxed text-dark-green/60">
-          Practical, no-nonsense guides to homeownership, wealth, and making
-          smarter financial decisions.
-        </p>
+        {showHeader && (
+          <>
+            <p className="text-center text-[11px] font-bold uppercase tracking-[0.3em] text-brand-green">
+              The Bookshelf
+            </p>
+            <h2 className="mt-2 text-center font-serif text-[36px] font-bold leading-tight text-dark-green sm:text-[46px]">
+              Books by <span className="text-brand-green">{firstName}</span>
+            </h2>
+            <p className="mx-auto mt-2 max-w-xl text-center text-[15.5px] leading-relaxed text-dark-green/60">
+              Practical, no-nonsense guides to homeownership, wealth, and
+              making smarter financial decisions.
+            </p>
+          </>
+        )}
 
         {/* ————— Desktop stage ————— */}
-        <div className="relative mx-auto mt-12 hidden h-[458px] max-w-[1300px] lg:block">
+        <div
+          className={`relative mx-auto hidden h-[458px] max-w-[1300px] lg:block ${showHeader ? "mt-12" : "mt-3"}`}
+        >
           {/* next book, standing on the shelf behind the panel's right edge */}
           {books.length > 1 && (
             <button
@@ -417,7 +442,9 @@ export function BookshelfCarousel({
         </div>
 
         {/* ————— Mobile / tablet ————— */}
-        <div className="relative mx-auto mt-8 max-w-[620px] lg:hidden">
+        <div
+          className={`relative mx-auto max-w-[620px] lg:hidden ${showHeader ? "mt-8" : "mt-2"}`}
+        >
           <div key={book.href} className={swapAnim}>
             <div className="rounded-[24px] border border-dark-green/10 bg-[#FDFCF8] p-6 pb-0 shadow-[0_24px_60px_-28px_rgba(0,49,34,0.35)] sm:p-8 sm:pb-0">
               <div className="flex justify-center">
@@ -483,23 +510,26 @@ export function BookshelfCarousel({
           </div>
         )}
 
-        {/* supporting value strip */}
-        <div className="mx-auto mt-8 grid max-w-6xl grid-cols-1 gap-y-5 sm:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-dark-green/10">
-          {valueStrip.map((v) => (
-            <div
-              key={v.label}
-              className="flex items-center gap-3 lg:px-6 lg:first:pl-0 lg:last:pr-0"
-            >
-              <FeatureGlyph icon={v.icon} />
-              <div>
-                <p className="text-[13.5px] font-bold text-dark-green">
-                  {v.label}
-                </p>
-                <p className="mt-0.5 text-[12px] text-dark-green/55">{v.sub}</p>
+        {showValueStrip && (
+          <div className="mx-auto mt-8 grid max-w-6xl grid-cols-1 gap-y-5 sm:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-dark-green/10">
+            {valueStrip.map((v) => (
+              <div
+                key={v.label}
+                className="flex items-center gap-3 lg:px-6 lg:first:pl-0 lg:last:pr-0"
+              >
+                <FeatureGlyph icon={v.icon} />
+                <div>
+                  <p className="text-[13.5px] font-bold text-dark-green">
+                    {v.label}
+                  </p>
+                  <p className="mt-0.5 text-[12px] text-dark-green/55">
+                    {v.sub}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

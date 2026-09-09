@@ -108,6 +108,11 @@ export interface Book {
   retailers: Retailer[];
   /** Print length shown in publication details. */
   pages?: number;
+  /** Three short selling points shown on bookshelf-carousel slides. */
+  features: {
+    icon: "home" | "dollar" | "people" | "shield" | "clock" | "compass";
+    text: string;
+  }[];
 }
 
 const coverPath = (file: string) => `/images/book/${file}`;
@@ -131,6 +136,11 @@ export const books: Book[] = [
     googleBooksUrl: "https://books.google.com/books?id=JGQDEgAAQBAJ",
     universalLink: "https://books2read.com/u/bPYLzx",
     publisher: { type: "Organization", name: "Next Wave Mortgage, LLC" },
+    features: [
+      { icon: "home", text: "Step-by-step guidance" },
+      { icon: "dollar", text: "Up to $35,000 in assistance" },
+      { icon: "people", text: "Real programs. Real examples." },
+    ],
     editions: [
       {
         format: "Kindle eBook",
@@ -268,6 +278,11 @@ export const books: Book[] = [
     publisher: { type: "Person", name: "Phil Ganz" },
     badge: "New Release",
     pages: 189,
+    features: [
+      { icon: "shield", text: "Protect the family wealth" },
+      { icon: "clock", text: "Every deadline heirs face" },
+      { icon: "dollar", text: "The 95% rule, explained" },
+    ],
     editions: [
       {
         format: "Kindle eBook",

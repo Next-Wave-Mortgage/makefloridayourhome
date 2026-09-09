@@ -2,13 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/site";
-import { books } from "@/lib/books";
+import { bookHref, books } from "@/lib/books";
 import {
   authorSchema,
   buildLibraryBreadcrumb,
   buildLibrarySchema,
 } from "@/lib/bookSchema";
-import { BookCard } from "@/components/books/BookCard";
+import {
+  BookshelfCarousel,
+  type ShelfBook,
+} from "@/components/team/BookshelfCarousel";
 import { PageCTA } from "@/components/shared/PageCTA";
 import { JsonLd } from "@/components/shared/JsonLd";
 
@@ -56,6 +59,28 @@ export default function BooksLibraryPage() {
   const shelf = [...books].sort((a, b) =>
     b.datePublished.localeCompare(a.datePublished),
   );
+
+  // Map library entries onto the shelf carousel's display shape.
+  const shelfBooks: ShelfBook[] = shelf.map((book) => {
+    const buyLinks = [];
+    const amazon = book.retailers.find(
+      (r) => r.slug === "amazon" && r.available && r.url,
+    );
+    if (amazon) buyLinks.push({ label: "Amazon", url: amazon.url });
+    const google = book.retailers.find(
+      (r) => r.slug === "google" && r.available && r.url,
+    );
+    if (google) buyLinks.push({ label: "Google Play", url: google.url });
+    return {
+      title: book.title,
+      tagline: book.positioning,
+      cover: book.coverImage,
+      coverAlt: book.coverAlt,
+      href: bookHref(book),
+      buyLinks,
+      features: book.features,
+    };
+  });
 
   return (
     <>
@@ -159,9 +184,9 @@ export default function BooksLibraryPage() {
       </section>
 
       {/* Shelf */}
-      <section className="bg-white py-14 sm:py-16 lg:py-20">
+      <section className="bg-white pt-14 sm:pt-16 lg:pt-20">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
-          <div className="flex items-end justify-between gap-4">
+          <div className="mx-auto flex max-w-[1300px] items-end justify-between gap-4">
             <h2 className="text-[26px] leading-tight font-bold text-dark-green sm:text-[32px]">
               The <span className="text-brand-green">Books</span>
             </h2>
@@ -169,16 +194,14 @@ export default function BooksLibraryPage() {
               {shelf.length} {shelf.length === 1 ? "title" : "titles"}
             </p>
           </div>
-
-          <div
-            className={`mt-8 grid gap-6 md:grid-cols-2 ${shelf.length >= 3 ? "xl:grid-cols-3" : "mx-auto max-w-5xl"}`}
-          >
-            {shelf.map((book, i) => (
-              <BookCard key={book.slug} book={book} priority={i === 0} />
-            ))}
-          </div>
         </div>
       </section>
+      <BookshelfCarousel
+        books={shelfBooks}
+        showHeader={false}
+        showValueStrip={false}
+        bg="white"
+      />
 
       {/* How the library works */}
       <section className="bg-green-tint py-14 sm:py-16 lg:py-20">
