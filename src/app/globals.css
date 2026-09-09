@@ -97,6 +97,60 @@
 .animate-slide-in {
   animation: slide-in 0.3s ease-out;
 }
+/* 3D standing book (team-page bookshelf). --book-w = rendered cover width,
+   --book-t = thickness. Front cover, page block, and back cover are three
+   planes; the parent supplies perspective. */
+.book-3d {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateY(-26deg);
+  transition: transform 0.45s ease;
+}
+a:hover .book-3d,
+button:hover .book-3d {
+  transform: rotateY(-14deg) translateY(-8px);
+}
+.book-3d .book-3d-cover {
+  position: relative;
+  display: block;
+  transform: translateZ(calc(var(--book-t) / 2));
+  border-radius: 3px 8px 8px 3px;
+  box-shadow: 0 2px 6px rgba(0, 49, 34, 0.18);
+}
+.book-3d::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  height: calc(100% - 5px);
+  width: calc(var(--book-t) - 2px);
+  left: 0;
+  transform: translateX(calc(var(--book-w) - var(--book-t) / 2 - 3px))
+    rotateY(90deg);
+  background: linear-gradient(
+    90deg,
+    #fdfdfb 0%,
+    #f2efe7 8%,
+    #fdfdfb 15%,
+    #f2efe7 25%,
+    #fdfdfb 35%,
+    #f2efe7 45%,
+    #fdfdfb 55%,
+    #f2efe7 65%,
+    #fdfdfb 75%,
+    #f2efe7 85%,
+    #fdfdfb 100%
+  );
+}
+.book-3d::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateZ(calc(var(--book-t) / -2));
+  background: #123527;
+  border-radius: 3px 8px 8px 3px;
+  box-shadow: -18px 16px 30px 6px rgba(30, 41, 35, 0.38);
+}
+
 .animate-slide-in-back {
   animation: slide-in-back 0.3s ease-out;
 }

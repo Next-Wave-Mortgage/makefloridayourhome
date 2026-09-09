@@ -6,6 +6,11 @@ export interface TeamMemberBook {
   /** Internal landing page for the book */
   href: string;
   buyLinks: { label: string; url: string }[];
+  /** Three short selling points shown with icons on the bookshelf card */
+  features: {
+    icon: "home" | "dollar" | "people" | "shield" | "clock" | "compass";
+    text: string;
+  }[];
 }
 
 export interface TeamMember {
@@ -41,24 +46,21 @@ export const team: TeamMember[] = [
     googleRating: "4.9",
     googleReviews: "113+",
     bio: [
-      "Phil Ganz is a Senior Mortgage Consultant and President at Next Wave Mortgage (NMLS #2536820), where he leads a people-first team built around fast turn times, transparent guidance, and highly personalized service.",
-      'With 26+ years in the mortgage industry, Phil has helped thousands of families move from "maybe someday" to keys-in-hand with a clear plan and steady support from application through closing.',
-      "Based in Fort Lauderdale, Phil specializes in Florida home financing, especially scenarios that require strong structure and strategy, like jumbo loans in South Florida, self-employed income, and buyers using down payment assistance.",
-      "Clients work with Phil for one simple reason: he makes the process feel understandable, organized, and calm, while still moving fast when the deal needs speed.",
-      "Phil is also the author of Make Florida Your Home (2026), the insider's guide to Florida down payment assistance, Hometown Heroes, and buying your first Florida home without draining your savings.",
+      'Phil Ganz is a Senior Mortgage Consultant and President at Next Wave Mortgage (NMLS #2536820), where he leads a people-first team built around fast turn times, transparent guidance, and highly personalized service. In 26+ years he has helped thousands of families move from "maybe someday" to keys-in-hand.',
+      "Based in Fort Lauderdale, Phil specializes in Florida financing that takes structure and strategy — jumbo loans in South Florida, self-employed income, buyers using down payment assistance. Clients work with him because he makes the process understandable, organized, and calm, while still moving fast when the deal needs speed.",
     ],
     loanOptions: [
       "Conventional, FHA, VA, and Jumbo loans",
       "Bank statement & Non-QM programs",
-      "Down Payment Assistance programs (including Florida options)",
-      "Reverse mortgages & home equity solutions (where eligible)",
+      "Florida down payment assistance programs",
+      "Reverse mortgages & home equity solutions",
     ],
     borrowerTypes: [
       "First-time buyers who want a step-by-step plan.",
       "Veterans exploring VA benefits.",
       "Self-employed borrowers with complex income.",
-      "Buyers who need a strong pre-approval to compete.",
-      "Homeowners refinancing or restructuring for long-term savings.",
+      "Buyers who need a strong pre-approval.",
+      "Homeowners refinancing for long-term savings.",
     ],
     process: [
       "Quick intro call to understand your goal.",
@@ -84,6 +86,11 @@ export const team: TeamMember[] = [
             url: "https://play.google.com/store/books/details?id=JGQDEgAAQBAJ",
           },
         ],
+        features: [
+          { icon: "home", text: "Step-by-step guidance" },
+          { icon: "dollar", text: "Up to $35,000 in assistance" },
+          { icon: "people", text: "Real programs. Real examples." },
+        ],
       },
       {
         title: "The Reverse Mortgage Inheritance Strategy",
@@ -99,6 +106,11 @@ export const team: TeamMember[] = [
             label: "Google Play",
             url: "https://play.google.com/store/books/details?id=TcMJEgAAQBAJ",
           },
+        ],
+        features: [
+          { icon: "shield", text: "Protect the family wealth" },
+          { icon: "clock", text: "Every deadline heirs face" },
+          { icon: "dollar", text: "The 95% rule, explained" },
         ],
       },
     ],
