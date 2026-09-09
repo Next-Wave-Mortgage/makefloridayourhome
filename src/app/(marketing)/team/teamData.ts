@@ -76,12 +76,28 @@ export const team: TeamMember[] = [
           "The insider's guide to down payment assistance, Hometown Heroes, and buying your first Florida home without draining your savings (2026\u20132027 Edition).",
         cover: "/images/book/make-florida-your-home-cover.png",
         coverAlt: "Make Florida Your Home book cover by Phil Ganz",
-        href: "/book",
+        href: "/books/make-florida-your-home",
         buyLinks: [
           { label: "Amazon", url: "https://www.amazon.com/dp/B0HDRNR5WW" },
           {
             label: "Google Play",
             url: "https://play.google.com/store/books/details?id=JGQDEgAAQBAJ",
+          },
+        ],
+      },
+      {
+        title: "The Reverse Mortgage Inheritance Strategy",
+        tagline:
+          "Don't Just Protect the House, Protect the Family Wealth. The adult child's guide to a parent's reverse mortgage: who owns the house, what happens to the inheritance, and what heirs must do when the loan comes due.",
+        cover: "/images/book/reverse-mortgage-inheritance-strategy-cover.webp",
+        coverAlt:
+          "The Reverse Mortgage Inheritance Strategy book cover by Phil Ganz",
+        href: "/books/reverse-mortgage-inheritance-strategy",
+        buyLinks: [
+          { label: "Amazon", url: "https://www.amazon.com/dp/B0HJ19LW2N" },
+          {
+            label: "Google Play",
+            url: "https://play.google.com/store/books/details?id=TcMJEgAAQBAJ",
           },
         ],
       },

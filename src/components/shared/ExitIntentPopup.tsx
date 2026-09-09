@@ -19,7 +19,7 @@ import { bookConfig } from "@/lib/book";
 const STORAGE_KEY = "mfyh-exit-popup-last-shown";
 const SUPPRESS_DAYS = 30;
 const MIN_DWELL_MS = 10_000;
-const EXCLUDED_PATHS = ["/book", "/contact-us"];
+const EXCLUDED_PATHS = ["/books", "/contact-us"];
 const CONTACT_CAPTURE_ENDPOINT =
   process.env.NEXT_PUBLIC_EXIT_POPUP_CONTACT_ENDPOINT ||
   "https://www.nextwavemortgage.com/api/public/contact-capture";

@@ -19,7 +19,7 @@ export function BookPromo({ bg = "white" }: BookPromoProps) {
         <div className="grid items-center gap-10 lg:grid-cols-[300px_1fr] lg:gap-16">
           {/* Left — book cover */}
           <Link
-            href="/book"
+            href={bookConfig.href}
             className="group relative mx-auto block w-full max-w-[220px] lg:max-w-none"
           >
             <div className="absolute -right-3 -bottom-3 h-full w-full rounded-2xl bg-brand-green/[0.08]" />
@@ -50,7 +50,7 @@ export function BookPromo({ bg = "white" }: BookPromoProps) {
 
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
               <Link
-                href="/book"
+                href={bookConfig.href}
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-brand-green px-8 py-4 text-[16px] font-bold text-white transition-shadow duration-300 hover:shadow-[0_4px_20px_rgba(0,105,72,0.4)]"
               >
                 Get the Book

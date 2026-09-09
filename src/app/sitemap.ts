@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 import { getAllPosts } from "@/lib/blog";
 import { team } from "@/app/(marketing)/team/teamData";
+import { books, bookHref } from "@/lib/books";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
@@ -53,8 +54,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    // Book library. Individual titles are appended below from src/lib/books.ts.
     {
-      url: `${baseUrl}/book`,
+      url: `${baseUrl}/books`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
@@ -236,5 +238,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...learnPages, ...teamPages];
+  /* ── Book pages (one per title in src/lib/books.ts) ── */
+  const bookPages: MetadataRoute.Sitemap = books.map((book) => ({
+    url: `${baseUrl}${bookHref(book)}`,
+    lastModified: new Date(`${book.pageUpdated}T00:00:00Z`),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...bookPages, ...learnPages, ...teamPages];
 }

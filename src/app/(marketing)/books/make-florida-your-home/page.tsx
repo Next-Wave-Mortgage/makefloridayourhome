@@ -1,31 +1,42 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/site";
-import { bookConfig, liveEditions } from "@/lib/book";
+import { getBook, liveEditions, bookHref } from "@/lib/books";
+import {
+  authorSchema,
+  buildBookBreadcrumb,
+  buildBookSchema,
+  buildFaqSchema,
+} from "@/lib/bookSchema";
 import { PageFAQ } from "@/components/shared/PageFAQ";
 import { PageCTA } from "@/components/shared/PageCTA";
+import { JsonLd } from "@/components/shared/JsonLd";
+import { RetailerGrid } from "@/components/books/RetailerGrid";
+import { AlsoByPhilGanz } from "@/components/books/AlsoByPhilGanz";
+
+const book = getBook("make-florida-your-home")!;
+const editions = liveEditions(book);
+const pageUrl = `${siteConfig.url}${bookHref(book)}`;
 
 export const metadata: Metadata = {
-  title:
-    "Make Florida Your Home — Phil Ganz's Guide to Florida Down Payment Assistance",
+  title: "Make Florida Your Home by Phil Ganz | Florida Homebuyer Guide",
   description:
     "Florida handed out $50 million in down payment help last year. Phil Ganz's book shows first-time buyers every program — Hometown Heroes, FHA, and 105 more.",
-  alternates: { canonical: "/book" },
+  alternates: { canonical: "/books/make-florida-your-home" },
   openGraph: {
     title:
       "Make Florida Your Home — Phil Ganz's Guide to Florida Down Payment Assistance",
     description:
       "The insider's guide to down payment assistance, Hometown Heroes, and buying your first Florida home without draining your savings.",
-    url: "https://www.makefloridayourhome.com/book",
+    url: pageUrl,
     type: "book",
     images: [
       {
-        url: `${siteConfig.url}${bookConfig.coverImage}`,
+        url: `${siteConfig.url}${book.coverImage}`,
         width: 1600,
         height: 2560,
-        alt: bookConfig.coverAlt,
+        alt: book.coverAlt,
       },
     ],
   },
@@ -35,7 +46,7 @@ export const metadata: Metadata = {
       "Make Florida Your Home — Phil Ganz's Guide to Florida Down Payment Assistance",
     description:
       "The insider's guide to down payment assistance, Hometown Heroes, and buying your first Florida home without draining your savings.",
-    images: [`${siteConfig.url}${bookConfig.coverImage}`],
+    images: [`${siteConfig.url}${book.coverImage}`],
   },
 };
 
@@ -128,6 +139,15 @@ const freeTools = [
   },
 ];
 
+const whoItsFor = [
+  "First-time buyers anywhere in Florida",
+  "Renters who assume the down payment puts a home out of reach",
+  "Anyone relocating to Florida from another state",
+  "Buyers layering down payment assistance with FHA, VA, or conventional financing",
+  "Teachers, nurses, first responders, and veterans checking Hometown Heroes eligibility",
+  "Repeat buyers who have not owned a home in the last three years",
+];
+
 const authorBio = [
   "Phil Ganz is a nationally ranked top 1% mortgage originator and President of Next Wave Mortgage (NMLS #2536820), the Fort Lauderdale-based lender behind MakeFloridaYourHome.com. Over 26+ years in the mortgage industry, he has helped thousands of families move from “maybe someday” to keys-in-hand.",
   "He wrote Make Florida Your Home for one reason: Florida's homebuyer assistance money is real, generous, and chronically unclaimed — because nobody's job is to tell buyers it exists. The book turns the 105-program landscape he navigates daily into a plain-English plan any first-time buyer can follow.",
@@ -169,104 +189,15 @@ const faqs = [
 ];
 
 /* ------------------------------------------------------------------ */
-/*  Structured data                                                    */
+/*  Structured data (shared builders in src/lib/bookSchema.ts)          */
 /* ------------------------------------------------------------------ */
 
-/**
- * Canonical Person @id for Phil lives on his profile page
- * (/team/phil-ganz#person) — the same @id is emitted there, so Google
- * merges the author of this book with the profile entity.
- */
-const authorId = `${siteConfig.url}/team/phil-ganz#person`;
-
-const authorSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": authorId,
-  name: "Phil Ganz",
-  jobTitle: "Mortgage Expert / President",
-  worksFor: {
-    "@type": "Organization",
-    "@id": `${siteConfig.url}/#organization`,
-    name: siteConfig.company,
-  },
-  url: `${siteConfig.url}/team/phil-ganz`,
-  image: `${siteConfig.url}/images/team/phil-ganz.webp`,
-  sameAs: [
-    "https://www.amazon.com/author/philganz",
-    "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/individual/37833",
-  ],
-  identifier: {
-    "@type": "PropertyValue",
-    propertyID: "NMLS",
-    value: "37833",
-  },
-};
-
-const bookSchema = {
-  "@context": "https://schema.org",
-  "@type": "Book",
-  "@id": `${siteConfig.url}/book#book`,
-  name: bookConfig.title,
-  alternateName: bookConfig.subtitle,
-  author: { "@type": "Person", "@id": authorId },
-  publisher: {
-    "@type": "Organization",
-    "@id": `${siteConfig.url}/#organization`,
-    name: siteConfig.company,
-  },
-  datePublished: bookConfig.datePublished,
-  inLanguage: "en-US",
-  bookFormat: "https://schema.org/EBook",
-  isbn: bookConfig.isbn,
-  image: `${siteConfig.url}${bookConfig.coverImage}`,
-  url: `${siteConfig.url}/book`,
-  sameAs: [bookConfig.googleBooksUrl],
-  description:
-    "Florida has quietly built one of the most generous homebuyer assistance systems in the country — 105 programs across all 67 counties, from Hometown Heroes (up to $35,000 at 0% interest) to county programs reaching six figures. Phil Ganz walks first-time Florida buyers through every one, in plain English.",
-  genre: ["Real Estate", "Personal Finance"],
-  workExample: liveEditions.map((edition) => ({
-    "@type": "Book",
-    bookFormat: edition.schemaFormat,
-    name: `${bookConfig.title} (${edition.format})`,
-    ...(edition.isbn ? { isbn: edition.isbn } : {}),
-    offers: {
-      "@type": "Offer",
-      url: edition.url,
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-    },
-  })),
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: "https://www.makefloridayourhome.com",
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Make Florida Your Home (The Book)",
-      item: "https://www.makefloridayourhome.com/book",
-    },
-  ],
-};
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.question,
-    acceptedAnswer: { "@type": "Answer", text: faq.answer },
-  })),
-};
+const bookSchema = buildBookSchema(
+  book,
+  "Florida has quietly built one of the most generous homebuyer assistance systems in the country — 105 programs across all 67 counties, from Hometown Heroes (up to $35,000 at 0% interest) to county programs reaching six figures. Phil Ganz walks first-time Florida buyers through every one, in plain English.",
+);
+const breadcrumbSchema = buildBookBreadcrumb(book);
+const faqSchema = buildFaqSchema(faqs);
 
 /* ------------------------------------------------------------------ */
 /*  Page                                                               */
@@ -293,7 +224,7 @@ const ArrowIcon = () => (
 function EditionButtons() {
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-      {liveEditions.map((edition, i) => (
+      {editions.map((edition, i) => (
         <a
           key={edition.format}
           href={edition.url}
@@ -318,26 +249,10 @@ function EditionButtons() {
 export default function BookPage() {
   return (
     <>
-      <Script
-        id="book-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(bookSchema) }}
-      />
-      <Script
-        id="author-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(authorSchema) }}
-      />
-      <Script
-        id="breadcrumb-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="book-schema" data={bookSchema} />
+      <JsonLd id="author-schema" data={authorSchema} />
+      <JsonLd id="breadcrumb-schema" data={breadcrumbSchema} />
+      <JsonLd id="faq-schema" data={faqSchema} />
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-green-tint">
@@ -350,8 +265,22 @@ export default function BookPage() {
           <div className="grid items-center gap-10 lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_460px]">
             {/* Left — content */}
             <div className="pt-16 pb-10 sm:pt-20 sm:pb-12 lg:pt-24 lg:pb-14">
+              <nav
+                aria-label="Breadcrumb"
+                className="mb-5 text-[13px] text-dark-green/50"
+              >
+                <Link href="/" className="hover:text-brand-green">
+                  Home
+                </Link>
+                <span className="mx-2">/</span>
+                <Link href="/books" className="hover:text-brand-green">
+                  Books
+                </Link>
+                <span className="mx-2">/</span>
+                <span className="text-dark-green/80">{book.title}</span>
+              </nav>
               <p className="text-[13px] font-semibold uppercase tracking-[0.2em] text-brand-green">
-                The Book · 2026–2027 Edition
+                The Phil Ganz Mortgage Library · 2026–2027 Edition
               </p>
               <h1 className="mt-3 text-[32px] font-bold leading-[1.15] tracking-tight text-dark-green sm:text-[40px] lg:text-[48px]">
                 <span className="text-brand-green">Make Florida</span> Your Home
@@ -388,7 +317,7 @@ export default function BookPage() {
                     , Mortgage Expert · NMLS #37833
                   </p>
                   <p className="text-[12.5px] text-dark-green/50">
-                    Published August 11, 2026 · Page updated August 31, 2026
+                    Published August 11, 2026 · Page updated September 9, 2026
                   </p>
                 </div>
               </div>
@@ -396,8 +325,8 @@ export default function BookPage() {
               {/* Mobile cover */}
               <div className="mx-auto mt-10 w-full max-w-[240px] lg:hidden">
                 <Image
-                  src={bookConfig.coverImage}
-                  alt={bookConfig.coverAlt}
+                  src={book.coverImage}
+                  alt={book.coverAlt}
                   width={480}
                   height={768}
                   className="h-auto w-full rounded-lg shadow-[0_12px_40px_rgba(0,0,0,0.18)]"
@@ -420,8 +349,8 @@ export default function BookPage() {
               <div className="absolute -right-6 top-10 bottom-10 w-full rounded-3xl bg-brand-green/10" />
               <div className="relative mx-auto max-w-[400px]">
                 <Image
-                  src={bookConfig.coverImage}
-                  alt={bookConfig.coverAlt}
+                  src={book.coverImage}
+                  alt={book.coverAlt}
                   width={800}
                   height={1280}
                   className="h-auto w-full rounded-xl shadow-[0_24px_64px_rgba(0,0,0,0.25)]"
@@ -532,6 +461,54 @@ export default function BookPage() {
             </a>{" "}
             and county program administrators.
           </p>
+        </div>
+      </section>
+
+      {/* Who should read it */}
+      <section className="bg-white pb-4 sm:pb-6">
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
+          <div className="rounded-2xl border border-border-gray/60 bg-green-tint p-8 sm:p-10">
+            <div className="grid gap-8 lg:grid-cols-[320px_1fr] lg:gap-12">
+              <div>
+                <p className="text-[13px] font-semibold uppercase tracking-[0.2em] text-brand-green">
+                  Who This Book Is For
+                </p>
+                <h2 className="mt-3 text-[26px] font-bold leading-tight text-dark-green sm:text-[30px]">
+                  Florida buyers who want the{" "}
+                  <span className="text-brand-green">programs explained</span>
+                </h2>
+                <p className="mt-3 text-[15px] leading-relaxed text-dark-green/65">
+                  Florida counts you as a first-time buyer if you have not owned
+                  a home in the past three years, so this book applies to more
+                  people than most expect.
+                </p>
+              </div>
+              <ul className="grid gap-3 sm:grid-cols-2">
+                {whoItsFor.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 rounded-xl bg-white px-5 py-4 text-[15px] leading-snug text-dark-green/80"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="mt-0.5 shrink-0 text-brand-green"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -723,10 +700,11 @@ export default function BookPage() {
             Choose Your <span className="text-brand-green">Edition</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-center text-[16px] leading-relaxed text-dark-green/60">
-            Same book, four ways to read it.
+            Same book, four ways to read it on Amazon and Google. More retailers
+            below.
           </p>
           <div className="mx-auto mt-10 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {liveEditions.map((edition) => (
+            {editions.map((edition) => (
               <a
                 key={edition.format}
                 href={edition.url}
@@ -764,15 +742,15 @@ export default function BookPage() {
               Publication Details
             </p>
             <p className="mt-3 text-[13px] leading-relaxed text-dark-green/50">
-              {bookConfig.title} &mdash; 2026&ndash;2027 Edition &middot;
-              Published August 11, 2026 &middot; Author: Phil Ganz &middot;
-              Publisher: {siteConfig.company}
+              {book.title} &mdash; 2026&ndash;2027 Edition &middot; Published
+              August 11, 2026 &middot; Author: Phil Ganz &middot; Publisher:{" "}
+              {siteConfig.company}
             </p>
             <p className="mt-1 text-[13px] leading-relaxed text-dark-green/50">
               Paperback ISBN 979-8191565255 &middot; Hardcover ISBN
               979-8192189283 &middot; Kindle ASIN B0HDRNR5WW &middot;{" "}
               <a
-                href={bookConfig.googleBooksUrl}
+                href={book.googleBooksUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline underline-offset-2 transition-colors hover:text-brand-green"
@@ -783,6 +761,12 @@ export default function BookPage() {
           </div>
         </div>
       </section>
+
+      {/* Where to buy: every live retailer, from the Draft2Digital listing */}
+      <RetailerGrid book={book} />
+
+      {/* Cross-links inside the library */}
+      <AlsoByPhilGanz currentSlug={book.slug} bg="white" />
 
       {/* FAQ */}
       <PageFAQ

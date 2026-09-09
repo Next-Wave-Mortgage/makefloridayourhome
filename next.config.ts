@@ -38,6 +38,17 @@ const mortgageRatesCacheHeaders = [
 
 const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "md", "mdx"],
+  async redirects() {
+    return [
+      // 2026-09-09: /book (single-title landing page) became the /books library.
+      // The Make Florida Your Home page now lives at its own permanent URL.
+      {
+        source: "/book",
+        destination: "/books/make-florida-your-home",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
