@@ -50,11 +50,34 @@ export interface Retailer {
   /** Only rendered when true. Set from the Draft2Digital page for the title. */
   available: boolean;
   /**
-   * Optional logo file under /public/images/retailers/. When present the
-   * tile shows the mark; otherwise the retailer name is set in type.
+   * Logo file under /public/images/retailers/. Defaults per slug via
+   * `retailerLogos` in liveRetailers(); set here only to override. When no
+   * file resolves the tile falls back to the retailer name set in type.
    */
   logo?: string;
 }
+
+/**
+ * Official mark per retailer, shown on retailer tiles. Amazon, Kobo, B&N,
+ * Google Play, Thalia, Vivlio, and Angus & Robertson are the marks published
+ * on Wikimedia Commons; Apple is the official "Download on Apple Books"
+ * badge from Apple's marketing toolbox; the rest are each brand's own site
+ * asset (Fable's wordmark recolored to its brand ink for white backgrounds).
+ */
+const retailerLogos: Record<RetailerSlug, string> = {
+  amazon: "/images/retailers/amazon.svg",
+  apple: "/images/retailers/apple.svg",
+  "barnes-noble": "/images/retailers/barnes-noble.svg",
+  kobo: "/images/retailers/kobo.svg",
+  google: "/images/retailers/google.svg",
+  bookshop: "/images/retailers/bookshop.svg",
+  everand: "/images/retailers/everand.svg",
+  fable: "/images/retailers/fable.svg",
+  smashwords: "/images/retailers/smashwords.png",
+  thalia: "/images/retailers/thalia.svg",
+  vivlio: "/images/retailers/vivlio.png",
+  "angus-robertson": "/images/retailers/angus-robertson.png",
+};
 
 export interface Book {
   /** URL segment under /books/ */
@@ -379,9 +402,9 @@ export function liveEditions(book: Book): BookEdition[] {
 }
 
 export function liveRetailers(book: Book, group?: Retailer["group"]) {
-  return book.retailers.filter(
-    (r) => r.available && r.url && (group ? r.group === group : true),
-  );
+  return book.retailers
+    .filter((r) => r.available && r.url && (group ? r.group === group : true))
+    .map((r) => ({ ...r, logo: r.logo ?? retailerLogos[r.slug] }));
 }
 
 /** Books other than the one given, for "Also by Phil Ganz" modules. */
