@@ -49,6 +49,44 @@ const nextConfig: NextConfig = {
         destination: "/books/make-florida-your-home",
         statusCode: 301,
       },
+      // 2026-09-10 backlink-recovery 301s: legacy URLs that still hold real
+      // dofollow backlinks (Ahrefs broken-backlinks report) pointed at the
+      // closest modern equivalent. Garbage/scraper targets stay 404 on purpose.
+      {
+        source: "/florida/blog/types-of-reverse-mortgages",
+        destination: "/books/reverse-mortgage-inheritance-strategy",
+        statusCode: 301,
+      },
+      {
+        source: "/florida/explore/tampa",
+        destination: "/learn/cheapest-places-to-buy-house-in-florida",
+        statusCode: 301,
+      },
+      {
+        source: "/florida/home-loan/va-loan/mortgage-loans-top-facts",
+        destination: "/home-loan",
+        statusCode: 301,
+      },
+      {
+        source: "/hometown-heroes-eligibility-check",
+        destination: "/check-hometown-heroes-eligibility",
+        statusCode: 301,
+      },
+      {
+        source: "/real-estate/schedule-a-free-call",
+        destination: "/eligibility/schedule-a-free-call",
+        statusCode: 301,
+      },
+      {
+        source: "/microsite/100-percent-fha-zero-down-program-eligibility",
+        destination: "/check-fha-loan-eligibility",
+        statusCode: 301,
+      },
+      {
+        source: "/microsite/hometown-heroes-refinance-eligibility",
+        destination: "/check-hometown-heroes-eligibility",
+        statusCode: 301,
+      },
     ];
   },
   async headers() {
