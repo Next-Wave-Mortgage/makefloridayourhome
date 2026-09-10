@@ -197,7 +197,7 @@ const faqs = [
   {
     question: "How much down payment assistance can I get in Florida?",
     answer:
-      "Florida buyers can receive anywhere from $7,500 to over $100,000 in combined assistance depending on the programs they qualify for. Hometown Heroes offers up to $35,000, Florida Housing offers up to $10,000, and county SHIP funds can add even more. Many of these programs can be stacked.",
+      "Florida buyers can receive anywhere from $7,500 to over $100,000 in combined assistance depending on the programs they qualify for. Hometown Heroes offers up to $35,000, Florida Housing offers up to $10,000, and county SHIP funds can add even more. Whether programs can be layered is county- and program-specific.",
   },
   {
     question: "Do I need to take a homebuyer education course?",
@@ -207,7 +207,7 @@ const faqs = [
   {
     question: "Can I buy a condo with first-time buyer programs?",
     answer:
-      "Yes. Condos, townhomes, and single-family homes are all eligible. For FHA loans, the condo complex must be on the FHA-approved list. Conventional loans are more flexible with condo eligibility.",
+      "Yes. Condos, townhomes, and single-family homes are all eligible. For FHA loans, the condo generally must either be in an FHA-approved project or qualify through FHA's Single-Unit Approval process where permitted. Conventional loans are more flexible with condo eligibility.",
   },
   {
     question: "Are there income limits for Florida first-time buyer programs?",
@@ -222,7 +222,7 @@ const faqs = [
   {
     question: "Can I use multiple assistance programs at the same time?",
     answer:
-      "Absolutely. Many Florida buyers stack programs — for example, using a Florida Housing first mortgage with Hometown Heroes AND county SHIP funds. The key is ensuring each program allows layering, which our team helps you navigate.",
+      "Sometimes. Hometown Heroes is already a second mortgage, and certain local programs may allow their assistance to sit in third lien position behind it while others do not. Stacking is county- and program-specific and must be confirmed before the loan is structured — our team helps you navigate exactly that.",
   },
   {
     question: "What types of loans are available for first-time buyers?",

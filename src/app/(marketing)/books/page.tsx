@@ -203,6 +203,47 @@ export default function BooksLibraryPage() {
         bg="white"
       />
 
+      {/* Every title, statically — the carousel features one book at a time,
+          so this compact index keeps both books fully crawlable on /books. */}
+      <section className="bg-white pb-14 sm:pb-16">
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
+          <ul className="mx-auto grid max-w-[1300px] gap-4 sm:grid-cols-2">
+            {shelf.map((book) => (
+              <li
+                key={book.slug}
+                className="flex items-center gap-5 rounded-2xl border border-border-gray/60 bg-white p-5"
+              >
+                <Link href={bookHref(book)} className="shrink-0">
+                  <Image
+                    src={book.coverImage}
+                    alt={book.coverAlt}
+                    width={140}
+                    height={224}
+                    className="h-[104px] w-auto rounded-[4px] shadow-[0_6px_14px_-4px_rgba(0,49,34,0.3)]"
+                  />
+                </Link>
+                <div className="min-w-0">
+                  <p className="text-[12px] font-semibold tracking-[0.12em] text-dark-green/45 uppercase">
+                    {new Date(book.datePublished).getFullYear()} · Phil Ganz
+                  </p>
+                  <h3 className="mt-1 text-[17px] leading-snug font-bold text-dark-green">
+                    <Link
+                      href={bookHref(book)}
+                      className="transition-colors hover:text-brand-green"
+                    >
+                      {book.title}
+                    </Link>
+                  </h3>
+                  <p className="mt-1 line-clamp-2 text-[13.5px] leading-relaxed text-dark-green/60">
+                    {book.positioning}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* How the library works */}
       <section className="bg-green-tint py-14 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8">

@@ -64,7 +64,7 @@ const heroFeatures = [
         <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
       </svg>
     ),
-    text: "Stack state, county, and federal programs together",
+    text: "Layer programs together where county and program rules allow",
   },
   {
     icon: (
@@ -156,7 +156,7 @@ const faqs = [
   {
     question: "How much down payment assistance can I get in Florida?",
     answer:
-      "It depends on which programs you qualify for. Hometown Heroes offers up to $35,000. Florida Assist provides up to $7,500. County SHIP funds can add $10,000–$60,000 more. Many buyers stack multiple programs together, sometimes totaling $50,000–$100,000+ in combined assistance.",
+      "It depends on which programs you qualify for. Hometown Heroes offers up to $35,000. Florida Assist provides up to $7,500. County SHIP funds can add $10,000–$60,000 more. Where program rules allow layering, combined assistance can total $50,000–$100,000+ — but stacking is county- and program-specific.",
   },
   {
     question: "Do I have to pay back down payment assistance?",
@@ -181,7 +181,7 @@ const faqs = [
   {
     question: "Can I combine Hometown Heroes with other programs?",
     answer:
-      "Yes. Hometown Heroes can be stacked with county SHIP funds and other local programs in many cases. However, you cannot combine it with Florida Assist — you must choose one or the other for your state-level DPA. Our team can help you determine the best combination.",
+      "Sometimes. Hometown Heroes is already a second mortgage, and it cannot be combined with another Florida Housing assistance program like Florida Assist. Certain local programs may allow their assistance to be placed in third lien position behind Hometown Heroes, while others do not — stacking is county- and program-specific and must be confirmed before the loan is structured. Our team can tell you what's realistic in your county.",
   },
   {
     question: "How long does it take to get approved for DPA?",
@@ -196,7 +196,7 @@ const faqs = [
   {
     question: "What types of homes qualify for DPA?",
     answer:
-      "Single-family homes, condos, townhomes, and manufactured homes (on a permanent foundation) are generally eligible. The property must be your primary residence. For FHA loans, condos must be on the FHA-approved list.",
+      "Single-family homes, condos, townhomes, and manufactured homes (on a permanent foundation) are generally eligible. The property must be your primary residence. For FHA financing, the condominium generally must either be in an FHA-approved project or qualify through FHA's Single-Unit Approval process where permitted.",
   },
   {
     question: "Can I use DPA with a VA or USDA loan?",

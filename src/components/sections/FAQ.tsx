@@ -20,7 +20,7 @@ const faqs = [
     question:
       "How much down payment assistance can first-time homebuyers get in Florida?",
     answer:
-      "Florida buyers can receive anywhere from $10,000 to over $100,000 in combined assistance depending on the programs they qualify for. Florida Housing offers up to $10,000 in down payment and closing cost help. Hometown Heroes provides up to $35,000. Many counties offer additional SHIP funds on top of state programs — and yes, these can often be stacked.",
+      "Florida buyers can receive anywhere from $10,000 to over $100,000 in combined assistance depending on the programs they qualify for. Florida Housing offers up to $10,000 in down payment and closing cost help. Hometown Heroes provides up to $35,000. Many counties offer additional SHIP funds — whether programs can be layered is county- and program-specific, so it should be confirmed before the loan is structured.",
   },
   {
     question:

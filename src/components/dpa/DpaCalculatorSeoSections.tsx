@@ -373,7 +373,7 @@ export function DpaCalculatorSeoSections({
               Florida buyers often hear about one headline program and assume it
               is the only option. In reality, programs such as Hometown Heroes,
               FL Assist, local SHIP assistance, county HFA programs, and city
-              purchase assistance can all matter depending on occupation,
+              purchase assistance can all matter depending on employment,
               location, income, loan type, and funding status.
             </p>
           </div>
@@ -412,12 +412,13 @@ export function DpaCalculatorSeoSections({
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
             <article className="rounded-lg border border-border-gray/70 bg-white p-6">
               <h3 className="text-[18px] font-black text-dark-green">
-                Hometown Heroes and occupation-based help
+                Hometown Heroes and employment-based help
               </h3>
               <p className="mt-3 text-[15px] leading-relaxed text-dark-green/62">
-                Florida Hometown Heroes can be especially relevant for eligible
-                workers, but income limits, loan limits, approved lenders, and
-                funding availability still need to be checked.
+                Florida Hometown Heroes is based on full-time employment with a
+                Florida-based employer — not a list of professions — but income
+                limits, loan limits, approved lenders, and funding availability
+                still need to be checked.
               </p>
               <div className="mt-4 flex flex-wrap gap-3">
                 <Link

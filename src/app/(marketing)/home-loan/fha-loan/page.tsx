@@ -113,7 +113,7 @@ const steps = [
   {
     title: "Find Your Home",
     description:
-      "Work with a real estate agent to find a property within FHA loan limits. For condos, confirm the complex is FHA-approved.",
+      "Work with a real estate agent to find a property within FHA loan limits. For condos, confirm the project is FHA-approved or eligible through Single-Unit Approval.",
   },
   {
     title: "Complete the Appraisal",
@@ -206,7 +206,7 @@ const faqs = [
   },
   {
     question: "Can I buy a condo with an FHA loan?",
-    answer: "Yes, but the condo complex must be on the FHA-approved condo list. Individual unit approvals are also available for certain properties. Your lender can verify whether a specific condo is eligible before you make an offer.",
+    answer: "Yes. The condo generally must either be in an FHA-approved project or qualify through FHA's Single-Unit Approval process, which can provide a route in an otherwise unapproved project when its requirements are met. Your lender can verify whether a specific condo is eligible before you make an offer.",
   },
 ];
 

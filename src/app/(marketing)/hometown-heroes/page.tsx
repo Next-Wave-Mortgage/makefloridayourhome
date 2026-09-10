@@ -241,7 +241,7 @@ const faqs = [
   {
     question: "Can I combine Hometown Heroes with county SHIP funds?",
     answer:
-      "Generally, no. Hometown Heroes is the only second mortgage allowed with its first mortgage, and it can't be combined with any other Florida Housing assistance program. Assistance from other agencies is possible only if it stands alone in third lien position — so treat additional stacking as the exception, not the plan. Our team can tell you what's realistic in your county.",
+      "Sometimes. Hometown Heroes is already a second mortgage, and it can't be combined with any other Florida Housing assistance program. Certain local programs may allow their assistance to be placed in third lien position behind Hometown Heroes, while others do not — stacking is county- and program-specific and must be confirmed before the loan is structured. Our team can tell you what's realistic in your county.",
   },
   {
     question: "What are the income limits for Hometown Heroes?",

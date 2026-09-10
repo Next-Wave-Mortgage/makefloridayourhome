@@ -42,10 +42,12 @@ const nextConfig: NextConfig = {
     return [
       // 2026-09-09: /book (single-title landing page) became the /books library.
       // The Make Florida Your Home page now lives at its own permanent URL.
+      // statusCode 301 (not permanent:true, which emits a 308) per Phil's
+      // requirement that the migration read as a classic HTTP 301.
       {
         source: "/book",
         destination: "/books/make-florida-your-home",
-        permanent: true,
+        statusCode: 301,
       },
     ];
   },
