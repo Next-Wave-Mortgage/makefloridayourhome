@@ -73,6 +73,23 @@ export const team: TeamMember[] = [
       "Whether you\u2019re buying in Fort Lauderdale, Broward County, Miami-Dade, Palm Beach, or elsewhere in Florida, Phil helps you choose a loan structure that fits your price point, timeline, and documentation \u2014 without overcomplicating the process.",
     books: [
       {
+        title: "APPROVED",
+        tagline:
+          "The Mortgage Playbook Your Bank May Never Show You. 48 real buyer questions — FHA, gift funds, co-signers, seller credits, zero-down programs — each with a 30-second answer up front and the arithmetic shown.",
+        cover: "/images/book/approved-cover.jpg",
+        coverAlt:
+          "APPROVED: The Mortgage Playbook Your Bank May Never Show You book cover by Phil Ganz",
+        href: "/books/approved-mortgage-playbook",
+        buyLinks: [
+          { label: "Amazon", url: "https://www.amazon.com/dp/B0HJLMGJZY" },
+        ],
+        features: [
+          { icon: "compass", text: "48 questions, 30-second answers" },
+          { icon: "dollar", text: "3.5% down, gifts, seller credits" },
+          { icon: "shield", text: "HUD rule vs. lender rule" },
+        ],
+      },
+      {
         title: "Make Florida Your Home",
         tagline:
           "The insider's guide to down payment assistance, Hometown Heroes, and buying your first Florida home without draining your savings (2026\u20132027 Edition).",

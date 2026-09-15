@@ -204,7 +204,7 @@ export default function BooksLibraryPage() {
       />
 
       {/* Every title, statically — the carousel features one book at a time,
-          so this compact index keeps both books fully crawlable on /books. */}
+          so this compact index keeps every book fully crawlable on /books. */}
       <section className="bg-white pb-14 sm:pb-16">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
           <ul className="mx-auto grid max-w-[1300px] gap-4 sm:grid-cols-2">
