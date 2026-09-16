@@ -102,6 +102,8 @@ export interface Book {
   googleBooksUrl?: string;
   /** Canonical (merged) Goodreads work page for schema sameAs. */
   goodreadsUrl?: string;
+  /** Open Library work page for schema sameAs. */
+  openLibraryUrl?: string;
   /** Draft2Digital / Books2Read universal link for the ebook. */
   universalLink?: string;
   publisher: { type: "Organization" | "Person"; name: string };
@@ -138,6 +140,7 @@ export const books: Book[] = [
     googleBooksUrl: "https://books.google.com/books?id=JGQDEgAAQBAJ",
     goodreadsUrl:
       "https://www.goodreads.com/book/show/256730387-make-florida-your-home",
+    openLibraryUrl: "https://openlibrary.org/works/OL45990759W",
     universalLink: "https://books2read.com/u/bPYLzx",
     publisher: { type: "Organization", name: "Next Wave Mortgage, LLC" },
     features: [
@@ -280,6 +283,7 @@ export const books: Book[] = [
     googleBooksUrl: "https://books.google.com/books?id=TcMJEgAAQBAJ",
     goodreadsUrl:
       "https://www.goodreads.com/book/show/258473703-the-reverse-mortgage-inheritance-strategy",
+    openLibraryUrl: "https://openlibrary.org/works/OL45990767W",
     universalLink: "https://books2read.com/u/mveJXX",
     publisher: { type: "Person", name: "Phil Ganz" },
     pages: 189,
@@ -423,6 +427,8 @@ export const books: Book[] = [
       "APPROVED: The Mortgage Playbook Your Bank May Never Show You book cover by Phil Ganz",
     isbn: "9798173583147",
     goodreadsUrl: "https://www.goodreads.com/book/show/258776097-approved",
+    openLibraryUrl: "https://openlibrary.org/works/OL45990770W",
+    universalLink: "https://books2read.com/u/b61xGJ",
     publisher: { type: "Person", name: "Phil Ganz" },
     badge: "New Release",
     pages: 389,

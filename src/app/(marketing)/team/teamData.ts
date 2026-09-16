@@ -134,6 +134,7 @@ export const team: TeamMember[] = [
     sameAs: [
       "https://www.amazon.com/author/philganz",
       "https://www.goodreads.com/philganz",
+      "https://openlibrary.org/authors/OL16593148A",
     ],
   },
   {

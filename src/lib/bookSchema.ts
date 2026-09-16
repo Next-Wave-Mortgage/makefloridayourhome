@@ -32,6 +32,7 @@ export const authorSchema = {
   sameAs: [
     "https://www.amazon.com/author/philganz",
     "https://www.goodreads.com/philganz",
+    "https://openlibrary.org/authors/OL16593148A",
     "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/individual/37833",
   ],
   identifier: {
@@ -61,6 +62,7 @@ export function buildBookSchema(book: Book, description: string) {
   const sameAs = [
     book.googleBooksUrl,
     book.goodreadsUrl,
+    book.openLibraryUrl,
     ...liveRetailers(book).map((r) => r.url),
   ].filter(Boolean) as string[];
 
