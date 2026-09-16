@@ -100,6 +100,8 @@ export interface Book {
   isbn: string;
   /** Google Books record for schema sameAs. */
   googleBooksUrl?: string;
+  /** Canonical (merged) Goodreads work page for schema sameAs. */
+  goodreadsUrl?: string;
   /** Draft2Digital / Books2Read universal link for the ebook. */
   universalLink?: string;
   publisher: { type: "Organization" | "Person"; name: string };
@@ -129,11 +131,13 @@ export const books: Book[] = [
       "Florida has quietly built one of the most generous homebuyer assistance systems in the country: 105 programs across all 67 counties, from Hometown Heroes to county programs reaching six figures. Phil Ganz walks first-time Florida buyers through every one, in plain English.",
     author: "Phil Ganz",
     datePublished: "2026-08-11",
-    pageUpdated: "2026-09-09",
+    pageUpdated: "2026-09-16",
     coverImage: coverPath("make-florida-your-home-cover.png"),
     coverAlt: "Make Florida Your Home book cover by Phil Ganz",
     isbn: "9798191565255",
     googleBooksUrl: "https://books.google.com/books?id=JGQDEgAAQBAJ",
+    goodreadsUrl:
+      "https://www.goodreads.com/book/show/256730387-make-florida-your-home",
     universalLink: "https://books2read.com/u/bPYLzx",
     publisher: { type: "Organization", name: "Next Wave Mortgage, LLC" },
     features: [
@@ -267,13 +271,15 @@ export const books: Book[] = [
       "Written for the adult child of a reverse mortgage borrower. What the loan really is, who owns the house, what happens to the inheritance, what heirs must do when the loan comes due, and the five situations where Phil Ganz would not recommend one.",
     author: "Phil Ganz",
     datePublished: "2026-09-06",
-    pageUpdated: "2026-09-09",
+    pageUpdated: "2026-09-16",
     coverImage: coverPath("reverse-mortgage-inheritance-strategy-cover.webp"),
     ogImage: coverPath("reverse-mortgage-inheritance-strategy-cover.jpg"),
     coverAlt:
       "The Reverse Mortgage Inheritance Strategy book cover by Phil Ganz",
     isbn: "9798172370588",
     googleBooksUrl: "https://books.google.com/books?id=TcMJEgAAQBAJ",
+    goodreadsUrl:
+      "https://www.goodreads.com/book/show/258473703-the-reverse-mortgage-inheritance-strategy",
     universalLink: "https://books2read.com/u/mveJXX",
     publisher: { type: "Person", name: "Phil Ganz" },
     pages: 189,
@@ -286,9 +292,9 @@ export const books: Book[] = [
       {
         format: "Kindle eBook",
         schemaFormat: "https://schema.org/EBook",
-        url: "",
-        // Kindle edition is still in KDP review. Flip on with the ASIN once live.
-        available: false,
+        url: "https://www.amazon.com/dp/B0HJB9RBX6",
+        available: true,
+        asin: "B0HJB9RBX6",
       },
       {
         format: "Paperback",
@@ -317,7 +323,7 @@ export const books: Book[] = [
       {
         slug: "amazon",
         name: "Amazon",
-        url: "https://www.amazon.com/dp/B0HJ19LW2N",
+        url: "https://www.amazon.com/dp/B0HJB9RBX6",
         group: "buy",
         available: true,
       },
@@ -411,11 +417,12 @@ export const books: Book[] = [
       "One bank's no isn't the end of your house search. APPROVED puts 48 buyer questions into four parts: why you were told no, the FHA deal-savers, the hidden menu beyond FHA, and the playbook for your next conversation. Every question gets a 30-second answer up front, with the arithmetic shown.",
     author: "Phil Ganz",
     datePublished: "2026-09-12",
-    pageUpdated: "2026-09-15",
+    pageUpdated: "2026-09-16",
     coverImage: coverPath("approved-cover.jpg"),
     coverAlt:
       "APPROVED: The Mortgage Playbook Your Bank May Never Show You book cover by Phil Ganz",
     isbn: "9798173583147",
+    goodreadsUrl: "https://www.goodreads.com/book/show/258776097-approved",
     publisher: { type: "Person", name: "Phil Ganz" },
     badge: "New Release",
     pages: 389,

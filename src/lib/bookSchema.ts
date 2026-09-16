@@ -31,6 +31,7 @@ export const authorSchema = {
   image: `${siteConfig.url}/images/team/phil-ganz.webp`,
   sameAs: [
     "https://www.amazon.com/author/philganz",
+    "https://www.goodreads.com/philganz",
     "https://www.nmlsconsumeraccess.org/EntityDetails.aspx/individual/37833",
   ],
   identifier: {
@@ -59,6 +60,7 @@ export function buildBookSchema(book: Book, description: string) {
   const pageUrl = `${siteConfig.url}${bookHref(book)}`;
   const sameAs = [
     book.googleBooksUrl,
+    book.goodreadsUrl,
     ...liveRetailers(book).map((r) => r.url),
   ].filter(Boolean) as string[];
 
