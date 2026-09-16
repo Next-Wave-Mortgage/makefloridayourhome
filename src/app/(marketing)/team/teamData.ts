@@ -131,7 +131,10 @@ export const team: TeamMember[] = [
         ],
       },
     ],
-    sameAs: ["https://www.amazon.com/author/philganz"],
+    sameAs: [
+      "https://www.amazon.com/author/philganz",
+      "https://www.goodreads.com/philganz",
+    ],
   },
   {
     slug: "ryan-skerritt",
