@@ -122,3 +122,13 @@ export function getPostBySlug(slug: string): BlogPost | null {
 export function getAllSlugs(): string[] {
   return findMdxFiles(CONTENT_DIR);
 }
+
+/** Most recent posts credited to a given author name, for an author's team page. */
+export function getPostsByAuthor(
+  authorName: string,
+  limit: number,
+): BlogPostMeta[] {
+  return getAllPosts()
+    .filter((post) => post.author === authorName)
+    .slice(0, limit);
+}

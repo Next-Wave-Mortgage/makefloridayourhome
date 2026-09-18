@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { siteConfig } from "@/lib/site";
 import { team } from "../teamData";
 import { BookshelfCarousel } from "@/components/team/BookshelfCarousel";
+import { getPostsByAuthor } from "@/lib/blog";
 
 export function generateStaticParams() {
   return team.map((m) => ({ slug: m.slug }));
@@ -48,6 +49,7 @@ export default async function TeamMemberPage({
 
   const firstName = member.name.split(" ")[0];
   const personId = `${siteConfig.url}/team/${member.slug}#person`;
+  const recentPosts = getPostsByAuthor(member.name, 6);
 
   const personSchema = {
     "@context": "https://schema.org",
@@ -357,6 +359,48 @@ export default async function TeamMemberPage({
           </div>
         </div>
       </section>
+
+      {/* Latest articles — surfaces the writer's existing Learn guides, no new pages */}
+      {recentPosts.length > 0 && (
+        <section className="bg-green-tint py-7">
+          <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
+            <div className="mx-auto max-w-3xl">
+              <h2 className="text-[17px] font-bold text-dark-green">
+                Latest from {firstName}
+              </h2>
+              <ul className="mt-3 divide-y divide-border-gray/60 overflow-hidden rounded-xl border border-border-gray/60 bg-white">
+                {recentPosts.map((post) => (
+                  <li key={post.slug}>
+                    <Link
+                      href={`/learn/${post.slug}`}
+                      className="group flex items-center justify-between gap-4 px-5 py-3.5 transition-colors hover:bg-green-tint/60"
+                    >
+                      <span className="text-[14.5px] font-medium text-dark-green group-hover:text-brand-green">
+                        {post.title}
+                      </span>
+                      <span className="shrink-0 text-[12.5px] text-dark-green/45">
+                        {new Date(
+                          post.updatedDate || post.date,
+                        ).toLocaleDateString("en-US", {
+                          month: "short",
+                          day: "numeric",
+                          year: "numeric",
+                        })}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/learn"
+                className="mt-3 inline-block text-[13.5px] font-semibold text-brand-green underline decoration-brand-green/30 underline-offset-2 hover:decoration-brand-green"
+              >
+                See all articles →
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Bookshelf */}
       {member.books && member.books.length > 0 && (
