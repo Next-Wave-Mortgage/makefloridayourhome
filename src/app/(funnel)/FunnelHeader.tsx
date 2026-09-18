@@ -46,8 +46,8 @@ export function FunnelHeader() {
           <Image
             src="/images/logo.webp"
             alt="Make Florida Your Home"
-            width={180}
-            height={43}
+            width={833}
+            height={250}
             className="h-9 w-auto sm:h-11"
             priority
           />

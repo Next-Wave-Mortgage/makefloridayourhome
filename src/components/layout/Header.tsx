@@ -26,8 +26,8 @@ export function Header() {
           <Image
             src="/images/logo.webp"
             alt="Make Florida Your Home — Next Wave Mortgage"
-            width={200}
-            height={48}
+            width={833}
+            height={250}
             className="h-10 w-auto sm:h-12"
             priority
           />
