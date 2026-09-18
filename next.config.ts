@@ -87,6 +87,17 @@ const nextConfig: NextConfig = {
         destination: "/check-hometown-heroes-eligibility",
         statusCode: 301,
       },
+      // 2026-09-18: short URL for print/QR use on the physical APPROVED book
+      // (Phil's moat-list item #4 — "track the book traffic"). UTM tags let
+      // the existing GA4 + GHL attribution pipeline (src/lib/tracking.ts)
+      // carry "arrived via the physical book" all the way through to a lead
+      // form submission with no other code changes needed.
+      {
+        source: "/approved",
+        destination:
+          "/books/approved-mortgage-playbook?utm_source=book&utm_medium=qr&utm_campaign=approved",
+        statusCode: 301,
+      },
     ];
   },
   async headers() {
