@@ -61,6 +61,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    // Free companion toolkits (not one per book yet - add here as they ship).
+    {
+      url: `${baseUrl}/books/approved-mortgage-playbook/toolkit`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
     // Hub pages
     {
       url: `${baseUrl}/programs`,

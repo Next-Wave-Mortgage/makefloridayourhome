@@ -831,6 +831,31 @@ export default function ApprovedBookPage() {
       {/* Where to buy: every live retailer */}
       <RetailerGrid book={book} />
 
+      {/* Free toolkit */}
+      <section className="bg-[#f7f8f6] py-14 sm:py-16">
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
+          <div className="mx-auto max-w-2xl rounded-2xl border border-border-gray/60 bg-white p-8 text-center sm:p-10">
+            <p className="text-[13px] font-bold uppercase tracking-wide text-brand-green">
+              Free from the book
+            </p>
+            <h2 className="mt-2 text-[24px] font-bold text-dark-green sm:text-[28px]">
+              Try the APPROVED Checklist Before You Buy
+            </h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-dark-green/70 sm:text-[16px]">
+              The interactive version of Chapter 44&rsquo;s checklist, plus
+              the loan officer questions from Chapter 45 &mdash; free, no
+              purchase required.
+            </p>
+            <Link
+              href={`${bookHref(book)}/toolkit`}
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand-green px-7 py-3.5 text-[15px] font-bold text-white transition-all duration-300 hover:bg-brand-green/90"
+            >
+              Open the Free Checklist
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Also by */}
       <AlsoByPhilGanz currentSlug={book.slug} bg="white" />
 
