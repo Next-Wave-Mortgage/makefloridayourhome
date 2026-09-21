@@ -40,6 +40,12 @@ const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "md", "mdx"],
   async redirects() {
     return [
+      // Retire the empty program directory in favor of the loan options hub.
+      {
+        source: "/programs",
+        destination: "/home-loan",
+        statusCode: 301,
+      },
       // 2026-09-09: /book (single-title landing page) became the /books library.
       // The Make Florida Your Home page now lives at its own permanent URL.
       // statusCode 301 (not permanent:true, which emits a 308) per Phil's
