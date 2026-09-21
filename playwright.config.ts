@@ -1,13 +1,16 @@
 import { defineConfig } from "@playwright/test";
 
+// Match the local preview host so dev-server reloads do not interrupt clicks.
+const baseURL = "http://127.0.0.1:3000";
+
 export default defineConfig({
   testDir: "./tests",
   webServer: {
     command: "npm run dev",
-    port: 3000,
+    url: baseURL,
     reuseExistingServer: !process.env.CI,
   },
   use: {
-    baseURL: "http://localhost:3000",
+    baseURL,
   },
 });
