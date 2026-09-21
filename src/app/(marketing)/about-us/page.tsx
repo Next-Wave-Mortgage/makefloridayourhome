@@ -144,7 +144,7 @@ export default function AboutUsPage() {
             <p className="mt-3 text-[15px] leading-relaxed text-dark-green/60 sm:text-[16px]">
               Our team specializes in Florida&apos;s{" "}
               <Link
-                href="/first-time-home-buyer"
+                href="/learn/first-time-homebuyer/grants-and-programs"
                 className="font-semibold text-brand-green underline underline-offset-2 hover:text-dark-green transition-colors"
               >
                 first-time homebuyer

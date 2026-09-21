@@ -226,7 +226,7 @@ const relatedResources = [
     title: "First-Time Home Buyer Guide",
     description:
       "The Florida-specific companion to Part I: programs, timelines, and first steps.",
-    href: "/first-time-home-buyer",
+    href: "/learn/first-time-homebuyer/grants-and-programs",
   },
   {
     title: "FHA Loans in Florida",

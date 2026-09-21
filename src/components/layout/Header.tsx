@@ -6,7 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { href: "/first-time-home-buyer", label: "First-Time Homebuyer" },
+  { href: "/learn/first-time-homebuyer/grants-and-programs", label: "First-Time Homebuyer" },
   { href: "/down-payment-assistance", label: "Down Payment Assistance" },
   { href: "/hometown-heroes", label: "Hometown Heroes" },
   { href: "/mortgage-rates", label: "Rates" },

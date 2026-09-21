@@ -953,7 +953,7 @@ export function MortgageRatesDashboard({
                 </Link>
                 ,{" "}
                 <Link
-                  href="/first-time-home-buyer"
+                  href="/learn/first-time-homebuyer/grants-and-programs"
                   className="font-bold text-brand-green underline underline-offset-2 hover:text-dark-green"
                 >
                   first-time homebuyer programs

@@ -6,7 +6,7 @@ const programs = [
     title: "First-Time Homebuyer Guide",
     description:
       "Everything you need to know before buying your first home in Florida.",
-    href: "/first-time-home-buyer",
+    href: "/learn/first-time-homebuyer/grants-and-programs",
     image: "/images/programs/first-time-homebuyer.webp",
     imagePosition: "center",
     tag: "Getting Started",

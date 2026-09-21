@@ -12,7 +12,7 @@ const features: {
     title: "First-Time Homebuyer Programs",
     description:
       "Grants, loans, and assistance designed for new Florida buyers",
-    href: "/first-time-home-buyer",
+    href: "/learn/first-time-homebuyer/grants-and-programs",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"

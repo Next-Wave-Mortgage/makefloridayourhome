@@ -165,7 +165,7 @@ export function DpaCalculatorSeoSections({
               than ask for your county. Many programs depend on whether you are
               a{" "}
               <Link
-                href="/first-time-home-buyer"
+                href="/learn/first-time-homebuyer/grants-and-programs"
                 className="font-bold text-brand-green underline decoration-brand-green/25 underline-offset-4 hover:text-dark-green"
               >
                 first-time home buyer

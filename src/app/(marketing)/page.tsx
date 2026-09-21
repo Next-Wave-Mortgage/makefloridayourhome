@@ -172,7 +172,7 @@ const siteNavSchema = {
       "@type": "SiteNavigationElement",
       position: 1,
       name: "First-Time Homebuyer Programs",
-      url: `${siteConfig.url}/first-time-home-buyer`,
+      url: `${siteConfig.url}/learn/first-time-homebuyer/grants-and-programs`,
     },
     {
       "@type": "SiteNavigationElement",
