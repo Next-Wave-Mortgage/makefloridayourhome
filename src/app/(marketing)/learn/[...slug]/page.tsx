@@ -38,11 +38,14 @@ function formatArticleDate(date: string) {
   });
 }
 
-function getArticleLeadFunnel(post: {
-  title: string;
-  description: string;
-  tags?: string[];
-}, slug: string) {
+function getArticleLeadFunnel(
+  post: {
+    title: string;
+    description: string;
+    tags?: string[];
+  },
+  slug: string,
+) {
   const titleSlug = `${slug} ${post.title} ${post.description}`.toLowerCase();
   const tags = (post.tags || []).map((tag) => tag.toLowerCase());
   const taggedAs = (value: string) => tags.some((tag) => tag.includes(value));
@@ -276,6 +279,8 @@ export default async function BlogPostPage({
   const wordCount = post.content.trim().split(/\s+/).length;
   const isCheapestPlacesPage =
     slugStr === "cheapest-places-to-buy-house-in-florida";
+  const isHometownHeroesFundingPage =
+    slugStr === "florida-hometown-heroes-funding";
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -613,11 +618,17 @@ export default async function BlogPostPage({
           faqs={post.faqs}
           heading={
             <>
-              Florida Housing{" "}
+              {isHometownHeroesFundingPage
+                ? "Hometown Heroes Funding"
+                : "Florida Housing"}{" "}
               <span className="text-brand-green">Questions</span>
             </>
           }
-          description="Quick answers about income limits, purchase price caps, loan limits, and which Florida Housing table applies."
+          description={
+            isHometownHeroesFundingPage
+              ? "What to know about available funds, reserving assistance, and planning your home purchase."
+              : "Quick answers about income limits, purchase price caps, loan limits, and which Florida Housing table applies."
+          }
           bg="white"
         />
       )}

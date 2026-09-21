@@ -1,9 +1,8 @@
 import Link from "next/link";
 
 /**
- * Urgency banner for the 2026 Hometown Heroes relaunch (July 13, 2026,
- * $50M). Rendered between the nav and the hero on every Hometown Heroes
- * page. Remove or update once the funding cycle ends.
+ * Shared Hometown Heroes eligibility prompt. Keep funding balances and
+ * dated announcements in the funding article so this copy does not expire.
  */
 export function HthUrgencyBanner() {
   return (
@@ -17,14 +16,13 @@ export function HthUrgencyBanner() {
           <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-review-gold" />
         </span>
         <span>
-          The 2026 Hometown Heroes Program launches{" "}
           <strong className="font-black text-review-gold">
-            Monday, July 13 at 10:00 AM
+            Planning to use Hometown Heroes?
           </strong>{" "}
-          with $50 million in funding — first come, first served.
+          Check your eligibility and confirm current funding with your lender.
         </span>
         <span className="font-bold underline decoration-white/40 underline-offset-4 transition group-hover:decoration-white">
-          Get ready now →
+          Check eligibility →
         </span>
       </p>
     </Link>
