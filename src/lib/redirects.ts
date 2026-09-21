@@ -220,7 +220,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/ultimate-first-time-home-buyer-checklist",
-    destination: "/first-time-home-buyer",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -2016,7 +2016,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/is-july-2023-a-good-time-to-buy-a-house-in-florida",
-    destination: "/first-time-home-buyer",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -6850,13 +6850,13 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/first-time-homebuyer",
-    destination: "/first-time-home-buyer",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/blog/first-time-home-buyer-loans-what-are-the-steps-to-buying-a-house",
-    destination: "/first-time-home-buyer",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -7494,7 +7494,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/florida-first-time-homebuyer-eligibility-guide",
-    destination: "/first-time-home-buyer",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -7565,7 +7565,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/ultimate-guide-for-first-time-home-buyers-in-florida",
-    destination: "/first-time-home-buyer",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -7610,7 +7610,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/is-now-a-good-time-to-buy-a-house-in-florida",
-    destination: "/first-time-home-buyer",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -8438,13 +8438,13 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/blog/the-importance-of-home-inspections",
-    destination: "/first-time-home-buyer",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/florida/blog/closing-on-a-florida-mortgage-learn-about-the-timeline-and-more",
-    destination: "/first-time-home-buyer",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -8975,7 +8975,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/blog/the-biggest-mistakes-first-time-homebuyers-make-in-florida-save-thousands",
-    destination: "/first-time-home-buyer",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -9048,7 +9048,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/blog/mistakes-to-avoid-in-the-home-loan-process",
-    destination: "/first-time-home-buyer",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -9090,7 +9090,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/blog/why-financial-literacy-is-important-in-the-homebuying-process",
-    destination: "/first-time-home-buyer",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -9207,7 +9207,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/research/good-time-to-buy-house-in-florida",
-    destination: "/first-time-home-buyer",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -9217,7 +9217,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/blog/can-first-time-home-buyer-buy-land",
-    destination: "/first-time-home-buyer",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -9654,7 +9654,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/down-payment-assistance/first-time-homebuyer/process-guide",
-    destination: "/first-time-home-buyer",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -9837,7 +9837,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/down-payment-assistance/first-time-homebuyer/qualifications-guide",
-    destination: "/first-time-home-buyer",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
