@@ -53,6 +53,13 @@ const nextConfig: NextConfig = {
         destination: "/learn/first-time-homebuyer/grants-and-programs",
         statusCode: 301,
       },
+      // The bare parent segment has no page of its own; send URL
+      // truncations to the guide instead of a 404.
+      {
+        source: "/learn/first-time-homebuyer",
+        destination: "/learn/first-time-homebuyer/grants-and-programs",
+        statusCode: 301,
+      },
       // 2026-09-09: /book (single-title landing page) became the /books library.
       // The Make Florida Your Home page now lives at its own permanent URL.
       // statusCode 301 (not permanent:true, which emits a 308) per Phil's
