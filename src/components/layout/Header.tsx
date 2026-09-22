@@ -10,13 +10,45 @@ const navLinks = [
   { href: "/down-payment-assistance", label: "Down Payment Assistance" },
   { href: "/hometown-heroes", label: "Hometown Heroes" },
   { href: "/mortgage-rates", label: "Rates" },
-  { href: "/home-loan/fha-loan", label: "FHA Loan" },
-  { href: "/home-loan", label: "Loan Options" },
+];
+
+const loanOptions = [
+  {
+    href: "/home-loan/fha-loan",
+    label: "FHA Loan",
+    blurb: "3.5% down, 580+ credit — the first-time buyer favorite",
+  },
+  {
+    href: "/home-loan/dscr-loan",
+    label: "DSCR Loan",
+    blurb: "For investors — qualify on rental income, no tax returns",
+  },
+  {
+    href: "/learn/conventional-mortgages-in-florida",
+    label: "Conventional Loan",
+    blurb: "As little as 3% down with removable mortgage insurance",
+  },
+  {
+    href: "/learn/usda-loans-florida",
+    label: "USDA Loan",
+    blurb: "0% down in eligible rural and suburban areas",
+  },
+  {
+    href: "/learn/florida-manufactured-home-loan-program",
+    label: "Manufactured Home Loan",
+    blurb: "Finance a manufactured or mobile home with land",
+  },
+  {
+    href: "/learn/how-does-heloc-work-in-florida",
+    label: "HELOC",
+    blurb: "Tap your home equity without refinancing",
+  },
 ];
 
 export function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileLoansOpen, setMobileLoansOpen] = useState(false);
 
   return (
     <header className="bg-white shadow-[0_1px_3px_rgba(0,0,0,0.06)]">
@@ -67,6 +99,58 @@ export function Header() {
               </li>
             );
           })}
+
+          {/* Loan Options dropdown */}
+          <li className="group relative">
+            <Link
+              href="/home-loan"
+              className={`relative flex items-center gap-1 whitespace-nowrap py-1 transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-brand-green after:transition-all after:duration-300 ${
+                pathname === "/home-loan" || pathname.startsWith("/home-loan/")
+                  ? "text-brand-green after:w-full"
+                  : "hover:text-brand-green after:w-0 hover:after:w-full"
+              }`}
+            >
+              Loan Options
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="transition-transform duration-200 group-hover:rotate-180"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </Link>
+            <div className="invisible absolute left-1/2 top-full z-50 w-[380px] -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+              <div className="overflow-hidden rounded-2xl border border-border-gray/60 bg-white p-2 shadow-[0_12px_40px_rgba(0,0,0,0.12)]">
+                {loanOptions.map((option) => (
+                  <Link
+                    key={option.href}
+                    href={option.href}
+                    className="block rounded-xl px-4 py-3 transition-colors hover:bg-green-tint"
+                  >
+                    <span className="block text-[15px] font-bold text-dark-green">
+                      {option.label}
+                    </span>
+                    <span className="mt-0.5 block text-[13px] font-normal leading-snug text-dark-green/60">
+                      {option.blurb}
+                    </span>
+                  </Link>
+                ))}
+                <Link
+                  href="/home-loan"
+                  className="mt-1 block rounded-xl border-t border-border-gray/60 px-4 py-3 text-[14px] font-bold text-brand-green transition-colors hover:bg-green-tint"
+                >
+                  View all loan options →
+                </Link>
+              </div>
+            </div>
+          </li>
         </ul>
 
         {/* Right side */}
@@ -124,7 +208,7 @@ export function Header() {
       {/* Mobile menu */}
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out xl:hidden ${
-          mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          mobileOpen ? "max-h-[900px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="border-t border-border-gray px-5 pb-6 pt-4 sm:px-8">
@@ -163,6 +247,70 @@ export function Header() {
                 </li>
               );
             })}
+
+            {/* Loan Options — expandable section */}
+            <li>
+              <button
+                type="button"
+                onClick={() => setMobileLoansOpen(!mobileLoansOpen)}
+                className={`flex w-full items-center justify-between rounded-lg px-4 py-3 text-[15px] font-bold transition-colors ${
+                  pathname.startsWith("/home-loan")
+                    ? "bg-green-tint text-brand-green"
+                    : "text-dark-green hover:bg-green-tint"
+                }`}
+              >
+                Loan Options
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={`transition-transform duration-200 ${
+                    mobileLoansOpen ? "rotate-180" : ""
+                  }`}
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  mobileLoansOpen ? "max-h-[500px]" : "max-h-0"
+                }`}
+              >
+                <ul className="space-y-1 pb-1 pl-3 pt-1">
+                  {loanOptions.map((option) => (
+                    <li key={option.href}>
+                      <Link
+                        href={option.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="block rounded-lg px-4 py-2.5 transition-colors hover:bg-green-tint"
+                      >
+                        <span className="block text-[14px] font-bold text-dark-green">
+                          {option.label}
+                        </span>
+                        <span className="block text-[12px] leading-snug text-dark-green/60">
+                          {option.blurb}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                  <li>
+                    <Link
+                      href="/home-loan"
+                      onClick={() => setMobileOpen(false)}
+                      className="block rounded-lg px-4 py-2.5 text-[14px] font-bold text-brand-green transition-colors hover:bg-green-tint"
+                    >
+                      View all loan options →
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </li>
           </ul>
 
           {/* Mobile CTA — only shows on tiny screens where header CTA is hidden */}

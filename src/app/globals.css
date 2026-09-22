@@ -539,3 +539,23 @@ button:hover .book-3d {
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 }
+
+/* DSCR calculator score glow */
+@keyframes dscr-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 12px var(--glow-color, #2fbe8f);
+  }
+  50% {
+    text-shadow: 0 0 28px var(--glow-color, #2fbe8f);
+  }
+}
+.dscr-glow {
+  animation: dscr-glow 3.2s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .dscr-glow {
+    animation: none;
+    text-shadow: 0 0 16px var(--glow-color, #2fbe8f);
+  }
+}
