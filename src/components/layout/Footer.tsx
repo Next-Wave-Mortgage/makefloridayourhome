@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { siteConfig } from "@/lib/site";
 
 const navColumns = [
@@ -22,6 +21,10 @@ const navColumns = [
   {
     heading: "Company",
     links: [
+      {
+        href: "/fort-lauderdale-mortgage-broker",
+        label: "Fort Lauderdale Mortgage Broker",
+      },
       { href: "/team", label: "Our Team" },
       { href: "/about-us", label: "About Us" },
       { href: "/contact-us", label: "Contact Us" },
@@ -51,19 +54,19 @@ export function Footer() {
         <div className="grid items-start gap-10 md:grid-cols-2 md:gap-12 xl:grid-cols-[280px_1px_1fr_1px_320px]">
           {/* Left — identity & contact */}
           <div>
-            {/* BBB badge */}
+            {/* BBB rating — Next Wave is A+ rated but not BBB Accredited, so no seal */}
             <a
               href={siteConfig.links.bbb}
               target="_blank"
               rel="noopener noreferrer"
-              className="mb-8 inline-block transition-opacity hover:opacity-80"
+              className="mb-8 inline-flex items-center gap-2 rounded-lg border border-white/20 px-3 py-2 transition-opacity hover:opacity-80"
             >
-              <Image
-                src="/images/bbb-accredited-business.webp"
-                alt="BBB Accredited Business"
-                width={130}
-                height={50}
-              />
+              <span className="text-[20px] font-bold leading-none">A+</span>
+              <span className="text-[12px] leading-tight text-white/70">
+                Rated by the
+                <br />
+                Better Business Bureau
+              </span>
             </a>
 
             {/* Company & NMLS */}

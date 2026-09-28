@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Script from "next/script";
+import { JsonLd } from "@/components/shared/JsonLd";
 import { PageCTA } from "@/components/shared/PageCTA";
 import { PageFAQ } from "@/components/shared/PageFAQ";
 import { ToolHero } from "@/components/shared/ToolHero";
@@ -154,21 +154,9 @@ export default function FloridaDpaCalculatorPage() {
 
   return (
     <>
-      <Script
-        id="florida-dpa-calculator-faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <Script
-        id="florida-dpa-calculator-breadcrumb-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <Script
-        id="florida-dpa-calculator-web-application-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(calculatorSchema) }}
-      />
+      <JsonLd id="florida-dpa-calculator-faq-schema" data={faqSchema} />
+      <JsonLd id="florida-dpa-calculator-breadcrumb-schema" data={breadcrumbSchema} />
+      <JsonLd id="florida-dpa-calculator-web-application-schema" data={calculatorSchema} />
 
       <ToolHero
         title="Florida Down Payment Assistance Calculator"

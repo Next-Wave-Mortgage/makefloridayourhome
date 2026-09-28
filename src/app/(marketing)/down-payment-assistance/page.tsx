@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Script from "next/script";
+import { JsonLd } from "@/components/shared/JsonLd";
 import Link from "next/link";
 import Image from "next/image";
 import { PageHero } from "@/components/shared/PageHero";
@@ -241,16 +241,8 @@ const breadcrumbSchema = {
 export default function DownPaymentAssistancePage() {
   return (
     <>
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <Script
-        id="breadcrumb-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
+      <JsonLd id="faq-schema" data={faqSchema} />
+      <JsonLd id="breadcrumb-schema" data={breadcrumbSchema} />
 
       {/* Hero */}
       <PageHero

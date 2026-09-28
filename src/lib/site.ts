@@ -15,7 +15,7 @@ export const siteConfig = {
   contact: {
     phone: "617-529-9317",
     email: "hello@makefloridayourhome.com",
-    address: "2430 E Commercial BLVD #3, Fort Lauderdale, FL 33308",
+    address: "2430 E Commercial Blvd #3, Fort Lauderdale, FL 33308",
     nmls: "2536820",
   },
 } as const;

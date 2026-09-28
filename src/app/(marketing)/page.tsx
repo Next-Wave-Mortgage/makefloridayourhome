@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Script from "next/script";
+import { JsonLd } from "@/components/shared/JsonLd";
+import { organizationId, organizationSchema } from "@/lib/entity";
 import { siteConfig } from "@/lib/site";
 import { Hero } from "@/components/sections/Hero";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -52,69 +53,12 @@ export const metadata: Metadata = {
   },
 };
 
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "MortgageBroker",
-  "@id": `${siteConfig.url}/#organization`,
-  name: siteConfig.company,
-  alternateName: siteConfig.name,
-  url: siteConfig.url,
-  logo: `${siteConfig.url}/images/logo.webp`,
-  image: `${siteConfig.url}/opengraph-image`,
-  telephone: siteConfig.contact.phone,
-  email: siteConfig.contact.email,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "2430 E Commercial BLVD #3",
-    addressLocality: "Fort Lauderdale",
-    addressRegion: "FL",
-    postalCode: "33308",
-    addressCountry: "US",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 26.1884,
-    longitude: -80.1101,
-  },
-  areaServed: {
-    "@type": "State",
-    name: "Florida",
-  },
-  priceRange: "$$",
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "09:00",
-    closes: "18:00",
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    bestRating: "5",
-    ratingCount: "239",
-    reviewCount: "239",
-  },
-  sameAs: [siteConfig.links.bbb],
-  hasCredential: {
-    "@type": "EducationalOccupationalCredential",
-    credentialCategory: "NMLS",
-    recognizedBy: {
-      "@type": "Organization",
-      name: "Nationwide Multistate Licensing System",
-    },
-    identifier: siteConfig.contact.nmls,
-  },
-};
-
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: siteConfig.name,
   url: siteConfig.url,
-  publisher: {
-    "@type": "MortgageBroker",
-    name: siteConfig.company,
-  },
+  publisher: { "@id": organizationId },
 };
 
 const faqSchema = {
@@ -234,34 +178,10 @@ const siteNavSchema = {
 export default function HomePage() {
   return (
     <>
-      <Script
-        id="org-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(organizationSchema),
-        }}
-      />
-      <Script
-        id="website-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(websiteSchema),
-        }}
-      />
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema),
-        }}
-      />
-      <Script
-        id="sitenav-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(siteNavSchema),
-        }}
-      />
+      <JsonLd id="org-schema" data={organizationSchema} />
+      <JsonLd id="website-schema" data={websiteSchema} />
+      <JsonLd id="faq-schema" data={faqSchema} />
+      <JsonLd id="sitenav-schema" data={siteNavSchema} />
       <Hero />
       <Testimonials />
       <DPAMapPromo />

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import Script from "next/script";
+import { JsonLd } from "@/components/shared/JsonLd";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { siteConfig } from "@/lib/site";
+import { officeAddress, organizationId } from "@/lib/entity";
 import { team } from "../teamData";
 import { BookshelfCarousel } from "@/components/team/BookshelfCarousel";
 import { getPostsByAuthor } from "@/lib/blog";
@@ -20,18 +21,19 @@ export async function generateMetadata({
   const { slug } = await params;
   const member = team.find((m) => m.slug === slug);
   if (!member) return {};
-  const title = member.books?.length
+  const title = member.seoTitle ?? (member.books?.length
     ? `${member.name} — ${member.role}, Next Wave Mortgage & Author of ${member.books[0].title}`
-    : `${member.name} | ${member.role}`;
+    : `${member.name} | ${member.role}`);
+  const description = member.metaDescription ?? member.bio[0];
   return {
     title,
-    description: member.bio[0],
+    description,
     alternates: {
       canonical: `/team/${member.slug}`,
     },
     openGraph: {
       title,
-      description: member.bio[0],
+      description,
       url: `https://www.makefloridayourhome.com/team/${member.slug}`,
       type: "profile",
     },
@@ -57,10 +59,16 @@ export default async function TeamMemberPage({
     "@id": personId,
     name: member.name,
     jobTitle: `${member.role}, ${siteConfig.company}`,
+    description: member.metaDescription ?? member.bio[0],
     worksFor: {
-      "@type": "Organization",
-      "@id": `${siteConfig.url}/#organization`,
+      "@type": "MortgageBroker",
+      "@id": organizationId,
       name: siteConfig.company,
+    },
+    workLocation: {
+      "@type": "Place",
+      name: `${siteConfig.company} — Fort Lauderdale office`,
+      address: officeAddress,
     },
     url: `${siteConfig.url}/team/${member.slug}`,
     image: `${siteConfig.url}${member.photo}`,
@@ -79,7 +87,14 @@ export default async function TeamMemberPage({
       "Florida mortgages",
       "Down payment assistance",
       "First-time home buyers",
+      ...(member.knowsAbout ?? []),
     ],
+    ...(member.localPage && {
+      subjectOf: {
+        "@type": "WebPage",
+        url: `${siteConfig.url}${member.localPage.href}`,
+      },
+    }),
   };
 
   const bookSchemas = (member.books ?? []).map((book) => ({
@@ -119,24 +134,12 @@ export default async function TeamMemberPage({
 
   return (
     <>
-      <Script
-        id="person-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-      />
+      <JsonLd id="person-schema" data={personSchema} />
       {bookSchemas.map((schema, i) => (
-        <Script
-          key={String(schema["@id"])}
-          id={`person-book-schema-${i}`}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
+        <JsonLd key={String(schema["@id"])}
+          id={`person-book-schema-${i}`} data={schema} />
       ))}
-      <Script
-        id="breadcrumb-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
+      <JsonLd id="breadcrumb-schema" data={breadcrumbSchema} />
 
       {/* Hero: photo + name + rating + contact in one block */}
       <section className="relative overflow-hidden bg-green-tint py-6 sm:py-7">
@@ -162,7 +165,9 @@ export default async function TeamMemberPage({
                 </span>
               </h1>
               <p className="mt-1.5 text-[15px] text-dark-green/60 sm:text-[16px]">
-                {member.role}, {siteConfig.company} · NMLS #{member.nmls} ·{" "}
+                {member.role}, {siteConfig.company} ·{" "}
+                {member.headline && <>{member.headline} · </>}NMLS #
+                {member.nmls} ·{" "}
                 <a
                   href={`https://www.nmlsconsumeraccess.org/EntityDetails.aspx/individual/${member.nmls}`}
                   target="_blank"
@@ -268,6 +273,20 @@ export default async function TeamMemberPage({
               {member.bio.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
+              <p>
+                {member.closingNote}
+                {member.localPage && (
+                  <>
+                    {" "}
+                    <Link
+                      href={member.localPage.href}
+                      className="font-semibold text-brand-green underline decoration-brand-green/30 underline-offset-2 hover:decoration-brand-green"
+                    >
+                      {member.localPage.label} →
+                    </Link>
+                  </>
+                )}
+              </p>
             </div>
 
             <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

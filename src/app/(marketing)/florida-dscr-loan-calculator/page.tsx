@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Script from "next/script";
+import { JsonLd } from "@/components/shared/JsonLd";
 import Link from "next/link";
 import { DscrCalculator } from "./DscrCalculator";
 import { PageFAQ } from "@/components/shared/PageFAQ";
@@ -94,16 +94,8 @@ const webAppSchema = {
 export default function FloridaDscrCalculatorPage() {
   return (
     <>
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <Script
-        id="webapp-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
-      />
+      <JsonLd id="faq-schema" data={faqSchema} />
+      <JsonLd id="webapp-schema" data={webAppSchema} />
 
       {/* Hero + calculator */}
       <section className="relative bg-brand-green pb-8 pt-12 sm:pt-14">

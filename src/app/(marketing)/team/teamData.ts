@@ -32,6 +32,16 @@ export interface TeamMember {
   books?: TeamMemberBook[];
   /** External profiles for Person schema sameAs (NMLS is added automatically) */
   sameAs?: string[];
+  /** Short positioning line shown beside the role, e.g. "Fort Lauderdale Mortgage Broker" */
+  headline?: string;
+  /** Overrides the default <title> */
+  seoTitle?: string;
+  /** Overrides the default meta description (bio[0]) */
+  metaDescription?: string;
+  /** Local landing page this person anchors, linked from the bio */
+  localPage?: { href: string; label: string };
+  /** Extra topics for Person schema knowsAbout */
+  knowsAbout?: string[];
 }
 
 export const team: TeamMember[] = [
@@ -44,9 +54,27 @@ export const team: TeamMember[] = [
     phone: "617-529-9317",
     email: "phil@nextwavemortgage.com",
     googleRating: "4.9",
-    googleReviews: "113+",
+    googleReviews: "119",
+    headline: "Fort Lauderdale Mortgage Broker",
+    seoTitle:
+      "Phil Ganz — President, Next Wave Mortgage | Fort Lauderdale Mortgage Broker | NMLS #37833",
+    metaDescription:
+      "Phil Ganz (NMLS #37833) is a Fort Lauderdale mortgage broker and President of Next Wave Mortgage (company NMLS #2536820), with 26+ years helping Florida buyers and homeowners.",
+    localPage: {
+      href: "/fort-lauderdale-mortgage-broker",
+      label: "Working with Phil as your Fort Lauderdale mortgage broker",
+    },
+    knowsAbout: [
+      "Mortgage brokerage",
+      "Fort Lauderdale real estate financing",
+      "Broward County down payment assistance",
+      "Jumbo loans",
+      "Self-employed and bank statement loans",
+      "DSCR investor loans",
+      "Reverse mortgages",
+    ],
     bio: [
-      'Phil Ganz is a Senior Mortgage Consultant and President at Next Wave Mortgage (NMLS #2536820), where he leads a people-first team built around fast turn times, transparent guidance, and highly personalized service. In 26+ years he has helped thousands of families move from "maybe someday" to keys-in-hand.',
+      'Phil Ganz (NMLS #37833) is a Fort Lauderdale mortgage broker, Senior Mortgage Consultant, and President of Next Wave Mortgage (company NMLS #2536820), where he leads a people-first team built around fast turn times, transparent guidance, and highly personalized service. In 26+ years he has helped thousands of families move from "maybe someday" to keys-in-hand.',
       "Based in Fort Lauderdale, Phil specializes in Florida financing that takes structure and strategy — jumbo loans in South Florida, self-employed income, buyers using down payment assistance. Clients work with him because he makes the process understandable, organized, and calm, while still moving fast when the deal needs speed.",
     ],
     loanOptions: [
@@ -135,6 +163,9 @@ export const team: TeamMember[] = [
       "https://www.amazon.com/author/philganz",
       "https://www.goodreads.com/philganz",
       "https://openlibrary.org/authors/OL16593148A",
+      "https://www.linkedin.com/in/askthemortgageexpert/",
+      "https://www.nextwavemortgage.com/our-team/phil-ganz",
+      "https://www.zillow.com/lender-profile/makefloridayourhome/",
     ],
   },
   {
