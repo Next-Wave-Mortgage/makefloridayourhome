@@ -9,7 +9,8 @@ import { TrackPageView } from "@/components/TrackPageView";
 const GA4_ID = (process.env.GA4_ID || "G-E7KYFVSJLG").trim();
 // NextWave's shared cross-site property. MFYH reports to both so its own
 // history continues while leads also roll up with every other site. The shared
-// property omits query strings and full referrers, matching the other sites.
+// property keeps only campaign tags from URLs and origin-only referrers,
+// matching the other sites.
 const SHARED_GA4_ID = "G-FN23QPRS19";
 
 export const metadata: Metadata = {
@@ -66,7 +67,7 @@ export default function RootLayout({
         <Script id="ga4-init" strategy="afterInteractive">
           {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());${
             GA4_ID ? `gtag('config','${GA4_ID}');` : ""
-          }gtag('config','${SHARED_GA4_ID}',{page_location:location.origin+location.pathname,page_referrer:document.referrer?new URL(document.referrer).origin:'',allow_google_signals:false,allow_ad_personalization_signals:false});`}
+          }gtag('config','${SHARED_GA4_ID}',{page_location:(function(u,q){['utm_source','utm_medium','utm_campaign','utm_content','utm_term','utm_id','gclid','gbraid','wbraid'].forEach(function(k){if(u.searchParams.get(k))q.set(k,u.searchParams.get(k))});q=q.toString();return u.origin+u.pathname+(q?'?'+q:'')})(new URL(location.href),new URLSearchParams()),page_referrer:document.referrer?new URL(document.referrer).origin:'',allow_google_signals:false,allow_ad_personalization_signals:false});`}
         </Script>
         <TrackPageView ga4Id={GA4_ID} sharedGa4Id={SHARED_GA4_ID} />
         <Analytics />
