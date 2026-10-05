@@ -6,6 +6,31 @@ import type { Redirect } from "next/dist/lib/load-custom-routes";
 const redirects: Redirect[] = [
   // Backlinked legacy URLs that previously fell through to the /blog catch-all
   {
+    source: "/blog",
+    destination: "/learn",
+    permanent: true,
+  },
+  {
+    source: "/blog/how-to-officially-become-a-florida-resident",
+    destination: "/learn/requirements-to-buy-a-house-in-florida",
+    permanent: true,
+  },
+  {
+    source: "/blog/what-it-takes-to-claim-florida-residency-as-a-college-student",
+    destination: "/learn/requirements-to-buy-a-house-in-florida",
+    permanent: true,
+  },
+  {
+    source: "/blog/buying-a-duplex-as-a-first-home",
+    destination: "/home-loan/fha-loan",
+    permanent: true,
+  },
+  {
+    source: "/blog/florida-hurricane-season-the-least-and-most-impacted-areas",
+    destination: "/learn/cheapest-places-to-buy-house-in-florida",
+    permanent: true,
+  },
+  {
     source: "/blog/all-you-need-to-know-about-buying-a-condominium-in-florida",
     destination: "/home-loan/condo-loan",
     permanent: true,
@@ -446,7 +471,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/home-loans-for-people-with-disabilities-learn-about-your-options",
-    destination: "/down-payment-assistance",
+    destination: "/learn/florida-housing-grants-for-disabled",
     permanent: true,
   },
   {
@@ -734,13 +759,13 @@ const redirects: Redirect[] = [
   { source: "/blog/tag/hudson", destination: "/learn", permanent: true },
   {
     source: "/blog/gainsville-florida-real-estate-and-fha-homes-for-sale-",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   { source: "/blog/tag/gainsville", destination: "/learn", permanent: true },
   {
     source: "/blog/gainsville-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
@@ -1228,7 +1253,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/is-buying-a-duplex-as-a-first-home-in-florida-a-good-idea-",
-    destination: "/learn",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
@@ -1586,13 +1611,13 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/183-day-rule-for-state-residency-in-florida-what-you-need-to-know",
-    destination: "/learn",
+    destination: "/learn/requirements-to-buy-a-house-in-florida",
     permanent: true,
   },
   {
     source:
       "/blog/how-long-does-it-take-to-establish-residency-in-the-state-of-florida-",
-    destination: "/learn",
+    destination: "/learn/requirements-to-buy-a-house-in-florida",
     permanent: true,
   },
   {
@@ -1747,7 +1772,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/court-decision-florida-domicile-vs-residency",
-    destination: "/learn",
+    destination: "/learn/requirements-to-buy-a-house-in-florida",
     permanent: true,
   },
   {
@@ -1758,12 +1783,12 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/florida-tax-law-a-quick-guide-to-residency-requirements-for-tax-purposes",
-    destination: "/learn",
+    destination: "/learn/requirements-to-buy-a-house-in-florida",
     permanent: true,
   },
   {
     source: "/blog/florida-residents-is-it-possible-to-live-in-two-states-",
-    destination: "/learn",
+    destination: "/learn/requirements-to-buy-a-house-in-florida",
     permanent: true,
   },
   {
@@ -1821,7 +1846,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/november-2021-property-tax-101",
-    destination: "/learn",
+    destination: "/learn/florida-property-tax-exemptions-for-seniors",
     permanent: true,
   },
   {
@@ -1988,7 +2013,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/florida-housing-finance-corporations-first-mortgage-program-options-fha-va-usda-rd-loans-at-a-glance",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
@@ -2245,7 +2270,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/did-you-know-that-the-usda-offers-mortgages-with-a-zero-down-payment-in-florida",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
@@ -3071,107 +3096,107 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/the-villages-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/plantation-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/palm-harbor-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/palm-beach-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/land-o-lakes-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/clearwater-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/homestead-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/lakeland-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/parkland-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/port-richey-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/saint-cloud-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/valrico-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/wesley-chapel-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/haines-city-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/miami-gardens-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/poinciana-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/sun-city-center-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/tamarac-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/venice-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/weston-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/winter-park-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
@@ -3434,300 +3459,300 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/winter-haven-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/wellington-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/sunrise-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/spring-hill-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/ruskin-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/port-charlotte-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/new-port-richey-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/lutz-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/key-biscayne-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/hialeah-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/fort-pierce-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/deerfield-beach-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/coral-gables-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/brooksville-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/apollo-beach-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/apopka-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/coral-springs-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/deland-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/gainesville-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/largo-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/margate-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/north-miami-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source:
       "/blog/palm-beach-gardens-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/plant-city-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/summerfield-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/stuart-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/winter-garden-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/auburndale-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/clermont-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/dade-city-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/doral-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/hudson-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/lakewood-ranch-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/lauderhill-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source:
       "/blog/north-miami-beach-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/palm-coast-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/parrish-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/punta-gorda-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/sanford-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/coconut-creek-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/davie-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/hallandale-beach-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/jupiter-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/leesburg-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/palmetto-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/pembroke-pines-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/pompano-beach-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/riverview-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/san-juan-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source:
       "/blog/sunny-isles-beach-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/tarpon-springs-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/vero-beach-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/brandon-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/dunnellon-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/lake-worth-beach-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/miramar-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/north-port-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/wimauma-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
     source: "/blog/zephyrhills-florida-real-estate-and-fha-homes-for-sale",
-    destination: "/",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
@@ -3955,103 +3980,103 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/usda-loans-in-brevard-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-desoto-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-lafayette-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-levy-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-osceola-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-polk-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-seminole-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-suwannee-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-walton-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-palm-beach-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-okaloosa-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-martin-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-hernando-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-franklin-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-dixie-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-clay-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-santa-rosa-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
@@ -4237,301 +4262,301 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/usda-loans-in-alachua-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-citrus-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-flagler-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-glades-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-hendry-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-holmes-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-marion-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-nassau-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-wakulla-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-taylor-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-st-johns-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-putnam-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-liberty-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-lake-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-indian-river-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-gulf-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-broward-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-baker-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-washington-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-union-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-st-lucie-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-miami-dade-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-madison-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-gadsden-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-calhoun-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-sumter-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-sarasota-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-pinellas-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-monroe-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-manatee-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-leon-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-jefferson-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-hillsborough-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-hardee-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-gilchrist-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-columbia-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-bradford-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-pasco-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-okeechobee-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-lee-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-jackson-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-highlands-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-hamilton-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-duval-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-collier-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-bay-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-volusia-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-orange-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-escambia-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
     source:
       "/blog/usda-loans-in-charlotte-county-florida-learn-how-to-obtain-a-zero-down-mortgage",
-    destination: "/learn",
+    destination: "/learn/usda-loans-florida",
     permanent: true,
   },
   {
@@ -7582,7 +7607,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/home-loans-for-people-with-disabilities",
-    destination: "/down-payment-assistance",
+    destination: "/learn/florida-housing-grants-for-disabled",
     permanent: true,
   },
   {
@@ -8085,7 +8110,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/how-to-buy-a-house-with-bad-credit",
-    destination: "/home-loan",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
@@ -8920,7 +8945,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/down-payment-assistance/home-loans-disabilities-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/florida-housing-grants-for-disabled",
     permanent: true,
   },
   {
@@ -9049,7 +9074,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/blog/how-to-officially-become-a-florida-resident",
-    destination: "/",
+    destination: "/learn/requirements-to-buy-a-house-in-florida",
     permanent: true,
   },
   {
@@ -9270,7 +9295,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/blog/buying-a-duplex-as-a-first-home",
-    destination: "/learn/requirements-to-buy-a-house-in-florida",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
@@ -9508,7 +9533,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/blog/property-tax-in-florida",
-    destination: "/learn",
+    destination: "/learn/florida-property-tax-exemptions-for-seniors",
     permanent: true,
   },
   {
@@ -9726,7 +9751,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/down-payment-assistance/buy-house-bad-credit-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/fha-loan",
     permanent: true,
   },
   {
