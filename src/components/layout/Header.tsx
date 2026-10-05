@@ -29,6 +29,11 @@ const loanOptions = [
     blurb: "Buy in Florida from abroad — no U.S. credit or SSN needed",
   },
   {
+    href: "/home-loan/condotel-loan",
+    label: "Condotel Loan",
+    blurb: "Finance a condo-hotel unit conventional loans won't cover",
+  },
+  {
     href: "/learn/conventional-mortgages-in-florida",
     label: "Conventional Loan",
     blurb: "As little as 3% down with removable mortgage insurance",

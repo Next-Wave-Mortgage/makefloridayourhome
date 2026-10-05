@@ -375,14 +375,13 @@ const config: ProductPageConfig = {
           readTime: "Free tool",
         },
         {
-          category: "Investor Market Research",
-          title: "10 Cheapest Places to Buy a House in Florida (2026)",
+          category: "Resort Properties",
+          title: "Condotel Loans in Florida",
           description:
-            "Where Florida property prices are lowest — a starting point for cash-flow-focused investors.",
-          href: "/learn/cheapest-places-to-buy-house-in-florida",
-          image:
-            "/images/learn/cheapest-places-to-buy-house-florida-2026-map-only.webp",
-          readTime: "9 min read",
+            "Buying a unit in a condo-hotel? How to finance resort buildings that conventional loans exclude.",
+          href: "/home-loan/condotel-loan",
+          image: "/images/heroes/florida-condotel-loan-hero.webp",
+          readTime: "Loan guide",
         },
       ],
     },
