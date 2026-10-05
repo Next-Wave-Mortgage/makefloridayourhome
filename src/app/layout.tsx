@@ -7,6 +7,10 @@ import { siteConfig } from "@/lib/site";
 import { TrackPageView } from "@/components/TrackPageView";
 
 const GA4_ID = (process.env.GA4_ID || "G-E7KYFVSJLG").trim();
+// NextWave's shared cross-site property. MFYH reports to both so its own
+// history continues while leads also roll up with every other site. The shared
+// property omits query strings and full referrers, matching the other sites.
+const SHARED_GA4_ID = "G-FN23QPRS19";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -55,18 +59,16 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.googletagmanager.com" />
       </head>
       <body className="font-sans text-dark-green antialiased">
-        {GA4_ID && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga4-init" strategy="afterInteractive">
-              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA4_ID}');`}
-            </Script>
-          </>
-        )}
-        <TrackPageView />
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID || SHARED_GA4_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());${
+            GA4_ID ? `gtag('config','${GA4_ID}');` : ""
+          }gtag('config','${SHARED_GA4_ID}',{page_location:location.origin+location.pathname,page_referrer:document.referrer?new URL(document.referrer).origin:'',allow_google_signals:false,allow_ad_personalization_signals:false});`}
+        </Script>
+        <TrackPageView ga4Id={GA4_ID} sharedGa4Id={SHARED_GA4_ID} />
         <Analytics />
         <SpeedInsights />
         {children}
