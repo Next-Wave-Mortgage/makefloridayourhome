@@ -278,13 +278,12 @@ const config: ProductPageConfig = {
         },
         {
           category: "Foreign Investors",
-          title: "Foreign Buyer's Guide to Florida Real Estate (2026)",
+          title: "Foreign National Mortgages in Florida",
           description:
-            "How non-U.S. citizens buy and finance Florida property — DSCR loans are a common fit.",
-          href: "/learn/foreign-buyers-guide-florida-real-estate",
-          image:
-            "/images/learn/foreign-buyers-guide-florida-real-estate-2026.webp",
-          readTime: "10 min read",
+            "Investing from outside the U.S.? How non-residents finance Florida rentals without U.S. credit.",
+          href: "/home-loan/foreign-national-loan",
+          image: "/images/heroes/florida-foreign-national-loan-hero.webp",
+          readTime: "Loan guide",
         },
         {
           category: "Self-Employed Borrowers",

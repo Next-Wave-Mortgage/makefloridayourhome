@@ -1,4 +1,5 @@
 import { Fragment, type ComponentProps, type ReactNode } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { PageHero } from "@/components/shared/PageHero";
@@ -88,6 +89,22 @@ export interface ProductPageConfig {
   closing: { heading: string; subtitle: string };
   /** Optional LoanOrCredit schema linking the product to the MortgageBroker entity. */
   loanProduct?: { name: string; description: string; loanType?: string };
+  /**
+   * Optional "Reviewed by" byline shown under the hero, emitted as WebPage
+   * reviewedBy / lastReviewed JSON-LD. Use a licensed loan officer.
+   */
+  review?: { reviewer: ProductReviewer; lastReviewed: string };
+}
+
+export interface ProductReviewer {
+  name: string;
+  role: string;
+  nmls: string;
+  /** Bio page path, e.g. "/team/phil-ganz". */
+  href: string;
+  photo: string;
+  /** Person @id from src/lib/entity.ts. */
+  personId: string;
 }
 
 /* ------------------------------------------------------------------ */
@@ -348,7 +365,68 @@ function buildSchemas(config: ProductPageConfig) {
     });
   }
 
+  if (config.review) {
+    const { reviewer, lastReviewed } = config.review;
+    schemas.push({
+      id: "webpage-schema",
+      data: {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        url,
+        lastReviewed,
+        dateModified: lastReviewed,
+        reviewedBy: {
+          "@type": "Person",
+          "@id": reviewer.personId,
+          name: reviewer.name,
+          url: `${siteConfig.url}${reviewer.href}`,
+        },
+        publisher: { "@id": organizationId },
+      },
+    });
+  }
+
   return schemas;
+}
+
+function ReviewBar({
+  reviewer,
+  lastReviewed,
+}: NonNullable<ProductPageConfig["review"]>) {
+  const date = new Date(`${lastReviewed}T12:00:00`).toLocaleDateString(
+    "en-US",
+    { month: "long", day: "numeric", year: "numeric" },
+  );
+  return (
+    <div className="border-t border-border-gray/60 bg-green-tint">
+      <div className="mx-auto flex max-w-[1400px] flex-wrap items-center gap-x-3 gap-y-1 px-5 py-4 text-[14px] text-dark-green/70 sm:px-8">
+        <Image
+          src={reviewer.photo}
+          alt={reviewer.name}
+          width={36}
+          height={36}
+          className="h-9 w-9 rounded-full object-cover"
+        />
+        <span>
+          Reviewed by{" "}
+          <Link
+            href={reviewer.href}
+            className="font-bold text-dark-green underline decoration-brand-green/30 underline-offset-2 hover:decoration-brand-green"
+          >
+            {reviewer.name}
+          </Link>
+          , {reviewer.role} · NMLS #{reviewer.nmls}
+        </span>
+        <span aria-hidden="true" className="hidden sm:inline">
+          ·
+        </span>
+        <span>
+          Updated <time dateTime={lastReviewed}>{date}</time>
+        </span>
+      </div>
+    </div>
+  );
 }
 
 /* ------------------------------------------------------------------ */
@@ -395,6 +473,8 @@ export function ProductPage({ config }: { config: ProductPageConfig }) {
         ctaHref={config.cta.href}
         ctaText={config.cta.text}
       />
+
+      {config.review && <ReviewBar {...config.review} />}
 
       {sections.map(({ section, bg }, i) => (
         <Fragment key={i}>{renderSection(section, bg ?? "white")}</Fragment>

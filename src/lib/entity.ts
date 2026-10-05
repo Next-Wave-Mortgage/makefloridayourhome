@@ -14,6 +14,16 @@ import { siteConfig } from "@/lib/site";
 export const organizationId = `${siteConfig.url}/#organization`;
 export const philPersonId = `${siteConfig.url}/team/phil-ganz#person`;
 
+/** Reviewer byline for product pages (see ProductPage `review`). */
+export const philReviewer = {
+  name: "Phil Ganz",
+  role: "President, Next Wave Mortgage",
+  nmls: "37833",
+  href: "/team/phil-ganz",
+  photo: "/images/team/phil-ganz.webp",
+  personId: philPersonId,
+};
+
 export const googleBusinessProfile = {
   url: "https://www.google.com/maps?cid=9639328104066597809",
   rating: "4.9",

@@ -24,6 +24,11 @@ const loanOptions = [
     blurb: "For investors — qualify on rental income, no tax returns",
   },
   {
+    href: "/home-loan/foreign-national-loan",
+    label: "Foreign National Loan",
+    blurb: "Buy in Florida from abroad — no U.S. credit or SSN needed",
+  },
+  {
     href: "/learn/conventional-mortgages-in-florida",
     label: "Conventional Loan",
     blurb: "As little as 3% down with removable mortgage insurance",

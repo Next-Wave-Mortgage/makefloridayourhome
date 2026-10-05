@@ -220,11 +220,12 @@ const loanTypes = [
     title: "Non-QM & Self-Employed Loans",
     accentWord: "Non-QM",
     description:
-      "Non-QM and self-employed mortgage options can help borrowers whose income does not fit a standard W-2 file. That can include bank-statement income, 1099 income, DSCR investor scenarios, and other non-traditional documentation.",
+      "Non-QM and self-employed mortgage options can help borrowers whose income does not fit a standard W-2 file. That can include bank-statement income, 1099 income, DSCR investor scenarios, buyers who live outside the U.S., and other non-traditional documentation.",
     eligibilityHref: "/check-non-qm-loan-eligibility",
     eligibilityText: "Check Non-QM Eligibility",
     articles: [
       { title: "Florida Mortgage & Assistance Programs for Self-Employed & 1099 Buyers", href: "/learn/florida-mortgage-assistance-programs-self-employed-1099", image: "/images/learn/florida-mortgage-assistance-programs-self-employed-1099-2026.webp" },
+      { title: "Foreign National Mortgages in Florida", href: "/home-loan/foreign-national-loan", image: "/images/heroes/florida-foreign-national-loan-hero.webp" },
     ],
   },
   {
