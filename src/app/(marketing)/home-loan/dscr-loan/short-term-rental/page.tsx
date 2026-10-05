@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   ProductPage,
   productIcons,
@@ -135,7 +136,15 @@ const config: ProductPageConfig = {
         ["Vesting", "Your own name or an LLC"],
         [
           "Loan Purpose",
-          "Purchase, rate-and-term refinance, or cash-out refinance",
+          <>
+            Purchase, rate-and-term refinance, or{" "}
+            <Link
+              href="/home-loan/dscr-loan/cash-out-refinance"
+              className="font-semibold text-brand-green underline-offset-2 hover:underline"
+            >
+              cash-out refinance
+            </Link>
+          </>,
         ],
         [
           "Prepayment Penalty",

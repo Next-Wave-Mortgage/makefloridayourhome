@@ -61,6 +61,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/home-loan/dscr-loan/cash-out-refinance`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/fort-lauderdale-mortgage-broker`,
       lastModified: now,
       changeFrequency: "monthly",

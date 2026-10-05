@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   ProductPage,
   productIcons,
@@ -92,7 +93,15 @@ const config: ProductPageConfig = {
         ],
         [
           "Property Types",
-          "Single-family, condos, townhomes, 2–4 units, and many short-term rentals",
+          <>
+            Single-family, condos, townhomes, 2–4 units, and many{" "}
+            <Link
+              href="/home-loan/dscr-loan/short-term-rental"
+              className="font-semibold text-brand-green underline-offset-2 hover:underline"
+            >
+              short-term rentals
+            </Link>
+          </>,
         ],
         [
           "Occupancy",
@@ -101,7 +110,15 @@ const config: ProductPageConfig = {
         ["Vesting", "Individual or LLC/corporate entity allowed"],
         [
           "Loan Purpose",
-          "Purchase, rate-and-term refinance, or cash-out refinance",
+          <>
+            Purchase, rate-and-term refinance, or{" "}
+            <Link
+              href="/home-loan/dscr-loan/cash-out-refinance"
+              className="font-semibold text-brand-green underline-offset-2 hover:underline"
+            >
+              cash-out refinance
+            </Link>
+          </>,
         ],
       ],
       caption: "DSCR loan features and requirements",
@@ -179,6 +196,52 @@ const config: ProductPageConfig = {
       body: "Generic DSCR calculators miss what makes or breaks Florida deals: county tax millage that varies 2.6x across the state, insurance that can triple near the coast, and Airbnb income rules. Our free calculator uses your county's actual tax rate and realistic Florida insurance — with a short-term rental mode.",
       href: "/florida-dscr-loan-calculator",
       linkText: "Try the Florida DSCR Calculator",
+    },
+    {
+      type: "guides",
+      heading: (
+        <>
+          Specialized <span className="text-brand-green">DSCR</span> Financing
+        </>
+      ),
+      articles: [
+        {
+          category: "Short-Term Rentals",
+          title: "DSCR Loans for Airbnb & Vacation Rentals",
+          description:
+            "How lenders count Airbnb income, and Florida's short-term rental rules from Orlando to the beaches.",
+          href: "/home-loan/dscr-loan/short-term-rental",
+          image: "/images/heroes/florida-short-term-rental-dscr-hero.webp",
+          readTime: "Loan guide",
+        },
+        {
+          category: "Refinance",
+          title: "DSCR Cash-Out Refinance",
+          description:
+            "Pull equity from a Florida rental to buy your next property or pay off hard money.",
+          href: "/home-loan/dscr-loan/cash-out-refinance",
+          image: "/images/heroes/florida-dscr-cash-out-refinance-hero.webp",
+          readTime: "Loan guide",
+        },
+        {
+          category: "Resort Properties",
+          title: "Condotel Loans",
+          description:
+            "Financing condo-hotel units that conventional and FHA loans won't cover.",
+          href: "/home-loan/condotel-loan",
+          image: "/images/heroes/florida-condotel-loan-hero.webp",
+          readTime: "Loan guide",
+        },
+        {
+          category: "International Investors",
+          title: "Foreign National Mortgages",
+          description:
+            "Investing from outside the U.S.? Finance Florida rentals without U.S. credit.",
+          href: "/home-loan/foreign-national-loan",
+          image: "/images/heroes/florida-foreign-national-loan-hero.webp",
+          readTime: "Loan guide",
+        },
+      ],
     },
     {
       type: "steps",
@@ -278,12 +341,13 @@ const config: ProductPageConfig = {
         },
         {
           category: "Foreign Investors",
-          title: "Foreign National Mortgages in Florida",
+          title: "Foreign Buyer's Guide to Florida Real Estate (2026)",
           description:
-            "Investing from outside the U.S.? How non-residents finance Florida rentals without U.S. credit.",
-          href: "/home-loan/foreign-national-loan",
-          image: "/images/heroes/florida-foreign-national-loan-hero.webp",
-          readTime: "Loan guide",
+            "The buying process, taxes, and visa considerations for international buyers.",
+          href: "/learn/foreign-buyers-guide-florida-real-estate",
+          image:
+            "/images/learn/foreign-buyers-guide-florida-real-estate-2026.webp",
+          readTime: "10 min read",
         },
         {
           category: "Self-Employed Borrowers",
@@ -303,15 +367,6 @@ const config: ProductPageConfig = {
           href: "/learn/conventional-mortgages-in-florida",
           image: "/images/learn/conventional-mortgages-in-florida-2026.webp",
           readTime: "8 min read",
-        },
-        {
-          category: "Short-Term Rentals",
-          title: "DSCR Loans for Airbnb & Vacation Rentals",
-          description:
-            "How lenders count Airbnb income, and Florida's short-term rental rules from Orlando to the beaches.",
-          href: "/home-loan/dscr-loan/short-term-rental",
-          image: "/images/heroes/florida-short-term-rental-dscr-hero.webp",
-          readTime: "Loan guide",
         },
       ],
     },

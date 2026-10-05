@@ -6,7 +6,10 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { href: "/learn/first-time-homebuyer/grants-and-programs", label: "First-Time Homebuyer" },
+  {
+    href: "/learn/first-time-homebuyer/grants-and-programs",
+    label: "First-Time Homebuyer",
+  },
   { href: "/down-payment-assistance", label: "Down Payment Assistance" },
   { href: "/hometown-heroes", label: "Hometown Heroes" },
   { href: "/mortgage-rates", label: "Rates" },
@@ -19,21 +22,6 @@ const loanOptions = [
     blurb: "3.5% down, 580+ credit — the first-time buyer favorite",
   },
   {
-    href: "/home-loan/dscr-loan",
-    label: "DSCR Loan",
-    blurb: "For investors — qualify on rental income, no tax returns",
-  },
-  {
-    href: "/home-loan/foreign-national-loan",
-    label: "Foreign National Loan",
-    blurb: "Buy in Florida from abroad — no U.S. credit or SSN needed",
-  },
-  {
-    href: "/home-loan/condotel-loan",
-    label: "Condotel Loan",
-    blurb: "Finance a condo-hotel unit conventional loans won't cover",
-  },
-  {
     href: "/learn/conventional-mortgages-in-florida",
     label: "Conventional Loan",
     blurb: "As little as 3% down with removable mortgage insurance",
@@ -44,14 +32,19 @@ const loanOptions = [
     blurb: "0% down in eligible rural and suburban areas",
   },
   {
-    href: "/learn/florida-manufactured-home-loan-program",
-    label: "Manufactured Home Loan",
-    blurb: "Finance a manufactured or mobile home with land",
-  },
-  {
     href: "/learn/how-does-heloc-work-in-florida",
     label: "HELOC",
     blurb: "Tap your home equity without refinancing",
+  },
+  {
+    href: "/home-loan/dscr-loan",
+    label: "DSCR Loan",
+    blurb: "For investors — qualify on rental income, no tax returns",
+  },
+  {
+    href: "/learn/florida-manufactured-home-loan-program",
+    label: "Manufactured Home Loan",
+    blurb: "Finance a manufactured or mobile home with land",
   },
 ];
 

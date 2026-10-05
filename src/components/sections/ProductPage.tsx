@@ -43,7 +43,8 @@ export type ProductSection =
       heading: ReactNode;
       intro?: ReactNode;
       headers: string[];
-      rows: string[][];
+      /** Cells may contain inline links. */
+      rows: ReactNode[][];
       caption: string;
     }
   | {

@@ -1,6 +1,8 @@
+import type { ReactNode } from "react";
+
 interface DataTableProps {
   headers: string[];
-  rows: string[][];
+  rows: ReactNode[][];
   caption?: string;
 }
 
@@ -9,9 +11,7 @@ export function DataTable({ headers, rows, caption }: DataTableProps) {
     <div className="overflow-hidden rounded-xl border border-border-gray/60 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
       <div className="overflow-x-auto">
         <table className="w-full min-w-[480px] text-left text-[14px] sm:text-[15px]">
-          {caption && (
-            <caption className="sr-only">{caption}</caption>
-          )}
+          {caption && <caption className="sr-only">{caption}</caption>}
           <thead>
             <tr className="bg-brand-green text-white">
               {headers.map((header, i) => (
