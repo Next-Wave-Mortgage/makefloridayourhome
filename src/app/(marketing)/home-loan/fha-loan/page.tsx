@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   ProductPage,
   productIcons,
@@ -98,7 +99,16 @@ const config: ProductPageConfig = {
         ],
         [
           "Property Types",
-          "Single-family, condos (FHA-approved), townhomes, 2–4 unit properties",
+          <>
+            Single-family,{" "}
+            <Link
+              href="/home-loan/condo-loan"
+              className="font-semibold text-brand-green underline-offset-2 hover:underline"
+            >
+              condos (FHA-approved)
+            </Link>
+            , townhomes, 2–4 unit properties
+          </>,
         ],
         ["Occupancy", "Primary residence only — no investment properties"],
         ["Gift Funds", "100% of down payment can come from gift funds"],

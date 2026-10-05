@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   ProductPage,
   productIcons,
@@ -226,7 +227,18 @@ const config: ProductPageConfig = {
         ],
         [
           "Condo building approval",
-          "Lenders review each condo building's finances. Since Florida's post-Surfside safety and reserve laws, some buildings are harder to finance — check the building before you make an offer.",
+          <>
+            Lenders review each condo building&apos;s finances. Since
+            Florida&apos;s post-Surfside safety and reserve laws, some buildings
+            are{" "}
+            <Link
+              href="/home-loan/condo-loan"
+              className="font-semibold text-brand-green underline-offset-2 hover:underline"
+            >
+              harder to finance
+            </Link>{" "}
+            — check the building before you make an offer.
+          </>,
         ],
         [
           "No homestead exemption",
