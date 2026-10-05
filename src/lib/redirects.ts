@@ -4,6 +4,28 @@
 import type { Redirect } from "next/dist/lib/load-custom-routes";
 
 const redirects: Redirect[] = [
+  // Backlinked legacy URLs that previously fell through to the /blog catch-all
+  {
+    source: "/blog/all-you-need-to-know-about-buying-a-condominium-in-florida",
+    destination: "/home-loan/condo-loan",
+    permanent: true,
+  },
+  {
+    source: "/blog/florida-condo-owner-insights",
+    destination: "/home-loan/condo-loan",
+    permanent: true,
+  },
+  {
+    source: "/blog/dscr-loan-rates-in-florida",
+    destination: "/home-loan/dscr-loan",
+    permanent: true,
+  },
+  {
+    source: "/blog/fha-vs-va-loans",
+    destination: "/home-loan/va-loan",
+    permanent: true,
+  },
+
   // Old marketing page URL → new funnel page
   {
     source: "/schedule-a-free-call-today",
@@ -301,7 +323,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/all-you-need-to-know-about-buying-a-condominium",
-    destination: "/learn",
+    destination: "/home-loan/condo-loan",
     permanent: true,
   },
   {
@@ -339,7 +361,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/how-to-use-your-florida-va-entitlement-get-to-a-second-va-loan",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
@@ -444,7 +466,7 @@ const redirects: Redirect[] = [
     permanent: true,
   },
   { source: "/blog/tag/tampa-fl", destination: "/learn", permanent: true },
-  { source: "/blog/tag/military-home", destination: "/learn", permanent: true },
+  { source: "/blog/tag/military-home", destination: "/home-loan/va-loan", permanent: true },
   {
     source: "/blog/tag/jacksonville-navy-base",
     destination: "/learn",
@@ -454,7 +476,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/military-permanent-change-of-station-details-and-more-in-florida-0",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
@@ -735,7 +757,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/va-home-loan-requirements-and-what-to-expect-throughout-the-process",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
@@ -845,12 +867,12 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/what-most-borrowers-don-t-know-about-va-loans-1",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/how-can-you-reuse-your-va-loan-benefits-",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   { source: "/videos", destination: "/learn", permanent: true },
@@ -1240,7 +1262,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/is-a-va-loan-right-for-you-",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
@@ -1546,7 +1568,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/military-permanent-change-of-station-details-and-more-in-florida",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   { source: "/blog/tag/tampa-bay", destination: "/learn", permanent: true },
@@ -1557,7 +1579,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/military-bah-in-florida-a-complete-guide",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   { source: "/blog/tag/pensacola", destination: "/learn", permanent: true },
@@ -1955,12 +1977,12 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/florida-va-mobile-home-loans-learn-about-the-2022-manufactured-home-requirements",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/home-inspections-and-va-loans-what-you-need-to-know",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
@@ -2063,22 +2085,22 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/negotiating-and-finalizing-the-va-loan-deal",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/va-loan-occupancy-requirements-and-closing-costs",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/va-loan-limits-what-you-need-to-know",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/understanding-the-va-home-loan-closing-process",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
@@ -2088,72 +2110,72 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/va-loan-refinance-options-that-you-need-to-know",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/the-home-inspection-and-appraisal-process-for-va-loans",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/how-can-you-reuse-your-va-loan-benefits",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/what-does-the-future-hold-for-va-loans-",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/the-incredible-safety-of-va-loans",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/va-home-loan-requirements",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/understanding-va-loan-eligibility-and-entitlement",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/va-home-loans-in-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/va-loan-tips-to-help-you-land-your-home",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/purchasing-a-home-with-a-va-loan-the-ins-and-outs",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/is-a-va-loan-right-for-you",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/what-is-a-va-loan",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/va-loans-require-a-minimum-credit-score",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/va-cash-out-refinancing",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
@@ -2481,7 +2503,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/comprehensive-financing-options-for-non-warrantable-condos",
-    destination: "/learn",
+    destination: "/home-loan/condo-loan",
     permanent: true,
   },
   {
@@ -2513,17 +2535,17 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/condominium-lending-2022-freddie-mac-guidelines",
-    destination: "/learn",
+    destination: "/home-loan/condo-loan",
     permanent: true,
   },
   {
     source: "/blog/condominium-lending-2022-fannie-mae-guidelines",
-    destination: "/learn",
+    destination: "/home-loan/condo-loan",
     permanent: true,
   },
   {
     source: "/blog/condominium-lending-the-ultimate-faq-guide",
-    destination: "/learn",
+    destination: "/home-loan/condo-loan",
     permanent: true,
   },
   {
@@ -2636,107 +2658,107 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/training-center-corry-navy-base-military-bah",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/naval-air-warfare-center-navy-base-military-bah",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/nas-pensacola-navy-base-military-bah",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/eglin-air-force-base-military-bah",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/autec-complex-navy-base-military-bah",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/patrick-air-force-base-military-bah",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/nas-panama-city-navy-base-military-bah",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/nas-jacksonville-navy-base-military-bah",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/isc-miami-coast-guard-base-military-bah",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/ns-mayport-navy-base-military-bah",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/nas-key-west-navy-base-military-bah",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/macdill-air-force-base-military-bah",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/hurlburt-field-air-force-base-military-bah",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/camp-blanding-army-base-military-bah",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/tyndall-air-force-base-military-bah",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/naval-hospital-jacksonville-navy-base-military-bah",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/nas-whiting-field-navy-base-military-bah",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/homestead-air-reserve-base-military-bah",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/district-7-coast-guard-base-military-bah",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/blount-island-command-marine-corps-military-bah",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/air-station-clearwater-coast-guard-base-military-bah",
-    destination: "/learn",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
@@ -3711,223 +3733,223 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/va-loans-in-flagler-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-alachua-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-brevard-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-citrus-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-desoto-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-glades-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-marion-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-polk-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-seminole-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-suwannee-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-wakulla-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-hendry-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-holmes-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-lafayette-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-levy-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-nassau-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-osceola-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-walton-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-st-johns-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-putnam-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-palm-beach-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-martin-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-lake-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-dixie-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-bay-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-calhoun-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-duval-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-gadsden-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-hamilton-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-lee-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-pasco-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-santa-rosa-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-columbia-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-escambia-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-gilchrist-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-orange-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-sarasota-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
@@ -4035,181 +4057,181 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/va-loans-in-taylor-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-okaloosa-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-liberty-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-indian-river-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-hernando-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-gulf-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-franklin-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-clay-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-broward-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-baker-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-collier-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-highlands-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-jackson-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-madison-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-miami-dade-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-okeechobee-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-st-lucie-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-union-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-washington-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-bradford-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-charlotte-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-hardee-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-hillsborough-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-jefferson-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-leon-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-manatee-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-monroe-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-pinellas-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-sumter-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/va-loans-in-volusia-county-florida-take-advantage-of-the-zero-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
@@ -5434,337 +5456,337 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/dscr-loan-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-walton-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-taylor-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-st-johns-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-putnam-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-okaloosa-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-lafayette-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-holmes-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-hendry-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-glades-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-desoto-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-brevard-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-alachua-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-washington-county-floroda",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-union-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-st-lucie-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-santa-rosa-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-pasco-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-okeechobee-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-miami-dade-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-hernando-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-palm-beach-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-martin-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-liberty-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-flagler-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-citrus-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-madison-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-lake-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-indian-river-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-gulf-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-franklin-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-baker-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-volusia-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-sarasota-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-pinellas-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-monroe-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-manatee-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-dixie-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-clay-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-broward-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-sumter-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-orange-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-jackson-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-highlands-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-hamilton-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-gadsden-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-duval-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-calhoun-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-wakulla-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-lee-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-collier-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-bay-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-suwannee-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-nassau-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-marion-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-jefferson-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-hardee-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-charlotte-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-seminole-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-polk-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-osceola-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-levy-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-hillsborough-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-gilchrist-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-escambia-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-columbia-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loans-in-bradford-county-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
@@ -7091,7 +7113,7 @@ const redirects: Redirect[] = [
     destination: "/learn/conventional-mortgages-in-florida",
     permanent: true,
   },
-  { source: "/va-loan-blog", destination: "/home-loan", permanent: true },
+  { source: "/va-loan-blog", destination: "/home-loan/va-loan", permanent: true },
   {
     source: "/explore-blog",
     destination: "/learn/cheapest-places-to-buy-house-in-florida",
@@ -7112,7 +7134,7 @@ const redirects: Redirect[] = [
     destination: "/home-loan",
     permanent: true,
   },
-  { source: "/dscr-loan-blog", destination: "/home-loan", permanent: true },
+  { source: "/dscr-loan-blog", destination: "/home-loan/dscr-loan", permanent: true },
   {
     source: "/manufactured-home-loan-blog",
     destination: "/learn/florida-manufactured-home-loan-program",
@@ -7130,7 +7152,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/florida-va-loan-faq",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
@@ -7145,7 +7167,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/dscr-loan-guide-and-how-to-qualify",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
@@ -7302,7 +7324,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/florida-fha-condo-loan-program-faq",
-    destination: "/home-loan/fha-loan",
+    destination: "/home-loan/condo-loan",
     permanent: true,
   },
   {
@@ -7317,73 +7339,73 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/comparing-va-loan-refinancing-options",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/how-to-request-military-service-records-for-a-va-loan",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/florida-va-loan-eligibility-faqs",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/how-federal-debt-affects-your-va-loan-eligibility",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/getting-va-loan-after-chapter-13-bankruptcy",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/va-loan-residual-income-requirements",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/using-gift-funds-for-va-loans",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/va-loan-seller-concessions-guide",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/va-loan-closing-costs",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/va-loan-down-payment-requirements-in-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/types-of-va-loans-in-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/va-loan-for-multifamily-home",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source:
       "/blog/how-to-use-your-florida-va-entitlement-to-get-a-second-va-loan",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/home-inspections-and-va-loans",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
@@ -7393,17 +7415,17 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/florida-va-appraisal-process",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/florida-va-cash-out-refinance-faq",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/florida-va-mobile-home-loans",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
@@ -7418,22 +7440,22 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/florida-dscr-loan-faq",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/no-down-payment-dscr-loan",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/pros-and-cons-of-dscr-loans",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/blog/dscr-loan-requirements-in-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
@@ -7630,7 +7652,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/the-steps-to-getting-an-fha-single-unit-approval-on-a-condo",
-    destination: "/home-loan/fha-loan",
+    destination: "/home-loan/condo-loan",
     permanent: true,
   },
   {
@@ -7751,90 +7773,90 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/how-do-appliances-affect-va-homebuying",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/va-loan-guaranty-guide",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/va-loan-prior-approval-guide",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/overcoming-va-loan-losses",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/maximizing-va-loan-benefits-with-rental-and-boarder-income",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/va-loan-occupancy-requirements",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/how-to-use-non-qualifying-income-for-va-loan-guide",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/military-allowances-for-housing-and-va-loans",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/va-loan-spouse-requirements",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/how-to-buy-a-house-with-va-loan-in-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/florida-va-loan-limits",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/how-to-get-va-loan-approval-for-a-condo",
-    destination: "/home-loan",
+    destination: "/home-loan/condo-loan",
     permanent: true,
   },
   {
     source: "/blog/understanding-va-loans-and-employment",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/florida-va-benefits",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/va-existing-property-condition-screening-checklist",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/va-loans-top-things-to-know",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/blog/florida-va-home-loan-process",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
-  { source: "/blog/va-home-loan", destination: "/home-loan", permanent: true },
+  { source: "/blog/va-home-loan", destination: "/home-loan/va-loan", permanent: true },
   {
     source: "/blog/manufactured-home-facts",
     destination: "/learn/florida-manufactured-home-loan-program",
@@ -7847,7 +7869,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/florida-dscr-lenders",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
@@ -7877,7 +7899,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/loan-program/va-home-loan",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
@@ -8551,17 +8573,17 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/home-loan/dscr-loan/no-down-payment",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/dscr-loan/requirements",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/dscr-loan/pros-and-cons",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
@@ -8704,72 +8726,72 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/home-loan/fha-loan/condo-loan-program",
-    destination: "/home-loan/fha-loan",
+    destination: "/home-loan/condo-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan/condo-approval",
-    destination: "/home-loan",
+    destination: "/home-loan/condo-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan/down-payment-requirements",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan/post-bankruptcy-guide",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan/caivrs-explained",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan/seller-builder-concessions",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan/residual-income-requirements",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan/prior-approval",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan/multi-family-property",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan/using-gift-funds",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan/occupancy-requirements",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan/rental-boarder-income",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan/loan-process",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan/loan-types",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
@@ -8836,37 +8858,37 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/home-loan/va-loan/property-condition-checklist",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan/mobile-home-loans",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan/military-allowances",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan/second-va-loan",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan/guaranty-guide",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan/spouse-requirements",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan/cash-out-refinance-faq",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
@@ -9007,7 +9029,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/blog/florida-condo-owner-insights",
-    destination: "/learn/requirements-to-buy-a-house-in-florida",
+    destination: "/home-loan/condo-loan",
     permanent: true,
   },
   {
@@ -9108,7 +9130,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/blog/save-money-and-get-approved-with-a-limited-condo-review",
-    destination: "/home-loan/fha-loan",
+    destination: "/home-loan/condo-loan",
     permanent: true,
   },
   {
@@ -9129,7 +9151,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/home-loan/va-loan/va-construction-loans-guide",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
@@ -9165,17 +9187,17 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/home-loan/va-loan/buying-house-guide",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan/appraisal-process",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan/closing-costs",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
@@ -9259,7 +9281,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/blog/the-risks-of-buying-a-non-warrantable-condo-in-florida",
-    destination: "/learn/requirements-to-buy-a-house-in-florida",
+    destination: "/home-loan/condo-loan",
     permanent: true,
   },
   {
@@ -9316,7 +9338,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/home-loan/fha-loan/fha-kiddie-condo-loan-how-it-works-who-qualifies",
-    destination: "/home-loan/fha-loan",
+    destination: "/home-loan/condo-loan",
     permanent: true,
   },
   {
@@ -9403,7 +9425,7 @@ const redirects: Redirect[] = [
   { source: "/florida/resources", destination: "/home-loan", permanent: true },
   {
     source: "/florida/home-loan/dscr-loan/faq",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
@@ -9470,7 +9492,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/home-loan/fha-loan/single-unit-condo-approval",
-    destination: "/home-loan/fha-loan",
+    destination: "/home-loan/condo-loan",
     permanent: true,
   },
   {
@@ -9497,7 +9519,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/blog/all-you-need-to-know-about-buying-a-condominium-in-florida",
-    destination: "/learn/requirements-to-buy-a-house-in-florida",
+    destination: "/home-loan/condo-loan",
     permanent: true,
   },
   {
@@ -9564,7 +9586,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/home-loan/va-loan/non-qualifying-income",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
@@ -9741,7 +9763,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/home-loan/va-loan/loan-limits",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {
@@ -9974,12 +9996,12 @@ const redirects: Redirect[] = [
   { source: "/florida/research", destination: "/learn", permanent: true },
   {
     source: "/florida/home-loan/dscr-loan",
-    destination: "/home-loan",
+    destination: "/home-loan/dscr-loan",
     permanent: true,
   },
   {
     source: "/florida/home-loan/va-loan",
-    destination: "/home-loan",
+    destination: "/home-loan/va-loan",
     permanent: true,
   },
   {

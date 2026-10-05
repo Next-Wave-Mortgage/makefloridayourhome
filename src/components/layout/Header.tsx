@@ -27,6 +27,11 @@ const loanOptions = [
     blurb: "As little as 3% down with removable mortgage insurance",
   },
   {
+    href: "/home-loan/va-loan",
+    label: "VA Loan",
+    blurb: "$0 down and no mortgage insurance for veterans",
+  },
+  {
     href: "/learn/usda-loans-florida",
     label: "USDA Loan",
     blurb: "0% down in eligible rural and suburban areas",

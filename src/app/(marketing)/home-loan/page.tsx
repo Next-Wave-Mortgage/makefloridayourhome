@@ -139,6 +139,7 @@ const loanTypes = [
     eligibilityHref: "/check-va-loan-eligibility",
     eligibilityText: "Check VA Eligibility",
     articles: [
+      { title: "VA Loans in Florida: Limits, Funding Fee & Rules", href: "/home-loan/va-loan", image: "/images/heroes/florida-va-loan-hero.webp" },
       { title: "Florida VA Disability Property Tax Exemptions", href: "/learn/florida-va-disability-property-tax-exemptions", image: "/images/learn/florida-va-disability-property-tax-exemptions-2026.webp" },
       { title: "Florida Housing Income & Purchase Price Limits (2026)", href: "/learn/florida-housing-income-purchase-price-limits", image: "/images/learn/florida-housing-income-purchase-price-limits-2026.webp" },
     ],
