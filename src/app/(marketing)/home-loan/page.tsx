@@ -189,6 +189,7 @@ const loanTypes = [
     eligibilityHref: "/check-reverse-mortgage-eligibility",
     eligibilityText: "Check Reverse Mortgage Eligibility",
     articles: [
+      { title: "Reverse Mortgages in Florida: HECM, Purchase & Jumbo", href: "/home-loan/reverse-mortgage", image: "/images/heroes/florida-reverse-mortgage-hero.webp" },
       { title: "Reverse Mortgage Closing Costs in Florida", href: "/learn/reverse-mortgage-closing-costs-florida", image: "/images/learn/reverse-mortgage-closing-costs-florida-2026.webp" },
     ],
   },

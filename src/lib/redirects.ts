@@ -6,6 +6,21 @@ import type { Redirect } from "next/dist/lib/load-custom-routes";
 const redirects: Redirect[] = [
   // Backlinked legacy URLs that previously fell through to the /blog catch-all
   {
+    source: "/blog/types-of-reverse-mortgages",
+    destination: "/home-loan/reverse-mortgage",
+    permanent: true,
+  },
+  {
+    source: "/blog/using-reverse-mortgage-purchase-calculator",
+    destination: "/home-loan/reverse-mortgage",
+    permanent: true,
+  },
+  {
+    source: "/blog/fha-reverse-mortgage-challenges",
+    destination: "/home-loan/reverse-mortgage",
+    permanent: true,
+  },
+  {
     source: "/blog",
     destination: "/learn",
     permanent: true,
@@ -262,7 +277,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/communities-florida-mortgage-lender-reverse-mortgage-lender-florida",
-    destination: "/",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
@@ -1199,23 +1214,23 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/reverse-mortgages-chapter-12",
-    destination: "/learn",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/reverse-mortgages-what-happens-when-they-re-due",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/reverse-mortgages-pros-and-cons",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   { source: "/calculator", destination: "/home-loan", permanent: true },
   {
     source: "/blog/can-you-refinance-a-reverse-mortgage-",
-    destination: "/learn",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
@@ -2205,55 +2220,55 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/reverse-mortgage-what-if-the-spouse-is-not-62-or-older-",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/do-reverse-mortgages-work-for-expensive-homes-",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/benefits-of-a-reverse-mortgage",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/reverse-mortgages-what-happens-when-they-are-due",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source:
       "/blog/should-seniors-buy-a-home-to-utilize-the-hecm-reverse-mortgage",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/reverse-mortgages-significant-costs",
-    destination: "/learn",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source:
       "/blog/reverse-mortgage-explained-what-are-they-and-how-do-they-work",
-    destination: "/learn",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/types-of-reverse-mortgages-in-florida",
-    destination: "/learn",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source:
       "/blog/understanding-why-a-florida-reverse-mortgage-is-still-safe-with-rising-interest-rates",
-    destination: "/learn/reverse-mortgage-closing-costs-florida",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/what-is-a-reverse-mortgage",
-    destination: "/learn/reverse-mortgage-closing-costs-florida",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
@@ -7156,7 +7171,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/reverse-mortgage-blog",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   { source: "/dscr-loan-blog", destination: "/home-loan/dscr-loan", permanent: true },
@@ -7207,7 +7222,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/reverse-mortgages-expert-guide",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
@@ -7217,12 +7232,12 @@ const redirects: Redirect[] = [
   },
   {
     source: "/reverse-mortgage-for-purchase-calculator",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/reverse-mortgage-calculator",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
@@ -7334,7 +7349,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/florida-fha-reverse-mortgage-program-faq",
-    destination: "/home-loan/fha-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
@@ -7490,37 +7505,37 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/reverse-mortgage-guide",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/florida-reverse-mortgage-faq",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/reverse-mortgage-simple-terms",
-    destination: "/learn/reverse-mortgage-closing-costs-florida",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/why-rich-are-getting-reverse-mortgages",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/jumbo-reverse-mortgage-guide",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/what-you-need-to-qualify-for-reverse-mortgage",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/how-reverse-mortgage-work-explained-in-simple-terms",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
@@ -7904,17 +7919,17 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/why-suze-orman-is-wrong-about-reverse-mortgages",
-    destination: "/learn/reverse-mortgage-closing-costs-florida",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/dave-ramsey-wrong-about-reverse-mortgages",
-    destination: "/learn/reverse-mortgage-closing-costs-florida",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/reverse-mortgage-pros-and-cons",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
@@ -8010,37 +8025,37 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/reverse-mortgage-faq",
-    destination: "/learn/reverse-mortgage-closing-costs-florida",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/reverse-mortgage-credit-and-income-requirements",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/reverse-mortgage-banks",
-    destination: "/learn/reverse-mortgage-closing-costs-florida",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/buy-a-house-with-reverse-mortgage",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/equity-needed-for-reverse-mortgage",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/reverse-mortgage-purchase-guide",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/blog/how-to-pay-back-reverse-mortgage",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
@@ -8355,7 +8370,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/blog/reverse-mortgages-expert-guide",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
@@ -8558,12 +8573,12 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/home-loan/reverse-mortgage/jumbo",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/florida/home-loan/reverse-mortgage/pros-and-cons",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
@@ -8630,53 +8645,53 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/home-loan/reverse-mortgage/income-and-credit-requirements",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/florida/home-loan/reverse-mortgage/wealth-building",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/florida/home-loan/reverse-mortgage/hecm-benefits-requirements",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/florida/home-loan/reverse-mortgage/how-to-buy-a-house",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/florida/home-loan/reverse-mortgage/equity-requirements",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/florida/home-loan/reverse-mortgage/purchase-guide",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/florida/home-loan/reverse-mortgage/repayment-guide",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/florida/home-loan/reverse-mortgage/qualification",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/florida/home-loan/reverse-mortgage/homesafe-second",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source:
       "/florida/home-loan/reverse-mortgage/homesafe-jumbo-reverse-mortgage",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
@@ -8687,56 +8702,56 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/home-loan/reverse-mortgage/faq-and-changes",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source:
       "/florida/home-loan/reverse-mortgage/types-of-reverse-mortgages-in-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source:
       "/florida/home-loan/reverse-mortgage/reverse-mortgages-expert-guide",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source:
       "/florida/home-loan/reverse-mortgage/can-you-outlive-a-reverse-mortgage-in-florida",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source:
       "/florida/home-loan/reverse-mortgage/with-a-reverse-mortgage-who-owns-the-home",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/florida/home-loan/reverse-mortgage/types-and-requirements",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/florida/home-loan/reverse-mortgage/how-it-works-simplified",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/florida/home-loan/reverse-mortgage/benefits",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/florida/home-loan/reverse-mortgage/credit-score",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/florida/home-loan/reverse-mortgage/property-requirements",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
@@ -9202,12 +9217,12 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/calculators/reverse-mortgage",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
     source: "/florida/calculators/reverse-mortgage-for-purchase",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
@@ -9560,7 +9575,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/home-loan/reverse-mortgage/newest-information",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
@@ -9783,7 +9798,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/home-loan/reverse-mortgage/what-is-a-homesafe-reverse-mortgage",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   {
@@ -10015,7 +10030,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/home-loan/reverse-mortgage",
-    destination: "/home-loan",
+    destination: "/home-loan/reverse-mortgage",
     permanent: true,
   },
   { source: "/florida/research", destination: "/learn", permanent: true },
