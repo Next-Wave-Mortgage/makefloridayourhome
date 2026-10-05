@@ -305,14 +305,13 @@ const config: ProductPageConfig = {
           readTime: "8 min read",
         },
         {
-          category: "Loan Limits",
-          title: "Florida Conforming Loan Limits by County (2026)",
+          category: "Short-Term Rentals",
+          title: "DSCR Loans for Airbnb & Vacation Rentals",
           description:
-            "The county-by-county loan limits that shape conventional and jumbo financing.",
-          href: "/learn/florida-conforming-loan-limits-by-county",
-          image:
-            "/images/learn/florida-conforming-loan-limits-by-county-2026.webp",
-          readTime: "7 min read",
+            "How lenders count Airbnb income, and Florida's short-term rental rules from Orlando to the beaches.",
+          href: "/home-loan/dscr-loan/short-term-rental",
+          image: "/images/heroes/florida-short-term-rental-dscr-hero.webp",
+          readTime: "Loan guide",
         },
       ],
     },

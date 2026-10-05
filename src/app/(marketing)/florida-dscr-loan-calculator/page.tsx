@@ -191,7 +191,14 @@ export default function FloridaDscrCalculatorPage() {
               <strong className="text-dark-green">
                 Short-term rentals:
               </strong>{" "}
-              for Airbnb and vacation properties, the calculator turns your
+              for{" "}
+              <Link
+                href="/home-loan/dscr-loan/short-term-rental"
+                className="font-bold text-brand-green underline-offset-2 hover:underline"
+              >
+                Airbnb and vacation properties
+              </Link>
+              , the calculator turns your
               nightly rate and occupancy into gross monthly income, then
               credits 80% of it — the haircut most DSCR lenders apply to
               short-term rental income to account for seasonality and
