@@ -14,6 +14,8 @@ import {
   cheapestFloridaPlaces,
   getCheapestPlacesItemList,
 } from "@/components/sections/CheapestPlacesListicle";
+import { VeteranBenefitsTable } from "@/components/sections/VeteranBenefitsTable";
+import { VeteranTaxSavingsCalculator } from "@/components/sections/VeteranTaxSavingsCalculator";
 import { getAllSlugs, getPostBySlug } from "@/lib/blog";
 import { TableOfContents, MobileTableOfContents } from "./TableOfContents";
 
@@ -543,6 +545,8 @@ export default async function BlogPostPage({
                     }}
                     components={{
                       CheapestPlacesListicle,
+                      VeteranBenefitsTable,
+                      VeteranTaxSavingsCalculator,
                       table: (props: React.ComponentProps<"table">) => (
                         <div className="table-wrap">
                           <table {...props} />
