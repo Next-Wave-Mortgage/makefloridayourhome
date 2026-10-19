@@ -8327,12 +8327,12 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/how-to-move-to-florida-from-canada-guide",
-    destination: "/learn/foreign-buyers-guide-florida-real-estate",
+    destination: "/learn/moving-to-florida-from-canada",
     permanent: true,
   },
   {
     source: "/blog/how-to-buy-florida-real-estate-as-british-national",
-    destination: "/learn/foreign-buyers-guide-florida-real-estate",
+    destination: "/learn/buying-house-florida-from-uk",
     permanent: true,
   },
   {
@@ -9496,7 +9496,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/foreign-buyer-guides/uk",
-    destination: "/learn/foreign-buyers-guide-florida-real-estate",
+    destination: "/learn/buying-house-florida-from-uk",
     permanent: true,
   },
   {
@@ -9564,7 +9564,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/foreign-buyer-guides/canada",
-    destination: "/learn/foreign-buyers-guide-florida-real-estate",
+    destination: "/learn/moving-to-florida-from-canada",
     permanent: true,
   },
   {

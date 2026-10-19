@@ -360,13 +360,31 @@ const config: ProductPageConfig = {
       articles: [
         {
           category: "Foreign Buyers",
-          title: "Foreign Buyer's Guide to Florida Real Estate (2026)",
+          title: "Can Foreigners Buy Property in Florida? (2026)",
           description:
             "The buying process, taxes, and visa considerations for international buyers.",
           href: "/learn/foreign-buyers-guide-florida-real-estate",
           image:
-            "/images/learn/foreign-buyers-guide-florida-real-estate-2026.webp",
-          readTime: "10 min read",
+            "/images/learn/foreign-buyer-couple-florida-waterfront-home.webp",
+          readTime: "12 min read",
+        },
+        {
+          category: "Canadian Buyers",
+          title: "Moving to Florida From Canada",
+          description:
+            "Visas, snowbird rules, and how Canadians buy and finance a Florida home.",
+          href: "/learn/moving-to-florida-from-canada",
+          image: "/images/learn/canadian-snowbirds-florida-lanai.webp",
+          readTime: "14 min read",
+        },
+        {
+          category: "UK Buyers",
+          title: "Buying a Holiday Home in Florida From the UK",
+          description:
+            "Step-by-step buying, US mortgages without US credit, and UK tax rules.",
+          href: "/learn/buying-house-florida-from-uk",
+          image: "/images/learn/orlando-holiday-villa-pool-uk-buyers.webp",
+          readTime: "13 min read",
         },
         {
           category: "Investor Financing",

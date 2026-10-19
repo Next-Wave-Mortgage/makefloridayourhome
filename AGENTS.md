@@ -76,8 +76,11 @@ Apply this to every new or updated learn article in `content/learn/`.
   will get from it. Do not open with a bare data answer or a list of facts.
 - Put the blue CTA between the second and third intro sentences:
   `**[Check Your Florida Home Purchase Eligibility](/home-purchase-eligibility)**`
-- Every other CTA in the article uses that same wording and blue bold-link
-  format. Do not use button CTAs (`dpa-btn`). Place CTAs at conversion
+- Every other CTA uses the same blue bold-link format and destination.
+  CTA text may be personalized to the article's reader while keeping the
+  "check eligibility" meaning, e.g. "Check Your Florida Home Purchase
+  Eligibility as a Canadian" or "See If You Qualify for a Florida Mortgage
+  From the UK". Do not use button CTAs (`dpa-btn`). Place CTAs at conversion
   points: after key sections, examples, or tables, and at the close.
   Roughly one every two or three major sections; never stack them.
 - Titles favor buyer and mortgage intent ("buy", "home loans") over
