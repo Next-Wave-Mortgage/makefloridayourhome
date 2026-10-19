@@ -205,17 +205,17 @@ button:hover .book-3d {
   font-weight: 700;
   flex-shrink: 0;
 }
-.prose-mfyh p {
+.prose-mfyh p:where(:not(.not-prose *)) {
   margin-bottom: 1.25em;
 }
-.prose-mfyh a {
+.prose-mfyh a:where(:not(.not-prose *)) {
   color: #006948;
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 2px;
   transition: color 0.2s;
 }
-.prose-mfyh a:hover {
+.prose-mfyh a:where(:not(.not-prose *)):hover {
   color: #333333;
 }
 .prose-mfyh strong a {
@@ -225,21 +225,21 @@ button:hover .book-3d {
 .prose-mfyh strong a:hover {
   color: #0000a0;
 }
-.prose-mfyh ul,
-.prose-mfyh ol {
+.prose-mfyh ul:where(:not(.not-prose *)),
+.prose-mfyh ol:where(:not(.not-prose *)) {
   margin-bottom: 1.25em;
   padding-left: 1.5em;
 }
-.prose-mfyh li {
+.prose-mfyh li:where(:not(.not-prose *)) {
   margin-bottom: 0.5em;
 }
-.prose-mfyh ul li {
+.prose-mfyh ul li:where(:not(.not-prose *)) {
   list-style-type: disc;
 }
-.prose-mfyh ol li {
+.prose-mfyh ol li:where(:not(.not-prose *)) {
   list-style-type: decimal;
 }
-.prose-mfyh strong {
+.prose-mfyh strong:where(:not(.not-prose *)) {
   color: #333333;
   font-weight: 700;
 }

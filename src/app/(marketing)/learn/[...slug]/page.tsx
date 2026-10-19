@@ -15,6 +15,10 @@ import {
   getCheapestPlacesItemList,
 } from "@/components/sections/CheapestPlacesListicle";
 import { VeteranBenefitsTable } from "@/components/sections/VeteranBenefitsTable";
+import {
+  ExpressLaneFeature,
+  ExpressLaneSection,
+} from "@/components/sections/VeteranExpressLane";
 import { VeteranTaxSavingsCalculator } from "@/components/sections/VeteranTaxSavingsCalculator";
 import { getAllSlugs, getPostBySlug } from "@/lib/blog";
 import { TableOfContents, MobileTableOfContents } from "./TableOfContents";
@@ -545,6 +549,8 @@ export default async function BlogPostPage({
                     }}
                     components={{
                       CheapestPlacesListicle,
+                      ExpressLaneFeature,
+                      ExpressLaneSection,
                       VeteranBenefitsTable,
                       VeteranTaxSavingsCalculator,
                       table: (props: React.ComponentProps<"table">) => (

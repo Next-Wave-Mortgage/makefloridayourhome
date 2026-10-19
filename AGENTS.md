@@ -83,6 +83,9 @@ Apply this to every new or updated learn article in `content/learn/`.
   From the UK". Do not use button CTAs (`dpa-btn`). Place CTAs at conversion
   points: after key sections, examples, or tables, and at the close.
   Roughly one every two or three major sections; never stack them.
+- Exception: a designed featured promo component (for example
+  `VeteranExpressLane` in the VA disability article) may use its own button
+  and send leads to a loan-specific funnel such as `/check-va-loan-eligibility`.
 - Titles favor buyer and mortgage intent ("buy", "home loans") over
   higher-volume informational wording. The goal is mortgage leads.
 - Learn pages have no sidebar promo cards; the sidebar is the table of

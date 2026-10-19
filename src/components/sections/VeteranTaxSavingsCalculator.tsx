@@ -39,6 +39,9 @@ const HOMESTEAD_FIRST = 25_000;
 const HOMESTEAD_SECOND = 26_411;
 const VETERAN_5K = 5_000;
 
+// Illustrative rate for the buying-power line (Phil Ganz's Express Lane example).
+const ILLUSTRATIVE_RATE = 0.065;
+
 function fmt(n: number) {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -142,7 +145,11 @@ export function VeteranTaxSavingsCalculator() {
       situation === "total" && boughtThisYear ? refundRatio(closingDate) : null;
     const refund = ratio === null ? null : homesteadTax * ratio;
 
+    const r = ILLUSTRATIVE_RATE / 12;
+    const buyingPower = (savings / 12) * ((1 - Math.pow(1 + r, -360)) / r);
+
     return {
+      buyingPower: Math.round(buyingPower / 100) * 100,
       homesteadTax: Math.round(homesteadTax),
       yourTax: Math.round(yourTax),
       savings: Math.round(savings),
@@ -295,6 +302,27 @@ export function VeteranTaxSavingsCalculator() {
                 Paid after your exemption is granted for next year. No separate
                 refund application is needed.
               </p>
+            </div>
+          ) : null}
+
+          {situation === "total" && boughtThisYear ? (
+            <div className="rounded-2xl bg-white/[0.12] p-4">
+              <p className="text-[11px] font-bold uppercase tracking-wider text-white/55">
+                Potential mortgage buying power
+              </p>
+              <p className="mt-1 text-[24px] font-bold leading-none">
+                ~{fmt(calc.buyingPower)}
+              </p>
+              <p className="mt-2 text-[12px] leading-relaxed text-white/65">
+                If the lender recognizes your exemption, {fmt(calc.monthly)} a month
+                at an illustrative 6.5% over 30 years. Not a promise of approval.
+              </p>
+              <a
+                href="#the-next-wave-veteran-mortgage-express-lane"
+                className="mt-2 inline-block text-[12px] font-bold text-green-tint underline underline-offset-4 hover:text-white"
+              >
+                See the Next Wave Veteran Mortgage Express Lane
+              </a>
             </div>
           ) : null}
 
