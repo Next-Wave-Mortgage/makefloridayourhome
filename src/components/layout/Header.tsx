@@ -14,70 +14,202 @@ const navLinks = [
   { href: "/mortgage-rates", label: "Rates" },
 ];
 
-const loanOptions = [
-  {
-    href: "/home-loan/fha-loan",
-    label: "FHA Loan",
-    blurb: "3.5% down, 580+ credit — the first-time buyer favorite",
-  },
-  {
-    href: "/learn/conventional-mortgages-in-florida",
-    label: "Conventional Loan",
-    blurb: "As little as 3% down with removable mortgage insurance",
-  },
-  {
-    href: "/home-loan/va-loan",
-    label: "VA Loan",
-    blurb: "$0 down and no mortgage insurance for veterans",
-  },
-  {
-    href: "/learn/usda-loans-florida",
-    label: "USDA Loan",
-    blurb: "0% down in eligible rural and suburban areas",
-  },
-  {
-    href: "/learn/how-does-heloc-work-in-florida",
-    label: "HELOC",
-    blurb: "Tap your home equity without refinancing",
-  },
-  {
-    href: "/home-loan/dscr-loan",
-    label: "DSCR Loan",
-    blurb: "For investors — qualify on rental income, no tax returns",
-  },
-  {
-    href: "/learn/florida-manufactured-home-loan-program",
-    label: "Manufactured Home Loan",
-    blurb: "Finance a manufactured or mobile home with land",
-  },
-  {
-    href: "/home-loan/foreign-national-loan",
-    label: "Foreign National Loan",
-    blurb: "Buy in Florida without U.S. credit or residency",
-  },
+type NavOption = {
+  href: string;
+  label: string;
+  blurb: string;
+  icon: keyof typeof navIcons;
+};
+
+type NavGroup = { label?: string; options: NavOption[] };
+
+/* Small stroke icons for the dropdown menus (24px viewBox). */
+const navIcons = {
+  home: (
+    <>
+      <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+      <polyline points="9 22 9 12 15 12 15 22" />
+    </>
+  ),
+  key: (
+    <>
+      <circle cx="7.5" cy="15.5" r="5.5" />
+      <path d="M21 2l-9.6 9.6M15.5 7.5l3 3L22 7l-3-3" />
+    </>
+  ),
+  shield: (
+    <>
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <path d="M9 12l2 2 4-4" />
+    </>
+  ),
+  tree: (
+    <>
+      <path d="M12 22v-6" />
+      <path d="M12 2L5 12h4l-3 4h12l-3-4h4z" />
+    </>
+  ),
+  manufactured: (
+    <>
+      <rect x="2" y="7" width="20" height="11" rx="1" />
+      <path d="M6 18v3M18 18v3M6 11h4M14 11h4" />
+    </>
+  ),
+  building: (
+    <>
+      <rect x="4" y="2" width="16" height="20" rx="2" />
+      <path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01" />
+    </>
+  ),
+  globe: (
+    <>
+      <circle cx="12" cy="12" r="10" />
+      <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+    </>
+  ),
+  dollar: (
+    <>
+      <line x1="12" y1="1" x2="12" y2="23" />
+      <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+    </>
+  ),
+  calculator: (
+    <>
+      <rect x="4" y="2" width="16" height="20" rx="2" />
+      <path d="M8 6h8M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01" />
+    </>
+  ),
+  percent: (
+    <>
+      <line x1="19" y1="5" x2="5" y2="19" />
+      <circle cx="6.5" cy="6.5" r="2.5" />
+      <circle cx="17.5" cy="17.5" r="2.5" />
+    </>
+  ),
+};
+
+function NavIcon({ name }: { name: keyof typeof navIcons }) {
+  return (
+    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-green-tint text-brand-green transition-colors group-hover/item:bg-brand-green group-hover/item:text-white">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        {navIcons[name]}
+      </svg>
+    </span>
+  );
+}
+
+const loanColumns: NavGroup[][] = [
+  [
+    {
+      label: "Buy a home",
+      options: [
+        {
+          href: "/home-loan/fha-loan",
+          label: "FHA Loan",
+          blurb: "3.5% down, 580+ credit — the first-time buyer favorite",
+          icon: "home",
+        },
+        {
+          href: "/learn/conventional-mortgages-in-florida",
+          label: "Conventional Loan",
+          blurb: "As little as 3% down with removable mortgage insurance",
+          icon: "key",
+        },
+        {
+          href: "/home-loan/va-loan",
+          label: "VA Loan",
+          blurb: "$0 down and no mortgage insurance for veterans",
+          icon: "shield",
+        },
+        {
+          href: "/learn/usda-loans-florida",
+          label: "USDA Loan",
+          blurb: "0% down in eligible rural and suburban areas",
+          icon: "tree",
+        },
+        {
+          href: "/learn/florida-manufactured-home-loan-program",
+          label: "Manufactured Home Loan",
+          blurb: "Finance a manufactured or mobile home with land",
+          icon: "manufactured",
+        },
+      ],
+    },
+  ],
+  [
+    {
+      label: "Invest in Florida",
+      options: [
+        {
+          href: "/home-loan/dscr-loan",
+          label: "DSCR Loan",
+          blurb: "For investors — qualify on rental income, no tax returns",
+          icon: "building",
+        },
+        {
+          href: "/home-loan/foreign-national-loan",
+          label: "Foreign National Loan",
+          blurb: "Buy in Florida without U.S. credit or residency",
+          icon: "globe",
+        },
+      ],
+    },
+    {
+      label: "Use your equity",
+      options: [
+        {
+          href: "/learn/how-does-heloc-work-in-florida",
+          label: "HELOC",
+          blurb: "Tap your home equity without refinancing",
+          icon: "dollar",
+        },
+      ],
+    },
+  ],
 ];
 
-const calculatorOptions = [
-  {
-    href: "/home-affordability-calculator",
-    label: "Home Affordability Calculator",
-    blurb: "See what price fits your income and monthly budget",
-  },
-  {
-    href: "/florida-dscr-loan-calculator",
-    label: "DSCR Loan Calculator",
-    blurb: "Check if a rental qualifies, with taxes for all 67 counties",
-  },
-  {
-    href: "/learn/florida-va-disability-property-tax-exemptions#what-is-your-exemption-worth",
-    label: "VA Disability Tax Savings",
-    blurb: "Estimate your Florida property tax exemption by rating",
-  },
-  {
-    href: "/florida-down-payment-assistance-calculator",
-    label: "Down Payment Assistance Calculator",
-    blurb: "Match state and county programs to your purchase",
-  },
+const calculatorColumns: NavGroup[][] = [
+  [
+    {
+      options: [
+        {
+          href: "/home-affordability-calculator",
+          label: "Home Affordability Calculator",
+          blurb: "See what price fits your income and monthly budget",
+          icon: "calculator",
+        },
+        {
+          href: "/florida-dscr-loan-calculator",
+          label: "DSCR Loan Calculator",
+          blurb: "Check if a rental qualifies, with taxes for all 67 counties",
+          icon: "building",
+        },
+        {
+          href: "/learn/florida-va-disability-property-tax-exemptions#what-is-your-exemption-worth",
+          label: "VA Disability Tax Savings",
+          blurb: "Estimate your Florida property tax exemption by rating",
+          icon: "shield",
+        },
+        {
+          href: "/florida-down-payment-assistance-calculator",
+          label: "Down Payment Assistance Calculator",
+          blurb: "Match state and county programs to your purchase",
+          icon: "percent",
+        },
+      ],
+    },
+  ],
 ];
 
 const menus = [
@@ -85,21 +217,45 @@ const menus = [
     label: "Loan Options",
     href: "/home-loan",
     viewAll: "View all loan options →",
-    options: loanOptions,
+    columns: loanColumns,
+    panelClass: "left-0 w-[640px] -translate-x-6",
+    footer: {
+      text: "Not sure which loan fits?",
+      cta: "Check your eligibility →",
+      href: "/home-purchase-eligibility",
+    },
   },
   {
     label: "Calculators",
     href: "/calculators",
     viewAll: "View all calculators →",
-    options: calculatorOptions,
+    columns: calculatorColumns,
+    panelClass: "left-1/2 w-[400px] -translate-x-1/2",
+    footer: {
+      text: "Ready for real numbers?",
+      cta: "Check your eligibility →",
+      href: "/home-purchase-eligibility",
+    },
   },
 ];
 
-function isMenuActive(pathname: string, menu: (typeof menus)[number]) {
+type Menu = (typeof menus)[number];
+
+const menuOptions = (menu: Menu) =>
+  menu.columns.flat().flatMap((group) => group.options);
+
+/*
+ * A menu is active on its own section or on a page one of its items links to.
+ * Items that deep-link into an article section (#anchor) are skipped, so the
+ * article itself doesn't light up the menu.
+ */
+function isMenuActive(pathname: string, menu: Menu) {
   return (
     pathname === menu.href ||
     pathname.startsWith(menu.href + "/") ||
-    menu.options.some((option) => option.href.split("#")[0] === pathname)
+    menuOptions(menu).some(
+      (option) => !option.href.includes("#") && option.href === pathname,
+    )
   );
 }
 
@@ -152,28 +308,69 @@ export function Header() {
                   <polyline points="6 9 12 15 18 9" />
                 </svg>
               </Link>
-              <div className="invisible absolute left-1/2 top-full z-50 w-[380px] -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                <div className="overflow-hidden rounded-2xl border border-border-gray/60 bg-white p-2 shadow-[0_12px_40px_rgba(0,0,0,0.12)]">
-                  {menu.options.map((option) => (
-                    <Link
-                      key={option.href}
-                      href={option.href}
-                      className="block rounded-xl px-4 py-3 transition-colors hover:bg-green-tint"
-                    >
-                      <span className="block text-[15px] font-bold text-dark-green">
-                        {option.label}
-                      </span>
-                      <span className="mt-0.5 block text-[13px] font-normal leading-snug text-dark-green/60">
-                        {option.blurb}
-                      </span>
-                    </Link>
-                  ))}
-                  <Link
-                    href={menu.href}
-                    className="mt-1 block rounded-xl border-t border-border-gray/60 px-4 py-3 text-[14px] font-bold text-brand-green transition-colors hover:bg-green-tint"
+              <div
+                className={`invisible absolute top-full z-50 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 ${menu.panelClass}`}
+              >
+                <div className="overflow-hidden rounded-2xl border border-border-gray/60 bg-white shadow-[0_12px_40px_rgba(0,0,0,0.12)]">
+                  <div
+                    className={`grid gap-x-2 p-2 ${
+                      menu.columns.length > 1 ? "grid-cols-2" : "grid-cols-1"
+                    }`}
                   >
-                    {menu.viewAll}
-                  </Link>
+                    {menu.columns.map((column, i) => (
+                      <div key={i} className="space-y-2">
+                        {column.map((group) => (
+                          <div key={group.label ?? i}>
+                            {group.label && (
+                              <p className="px-3 pb-1 pt-2 text-[11px] font-bold uppercase tracking-[0.08em] text-dark-green/50">
+                                {group.label}
+                              </p>
+                            )}
+                            {group.options.map((option) => (
+                              <Link
+                                key={option.href}
+                                href={option.href}
+                                className="group/item flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-green-tint"
+                              >
+                                <NavIcon name={option.icon} />
+                                <span>
+                                  <span className="block text-[15px] font-bold text-dark-green">
+                                    {option.label}
+                                  </span>
+                                  <span className="mt-0.5 block text-[13px] font-normal leading-snug text-dark-green/60">
+                                    {option.blurb}
+                                  </span>
+                                </span>
+                              </Link>
+                            ))}
+                          </div>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                  <div
+                    className={`flex gap-x-4 gap-y-1.5 border-t border-border-gray/60 bg-green-tint/60 px-5 py-3 text-[14px] ${
+                      menu.columns.length > 1
+                        ? "items-center justify-between"
+                        : "flex-col-reverse"
+                    }`}
+                  >
+                    <Link
+                      href={menu.href}
+                      className="whitespace-nowrap font-bold text-dark-green/70 transition-colors hover:text-brand-green"
+                    >
+                      {menu.viewAll}
+                    </Link>
+                    <span className="whitespace-nowrap font-normal text-dark-green/70">
+                      {menu.footer.text}{" "}
+                      <Link
+                        href={menu.footer.href}
+                        className="font-bold text-brand-green underline-offset-2 hover:underline"
+                      >
+                        {menu.footer.cta}
+                      </Link>
+                    </span>
+                  </div>
                 </div>
               </div>
             </li>
@@ -268,7 +465,7 @@ export function Header() {
       {/* Mobile menu */}
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out xl:hidden ${
-          mobileOpen ? "max-h-[1200px] opacity-100" : "max-h-0 opacity-0"
+          mobileOpen ? "max-h-[1600px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="border-t border-border-gray px-5 pb-6 pt-4 sm:px-8">
@@ -308,31 +505,59 @@ export function Header() {
                   </button>
                   <div
                     className={`overflow-hidden transition-all duration-300 ${
-                      isOpen ? "max-h-[700px]" : "max-h-0"
+                      isOpen ? "max-h-[1100px]" : "max-h-0"
                     }`}
                   >
                     <ul className="space-y-1 pb-1 pl-3 pt-1">
-                      {menu.options.map((option) => (
-                        <li key={option.href}>
-                          <Link
-                            href={option.href}
-                            onClick={() => setMobileOpen(false)}
-                            className="block rounded-lg px-4 py-2.5 transition-colors hover:bg-green-tint"
-                          >
-                            <span className="block text-[14px] font-bold text-dark-green">
-                              {option.label}
-                            </span>
-                            <span className="block text-[12px] leading-snug text-dark-green/60">
-                              {option.blurb}
-                            </span>
-                          </Link>
+                      {menu.columns.flat().map((group, i) => (
+                        <li key={group.label ?? i}>
+                          {group.label && (
+                            <p className="px-4 pb-1 pt-2 text-[11px] font-bold uppercase tracking-[0.08em] text-dark-green/50">
+                              {group.label}
+                            </p>
+                          )}
+                          <ul className="space-y-1">
+                            {group.options.map((option) => (
+                              <li key={option.href}>
+                                <Link
+                                  href={option.href}
+                                  onClick={() => setMobileOpen(false)}
+                                  className="group/item flex items-start gap-3 rounded-lg px-4 py-2.5 transition-colors hover:bg-green-tint"
+                                >
+                                  <NavIcon name={option.icon} />
+                                  <span>
+                                    <span className="block text-[14px] font-bold text-dark-green">
+                                      {option.label}
+                                    </span>
+                                    <span className="block text-[12px] leading-snug text-dark-green/60">
+                                      {option.blurb}
+                                    </span>
+                                  </span>
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
                         </li>
                       ))}
+                      <li className="mt-2 border-t border-border-gray/60 pt-2">
+                        <Link
+                          href={menu.footer.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="block rounded-lg px-4 py-2.5 text-[14px] transition-colors hover:bg-green-tint"
+                        >
+                          <span className="text-dark-green/70">
+                            {menu.footer.text}{" "}
+                          </span>
+                          <span className="font-bold text-brand-green">
+                            {menu.footer.cta}
+                          </span>
+                        </Link>
+                      </li>
                       <li>
                         <Link
                           href={menu.href}
                           onClick={() => setMobileOpen(false)}
-                          className="block rounded-lg px-4 py-2.5 text-[14px] font-bold text-brand-green transition-colors hover:bg-green-tint"
+                          className="block rounded-lg px-4 py-2.5 text-[14px] font-bold text-dark-green/70 transition-colors hover:bg-green-tint"
                         >
                           {menu.viewAll}
                         </Link>
