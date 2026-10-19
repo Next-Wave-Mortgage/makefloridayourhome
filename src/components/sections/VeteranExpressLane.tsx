@@ -30,12 +30,12 @@ function ArrowIcon() {
   );
 }
 
-function ConsultButton({ label = "Check My Buying Power" }: { label?: string }) {
+function ConsultButton({ label = "See How Much More Home I Can Buy" }: { label?: string }) {
   return (
     <div className="flex w-full flex-col items-center gap-1.5 sm:w-auto sm:items-start">
       <Link
         href={FUNNEL}
-        className="inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-review-gold px-7 py-3.5 text-[15px] font-bold leading-none sm:w-auto text-charcoal no-underline shadow-[0_6px_20px_rgba(255,184,0,0.35)] transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(255,184,0,0.45)]"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-review-gold px-7 py-3.5 text-center text-[15px] font-bold leading-snug sm:w-auto sm:whitespace-nowrap text-charcoal no-underline shadow-[0_6px_20px_rgba(255,184,0,0.35)] transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(255,184,0,0.45)]"
       >
         {label}
         <ArrowIcon />
