@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 const backLinks: Record<string, string> = {
   "/home-purchase-eligibility": "/",
-  "/check-dpa-eligibility": "/down-payment-assistance",
+  "/check-dpa-eligibility": "/learn/first-time-homebuyer/grants-and-programs",
   "/check-fha-loan-eligibility": "/home-loan/fha-loan",
   "/check-va-loan-eligibility": "/home-loan",
   "/check-conventional-loan-eligibility": "/home-loan",

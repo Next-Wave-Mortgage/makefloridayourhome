@@ -138,7 +138,7 @@ const loanLinks: Record<string, string> = {
   "Home loan options": "/home-loan",
   "Self-employed guide": "/learn/florida-mortgage-assistance-programs-self-employed-1099",
   "DSCR loans": "/home-loan/dscr-loan",
-  "Florida DPA programs": "/down-payment-assistance",
+  "Florida DPA programs": "/learn/first-time-homebuyer/grants-and-programs",
 };
 
 const areasServed = [

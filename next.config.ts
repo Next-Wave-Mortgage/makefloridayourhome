@@ -53,6 +53,13 @@ const nextConfig: NextConfig = {
         destination: "/learn/first-time-homebuyer/grants-and-programs",
         statusCode: 301,
       },
+      // 2026-10-19: retire the DPA hub. The guide already outranked it on
+      // ~800 shared queries; consolidate its links and backlinks there.
+      {
+        source: "/down-payment-assistance",
+        destination: "/learn/first-time-homebuyer/grants-and-programs",
+        statusCode: 301,
+      },
       // The bare parent segment has no page of its own; send URL
       // truncations to the guide instead of a 404.
       {

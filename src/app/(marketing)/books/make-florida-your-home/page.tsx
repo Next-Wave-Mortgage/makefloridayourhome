@@ -126,12 +126,6 @@ const freeTools = [
     href: "/learn/first-time-homebuyer/grants-and-programs",
   },
   {
-    title: "Down Payment Assistance Hub",
-    description:
-      "How Florida DPA works — forgivable loans, deferred seconds, and grants.",
-    href: "/down-payment-assistance",
-  },
-  {
     title: "FHA Loan Guide",
     description:
       "The first-time buyer's loan of choice — 3.5% down with flexible credit.",

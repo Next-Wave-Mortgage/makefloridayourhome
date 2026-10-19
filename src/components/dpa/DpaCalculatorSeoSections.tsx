@@ -193,15 +193,7 @@ export function DpaCalculatorSeoSections({
               >
                 conventional mortgage options
               </Link>
-              , and how assistance can affect cash to close. For a broader
-              overview, the main{" "}
-              <Link
-                href="/down-payment-assistance"
-                className="font-bold text-brand-green underline decoration-brand-green/25 underline-offset-4 hover:text-dark-green"
-              >
-                Florida down payment assistance
-              </Link>{" "}
-              hub explains how these programs fit into a full purchase plan.
+              , and how assistance can affect cash to close.
             </p>
           </div>
 

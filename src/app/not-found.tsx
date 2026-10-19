@@ -3,7 +3,6 @@ import Link from "next/link";
 const links = [
   { href: "/", label: "Home" },
   { href: "/learn/first-time-homebuyer/grants-and-programs", label: "First-Time Homebuyer" },
-  { href: "/down-payment-assistance", label: "Down Payment Assistance" },
   { href: "/home-purchase-eligibility", label: "Check Eligibility" },
 ];
 

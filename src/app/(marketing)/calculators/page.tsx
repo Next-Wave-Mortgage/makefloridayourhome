@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Florida Mortgage Calculators — Affordability, Payments & More",
+  title: "Florida Mortgage Calculators: Affordability, DSCR & More",
   description:
-    "Free Florida mortgage calculators. Estimate your home affordability, monthly payment, closing costs, and down payment assistance savings.",
+    "Free Florida mortgage calculators. Estimate home affordability, check a rental's DSCR, see veteran tax savings, and match assistance programs.",
   openGraph: {
-    title: "Florida Mortgage Calculators — Affordability, Payments & More",
+    title: "Florida Mortgage Calculators: Affordability, DSCR & More",
     description:
-      "Free Florida mortgage calculators. Estimate your home affordability, monthly payment, closing costs, and DPA savings.",
+      "Free Florida mortgage calculators. Estimate home affordability, check a rental's DSCR, see veteran tax savings, and match assistance programs.",
     url: "https://www.makefloridayourhome.com/calculators",
     type: "website",
   },
@@ -20,18 +20,32 @@ export const metadata: Metadata = {
 export default function CalculatorsPage() {
   const calculators = [
     {
-      title: "Florida Down Payment Assistance Calculator",
-      description:
-        "Find DPA programs that may match your county, buyer profile, income, purchase price, and loan type.",
-      href: "/florida-down-payment-assistance-calculator",
-      label: "New",
-    },
-    {
       title: "Florida Home Affordability Calculator",
       description:
         "Estimate your max home price, monthly payment, and Florida-specific cost breakdown.",
       href: "/home-affordability-calculator",
       label: "Popular",
+    },
+    {
+      title: "Florida DSCR Loan Calculator",
+      description:
+        "See whether a rental property qualifies on its income, with property taxes for all 67 Florida counties.",
+      href: "/florida-dscr-loan-calculator",
+      label: "Investors",
+    },
+    {
+      title: "Florida VA Disability Tax Savings Calculator",
+      description:
+        "Estimate what Florida's disabled veteran property tax exemptions are worth on a home, by rating and county.",
+      href: "/learn/florida-va-disability-property-tax-exemptions#what-is-your-exemption-worth",
+      label: "Veterans",
+    },
+    {
+      title: "Florida Down Payment Assistance Calculator",
+      description:
+        "Find DPA programs that may match your county, buyer profile, income, purchase price, and loan type.",
+      href: "/florida-down-payment-assistance-calculator",
+      label: "First-Time Buyers",
     },
   ];
 

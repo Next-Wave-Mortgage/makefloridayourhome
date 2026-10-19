@@ -944,14 +944,7 @@ export function MortgageRatesDashboard({
               <p>
                 A lot of Florida buyers are not just trying to find a lower
                 rate. They are trying to solve the upfront-cost problem. That is
-                where{" "}
-                <Link
-                  href="/down-payment-assistance"
-                  className="font-bold text-brand-green underline underline-offset-2 hover:text-dark-green"
-                >
-                  Florida down payment assistance
-                </Link>
-                ,{" "}
+                where Florida down payment assistance,{" "}
                 <Link
                   href="/learn/first-time-homebuyer/grants-and-programs"
                   className="font-bold text-brand-green underline underline-offset-2 hover:text-dark-green"

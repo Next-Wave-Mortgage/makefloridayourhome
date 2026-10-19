@@ -33,7 +33,7 @@ const features: {
   {
     title: "Down Payment Assistance",
     description: "Programs that cover part or all of your down payment",
-    href: "/down-payment-assistance",
+    href: "/florida-down-payment-assistance-calculator",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"

@@ -151,7 +151,7 @@ export default function AboutUsPage() {
               </Link>{" "}
               and{" "}
               <Link
-                href="/down-payment-assistance"
+                href="/florida-down-payment-assistance-calculator"
                 className="font-semibold text-brand-green underline underline-offset-2 hover:text-dark-green transition-colors"
               >
                 down payment assistance

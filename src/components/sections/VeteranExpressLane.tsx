@@ -232,70 +232,36 @@ export function ExpressLaneFeature() {
   );
 }
 
-const CHECKLIST = [
-  "Review your VA permanent-and-total service-connected disability documentation and qualifying discharge status.",
-  "Confirm Florida homestead and statutory eligibility with the county property appraiser.",
-  "Ask about tentative verification under Florida Statute 196.092.",
-  "Separate eligible ad valorem taxes from non-ad valorem assessments on the property tax bill.",
-  "Compare suitable lenders and request written underwriting review of the future exemption.",
-  "Request a separate written decision on escrow collection.",
-  "Coordinate title, current-year tax prorations and any potential statutory refund.",
-  "Keep you informed from application through closing.",
+const WHAT_WE_DO = [
+  "Gather your VA letter and county paperwork.",
+  "Ask your county for an early eligibility check. Florida law (s. 196.092) lets property appraisers confirm it before you buy.",
+  "Compare lenders on how they treat your exemption. Counting it when you qualify and lowering your escrow are two separate decisions, and we ask about both.",
+  "Coordinate title, tax prorations and your refund, and keep you updated through closing.",
 ];
-
-function SubHead({ children }: { children: React.ReactNode }) {
-  return <p className="mt-8 text-[19px] font-bold text-charcoal">{children}</p>;
-}
-
-function Body({ children }: { children: React.ReactNode }) {
-  return <p className="mt-3 text-[16px] leading-[1.75] text-charcoal/75">{children}</p>;
-}
 
 /* Full section, placed under its own H2 in the MDX. */
 export function ExpressLaneSection() {
   return (
     <div className="not-prose my-6">
-      <div className="rounded-3xl border border-border-gray/70 bg-white p-6 sm:p-9">
-        <Body>
-          Imagine the longest airport security line the day before Thanksgiving.
-          Thousands of travelers, luggage everywhere, and an endless wait. Then you
-          notice TSA PreCheck: a much easier experience.
-        </Body>
-        <Body>
-          Now imagine being told to stand in the longest line anyway, even though
-          you&apos;ve earned access to a better one.
-        </Body>
-        <Body>
-          That&apos;s what a Florida home purchase can feel like for a disabled
-          veteran: VA letters, county forms, property appraisers, lenders,
-          underwriters, taxes, escrows and repeated requests for documentation.
-        </Body>
-        <p className="mt-4 text-[18px] font-bold text-brand-green">
-          You deserve better than that nonsense.
+      <div className="rounded-3xl border border-border-gray/70 bg-white p-6 sm:p-8">
+        <p className="text-[16px] leading-[1.75] text-charcoal/75">
+          Buying a home as a disabled veteran can mean VA letters, county forms,
+          lenders and underwriters all asking for paperwork. You&apos;ve earned
+          better than the long line: red-carpet service, not red tape.
         </p>
-        <Body>
-          You&apos;ve served your country. You shouldn&apos;t have to become an
-          expert in Florida property-tax law just to buy a home. At Next Wave
-          Mortgage, our philosophy is simple: red-carpet service, not red tape. We
-          help coordinate the mortgage paperwork and advocate with multiple lenders
-          so you can focus on choosing your new home.
-        </Body>
 
-        <SubHead>The $600-a-Month Mortgage Qualification Problem</SubHead>
-        <Body>
-          Under Florida Statute 196.081, certain honorably discharged veterans with
-          a total and permanent service-connected disability can qualify for a full
-          ad valorem property-tax exemption on their Florida homestead. But the
-          exemption may not yet appear on the new home&apos;s tax records when
-          you&apos;re applying for financing. Your lender might initially count the
-          estimated taxes in your debt-to-income ratio.
-        </Body>
-
-        <div className="mt-5 overflow-hidden rounded-2xl border border-border-gray/70">
+        <p className="mt-7 text-[19px] font-bold text-charcoal">
+          Why your exemption matters when you buy
+        </p>
+        <p className="mt-3 text-[16px] leading-[1.75] text-charcoal/75">
+          Your exemption usually isn&apos;t on the new home&apos;s tax records yet
+          when you apply for a loan. A lender may count property taxes you
+          won&apos;t actually pay, which can shrink how much home you qualify for.
+        </p>
+        <div className="mt-4 overflow-hidden rounded-2xl border border-border-gray/70">
           {[
-            ["Yearly property taxes (example)", "$7,200"],
-            ["Monthly cost in your payment", "$600"],
-            ["More home you could qualify for (6.5%, 30 years)", "Up to $94,900"],
+            ["Property taxes a lender might count", "$600/mo"],
+            ["More home you could qualify for if they count your exemption", "Up to $94,900"],
             ["Less cash upfront for tax escrow (4 months)", "$2,400"],
           ].map(([label, value], i) => (
             <div
@@ -311,90 +277,27 @@ export function ExpressLaneSection() {
             </div>
           ))}
         </div>
+        <p className="mt-2 text-[12px] leading-relaxed text-charcoal/50">
+          Example: $7,200 a year in taxes at 6.5% over 30 years. Not a promise of
+          approval; your income, debts and loan program still matter.
+        </p>
 
-        <Body>
-          That $600 payment difference represents approximately $94,900 in potential
-          additional mortgage principal capacity, if the lender recognizes the
-          exemption and all other underwriting limits permit it. This is not
-          automatically $95,000 more purchase price, and it is not a promise of
-          approval. Other debts, income, insurance, assessments, loan-to-value
-          limits, VA entitlement if applicable and program rules still matter. Nor
-          should anyone borrow more than is affordable.
-        </Body>
-        <Body>
-          But imagine missing out on the right floor plan or neighborhood simply
-          because your lender hasn&apos;t properly evaluated an exemption you may
-          qualify for.
-        </Body>
-
-        <SubHead>Welcome to the Mortgage Express Lane</SubHead>
-        <Body>
-          Why spend your home search chasing county forms, waiting on hold,
-          locating VA letters and explaining the same issue repeatedly to lenders?
-          Our white-glove approach is to help review your benefits, identify needed
-          documents, coordinate with appropriate county and closing professionals,
-          evaluate lender options, present the exemption documentation to
-          underwriting and keep you informed.
-        </Body>
-        <Body>
-          Some forms, signatures and county requirements still need your direct
-          participation. We cannot skip legal steps or guarantee the county&apos;s
-          or lender&apos;s decision. But we can help take the organizational burden
-          off your shoulders. Think of it as the mortgage version of an express
-          lane: experienced guidance, fewer avoidable detours and personal service.
-          You focus on the home. We help navigate the process.
-        </Body>
-
-        <SubHead>Why an Independent Mortgage Broker Matters</SubHead>
-        <Body>
-          A direct lender generally offers its own programs and guidelines. If it
-          won&apos;t recognize your anticipated exemption, your options with that
-          institution may be limited. Next Wave Mortgage works with multiple
-          wholesale lenders. We can evaluate how different investors review
-          exemption documentation, calculate qualifying housing expenses, and
-          handle escrows, alongside rates, fees and closing deadlines.
-        </Body>
-        <Body>
-          One especially important lesson from experienced brokers: removing
-          eligible property taxes from the qualifying debt-to-income calculation
-          and reducing or waiving tax escrows are two separate lender decisions.
-        </Body>
-
-        <SubHead>The Florida Law That May Help Before Closing</SubHead>
-        <Body>
-          Florida Statute 196.092 allows a county property appraiser, at the
-          appraiser&apos;s discretion, to provide tentative verification of
-          eligibility for certain disabled-veteran exemptions before a homestead
-          purchase. This verification is nonbinding, does not replace the final
-          application, and does not force a lender to exclude taxes. But it may
-          provide valuable support for an underwriting review. We help identify
-          whether the county offers this option and how to present the
-          documentation to a lender.
-        </Body>
-
-        <SubHead>The Difference Between Tax Exemption and Escrow</SubHead>
-        <Body>
-          If the lender accepts an exemption for qualification, that may remove
-          eligible taxes from the monthly expense used to calculate DTI. Separately,
-          the lender may review whether upfront escrow collections should be
-          reduced. For example, four months of $600 eligible taxes would be $2,400.
-          A reduction in that deposit may reduce cash needed at closing, but it
-          isn&apos;t a lender fee discount or free money. The veteran may still owe
-          homeowners insurance, non-ad valorem assessments such as certain CDD or
-          service charges, current-year tax amounts and closing prorations.
-        </Body>
-
-        <SubHead>Your White-Glove Next Wave Checklist</SubHead>
-        <ol className="mt-4 space-y-2.5">
-          {CHECKLIST.map((item, i) => (
+        <p className="mt-7 text-[19px] font-bold text-charcoal">What we do for you</p>
+        <ul className="mt-4 space-y-3">
+          {WHAT_WE_DO.map((item) => (
             <li key={item} className="flex gap-3 text-[15px] leading-relaxed text-charcoal/75">
-              <span className="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-brand-green text-[12px] font-bold text-white">
-                {i + 1}
+              <span className="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-brand-green text-white">
+                <CheckIcon />
               </span>
               <span>{item}</span>
             </li>
           ))}
-        </ol>
+        </ul>
+        <p className="mt-4 text-[14px] leading-relaxed text-charcoal/60">
+          Some forms still need your signature, and we can&apos;t guarantee the
+          county&apos;s or lender&apos;s decision. We take the legwork off your
+          shoulders so you can focus on the home.
+        </p>
       </div>
 
       <GreenPanel className="mt-6">
@@ -420,14 +323,9 @@ export function ExpressLaneSection() {
       </GreenPanel>
 
       <p className="mt-4 text-[12px] leading-relaxed text-charcoal/45">
-        Next Wave Mortgage is a Florida-based independent mortgage broker with
-        multiple wholesale lender relationships. Educational only; not tax or legal
-        advice or a commitment to lend. Eligibility is determined by the county
-        property appraiser. Loan qualification and escrow treatment depend on
-        investor guidelines and individual facts. The $94,900 figure is an
-        illustrative principal-and-interest calculation, not guaranteed additional
-        purchase price. TSA PreCheck analogy only; no affiliation or expedited
-        government access is implied.
+        Educational only; not tax or legal advice or a commitment to lend.
+        Eligibility is determined by the county property appraiser. Loan
+        qualification and escrow treatment depend on lender guidelines.
       </p>
     </div>
   );

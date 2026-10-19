@@ -214,7 +214,7 @@ const relatedResources = [
     title: "Florida Down Payment Assistance",
     description:
       "Chapter 13 asks whether DPA stacks with FHA. Here is every Florida program that can.",
-    href: "/down-payment-assistance",
+    href: "/learn/first-time-homebuyer/grants-and-programs",
   },
   {
     title: "Down Payment Assistance Calculator",

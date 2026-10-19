@@ -522,7 +522,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/what-goes-into-closing-costs-and-ways-to-buy-with-less-money-down-1",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -902,7 +902,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/chenoa-fund-down-payment-assistance-program-in-st-johns-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -924,287 +924,287 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-alachua-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-baker-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-bay-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-brevard-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-broward-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-calhoun-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/blog/chenoa-fund-down-payment-assistance-charlotte-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-clay-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-dixie-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-programs-in-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-bradford-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-citrus-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-collier-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-columbia-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-duval-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-escambia-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/blog/chenoa-fund-down-payment-assistance-gilchrist-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-hardee-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/blog/chenoa-fund-down-payment-assistance-hillsborough-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-holmes-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/blog/chenoa-fund-down-payment-assistance-indian-river-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-jackson-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/blog/chenoa-fund-down-payment-assistance-jefferson-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-lake-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-madison-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/blog/chenoa-fund-down-payment-assistance-miami-dade-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-okaloosa-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-putnam-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/blog/chenoa-fund-down-payment-assistance-santa-rosa-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-sarasota-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-seminole-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-st-lucie-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-taylor-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-union-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-volusia-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-wakulla-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-walton-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/blog/chenoa-fund-down-payment-assistance-washington-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-gulf-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-hamilton-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-hernando-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-lee-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-leon-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-manatee-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-marion-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-martin-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/blog/chenoa-fund-down-payment-assistance-okeechobee-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-orange-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-osceola-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/blog/chenoa-fund-down-payment-assistance-palm-beach-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-pasco-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-polk-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-st-johns-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-sumter-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-down-payment-assistance-suwannee-county-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -1252,7 +1252,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/upfront-costs-of-homeownership-can-save-you-money-in-the-long-run",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   { source: "/blog/tag/oakland-park", destination: "/learn", permanent: true },
@@ -1809,7 +1809,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/florida-housing-finance-corporations-first-mortgage-program-options-fannie-mae-hfa-preferred-and-freddie-mac-hfa-advantage-loans-at-a-glance",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -1820,7 +1820,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/all-you-need-to-know-about-obtaining-gift-money-for-down-payment-on-a-home-purchase-in-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -2034,24 +2034,24 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/florida-housing-finance-corporations-down-payment-assistance-offerings-at-a-glance",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/the-florida-homeownership-loan-program-fl-hlp-",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/blog/2016-federally-designated-target-areas-borrowers-are-exempt-form-first-time-home-buyer-requirement",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/blog/do-i-need-to-put-down-20-on-a-florida-home-not-with-the-new-freddie-mac-3-down-payment-option",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -2548,7 +2548,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/100-percent-loan-financing-for-your-florida-home-purchase",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -2570,7 +2570,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/florida-housing-finance-corporations-first-mortgage-program-options",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -2595,23 +2595,23 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/the-florida-assist-second-mortgage-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/florida-bond-first-and-second-mortgage-all-you-need-to-know",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/blog/florida-housing-finance-corporations-down-payment-assistance-offerings",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/upfront-costs-of-homeownership",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -2663,17 +2663,17 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/down-payment-toward-equity-act",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/helper-act",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/dash-act",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -2683,17 +2683,17 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/biden-15k-first-time-homebuyer-tax-credit",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/how-to-buy-a-house-with-no-money",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/down-payment-assistance",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -6957,48 +6957,48 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/federally-designated-target-areas-borrowers-are-exempt-form-first-time-home-buyer-requirement",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/florida-homeownership-loan-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/florida-housing-bond-loan-down-payment-assistance-programs",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/florida-housing-down-payment-assistance-programs",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/blog/understanding-the-florida-assist-second-mortgage-program-for-tba",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/what-you-need-to-know-about-florida-hfa-preferred-mortgages",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/florida-hfa-advantage-loan-guide",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/the-first-mortgage-programs",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/bond-housing-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   { source: "/real-estate/florida/miramar", destination: "/", permanent: true },
@@ -7161,7 +7161,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/down-payment-assistance-blog",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -7571,48 +7571,48 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/chenoa-fund-vs-empowered-dpa",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/florida-real-estate-rebate",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/rocket-mortgage-real-estate-rebate",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/blog/rocket-mortgage-vs-united-wholesale-mortgage-one-percent-down-programs",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/how-1-percent-down-mortgage-works",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-reviews",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/how-chenoa-fund-works",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/miami-dade-zero-interest-homebuyer-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -8065,62 +8065,62 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/empowered-dpa-program-guide",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/florida-bond-loan-program-for-prospective-buyers",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/25000-down-payment-toward-equity-grant",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/purchase-plus-grant",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/florida-chenoa-fund-faq",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/arrive-home-earned-equity-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/zillow-real-estate-buyer-rebate-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/arrive-home-down-payment-assistance-ultimate-guide",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/1-percent-down-mortgage-faq",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-income-limits",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-lenders-in-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/blog/chenoa-fund-ultimate-guide",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -8130,7 +8130,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/do-i-need-to-put-down-20-percent-on-a-florida-home",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -8141,7 +8141,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/obtaining-gift-money-for-down-payment-on-a-home-purchase-in-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -8153,7 +8153,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/what-goes-into-closing-costs-and-ways-to-buy-with-less-money-down",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -8235,13 +8235,13 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/uwm-zero-down-homebuyer-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/blog/guide-to-mortgage-closing-costs-average-fees-and-ways-to-save",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -8354,7 +8354,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/home-loan/conventional-mortgage/hallandale-beach-first-time-homebuyer-grant",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -8380,7 +8380,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/hometown-heroes/fha-loan-florida-down-payment-assistance",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -8943,19 +8943,19 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/down-payment-assistance/put-down-20-percent-florida-home",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/florida/down-payment-assistance/first-time-homebuyer/purchase-plus-grant",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/florida/down-payment-assistance/25000-kamala-harris-first-time-homebuyer-grant",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -8971,7 +8971,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/down-payment-assistance/chenoa-fund-florida-qualify",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -8987,23 +8987,23 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/down-payment-assistance/uwm-zero-down-homebuyer-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/florida/down-payment-assistance/one-percent-down-mortgage-faq",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/florida/down-payment-assistance/miami-dade-zero-interest-homebuyer-guide",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/florida/down-payment-assistance/closing-costs-less-money-down",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -9014,19 +9014,19 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/down-payment-assistance/compare-elevate-dpa-vs.-uwm-0-down",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/florida/down-payment-assistance/what-is-neighborhood-home-investment-act",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/florida/down-payment-assistance/what-is-trumps-emergency-executive-order-for-price-relief-on-housing",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -9264,7 +9264,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/hometown-heroes/florida-down-payment-assistance-alternatives-hometown-heroes",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -9410,7 +9410,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/down-payment-assistance/florida-bond-loan-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -9527,7 +9527,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/down-payment-assistance/rocket-vs-uwm-one-percent-down",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -9570,7 +9570,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/down-payment-assistance/chenoa-fund-income-limits-explained",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -9580,7 +9580,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/down-payment-assistance/gift-money-down-payment-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -9637,58 +9637,58 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/down-payment-assistance/miami-hfa-first-time-homebuyer-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/florida/down-payment-assistance/manatee-county-hfa-home-ownership-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/florida/down-payment-assistance/pembroke-pines-down-payment-assistance",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/florida/down-payment-assistance/what-is-the-escambia-county-down-payment-assistance-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/florida/down-payment-assistance/arrive-home-dpa-guide",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/florida/down-payment-assistance/florida-empowered-dpa-program-guide",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/florida/down-payment-assistance/what-is-the-12500-home-homebuyers-program-complete-guide",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/florida/down-payment-assistance/chenoa-fund-guide-requirements-eligibility",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/florida/down-payment-assistance/arrive-home-earned-equity-guide",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/florida/down-payment-assistance/down-payment-toward-equity-act",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -9699,18 +9699,18 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/down-payment-assistance/city-of-orlando-down-payment-assistance-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/florida/down-payment-assistance/city-of-lauderhill-purchase-assistance-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/florida/down-payment-assistance/mortgage-closing-costs-guide",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -9722,46 +9722,46 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/down-payment-assistance/fha-loan-florida-down-payment-assistance",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/florida/down-payment-assistance/help-with-mortgage-florida",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/florida/down-payment-assistance/lee-county-firstplus-dpa-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/florida/down-payment-assistance/hallandale-beach-first-time-homebuyer-grant",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/florida/down-payment-assistance/what-is-the-florida-ship-first-time-homebuyers-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/florida/down-payment-assistance/florida-own-a-home-opportunity-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/florida/down-payment-assistance/own-a-home-opportunity-grant",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/florida/down-payment-assistance/miami-dade-advocacy-trust-homebuyer-grant",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -9820,7 +9820,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/down-payment-assistance/fort-lauderdale-down-payment-assistance-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -9905,30 +9905,30 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/down-payment-assistance/what-is-the-florida-standard-tba-loan-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/florida/down-payment-assistance/what-is-the-central-florida-homebuyers-dream-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/florida/down-payment-assistance/home-sweet-home-hillsborough-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/florida/down-payment-assistance/polk-county-down-payment-assistance",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/florida/down-payment-assistance/palm-beach-county",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -9945,7 +9945,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/down-payment-assistance/what-is-the-city-of-jacksonville-down-payment-assistance-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -9986,18 +9986,18 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/down-payment-assistance/what-is-the-florida-plus-tba-loan-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source:
       "/florida/down-payment-assistance/what-is-the-pinellas-county-hfa-first-time-homebuyer-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
     source: "/florida/down-payment-assistance/florida-bond-loan-program-guide",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
@@ -10009,7 +10009,7 @@ const redirects: Redirect[] = [
   {
     source:
       "/florida/down-payment-assistance/what-is-my-safe-florida-home-program",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   { source: "/florida/blog/:path*", destination: "/learn", permanent: true },
@@ -10101,7 +10101,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/down-payment-assistance",
-    destination: "/down-payment-assistance",
+    destination: "/learn/first-time-homebuyer/grants-and-programs",
     permanent: true,
   },
   {
