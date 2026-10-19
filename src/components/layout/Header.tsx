@@ -51,6 +51,11 @@ const loanOptions = [
     label: "Manufactured Home Loan",
     blurb: "Finance a manufactured or mobile home with land",
   },
+  {
+    href: "/home-loan/foreign-national-loan",
+    label: "Foreign National Loan",
+    blurb: "Buy in Florida without U.S. credit or residency",
+  },
 ];
 
 export function Header() {

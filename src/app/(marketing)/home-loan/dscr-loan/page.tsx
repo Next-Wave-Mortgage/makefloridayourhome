@@ -238,7 +238,8 @@ const config: ProductPageConfig = {
           description:
             "Investing from outside the U.S.? Finance Florida rentals without U.S. credit.",
           href: "/home-loan/foreign-national-loan",
-          image: "/images/heroes/florida-foreign-national-loan-hero.webp",
+          image:
+            "/images/og/foreign-national-mortgage-florida-miami-condo-keys.webp",
           readTime: "Loan guide",
         },
       ],

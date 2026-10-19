@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://www.makefloridayourhome.com/images/og/florida-foreign-national-loan.webp",
+        url: "https://www.makefloridayourhome.com/images/og/foreign-national-mortgage-florida-miami-condo-keys.webp",
         width: 1200,
         height: 630,
-        alt: "Waterfront condominium tower on Biscayne Bay in Miami at golden hour",
+        alt: "International couple holding the keys to their new Miami condo with a Biscayne Bay view",
       },
     ],
   },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description:
       "Finance a Florida second home or investment property as a non-U.S. resident. No U.S. credit score or SSN required.",
     images: [
-      "https://www.makefloridayourhome.com/images/og/florida-foreign-national-loan.webp",
+      "https://www.makefloridayourhome.com/images/og/foreign-national-mortgage-florida-miami-condo-keys.webp",
     ],
   },
   alternates: { canonical: "/home-loan/foreign-national-loan" },
@@ -91,9 +91,10 @@ const config: ProductPageConfig = {
         text: "Close in your own name or a U.S. LLC",
       },
     ],
-    image: "/images/heroes/florida-foreign-national-loan-hero.webp",
+    image:
+      "/images/heroes/foreign-national-mortgage-florida-miami-condo-keys.webp",
     imageAlt:
-      "Modern waterfront condominium tower on Biscayne Bay in Miami at golden hour, framed by palm trees",
+      "International buyers holding the keys to their new Miami condo, with a suitcase and Biscayne Bay view behind them",
   },
   cta: {
     href: "/check-non-qm-loan-eligibility",

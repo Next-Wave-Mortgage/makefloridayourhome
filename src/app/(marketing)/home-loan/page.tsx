@@ -227,7 +227,7 @@ const loanTypes = [
     eligibilityText: "Check Non-QM Eligibility",
     articles: [
       { title: "Florida Mortgage & Assistance Programs for Self-Employed & 1099 Buyers", href: "/learn/florida-mortgage-assistance-programs-self-employed-1099", image: "/images/learn/florida-mortgage-assistance-programs-self-employed-1099-2026.webp" },
-      { title: "Foreign National Mortgages in Florida", href: "/home-loan/foreign-national-loan", image: "/images/heroes/florida-foreign-national-loan-hero.webp" },
+      { title: "Foreign National Mortgages in Florida", href: "/home-loan/foreign-national-loan", image: "/images/og/foreign-national-mortgage-florida-miami-condo-keys.webp" },
       { title: "Condotel Loans in Florida", href: "/home-loan/condotel-loan", image: "/images/heroes/florida-condotel-loan-hero.webp" },
     ],
   },

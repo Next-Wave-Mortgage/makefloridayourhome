@@ -302,7 +302,8 @@ const config: ProductPageConfig = {
           description:
             "How non-residents finance Florida vacation homes and rentals without U.S. credit.",
           href: "/home-loan/foreign-national-loan",
-          image: "/images/heroes/florida-foreign-national-loan-hero.webp",
+          image:
+            "/images/og/foreign-national-mortgage-florida-miami-condo-keys.webp",
           readTime: "Loan guide",
         },
         {
