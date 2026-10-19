@@ -1,6 +1,6 @@
 import countyPaths from "@/data/florida-county-paths.json";
 
-const FLORIDA_TYPICAL_VALUE = 377_578;
+const FLORIDA_TYPICAL_VALUE = 375_361;
 
 interface CountyPath {
   name: string;
@@ -127,14 +127,14 @@ export const cheapestFloridaPlaces: CheapestFloridaPlace[] = [
       ariaLabel:
         "Map showing Blountstown in Calhoun County in northwest Florida, near Panama City and Tallahassee.",
     },
-    typicalValue: 180_453,
-    yearOverYear: -0.3,
+    typicalValue: 166_734,
+    yearOverYear: -5.4,
     anchor: "Blountstown",
     buyerFit:
       "Buyers who want the lowest current entry point in Florida and can live with a rural, small-town pace.",
     vibe: "River roads, quiet blocks, local services, and quick access to the Apalachicola River.",
     whyItWorks:
-      "Calhoun is the lowest-priced Florida county in the latest Zillow county data, and values are essentially flat year over year.",
+      "Calhoun is the lowest-priced Florida county in the latest Zillow county data, and values are down about 5% year over year.",
     watchOut:
       "Inventory can be thin, and many older homes need roof, septic, insurance, or repair diligence before closing.",
     nearby: "About 1 hour from Panama City and Tallahassee by car.",
@@ -154,8 +154,8 @@ export const cheapestFloridaPlaces: CheapestFloridaPlace[] = [
       ariaLabel:
         "Map showing Marianna in Jackson County in the Florida Panhandle, near Panama City and Tallahassee.",
     },
-    typicalValue: 184_210,
-    yearOverYear: 0.9,
+    typicalValue: 179_815,
+    yearOverYear: 1.0,
     anchor: "Marianna",
     buyerFit:
       "First-time buyers who want very low pricing without feeling completely disconnected from shopping, schools, and I-10.",
@@ -181,8 +181,8 @@ export const cheapestFloridaPlaces: CheapestFloridaPlace[] = [
       ariaLabel:
         "Map showing Perry and Steinhatchee in Taylor County on Florida's Big Bend coast, near Tallahassee and Gainesville.",
     },
-    typicalValue: 197_489,
-    yearOverYear: 3.1,
+    typicalValue: 196_856,
+    yearOverYear: 6.1,
     anchor: "Perry",
     buyerFit:
       "Buyers who want the rare mix of low pricing, fishing-town character, and access to Florida's quieter Gulf side.",
@@ -208,8 +208,8 @@ export const cheapestFloridaPlaces: CheapestFloridaPlace[] = [
       ariaLabel:
         "Map showing Quincy in Gadsden County, just west of Tallahassee in North Florida.",
     },
-    typicalValue: 203_008,
-    yearOverYear: -2.1,
+    typicalValue: 199_661,
+    yearOverYear: -0.3,
     anchor: "Quincy",
     buyerFit:
       "Buyers priced out of Tallahassee who still want access to capital-city jobs, hospitals, and universities.",
@@ -235,8 +235,8 @@ export const cheapestFloridaPlaces: CheapestFloridaPlace[] = [
       ariaLabel:
         "Map showing Palatka in Putnam County in northeast Florida near Jacksonville, Gainesville, and Orlando.",
     },
-    typicalValue: 220_798,
-    yearOverYear: 1.2,
+    typicalValue: 216_313,
+    yearOverYear: 0.7,
     anchor: "Palatka",
     buyerFit:
       "Buyers who want a lower-cost small city with river access and a practical drive to Northeast Florida job centers.",
@@ -262,8 +262,8 @@ export const cheapestFloridaPlaces: CheapestFloridaPlace[] = [
       ariaLabel:
         "Map showing Sebring and Avon Park in Highlands County in Central Florida, between Orlando, Tampa, and Miami.",
     },
-    typicalValue: 236_074,
-    yearOverYear: -1.9,
+    typicalValue: 231_284,
+    yearOverYear: -1.4,
     anchor: "Sebring",
     buyerFit:
       "Buyers who want Central Florida pricing without being pulled into Orlando, Tampa, or coastal-market numbers.",
@@ -290,8 +290,8 @@ export const cheapestFloridaPlaces: CheapestFloridaPlace[] = [
       ariaLabel:
         "Map showing Arcadia in DeSoto County in inland Southwest Florida, near Fort Myers and Tampa.",
     },
-    typicalValue: 252_156,
-    yearOverYear: -1.4,
+    typicalValue: 250_420,
+    yearOverYear: 0.4,
     anchor: "Arcadia",
     buyerFit:
       "Buyers who want a cheaper inland base within reach of Southwest Florida without paying Sarasota, Naples, or coastal prices.",
@@ -317,8 +317,8 @@ export const cheapestFloridaPlaces: CheapestFloridaPlace[] = [
       ariaLabel:
         "Map showing Inverness and Crystal River in Citrus County on Florida's Nature Coast, north of Tampa.",
     },
-    typicalValue: 272_823,
-    yearOverYear: -2.6,
+    typicalValue: 268_688,
+    yearOverYear: -0.8,
     anchor: "Inverness",
     buyerFit:
       "Buyers who want Gulf-side access, springs, and a more relaxed lifestyle without Tampa Bay pricing.",
@@ -345,8 +345,8 @@ export const cheapestFloridaPlaces: CheapestFloridaPlace[] = [
       ariaLabel:
         "Map showing LaBelle and Clewiston in Hendry County in inland South Florida, between Fort Myers, West Palm Beach, and Miami.",
     },
-    typicalValue: 278_929,
-    yearOverYear: -3.4,
+    typicalValue: 270_219,
+    yearOverYear: -4.1,
     anchor: "LaBelle",
     buyerFit:
       "Buyers who need South Florida and understand that the cheaper choices are inland, not on the coast.",
@@ -372,8 +372,8 @@ export const cheapestFloridaPlaces: CheapestFloridaPlace[] = [
       ariaLabel:
         "Map showing Jacksonville in Duval County on Florida's Atlantic Coast, near Gainesville and Daytona Beach.",
     },
-    typicalValue: 296_782,
-    yearOverYear: -2.1,
+    typicalValue: 294_079,
+    yearOverYear: -0.3,
     anchor: "Jacksonville",
     buyerFit:
       "Buyers who want an actual Atlantic-side city with jobs, hospitals, neighborhoods, and prices below Florida's statewide typical value.",

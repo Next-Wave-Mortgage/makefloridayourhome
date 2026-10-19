@@ -66,7 +66,36 @@ public content page:
 - If replacing images, remove unused old assets only when the page no longer
   references them and the deletion is part of the intended page update.
 
+## Learn Article Format
+
+Apply this to every new or updated learn article in `content/learn/`.
+
+- **Intro:** three sentences, each in its own paragraph. The intro must
+  introduce the article and set the reader up. Open with the reader's
+  situation or problem, say what the guide covers, then tell them what they
+  will get from it. Do not open with a bare data answer or a list of facts.
+- Put the blue CTA between the second and third intro sentences:
+  `**[Check Your Florida Home Purchase Eligibility](/home-purchase-eligibility)**`
+- Every other CTA in the article uses that same wording and blue bold-link
+  format. Do not use button CTAs (`dpa-btn`). Place CTAs at conversion
+  points: after key sections, examples, or tables, and at the close.
+  Roughly one every two or three major sections; never stack them.
+- Titles favor buyer and mortgage intent ("buy", "home loans") over
+  higher-volume informational wording. The goal is mortgage leads.
+- Learn pages have no sidebar promo cards; the sidebar is the table of
+  contents only.
+
 ## Environment Variables
 
 - Never commit secrets. Use `.env.local` (git-ignored) for secrets.
 - Document every env var in `.env.example` with a placeholder value.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

@@ -3,7 +3,7 @@
  *
  * The library now lives in `src/lib/books.ts`. This file keeps the old
  * `bookConfig` / `liveEditions` names alive for components that predate
- * the /books library (BookPromo, ExitIntentPopup). New code should import
+ * the /books library (BookPromo). New code should import
  * from `@/lib/books`.
  */
 import { getBook, liveEditions as live, bookHref } from "@/lib/books";

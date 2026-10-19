@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
 
 interface TocItem {
   id: string;
@@ -97,143 +95,13 @@ function scrollToHeading(id: string) {
   }
 }
 
-const PROGRAMS_SLUG = "first-time-homebuyer/grants-and-programs";
-
-function ProgramsPromoCard() {
-  return (
-    <Link
-      href="/learn/first-time-homebuyer/grants-and-programs"
-      className="group mt-5 block overflow-hidden rounded-2xl border border-brand-green/20 bg-white transition-all hover:border-brand-green/40 hover:shadow-[0_4px_20px_rgba(0,105,72,0.1)]"
-    >
-      <Image
-        src="/images/learn/florida-first-time-homebuyer-grants-programs-2026.webp"
-        alt="105 Florida first-time home buyer grants and programs"
-        className="h-36 w-full object-cover"
-        width={600}
-        height={144}
-      />
-      <div className="p-4">
-        <div className="text-[14px] font-bold leading-snug text-dark-green">
-          105 Florida DPA Programs
-        </div>
-        <p className="mt-1 text-[12px] leading-relaxed text-dark-green/60">
-          The complete guide to every down payment assistance program in Florida
-          for 2026.
-        </p>
-        <span className="mt-2 inline-flex items-center gap-1 text-[12px] font-bold text-brand-green transition-colors group-hover:text-brand-green/80">
-          View All Programs
-          <svg
-            width="12"
-            height="12"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="transition-transform group-hover:translate-x-0.5"
-          >
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </span>
-      </div>
-    </Link>
-  );
-}
-
-function MapPromoCard() {
-  return (
-    <Link
-      href="/florida-down-payment-assistance-interactive-map"
-      className="group mt-5 block overflow-hidden rounded-2xl border border-brand-green/20 bg-white transition-all hover:border-brand-green/40 hover:shadow-[0_4px_20px_rgba(0,105,72,0.1)]"
-    >
-      <Image
-        src="/images/dpa-map-promo.webp"
-        alt="Interactive Florida down payment assistance map"
-        className="h-36 w-full object-cover"
-        width={600}
-        height={144}
-      />
-      <div className="p-4">
-        <div className="text-[14px] font-bold leading-snug text-dark-green">
-          Interactive DPA Map
-        </div>
-        <p className="mt-1 text-[12px] leading-relaxed text-dark-green/60">
-          Explore 105 programs across 67 Florida counties. Click your county to
-          find assistance near you.
-        </p>
-        <span className="mt-2 inline-flex items-center gap-1 text-[12px] font-bold text-brand-green transition-colors group-hover:text-brand-green/80">
-          Explore the Map
-          <svg
-            width="12"
-            height="12"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="transition-transform group-hover:translate-x-0.5"
-          >
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </span>
-      </div>
-    </Link>
-  );
-}
-
-function CalculatorPromoCard() {
-  return (
-    <Link
-      href="/florida-down-payment-assistance-calculator"
-      className="group mt-5 block rounded-2xl border border-brand-green/20 bg-green-tint p-4 transition-all hover:border-brand-green/40 hover:shadow-[0_4px_20px_rgba(0,105,72,0.1)]"
-    >
-      <div className="text-[14px] font-bold leading-snug text-dark-green">
-        Florida DPA Calculator
-      </div>
-      <p className="mt-1 text-[12px] leading-relaxed text-dark-green/60">
-        Find programs that may match your county, income, buyer status, and loan
-        type.
-      </p>
-      <span className="mt-2 inline-flex items-center gap-1 text-[12px] font-bold text-brand-green transition-colors group-hover:text-brand-green/80">
-        Open Calculator
-        <svg
-          width="12"
-          height="12"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="transition-transform group-hover:translate-x-0.5"
-        >
-          <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
-      </span>
-    </Link>
-  );
-}
-
 /** Desktop sidebar TOC */
-export function TableOfContents({
-  showMapPromo = false,
-  currentSlug = "",
-}: {
-  showMapPromo?: boolean;
-  currentSlug?: string;
-}) {
+export function TableOfContents() {
   const { headings, activeId } = useHeadings();
 
   if (headings.length === 0) return null;
 
-  const isOnProgramsPage = currentSlug === PROGRAMS_SLUG;
-
-  const hasCards = !isOnProgramsPage || showMapPromo;
-  const navMaxHeight = hasCards
-    ? "min(420px, calc(100vh - 180px))"
-    : "calc(100vh - 120px)";
+  const navMaxHeight = "calc(100vh - 120px)";
 
   return (
     <div className="sticky top-24 hidden max-h-[calc(100vh-120px)] md:block">
@@ -282,9 +150,6 @@ export function TableOfContents({
           Back to top
         </button>
       </nav>
-      {!isOnProgramsPage && <ProgramsPromoCard />}
-      {showMapPromo && <CalculatorPromoCard />}
-      {showMapPromo && <MapPromoCard />}
     </div>
   );
 }
