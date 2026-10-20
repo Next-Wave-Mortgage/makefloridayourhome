@@ -15,10 +15,10 @@ export const leadFunnelConfigs = {
     source: "mfyh-home-purchase",
     leadIntent: "home-purchase",
     programSlug: "mfyh-home-purchase",
-    programName: "Florida Home Purchase Program Match",
+    programName: "Florida Home Purchase",
     programCategory: "first-time-buyer",
     description:
-      "Answer a few quick questions and we'll match you with every program, grant, and rate available to you.",
+      "Answer a few quick questions to see which Florida home loans you qualify for and what your rate could be.",
     canonicalPath: "/home-purchase-eligibility",
   },
   dpa: {
