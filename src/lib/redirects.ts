@@ -9,11 +9,6 @@ const redirects: Redirect[] = [
     destination: "/eligibility/schedule-a-free-call",
     permanent: true,
   },
-  {
-    source: "/florida-updates",
-    destination: "/mortgage-rates",
-    permanent: true,
-  },
   // Backlinked legacy URLs that previously fell through to the /blog catch-all
   {
     source: "/blog/types-of-reverse-mortgages",
