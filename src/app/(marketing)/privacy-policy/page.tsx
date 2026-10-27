@@ -151,11 +151,7 @@ export default function PrivacyPolicyPage() {
       </ul>
       <p>
         If you opt in to our text message program (for example, when requesting
-        a consultation at{" "}
-        <Link href="/florida-updates">
-          makefloridayourhome.com/florida-updates
-        </Link>
-        ), we collect your name, mobile phone number, and a record of your
+        a consultation through our eligibility or booking forms), we collect your name, mobile phone number, and a record of your
         consent (the date, time, and page where you opted in), and we use that
         information solely to send you the messages described above — such as
         appointment confirmations and reminders — and to honor your opt-out

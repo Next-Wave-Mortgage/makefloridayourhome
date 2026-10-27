@@ -250,12 +250,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.6,
     },
-    {
-      url: `${baseUrl}/florida-updates`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
     // Legal pages
     {
       url: `${baseUrl}/privacy-policy`,
