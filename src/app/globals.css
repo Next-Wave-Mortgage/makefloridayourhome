@@ -172,30 +172,55 @@ button:hover .book-3d {
 .prose-mfyh > :first-child {
   margin-top: 0;
 }
-.prose-mfyh {
+/* Subheadings: a quiet editorial marker, clearly below the H2. No auto
+   numbering: writers number list-style headings themselves when the order
+   matters, and an article-wide counter mislabels them. */
+.prose-mfyh h3 {
+  position: relative;
+  color: #333333;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+  margin-top: 1.9em;
+  margin-bottom: 0.55em;
+  padding-left: 15px;
+}
+.prose-mfyh h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.22em;
+  bottom: 0.22em;
+  width: 3px;
+  border-radius: 2px;
+  background: #006948;
+}
+/* Numbered listicles (front matter `numberedHeadings: true`), such as the
+   first-time buyer grants guide, where each H3 is one program in order. */
+.prose-mfyh.numbered-headings {
   counter-reset: program;
 }
-.prose-mfyh h3 {
+.prose-mfyh.numbered-headings h3 {
   counter-increment: program;
-  color: #333333;
-  font-size: 20px;
-  font-weight: 700;
-  margin-top: 2em;
-  margin-bottom: 0.75em;
-  line-height: 1.3;
-  background: #f2faf6;
-  border-left: 4px solid #006948;
-  padding: 14px 16px 14px 16px;
-  border-radius: 0 10px 10px 0;
   display: flex;
   align-items: center;
   gap: 12px;
+  font-size: 20px;
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+  padding: 14px 16px;
+  background: #f2faf6;
+  border-left: 4px solid #006948;
+  border-radius: 0 10px 10px 0;
 }
-.prose-mfyh h3::before {
+.prose-mfyh.numbered-headings h3::before {
   content: counter(program);
+  position: static;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: auto;
   min-width: 32px;
   height: 32px;
   border-radius: 50%;
@@ -406,12 +431,7 @@ button:hover .book-3d {
 
 /* FAQ accordion within prose */
 .prose-mfyh .faq-section h3 {
-  counter-increment: none;
-  background: none;
-  border-left: none;
   padding: 0;
-  border-radius: 0;
-  display: block;
   margin: 0;
 }
 .prose-mfyh .faq-section h3::before {

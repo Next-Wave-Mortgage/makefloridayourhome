@@ -19,6 +19,8 @@ export interface BlogPost {
   reviewedBySlug?: string;
   featuredImage?: string;
   imageAlt?: string;
+  /** Badge each H3 with its position, for numbered listicles. */
+  numberedHeadings?: boolean;
   tags?: string[];
   faqs?: { question: string; answer: string }[];
   readTime: number;
@@ -112,6 +114,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
     reviewedBySlug: data.reviewedBySlug || "ryan-skerritt",
     featuredImage: data.featuredImage || null,
     imageAlt: data.imageAlt || null,
+    numberedHeadings: data.numberedHeadings === true,
     tags: data.tags || [],
     faqs: Array.isArray(data.faqs) ? data.faqs : [],
     readTime: estimateReadTime(content),

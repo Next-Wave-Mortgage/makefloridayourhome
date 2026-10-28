@@ -538,7 +538,13 @@ export default async function BlogPostPage({
               )}
               <div className="px-6 pb-10 pt-8 sm:px-12 sm:pb-14 sm:pt-10">
                 <MobileTableOfContents />
-                <div className="prose-mfyh">
+                <div
+                  className={
+                    post.numberedHeadings
+                      ? "prose-mfyh numbered-headings"
+                      : "prose-mfyh"
+                  }
+                >
                   <MDXRemote
                     source={post.content}
                     options={{
