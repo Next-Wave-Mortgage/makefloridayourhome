@@ -275,30 +275,109 @@ button:hover .book-3d {
   font-style: italic;
   color: rgba(51, 51, 51, 0.62);
 }
+.prose-mfyh .table-frame {
+  position: relative;
+  margin: 1.75em 0;
+}
 .prose-mfyh .table-wrap {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  margin: 1.5em 0;
+  border: 1px solid #dcdfdd;
+  border-radius: 12px;
 }
 .prose-mfyh table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   font-size: 14px;
-  min-width: 540px;
+  line-height: 1.5;
+  margin: 0;
+}
+/* Text-heavy tables (flagged by ArticleTable) get room to breathe and
+   scroll in their frame instead of stacking into very tall rows. */
+.prose-mfyh .table-wrap table.is-dense {
+  min-width: max(760px, calc(var(--table-cols) * 200px));
+  font-size: 13.5px;
+}
+@media (max-width: 767px) {
+  .prose-mfyh table:has(th:nth-child(3)) {
+    min-width: 560px;
+  }
+  .prose-mfyh table:has(th:nth-child(4)) {
+    min-width: 680px;
+  }
+}
+/* Keep the row label in view while a wide table scrolls. */
+.prose-mfyh table:has(th:nth-child(4)) th:first-child,
+.prose-mfyh table:has(th:nth-child(4)) td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  min-width: 150px;
+}
+.prose-mfyh table:has(th:nth-child(4)) td:first-child {
+  background: #ffffff;
+}
+.prose-mfyh table:has(th:nth-child(4)) tr:nth-child(even) td:first-child {
+  background: #f2faf6;
+}
+.prose-mfyh .table-wrap.is-scrolled th:first-child,
+.prose-mfyh .table-wrap.is-scrolled td:first-child {
+  box-shadow: 6px 0 10px -6px rgba(51, 51, 51, 0.25);
+}
+.prose-mfyh .table-fade {
+  pointer-events: none;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  width: 56px;
+  border-radius: 0 11px 11px 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), #ffffff);
+}
+.prose-mfyh .table-hint {
+  pointer-events: none;
+  position: absolute;
+  top: -11px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 999px;
+  background: #006948;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 105, 72, 0.25);
 }
 .prose-mfyh table th {
   background: #333333;
   color: white;
-  padding: 10px 16px;
+  padding: 11px 14px;
   text-align: left;
+  vertical-align: bottom;
+  font-size: 13px;
   font-weight: 600;
+  line-height: 1.35;
 }
 .prose-mfyh table td {
-  padding: 10px 16px;
-  border-bottom: 1px solid #dcdfdd;
+  padding: 11px 14px;
+  vertical-align: top;
+  border-top: 1px solid #e8eaea;
+  overflow-wrap: break-word;
+}
+.prose-mfyh table td:first-child {
+  font-weight: 600;
+  color: #333333;
+  overflow-wrap: normal;
 }
 .prose-mfyh table tr:nth-child(even) td {
   background: #f2faf6;
+}
+.prose-mfyh table tr:first-child td {
+  border-top: 0;
 }
 .prose-mfyh hr {
   border: none;
@@ -334,13 +413,6 @@ button:hover .book-3d {
 }
 .prose-mfyh .cheap-listicle a {
   text-decoration: none;
-}
-
-/* Comparison table amount highlight */
-.prose-mfyh table td:nth-child(2) {
-  color: #006948;
-  font-weight: 700;
-  white-space: nowrap;
 }
 
 /* Mid-article CTA banner */

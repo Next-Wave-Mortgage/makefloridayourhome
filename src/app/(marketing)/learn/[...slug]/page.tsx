@@ -8,6 +8,7 @@ import rehypeSlug from "rehype-slug";
 import { ArticleHero } from "@/components/shared/ArticleHero";
 import { HthUrgencyBanner } from "@/components/shared/HthUrgencyBanner";
 import { PageFAQ } from "@/components/shared/PageFAQ";
+import { ArticleTable } from "@/components/shared/ArticleTable";
 import { PreferredSourceButton } from "@/components/shared/PreferredSourceButton";
 import {
   CheapestPlacesListicle,
@@ -559,11 +560,7 @@ export default async function BlogPostPage({
                       ExpressLaneSection,
                       VeteranBenefitsTable,
                       VeteranTaxSavingsCalculator,
-                      table: (props: React.ComponentProps<"table">) => (
-                        <div className="table-wrap">
-                          <table {...props} />
-                        </div>
-                      ),
+                      table: ArticleTable,
                     }}
                   />
                 </div>
