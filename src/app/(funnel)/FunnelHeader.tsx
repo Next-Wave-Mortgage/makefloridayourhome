@@ -20,7 +20,6 @@ const backLinks: Record<string, string> = {
   "/check-renovation-loan-eligibility": "/home-loan",
   "/check-alternative-loan-eligibility": "/home-loan",
   "/eligibility/schedule-a-free-call": "/",
-  "/schedule-a-call": "/",
 };
 
 function normalizePath(pathname: string) {

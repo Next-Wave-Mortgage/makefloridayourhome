@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { siteConfig } from "@/lib/site";
-import { ContactForm } from "./ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -27,18 +27,52 @@ export default function ContactUsPage() {
             <span className="text-brand-green">Contact</span> Us
           </h1>
           <p className="mt-3 text-[17px] text-dark-green/60">
-            Send us a message and we will be in touch within one business day.
+            Check your eligibility or book a free call, and a licensed loan officer will follow up within one business day.
           </p>
         </div>
       </section>
 
-      {/* Form + contact info */}
+      {/* Actions + contact info */}
       <section className="bg-white py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
           <div className="grid gap-12 lg:grid-cols-[1fr_340px] lg:gap-16">
-            {/* Contact form */}
+            {/* Ways to reach us */}
             <div>
-              <ContactForm />
+              <div className="grid gap-5 sm:grid-cols-2">
+                {[
+                  {
+                    title: "Check your eligibility",
+                    body: "Answer a few questions about your purchase and a licensed loan officer will follow up with your options. No hard credit pull to start.",
+                    href: "/home-purchase-eligibility",
+                    cta: "Start my pre-approval",
+                  },
+                  {
+                    title: "Book a free 15-minute call",
+                    body: "Pick a time that works for you and talk through your loan options with a licensed loan officer.",
+                    href: "/eligibility/schedule-a-free-call",
+                    cta: "Schedule a call",
+                  },
+                ].map((card) => (
+                  <Link
+                    key={card.href}
+                    href={card.href}
+                    className="group flex flex-col rounded-2xl border border-border-gray/60 bg-white p-7 shadow-[0_2px_12px_rgba(0,0,0,0.04)] transition-all hover:-translate-y-0.5 hover:border-brand-green/40 hover:shadow-[0_10px_28px_rgba(191,13,62,0.10)]"
+                  >
+                    <h2 className="text-[20px] font-bold text-dark-green">
+                      {card.title}
+                    </h2>
+                    <p className="mt-2 flex-1 text-[15px] leading-relaxed text-dark-green/65">
+                      {card.body}
+                    </p>
+                    <span className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-brand-green px-6 py-3 text-[15px] font-bold text-white">
+                      {card.cta}
+                      <span aria-hidden className="transition-transform group-hover:translate-x-1">
+                        &rarr;
+                      </span>
+                    </span>
+                  </Link>
+                ))}
+              </div>
             </div>
 
             {/* Contact details */}

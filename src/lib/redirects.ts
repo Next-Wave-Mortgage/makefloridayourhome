@@ -4,6 +4,11 @@
 import type { Redirect } from "next/dist/lib/load-custom-routes";
 
 const redirects: Redirect[] = [
+  {
+    source: "/schedule-a-call",
+    destination: "/eligibility/schedule-a-free-call",
+    permanent: true,
+  },
   // Backlinked legacy URLs that previously fell through to the /blog catch-all
   {
     source: "/blog/types-of-reverse-mortgages",
