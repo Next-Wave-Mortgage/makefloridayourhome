@@ -6,11 +6,12 @@ import "@/app/globals.css";
 import { siteConfig } from "@/lib/site";
 import { TrackPageView } from "@/components/TrackPageView";
 
-const GA4_ID = (process.env.GA4_ID || "G-E7KYFVSJLG").trim();
-// NextWave's shared cross-site property. MFYH reports to both so its own
-// history continues while leads also roll up with every other site. The shared
-// property keeps only campaign tags from URLs and origin-only referrers,
-// matching the other sites.
+const GA4_ID = (process.env.GA4_ID || "").trim();
+// NextWave's shared cross-site property ("Next Wave Mortgage — All Web
+// Properties"). Florida's old MFYH property (G-E7KYFVSJLG) is kept only as an
+// archive and no longer receives data; set GA4_ID only to add another property.
+// The shared property keeps only campaign tags from URLs and origin-only
+// referrers, matching the other sites.
 const SHARED_GA4_ID = "G-FN23QPRS19";
 
 export const metadata: Metadata = {
