@@ -84,10 +84,37 @@ export function buildBookSchema(book: Book, description: string) {
     description,
     genre: ["Personal Finance", "Real Estate"],
     workExample: liveEditions(book).map((edition) => ({
-      "@type": "Book",
+      "@type": edition.audio ? ["Book", "Audiobook"] : "Book",
       bookFormat: edition.schemaFormat,
       name: `${book.title} (${edition.format})`,
       ...(edition.isbn ? { isbn: edition.isbn } : {}),
+      ...(edition.audio
+        ? {
+            author: { "@type": "Person", "@id": authorId },
+            publisher: {
+              "@type": "Person",
+              "@id": authorId,
+              name: edition.audio.publisher,
+            },
+            readBy: { "@type": "Person", name: edition.audio.readBy },
+            duration: edition.audio.duration,
+            datePublished: edition.audio.datePublished,
+            abridged: edition.audio.abridged,
+            inLanguage: "en-US",
+            image: `${siteConfig.url}${book.ogImage ?? book.coverImage}`,
+            url: edition.url,
+            sameAs: [edition.url],
+            ...(edition.asin
+              ? {
+                  identifier: {
+                    "@type": "PropertyValue",
+                    propertyID: "ASIN",
+                    value: edition.asin,
+                  },
+                }
+              : {}),
+          }
+        : {}),
       offers: {
         "@type": "Offer",
         url: edition.url,

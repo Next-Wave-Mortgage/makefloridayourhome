@@ -14,7 +14,8 @@ export type EditionFormat =
   | "Kindle eBook"
   | "Paperback"
   | "Hardcover"
-  | "Google Play Books";
+  | "Google Play Books"
+  | "Audiobook";
 
 export interface BookEdition {
   format: EditionFormat;
@@ -25,6 +26,16 @@ export interface BookEdition {
   available: boolean;
   isbn?: string;
   asin?: string;
+  /** Audiobook-only details, from the Audible product page. */
+  audio?: {
+    readBy: string;
+    /** ISO 8601 duration, e.g. "PT2H19M". */
+    duration: string;
+    datePublished: string;
+    abridged: boolean;
+    /** Audible lists the author as the audiobook publisher. */
+    publisher: string;
+  };
 }
 
 export type RetailerSlug =
@@ -176,6 +187,20 @@ export const books: Book[] = [
         url: "https://play.google.com/store/books/details?id=JGQDEgAAQBAJ",
         available: true,
       },
+      {
+        format: "Audiobook",
+        schemaFormat: "https://schema.org/AudiobookFormat",
+        url: "https://www.audible.com/pd/Make-Florida-Your-Home-Audiobook/B0HKYLD2LR",
+        available: true,
+        asin: "B0HKYLD2LR",
+        audio: {
+          readBy: "Timothy Burke",
+          duration: "PT2H19M",
+          datePublished: "2026-09-25",
+          abridged: false,
+          publisher: "Phil Ganz",
+        },
+      },
     ],
     retailers: [
       {
@@ -322,6 +347,20 @@ export const books: Book[] = [
         url: "https://play.google.com/store/books/details?id=TcMJEgAAQBAJ",
         available: true,
       },
+      {
+        format: "Audiobook",
+        schemaFormat: "https://schema.org/AudiobookFormat",
+        url: "https://www.audible.com/pd/The-Reverse-Mortgage-Inheritance-Strategy-Dont-Just-Protect-the-House-Protect-the-Family-Wealth-Audiobook/B0HN3RHGP8",
+        available: true,
+        asin: "B0HN3RHGP8",
+        audio: {
+          readBy: "Marlin May",
+          duration: "PT6H40M",
+          datePublished: "2026-10-15",
+          abridged: false,
+          publisher: "Phil Ganz",
+        },
+      },
     ],
     retailers: [
       {
@@ -460,6 +499,20 @@ export const books: Book[] = [
         url: "https://www.amazon.com/dp/B0HJLMGJZY",
         available: true,
         asin: "B0HJLMGJZY",
+      },
+      {
+        format: "Audiobook",
+        schemaFormat: "https://schema.org/AudiobookFormat",
+        url: "https://www.audible.com/pd/APPROVED-The-Mortgage-Playbook-Your-Bank-May-Never-Show-You-Audiobook/B0HN68C1YN",
+        available: true,
+        asin: "B0HN68C1YN",
+        audio: {
+          readBy: "Joe Wosik",
+          duration: "PT12H19M",
+          datePublished: "2026-10-16",
+          abridged: false,
+          publisher: "Phil Ganz",
+        },
       },
     ],
     retailers: [

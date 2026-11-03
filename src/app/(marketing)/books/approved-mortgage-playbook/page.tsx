@@ -355,7 +355,7 @@ function EditionButtons() {
         <TrackedRetailerLink
           key={edition.format}
           href={edition.url}
-          retailer="amazon"
+          retailer={edition.format === "Audiobook" ? "audible" : "amazon"}
           bookKey={bookKey}
           format={edition.format.toLowerCase().replace(/\s+/g, "_")}
           className={
@@ -366,7 +366,9 @@ function EditionButtons() {
         >
           {edition.format === "Paperback"
             ? "Get the Paperback"
-            : edition.format}
+            : edition.format === "Audiobook"
+              ? "Listen on Audible"
+              : edition.format}
           {i === 0 && <ArrowIcon />}
         </TrackedRetailerLink>
       ))}
@@ -419,8 +421,8 @@ export default function ApprovedBookPage() {
               </div>
 
               <h1 className="mt-3 text-[32px] leading-[1.15] font-bold tracking-tight text-dark-green sm:text-[40px] lg:text-[48px]">
-                <span className="text-brand-green">APPROVED</span>: The
-                Mortgage Playbook Your Bank May Never Show You
+                <span className="text-brand-green">APPROVED</span>: The Mortgage
+                Playbook Your Bank May Never Show You
               </h1>
 
               <p className="mt-5 max-w-xl text-[17px] leading-relaxed text-dark-green/70 sm:text-[18px]">
@@ -535,8 +537,8 @@ export default function ApprovedBookPage() {
                   <span className="text-brand-green">doesn&apos;t fit</span>
                 </h2>
                 <p className="mt-3 text-[15px] leading-relaxed text-dark-green/65">
-                  A denial means the file didn&apos;t fit one lender&apos;s
-                  box. The book is for everyone standing outside it.
+                  A denial means the file didn&apos;t fit one lender&apos;s box.
+                  The book is for everyone standing outside it.
                 </p>
               </div>
               <ul className="grid gap-3 sm:grid-cols-2">
@@ -616,8 +618,8 @@ export default function ApprovedBookPage() {
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-[16px] leading-relaxed text-dark-green/60">
             Every chapter title is a real buyer&apos;s question, and the first
-            paragraph answers it. Four parts take you from the day the bank
-            says no to the day you sign.
+            paragraph answers it. Four parts take you from the day the bank says
+            no to the day you sign.
           </p>
           <div className="mt-10 grid gap-4 lg:grid-cols-2">
             {parts.map((part) => (
@@ -746,8 +748,8 @@ export default function ApprovedBookPage() {
                   &ldquo;Every week I close loans for buyers another lender
                   turned down. Not because I&apos;m a magician &mdash; because
                   their file never needed magic. It needed a different loan, a
-                  different way to document the same income, or somebody
-                  willing to check whether the rule was HUD&apos;s or just that
+                  different way to document the same income, or somebody willing
+                  to check whether the rule was HUD&apos;s or just that
                   bank&apos;s.&rdquo;
                 </p>
               </div>
@@ -772,7 +774,7 @@ export default function ApprovedBookPage() {
         </div>
       </section>
 
-      {/* Editions on Amazon */}
+      {/* Editions on Amazon and Audible */}
       <section className="bg-white py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
           <h2 className="mx-auto max-w-2xl text-center text-[28px] leading-tight font-bold text-dark-green sm:text-[36px] lg:text-[42px]">
@@ -781,12 +783,12 @@ export default function ApprovedBookPage() {
           <p className="mx-auto mt-4 max-w-xl text-center text-[16px] leading-relaxed text-dark-green/60">
             Same book in every format.
           </p>
-          <div className="mx-auto mt-10 grid max-w-4xl gap-4 sm:grid-cols-3">
+          <div className="mx-auto mt-10 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {editions.map((edition) => (
               <TrackedRetailerLink
                 key={edition.format}
                 href={edition.url}
-                retailer="amazon"
+                retailer={edition.format === "Audiobook" ? "audible" : "amazon"}
                 bookKey={bookKey}
                 format={edition.format.toLowerCase().replace(/\s+/g, "_")}
                 className="group flex flex-col items-center rounded-xl border border-border-gray/60 bg-green-tint/50 p-8 text-center transition-all duration-300 hover:border-brand-green/30 hover:shadow-[0_4px_24px_rgba(0,105,72,0.08)]"
@@ -795,15 +797,19 @@ export default function ApprovedBookPage() {
                   {edition.format}
                 </h3>
                 <p className="mt-2 text-[14px] leading-relaxed text-dark-green/60">
-                  {edition.format === "Paperback"
-                    ? "The everyday print edition. 389 illustrated pages."
-                    : edition.format === "Hardcover"
-                      ? "Durable and gift-ready."
-                      : "Instant delivery. Read on any device."}
+                  {edition.audio
+                    ? `Unabridged, narrated by ${edition.audio.readBy}.`
+                    : edition.format === "Paperback"
+                      ? "The everyday print edition. 389 illustrated pages."
+                      : edition.format === "Hardcover"
+                        ? "Durable and gift-ready."
+                        : "Instant delivery. Read on any device."}
                 </p>
                 <span className="mt-auto pt-5">
                   <span className="inline-flex items-center gap-2 rounded-full bg-brand-green px-6 py-3 text-[14px] font-bold text-white transition-shadow duration-300 group-hover:shadow-[0_4px_20px_rgba(0,105,72,0.4)]">
-                    Buy on Amazon
+                    {edition.format === "Audiobook"
+                      ? "Listen on Audible"
+                      : "Buy on Amazon"}
                     <ArrowIcon />
                   </span>
                 </span>
@@ -822,7 +828,8 @@ export default function ApprovedBookPage() {
             </p>
             <p className="mt-1 text-[13px] leading-relaxed text-dark-green/50">
               Paperback ISBN 979-8173583147 &middot; Hardcover ISBN
-              979-8173583840 &middot; Kindle ASIN B0HJLMGJZY
+              979-8173583840 &middot; Kindle ASIN B0HJLMGJZY &middot; Audiobook
+              ASIN B0HN68C1YN, narrated by Joe Wosik
             </p>
           </div>
         </div>
@@ -842,9 +849,9 @@ export default function ApprovedBookPage() {
               Try the APPROVED Checklist Before You Buy
             </h2>
             <p className="mt-3 text-[15px] leading-relaxed text-dark-green/70 sm:text-[16px]">
-              The interactive version of Chapter 44&rsquo;s checklist, plus
-              the loan officer questions from Chapter 45 &mdash; free, no
-              purchase required.
+              The interactive version of Chapter 44&rsquo;s checklist, plus the
+              loan officer questions from Chapter 45 &mdash; free, no purchase
+              required.
             </p>
             <Link
               href={`${bookHref(book)}/toolkit`}

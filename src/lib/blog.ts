@@ -23,6 +23,9 @@ export interface BlogPost {
   numberedHeadings?: boolean;
   tags?: string[];
   faqs?: { question: string; answer: string }[];
+  /** Main topic for Article `about` schema, e.g. "FHA insured mortgage". */
+  about?: string;
+  aboutSameAs?: string;
   readTime: number;
   content: string;
 }
@@ -117,6 +120,8 @@ export function getPostBySlug(slug: string): BlogPost | null {
     numberedHeadings: data.numberedHeadings === true,
     tags: data.tags || [],
     faqs: Array.isArray(data.faqs) ? data.faqs : [],
+    about: data.about || undefined,
+    aboutSameAs: data.aboutSameAs || undefined,
     readTime: estimateReadTime(content),
     content,
   };

@@ -212,20 +212,18 @@ const valueStrip = [
     label: "Built for Real People",
     sub: "Not Wall Street jargon",
   },
-  { icon: "home", label: "A Stronger Tomorrow", sub: "For you and your family" },
+  {
+    icon: "home",
+    label: "A Stronger Tomorrow",
+    sub: "For you and your family",
+  },
 ] as const;
 
-/** Title/copy/benefits/CTAs for one book — shared by desktop panel and mobile card */
-const BookDetails = ({
-  book,
-  center = false,
-}: {
-  book: ShelfBook;
-  center?: boolean;
-}) => (
-  <div className={center ? "text-center" : "text-left"}>
+/** Title/copy/benefits/CTAs for the featured book: centered on mobile, left-aligned at lg */
+const BookDetails = ({ book }: { book: ShelfBook }) => (
+  <div>
     <p
-      className={`flex items-center gap-3 text-[10.5px] font-bold uppercase tracking-[0.28em] text-brand-green ${center ? "justify-center" : ""}`}
+      className={`flex items-center gap-3 text-[10.5px] font-bold uppercase tracking-[0.28em] text-brand-green justify-center lg:justify-start`}
     >
       Featured Book
       <span className="h-px w-9 bg-brand-green/30" aria-hidden />
@@ -243,7 +241,7 @@ const BookDetails = ({
     </p>
 
     <div
-      className={`mt-4 flex flex-wrap gap-x-7 gap-y-2.5 ${center ? "justify-center" : ""}`}
+      className={`mt-4 flex flex-wrap gap-x-7 gap-y-2.5 justify-center lg:justify-start`}
     >
       {book.features.map((f) => (
         <span
@@ -257,7 +255,7 @@ const BookDetails = ({
     </div>
 
     <div
-      className={`mt-5 flex flex-wrap items-center gap-3 ${center ? "justify-center" : ""}`}
+      className={`mt-5 flex flex-wrap items-center gap-3 justify-center lg:justify-start`}
     >
       <Link
         href={book.href}
@@ -362,15 +360,17 @@ export function BookshelfCarousel({
               Books by <span className="text-brand-green">{firstName}</span>
             </h2>
             <p className="mx-auto mt-2 max-w-xl text-center text-[15.5px] leading-relaxed text-dark-green/60">
-              Practical, no-nonsense guides to homeownership, wealth, and
-              making smarter financial decisions.
+              Practical, no-nonsense guides to homeownership, wealth, and making
+              smarter financial decisions.
             </p>
           </>
         )}
 
-        {/* ————— Desktop stage ————— */}
+        {/* ————— Stage —————
+            One featured slide for every viewport, restyled at lg, so the
+            book's title and copy appear once in the HTML. */}
         <div
-          className={`relative mx-auto hidden h-[458px] max-w-[1300px] lg:block ${showHeader ? "mt-12" : "mt-3"}`}
+          className={`relative mx-auto max-w-[620px] lg:h-[458px] lg:max-w-[1300px] ${showHeader ? "mt-8 lg:mt-12" : "mt-2 lg:mt-3"}`}
         >
           {/* next book, standing on the shelf behind the panel's right edge */}
           {books.length > 1 && (
@@ -378,7 +378,7 @@ export function BookshelfCarousel({
               type="button"
               onClick={() => go(nextIndex)}
               aria-label={`Show ${nextBook.title}`}
-              className="absolute right-0 bottom-[30px] z-[5] origin-bottom-left rotate-[4deg] cursor-pointer"
+              className="absolute right-0 bottom-[30px] z-[5] hidden origin-bottom-left rotate-[4deg] cursor-pointer lg:block"
             >
               <Book3D
                 src={nextBook.cover}
@@ -391,63 +391,12 @@ export function BookshelfCarousel({
           )}
 
           {/* featured slide: hero book breaking out of the editorial panel */}
-          <div key={book.href} className={`absolute inset-0 z-20 ${swapAnim}`}>
-            <div className="absolute bottom-[74px] left-[150px] flex min-h-[326px] w-[1060px] items-center rounded-[24px] border border-dark-green/10 bg-[#FDFCF8] py-9 pr-12 pl-[184px] shadow-[0_30px_80px_-32px_rgba(0,49,34,0.35),0_4px_16px_rgba(0,49,34,0.05)]">
-              <BookDetails book={book} />
-            </div>
-            <Link
-              href={book.href}
-              className="absolute bottom-[28px] left-[36px] z-10 block"
-              aria-label={book.title}
-            >
-              <Book3D
-                src={book.cover}
-                alt={book.coverAlt}
-                width={256}
-                height={410}
-                thickness={38}
-                priority
-              />
-            </Link>
-          </div>
-
-          <Shelf
-            shadows={[
-              { left: "2%", width: "21%" },
-              { left: "83.5%", width: "15%" },
-            ]}
-          />
-
-          {/* arrows, attached to the books */}
-          {books.length > 1 && (
-            <>
-              <button
-                type="button"
-                onClick={() => go(index - 1)}
-                aria-label="Previous book"
-                className="absolute top-[44%] left-0 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-dark-green/10 bg-white text-brand-green shadow-[0_6px_18px_rgba(0,49,34,0.2)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-green-tint"
-              >
-                <Chevron dir="left" />
-              </button>
-              <button
-                type="button"
-                onClick={() => go(index + 1)}
-                aria-label="Next book"
-                className="absolute top-[44%] right-[176px] z-40 flex h-11 w-11 items-center justify-center rounded-full border border-dark-green/10 bg-white text-brand-green shadow-[0_6px_18px_rgba(0,49,34,0.2)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-green-tint"
-              >
-                <Chevron dir="right" />
-              </button>
-            </>
-          )}
-        </div>
-
-        {/* ————— Mobile / tablet ————— */}
-        <div
-          className={`relative mx-auto max-w-[620px] lg:hidden ${showHeader ? "mt-8" : "mt-2"}`}
-        >
-          <div key={book.href} className={swapAnim}>
-            <div className="rounded-[24px] border border-dark-green/10 bg-[#FDFCF8] p-6 pb-0 shadow-[0_24px_60px_-28px_rgba(0,49,34,0.35)] sm:p-8 sm:pb-0">
-              <div className="flex justify-center">
+          <div
+            key={book.href}
+            className={`lg:absolute lg:inset-0 lg:z-20 ${swapAnim}`}
+          >
+            <div className="rounded-[24px] border border-dark-green/10 bg-[#FDFCF8] p-6 pb-0 shadow-[0_24px_60px_-28px_rgba(0,49,34,0.35)] sm:p-8 sm:pb-0 lg:absolute lg:bottom-[74px] lg:left-[150px] lg:flex lg:min-h-[326px] lg:w-[1060px] lg:items-center lg:py-9 lg:pr-12 lg:pl-[184px] lg:shadow-[0_30px_80px_-32px_rgba(0,49,34,0.35),0_4px_16px_rgba(0,49,34,0.05)]">
+              <div className="flex justify-center lg:hidden">
                 <Link href={book.href} aria-label={book.title}>
                   <Book3D
                     src={book.cover}
@@ -459,23 +408,51 @@ export function BookshelfCarousel({
                   />
                 </Link>
               </div>
-              <div className="mt-6 pb-7">
-                <BookDetails book={book} center />
+              <div className="mt-6 pb-7 text-center lg:mt-0 lg:pb-0 lg:text-left">
+                <BookDetails book={book} />
               </div>
             </div>
+            <Link
+              href={book.href}
+              className="absolute bottom-[28px] left-[36px] z-10 hidden lg:block"
+              aria-label={book.title}
+              tabIndex={-1}
+            >
+              <Book3D
+                src={book.cover}
+                alt=""
+                width={256}
+                height={410}
+                thickness={38}
+                priority
+              />
+            </Link>
           </div>
-          <div className="relative mt-0" aria-hidden>
+
+          <div className="hidden lg:block">
+            <Shelf
+              shadows={[
+                { left: "2%", width: "21%" },
+                { left: "83.5%", width: "15%" },
+              ]}
+            />
+          </div>
+
+          {/* mobile shelf */}
+          <div className="relative mt-0 lg:hidden" aria-hidden>
             <div className="h-[9px] rounded-t-[3px] bg-gradient-to-b from-[#EFD9B4] to-[#D2AE7C]" />
             <div className="h-[13px] [background-image:linear-gradient(180deg,#C9A371,#A87E51)]" />
             <div className="h-[6px] rounded-b-[4px] bg-gradient-to-b from-[#845F33] to-[#674823] shadow-[0_12px_20px_-6px_rgba(64,45,20,0.4)]" />
           </div>
+
+          {/* arrows: overlaid on the card on mobile, attached to the books at lg */}
           {books.length > 1 && (
-            <div className="absolute inset-y-0 -inset-x-3 flex items-center justify-between">
+            <>
               <button
                 type="button"
                 onClick={() => go(index - 1)}
                 aria-label="Previous book"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-dark-green/10 bg-white text-brand-green shadow-[0_5px_14px_rgba(0,49,34,0.2)]"
+                className="absolute top-1/2 -left-3 z-40 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-dark-green/10 bg-white text-brand-green shadow-[0_5px_14px_rgba(0,49,34,0.2)] transition-all duration-300 lg:top-[44%] lg:left-0 lg:h-11 lg:w-11 lg:translate-y-0 lg:shadow-[0_6px_18px_rgba(0,49,34,0.2)] lg:hover:-translate-y-0.5 lg:hover:bg-green-tint"
               >
                 <Chevron dir="left" />
               </button>
@@ -483,11 +460,11 @@ export function BookshelfCarousel({
                 type="button"
                 onClick={() => go(index + 1)}
                 aria-label="Next book"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-dark-green/10 bg-white text-brand-green shadow-[0_5px_14px_rgba(0,49,34,0.2)]"
+                className="absolute top-1/2 -right-3 z-40 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-dark-green/10 bg-white text-brand-green shadow-[0_5px_14px_rgba(0,49,34,0.2)] transition-all duration-300 lg:top-[44%] lg:right-[176px] lg:h-11 lg:w-11 lg:translate-y-0 lg:shadow-[0_6px_18px_rgba(0,49,34,0.2)] lg:hover:-translate-y-0.5 lg:hover:bg-green-tint"
               >
                 <Chevron dir="right" />
               </button>
-            </div>
+            </>
           )}
         </div>
 

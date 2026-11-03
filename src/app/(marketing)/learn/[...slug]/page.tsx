@@ -22,6 +22,7 @@ import {
 } from "@/components/sections/VeteranExpressLane";
 import { VeteranTaxSavingsCalculator } from "@/components/sections/VeteranTaxSavingsCalculator";
 import { getAllSlugs, getPostBySlug } from "@/lib/blog";
+import { organizationId, philPersonId } from "@/lib/entity";
 import { TableOfContents, MobileTableOfContents } from "./TableOfContents";
 
 export function generateStaticParams() {
@@ -284,6 +285,31 @@ export default async function BlogPostPage({
   const articleLeadFunnel = getArticleLeadFunnel(post, slugStr);
 
   const wordCount = post.content.trim().split(/\s+/).length;
+  const authorSlug = post.author.toLowerCase().replace(/\s+/g, "-");
+
+  // reviewedBy and lastReviewed are WebPage properties in schema.org,
+  // so the reviewer lives here rather than on the Article.
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": canonicalUrl,
+    url: canonicalUrl,
+    name: post.title,
+    description: post.description,
+    inLanguage: "en-US",
+    datePublished: post.date,
+    dateModified: post.updatedDate || post.date,
+    ...(post.reviewedBy && {
+      reviewedBy: {
+        "@type": "Person",
+        ...(post.reviewedBySlug === "phil-ganz" && { "@id": philPersonId }),
+        name: post.reviewedBy,
+        url: `https://www.makefloridayourhome.com/team/${post.reviewedBySlug}`,
+        jobTitle: post.reviewedByTitle,
+      },
+      lastReviewed: post.updatedDate || post.date,
+    }),
+  };
   const isCheapestPlacesPage =
     slugStr === "cheapest-places-to-buy-house-in-florida";
   const isHometownHeroesFundingPage =
@@ -301,37 +327,33 @@ export default async function BlogPostPage({
     dateModified: post.updatedDate || post.date,
     author: {
       "@type": "Person",
+      ...(authorSlug === "phil-ganz" && { "@id": philPersonId }),
       name: post.author,
-      url: `https://www.makefloridayourhome.com/team/${post.author.toLowerCase().replace(/\s+/g, "-")}`,
+      url: `https://www.makefloridayourhome.com/team/${authorSlug}`,
       jobTitle: post.authorTitle,
     },
-    ...(post.reviewedBy && {
-      reviewedBy: {
-        "@type": "Person",
-        name: post.reviewedBy,
-        url: `https://www.makefloridayourhome.com/team/${post.reviewedBySlug}`,
-        jobTitle: post.reviewedByTitle,
-      },
-    }),
+    // Credit articles to the licensed broker entity (NMLS, address, GBP)
+    // rather than a standalone site organization.
     publisher: {
       "@type": "Organization",
-      name: "Make Florida Your Home",
+      "@id": organizationId,
+      name: "Next Wave Mortgage",
       url: "https://www.makefloridayourhome.com",
       logo: {
         "@type": "ImageObject",
         url: "https://www.makefloridayourhome.com/images/logo.webp",
       },
     },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": canonicalUrl,
-    },
+    mainEntityOfPage: { "@id": canonicalUrl },
     wordCount,
     ...(post.tags && { keywords: post.tags.join(", ") }),
-    about: {
-      "@type": "Thing",
-      name: post.description,
-    },
+    ...(post.about && {
+      about: {
+        "@type": "Thing",
+        name: post.about,
+        ...(post.aboutSameAs && { sameAs: post.aboutSameAs }),
+      },
+    }),
     inLanguage: "en-US",
     isPartOf: {
       "@type": "WebSite",
@@ -454,6 +476,12 @@ export default async function BlogPostPage({
   return (
     <>
       {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(webPageSchema),
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

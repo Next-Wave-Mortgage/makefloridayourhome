@@ -232,7 +232,9 @@ function EditionButtons() {
         >
           {edition.format === "Kindle eBook"
             ? "Get the Kindle Edition"
-            : edition.format}
+            : edition.format === "Audiobook"
+              ? "Listen on Audible"
+              : edition.format}
           {i === 0 && <ArrowIcon />}
         </a>
       ))}
@@ -694,10 +696,9 @@ export default function BookPage() {
             Choose Your <span className="text-brand-green">Edition</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-center text-[16px] leading-relaxed text-dark-green/60">
-            Same book, four ways to read it on Amazon and Google. More retailers
-            below.
+            Same book in print, ebook, and audiobook. More retailers below.
           </p>
-          <div className="mx-auto mt-10 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto mt-10 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {editions.map((edition) => (
               <a
                 key={edition.format}
@@ -710,19 +711,23 @@ export default function BookPage() {
                   {edition.format}
                 </h3>
                 <p className="mt-2 text-[14px] leading-relaxed text-dark-green/60">
-                  {edition.format === "Kindle eBook"
-                    ? "Instant delivery. Read on any device."
-                    : edition.format === "Paperback"
-                      ? "The everyday print edition."
-                      : edition.format === "Hardcover"
-                        ? "Durable and gift-ready."
-                        : "Preview free, read on Google."}
+                  {edition.audio
+                    ? `Unabridged, narrated by ${edition.audio.readBy}.`
+                    : edition.format === "Kindle eBook"
+                      ? "Instant delivery. Read on any device."
+                      : edition.format === "Paperback"
+                        ? "The everyday print edition."
+                        : edition.format === "Hardcover"
+                          ? "Durable and gift-ready."
+                          : "Preview free, read on Google."}
                 </p>
                 <span className="mt-auto pt-5">
                   <span className="inline-flex items-center gap-2 rounded-full bg-brand-green px-6 py-3 text-[14px] font-bold text-white transition-shadow duration-300 group-hover:shadow-[0_4px_20px_rgba(0,105,72,0.4)]">
                     {edition.format === "Google Play Books"
                       ? "Read on Google Play"
-                      : "Buy on Amazon"}
+                      : edition.format === "Audiobook"
+                        ? "Listen on Audible"
+                        : "Buy on Amazon"}
                     <ArrowIcon />
                   </span>
                 </span>
@@ -742,7 +747,8 @@ export default function BookPage() {
             </p>
             <p className="mt-1 text-[13px] leading-relaxed text-dark-green/50">
               Paperback ISBN 979-8191565255 &middot; Hardcover ISBN
-              979-8192189283 &middot; Kindle ASIN B0HDRNR5WW &middot;{" "}
+              979-8192189283 &middot; Kindle ASIN B0HDRNR5WW &middot; Audiobook
+              ASIN B0HKYLD2LR, narrated by Timothy Burke &middot;{" "}
               <a
                 href={book.googleBooksUrl}
                 target="_blank"

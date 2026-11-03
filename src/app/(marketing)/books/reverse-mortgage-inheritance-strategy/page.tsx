@@ -368,7 +368,11 @@ function EditionButtons() {
           key={edition.format}
           href={edition.url}
           retailer={
-            edition.format === "Google Play Books" ? "google" : "amazon"
+            edition.format === "Google Play Books"
+              ? "google"
+              : edition.format === "Audiobook"
+                ? "audible"
+                : "amazon"
           }
           bookKey={bookKey}
           format={edition.format.toLowerCase().replace(/\s+/g, "_")}
@@ -382,7 +386,9 @@ function EditionButtons() {
             ? "Get the Paperback"
             : edition.format === "Google Play Books"
               ? "Read Free on Google Play"
-              : edition.format}
+              : edition.format === "Audiobook"
+                ? "Listen on Audible"
+                : edition.format}
           {i === 0 && <ArrowIcon />}
         </TrackedRetailerLink>
       ))}
@@ -783,7 +789,7 @@ export default function ReverseMortgageBookPage() {
         </div>
       </section>
 
-      {/* Editions on Amazon / Google */}
+      {/* Editions on Amazon, Google, and Audible */}
       <section className="bg-white py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
           <h2 className="mx-auto max-w-2xl text-center text-[28px] leading-tight font-bold text-dark-green sm:text-[36px] lg:text-[42px]">
@@ -792,13 +798,17 @@ export default function ReverseMortgageBookPage() {
           <p className="mx-auto mt-4 max-w-xl text-center text-[16px] leading-relaxed text-dark-green/60">
             Same book in every format. More retailers below.
           </p>
-          <div className="mx-auto mt-10 grid max-w-4xl gap-4 sm:grid-cols-3">
+          <div className="mx-auto mt-10 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {editions.map((edition) => (
               <TrackedRetailerLink
                 key={edition.format}
                 href={edition.url}
                 retailer={
-                  edition.format === "Google Play Books" ? "google" : "amazon"
+                  edition.format === "Google Play Books"
+                    ? "google"
+                    : edition.format === "Audiobook"
+                      ? "audible"
+                      : "amazon"
                 }
                 bookKey={bookKey}
                 format={edition.format.toLowerCase().replace(/\s+/g, "_")}
@@ -808,19 +818,23 @@ export default function ReverseMortgageBookPage() {
                   {edition.format}
                 </h3>
                 <p className="mt-2 text-[14px] leading-relaxed text-dark-green/60">
-                  {edition.format === "Paperback"
-                    ? "The everyday print edition. 189 pages."
-                    : edition.format === "Hardcover"
-                      ? "Durable and gift-ready."
-                      : edition.format === "Kindle eBook"
-                        ? "Instant delivery. Read on any device."
-                        : "Free to read on Google Play."}
+                  {edition.audio
+                    ? `Unabridged, narrated by ${edition.audio.readBy}.`
+                    : edition.format === "Paperback"
+                      ? "The everyday print edition. 189 pages."
+                      : edition.format === "Hardcover"
+                        ? "Durable and gift-ready."
+                        : edition.format === "Kindle eBook"
+                          ? "Instant delivery. Read on any device."
+                          : "Free to read on Google Play."}
                 </p>
                 <span className="mt-auto pt-5">
                   <span className="inline-flex items-center gap-2 rounded-full bg-brand-green px-6 py-3 text-[14px] font-bold text-white transition-shadow duration-300 group-hover:shadow-[0_4px_20px_rgba(0,105,72,0.4)]">
                     {edition.format === "Google Play Books"
                       ? "Read on Google Play"
-                      : "Buy on Amazon"}
+                      : edition.format === "Audiobook"
+                        ? "Listen on Audible"
+                        : "Buy on Amazon"}
                     <ArrowIcon />
                   </span>
                 </span>
@@ -839,7 +853,8 @@ export default function ReverseMortgageBookPage() {
             </p>
             <p className="mt-1 text-[13px] leading-relaxed text-dark-green/50">
               Paperback ISBN 979-8172370588 &middot; Hardcover ISBN
-              979-8172404962 &middot; eBook ISBN 979-8233841170 &middot;{" "}
+              979-8172404962 &middot; eBook ISBN 979-8233841170 &middot;
+              Audiobook ASIN B0HN3RHGP8, narrated by Marlin May &middot;{" "}
               <a
                 href={book.googleBooksUrl}
                 target="_blank"

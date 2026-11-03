@@ -8,264 +8,226 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
   const now = new Date();
 
-  /* ── Static marketing pages ── */
+  /* ── Static marketing pages ──
+   * Omit lastModified unless the page has a real modified date. A build-time
+   * "now" changes on every deploy, and Google ignores lastmod it can't trust.
+   */
   const staticPages: MetadataRoute.Sitemap = [
-    { url: baseUrl, lastModified: now, changeFrequency: "weekly", priority: 1 },
+    { url: baseUrl, changeFrequency: "weekly", priority: 1 },
     // Core marketing pages
     {
       url: `${baseUrl}/home-loan`,
-      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/hometown-heroes`,
-      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/home-loan/fha-loan`,
-      lastModified: now,
+      lastModified: new Date("2026-10-29"),
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/home-loan/dscr-loan`,
-      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/home-loan/foreign-national-loan`,
-      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/home-loan/condotel-loan`,
-      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/home-loan/condo-loan`,
-      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/home-loan/va-loan`,
-      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/home-loan/reverse-mortgage`,
-      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/home-loan/dscr-loan/short-term-rental`,
-      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/home-loan/dscr-loan/cash-out-refinance`,
-      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/fort-lauderdale-mortgage-broker`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/florida-dscr-loan-calculator`,
-      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/florida-down-payment-assistance-calculator`,
-      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/florida-down-payment-assistance-interactive-map`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     // Book library. Individual titles are appended below from src/lib/books.ts.
     {
       url: `${baseUrl}/books`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     // Free companion toolkits (not one per book yet - add here as they ship).
     {
       url: `${baseUrl}/books/approved-mortgage-playbook/toolkit`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     // Hub pages
     {
       url: `${baseUrl}/calculators`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/learn`,
-      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/about-us`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/team`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/home-affordability-calculator`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/mortgage-rates`,
-      lastModified: now,
       changeFrequency: "daily",
       priority: 0.8,
     },
     // Funnel pages
     {
       url: `${baseUrl}/home-purchase-eligibility`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/check-dpa-eligibility`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/check-fha-loan-eligibility`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/check-va-loan-eligibility`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/check-usda-loan-eligibility`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/check-conventional-loan-eligibility`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/check-hometown-heroes-eligibility`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/check-reverse-mortgage-eligibility`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/check-heloc-eligibility`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/check-manufactured-home-loan-eligibility`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/check-non-qm-loan-eligibility`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/check-jumbo-loan-eligibility`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/check-renovation-loan-eligibility`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/check-alternative-loan-eligibility`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/eligibility/schedule-a-free-call`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/contact-us`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
       url: `${baseUrl}/florida-updates`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.6,
     },
     // Legal pages
     {
       url: `${baseUrl}/privacy-policy`,
-      lastModified: now,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${baseUrl}/terms-of-service`,
-      lastModified: now,
       changeFrequency: "yearly",
       priority: 0.3,
     },
@@ -282,7 +244,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   /* ── Team member pages ── */
   const teamPages: MetadataRoute.Sitemap = team.map((member) => ({
     url: `${baseUrl}/team/${member.slug}`,
-    lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));

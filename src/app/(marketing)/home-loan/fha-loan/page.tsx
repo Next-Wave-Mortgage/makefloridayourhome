@@ -5,17 +5,33 @@ import {
   productIcons,
   type ProductPageConfig,
 } from "@/components/sections/ProductPage";
+import { philReviewer } from "@/lib/entity";
+
+const ogImage = {
+  url: "https://www.makefloridayourhome.com/images/og/florida-fha-loan.webp",
+  width: 1200,
+  height: 630,
+  alt: "Florida homebuyers reviewing FHA loan documents with a loan officer",
+};
 
 export const metadata: Metadata = {
-  title: "Get an FHA Loan in Florida — 3.5% Down, Fast Pre-Approval",
+  title: "FHA Loans in Florida: 3.5% Down, 580 Credit, Local Lender",
   description:
-    "Apply for an FHA loan in Florida with 3.5% down and a 580 credit score. Check your eligibility in minutes and pair FHA with up to $35,000 in down payment assistance.",
+    "Get an FHA loan in Florida with 3.5% down and a 580 credit score from a licensed local broker. Check your FHA eligibility in about 2 minutes.",
   openGraph: {
-    title: "Get an FHA Loan in Florida — 3.5% Down, Fast Pre-Approval",
+    title: "FHA Loans in Florida: 3.5% Down, 580 Credit, Local Lender",
     description:
-      "Apply for an FHA loan in Florida with 3.5% down and a 580 credit score. Check your eligibility in minutes.",
+      "Get an FHA loan in Florida with 3.5% down and a 580 credit score from a licensed local broker.",
     url: "https://www.makefloridayourhome.com/home-loan/fha-loan",
     type: "website",
+    images: [ogImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FHA Loans in Florida: 3.5% Down, 580 Credit, Local Lender",
+    description:
+      "Get an FHA loan in Florida with 3.5% down and a 580 credit score from a licensed local broker.",
+    images: [ogImage.url],
   },
   alternates: { canonical: "/home-loan/fha-loan" },
 };
@@ -26,6 +42,13 @@ const config: ProductPageConfig = {
     { name: "Home Loans", path: "/home-loan" },
     { name: "FHA Loans", path: "/home-loan/fha-loan" },
   ],
+  review: { reviewer: philReviewer, lastReviewed: "2026-10-29" },
+  loanProduct: {
+    name: "FHA Loan in Florida",
+    description:
+      "FHA-insured home purchase and refinance loans for Florida buyers, with 3.5% down at a 580 credit score or 10% down from 500 to 579.",
+    loanType: "FHA",
+  },
   hero: {
     title: (
       <>
@@ -244,11 +267,10 @@ const config: ProductPageConfig = {
       ),
       articles: [
         {
-          category: "Complete FHA Guide",
-          title:
-            "Florida FHA Loans (2026): Requirements, Loan Limits by County & How to Qualify",
+          category: "Florida FHA Loan Requirements",
+          title: "Florida FHA Loan Requirements (2026): Credit, Down & DTI",
           description:
-            "The full guide — credit scores, MIP costs, DTI rules, county limits, and Florida condo and insurance issues.",
+            "Every requirement in one place: credit scores, down payment, MIP costs, DTI rules, and Florida condo and insurance issues.",
           href: "/learn/fha-loan-eligibility-requirements-florida",
           image:
             "/images/learn/fha-loan-eligibility-requirements-florida-2026.webp",
@@ -283,14 +305,13 @@ const config: ProductPageConfig = {
           readTime: "8 min read",
         },
         {
-          category: "Rent-to-Own Programs",
-          title:
-            "10 Florida Rent-to-Own Programs (2026): Buy With Little or No Down Payment",
+          category: "FHA Loan Limits",
+          title: "Florida FHA Loan Limits by County (2026): All 67 Counties",
           description:
-            "Compare the rent-to-own and lease-purchase programs operating in Florida.",
-          href: "/learn/florida-rent-to-own-programs",
-          image: "/images/guides/florida-rent-to-own-programs.webp",
-          readTime: "8 min read",
+            "See how much you can borrow with FHA in your county, for 1 to 4 units.",
+          href: "/learn/florida-fha-loan-limits",
+          image: "/images/learn/florida-fha-loan-limits-2026.webp",
+          readTime: "6 min read",
         },
       ],
     },
