@@ -110,6 +110,10 @@ export const team: TeamMember[] = [
         href: "/books/approved-mortgage-playbook",
         buyLinks: [
           { label: "Amazon", url: "https://www.amazon.com/dp/B0HJLMGJZY" },
+          {
+            label: "Audible",
+            url: "https://www.audible.com/pd/APPROVED-The-Mortgage-Playbook-Your-Bank-May-Never-Show-You-Audiobook/B0HN68C1YN",
+          },
         ],
         features: [
           { icon: "compass", text: "48 questions, 30-second answers" },
@@ -129,6 +133,10 @@ export const team: TeamMember[] = [
           {
             label: "Google Play",
             url: "https://play.google.com/store/books/details?id=JGQDEgAAQBAJ",
+          },
+          {
+            label: "Audible",
+            url: "https://www.audible.com/pd/Make-Florida-Your-Home-Audiobook/B0HKYLD2LR",
           },
         ],
         features: [
@@ -150,6 +158,10 @@ export const team: TeamMember[] = [
           {
             label: "Google Play",
             url: "https://play.google.com/store/books/details?id=TcMJEgAAQBAJ",
+          },
+          {
+            label: "Audible",
+            url: "https://www.audible.com/pd/The-Reverse-Mortgage-Inheritance-Strategy-Dont-Just-Protect-the-House-Protect-the-Family-Wealth-Audiobook/B0HN3RHGP8",
           },
         ],
         features: [

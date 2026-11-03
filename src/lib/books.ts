@@ -144,7 +144,7 @@ export const books: Book[] = [
       "Florida has quietly built one of the most generous homebuyer assistance systems in the country: 105 programs across all 67 counties, from Hometown Heroes to county programs reaching six figures. Phil Ganz walks first-time Florida buyers through every one, in plain English.",
     author: "Phil Ganz",
     datePublished: "2026-08-11",
-    pageUpdated: "2026-09-16",
+    pageUpdated: "2026-11-03",
     coverImage: coverPath("make-florida-your-home-cover.png"),
     coverAlt: "Make Florida Your Home book cover by Phil Ganz",
     isbn: "9798191565255",
@@ -299,7 +299,7 @@ export const books: Book[] = [
       "Written for the adult child of a reverse mortgage borrower. What the loan really is, who owns the house, what happens to the inheritance, what heirs must do when the loan comes due, and the five situations where Phil Ganz would not recommend one.",
     author: "Phil Ganz",
     datePublished: "2026-09-06",
-    pageUpdated: "2026-09-16",
+    pageUpdated: "2026-11-03",
     coverImage: coverPath("reverse-mortgage-inheritance-strategy-cover.webp"),
     ogImage: coverPath("reverse-mortgage-inheritance-strategy-cover.jpg"),
     coverAlt:
@@ -460,7 +460,7 @@ export const books: Book[] = [
       "One bank's no isn't the end of your house search. APPROVED puts 48 buyer questions into four parts: why you were told no, the FHA deal-savers, the hidden menu beyond FHA, and the playbook for your next conversation. Every question gets a 30-second answer up front, with the arithmetic shown.",
     author: "Phil Ganz",
     datePublished: "2026-09-12",
-    pageUpdated: "2026-09-16",
+    pageUpdated: "2026-11-03",
     coverImage: coverPath("approved-cover.jpg"),
     coverAlt:
       "APPROVED: The Mortgage Playbook Your Bank May Never Show You book cover by Phil Ganz",

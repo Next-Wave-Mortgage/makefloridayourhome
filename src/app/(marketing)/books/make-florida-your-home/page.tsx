@@ -22,7 +22,7 @@ const pageUrl = `${siteConfig.url}${bookHref(book)}`;
 export const metadata: Metadata = {
   title: "Make Florida Your Home by Phil Ganz | Florida Homebuyer Guide",
   description:
-    "Florida handed out $50 million in down payment help last year. Phil Ganz's book shows first-time buyers every program — Hometown Heroes, FHA, and 105 more.",
+    "Phil Ganz's guide to Florida down payment assistance: Hometown Heroes, FHA, and 105 programs across all 67 counties, explained for first-time buyers.",
   alternates: { canonical: "/books/make-florida-your-home" },
   openGraph: {
     title:
@@ -313,7 +313,7 @@ export default function BookPage() {
                     , Mortgage Expert · NMLS #37833
                   </p>
                   <p className="text-[12.5px] text-dark-green/50">
-                    Published August 11, 2026 · Page updated September 9, 2026
+                    Published August 11, 2026 · Page updated November 3, 2026
                   </p>
                 </div>
               </div>

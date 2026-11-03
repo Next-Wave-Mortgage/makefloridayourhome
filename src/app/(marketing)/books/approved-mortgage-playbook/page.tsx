@@ -22,10 +22,9 @@ const editions = liveEditions(book);
 const pageUrl = `${siteConfig.url}${bookHref(book)}`;
 const bookKey = bookAnalyticsKey(book);
 
-const pageTitle =
-  "APPROVED by Phil Ganz: The Mortgage Playbook Your Bank May Never Show You";
+const pageTitle = "APPROVED: The Mortgage Playbook by Phil Ganz";
 const pageDescription =
-  "48 real buyer questions, each with a 30-second answer: FHA loans, gift funds, co-signers, seller credits, zero-down programs, and exactly what to do after a bank says no.";
+  "48 real buyer questions with 30-second answers: FHA, gift funds, co-signers, seller credits, zero-down programs, and what to do after a bank says no.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -453,8 +452,7 @@ export default function ApprovedBookPage() {
                     , Mortgage Expert · NMLS #37833
                   </p>
                   <p className="text-[12.5px] text-dark-green/50">
-                    Published September 12, 2026 · Page updated September 15,
-                    2026
+                    Published September 12, 2026 · Page updated November 3, 2026
                   </p>
                 </div>
               </div>

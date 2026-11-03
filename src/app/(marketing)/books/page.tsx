@@ -17,7 +17,7 @@ import { JsonLd } from "@/components/shared/JsonLd";
 
 const pageTitle = "Mortgage Books by Phil Ganz | Homebuying & Mortgage Guides";
 const pageDescription =
-  "The Phil Ganz Mortgage Library: practical guides for homebuyers, homeowners, families, and real estate professionals navigating mortgages, home equity, homeownership, and generational wealth.";
+  "Phil Ganz's mortgage books for Florida homebuyers and families: down payment assistance, FHA approvals, and reverse mortgages, in print, ebook, and audio.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -284,9 +284,9 @@ export default function BooksLibraryPage() {
 
       <PageCTA
         heading="Have a Question the Books Don't Answer?"
-        subtitle="Talk with a licensed loan officer about your own situation. No credit pull, no obligation."
-        ctaHref="/contact-us"
-        ctaText="Talk With Phil's Team"
+        subtitle="See which Florida home loans you qualify for, then talk it through with a licensed loan officer. No credit pull, no obligation."
+        ctaHref="/home-purchase-eligibility"
+        ctaText="Check Your Home Purchase Eligibility"
       />
     </>
   );

@@ -24,7 +24,7 @@ const bookKey = bookAnalyticsKey(book);
 
 const pageTitle = "The Reverse Mortgage Inheritance Strategy by Phil Ganz";
 const pageDescription =
-  "The adult child's guide to a parent's reverse mortgage: who owns the house, what happens to the inheritance, what heirs must do when the loan comes due, and when Phil Ganz would say no.";
+  "The adult child's guide to a parent's reverse mortgage: who owns the house, what heirs inherit, what to do when the loan comes due, and when to say no.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -474,7 +474,7 @@ export default function ReverseMortgageBookPage() {
                     , Mortgage Expert · NMLS #37833
                   </p>
                   <p className="text-[12.5px] text-dark-green/50">
-                    Published September 6, 2026 · Page updated September 9, 2026
+                    Published September 6, 2026 · Page updated November 3, 2026
                   </p>
                 </div>
               </div>
