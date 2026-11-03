@@ -71,6 +71,10 @@ export default function BooksLibraryPage() {
       (r) => r.slug === "google" && r.available && r.url,
     );
     if (google) buyLinks.push({ label: "Google Play", url: google.url });
+    const audiobook = book.editions.find(
+      (e) => e.format === "Audiobook" && e.available && e.url,
+    );
+    if (audiobook) buyLinks.push({ label: "Audible", url: audiobook.url });
     return {
       title: book.title,
       tagline: book.positioning,
