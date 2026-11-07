@@ -32,12 +32,12 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/how-to-officially-become-a-florida-resident",
-    destination: "/learn/requirements-to-buy-a-house-in-florida",
+    destination: "/learn/how-to-become-a-florida-resident",
     permanent: true,
   },
   {
     source: "/blog/what-it-takes-to-claim-florida-residency-as-a-college-student",
-    destination: "/learn/requirements-to-buy-a-house-in-florida",
+    destination: "/learn/how-to-become-a-florida-resident",
     permanent: true,
   },
   {
@@ -1631,13 +1631,13 @@ const redirects: Redirect[] = [
   {
     source:
       "/blog/183-day-rule-for-state-residency-in-florida-what-you-need-to-know",
-    destination: "/learn/requirements-to-buy-a-house-in-florida",
+    destination: "/learn/how-to-become-a-florida-resident",
     permanent: true,
   },
   {
     source:
       "/blog/how-long-does-it-take-to-establish-residency-in-the-state-of-florida-",
-    destination: "/learn/requirements-to-buy-a-house-in-florida",
+    destination: "/learn/how-to-become-a-florida-resident",
     permanent: true,
   },
   {
@@ -1792,23 +1792,23 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/court-decision-florida-domicile-vs-residency",
-    destination: "/learn/requirements-to-buy-a-house-in-florida",
+    destination: "/learn/how-to-become-a-florida-resident",
     permanent: true,
   },
   {
     source: "/blog/florida-domicile-vs-florida-residence",
-    destination: "/learn",
+    destination: "/learn/how-to-become-a-florida-resident",
     permanent: true,
   },
   {
     source:
       "/blog/florida-tax-law-a-quick-guide-to-residency-requirements-for-tax-purposes",
-    destination: "/learn/requirements-to-buy-a-house-in-florida",
+    destination: "/learn/how-to-become-a-florida-resident",
     permanent: true,
   },
   {
     source: "/blog/florida-residents-is-it-possible-to-live-in-two-states-",
-    destination: "/learn/requirements-to-buy-a-house-in-florida",
+    destination: "/learn/how-to-become-a-florida-resident",
     permanent: true,
   },
   {
@@ -9094,7 +9094,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/blog/how-to-officially-become-a-florida-resident",
-    destination: "/learn/requirements-to-buy-a-house-in-florida",
+    destination: "/learn/how-to-become-a-florida-resident",
     permanent: true,
   },
   {
