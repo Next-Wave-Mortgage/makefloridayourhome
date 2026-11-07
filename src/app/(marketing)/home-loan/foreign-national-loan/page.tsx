@@ -388,6 +388,16 @@ const config: ProductPageConfig = {
           readTime: "13 min read",
         },
         {
+          category: "Brazilian Buyers",
+          title: "Buying Property in Miami From Brazil",
+          description:
+            "Financing without U.S. credit, pre-construction condos, visas, and taxes.",
+          href: "/learn/buying-property-in-miami-from-brazil",
+          image:
+            "/images/learn/brazilian-family-miami-condo-balcony-biscayne-bay.webp",
+          readTime: "11 min read",
+        },
+        {
           category: "Investor Financing",
           title: "DSCR Loans in Florida",
           description:

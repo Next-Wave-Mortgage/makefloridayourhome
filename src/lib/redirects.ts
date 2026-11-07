@@ -8010,7 +8010,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/blog/how-to-buy-florida-real-estate-as-brazilian-national",
-    destination: "/learn/foreign-buyers-guide-florida-real-estate",
+    destination: "/learn/buying-property-in-miami-from-brazil",
     permanent: true,
   },
   {
@@ -8400,7 +8400,7 @@ const redirects: Redirect[] = [
   },
   {
     source: "/florida/foreign-buyer-guides/brazil",
-    destination: "/learn/foreign-buyers-guide-florida-real-estate",
+    destination: "/learn/buying-property-in-miami-from-brazil",
     permanent: true,
   },
   {
