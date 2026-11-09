@@ -20,6 +20,10 @@ import {
   ExpressLaneFeature,
   ExpressLaneSection,
 } from "@/components/sections/VeteranExpressLane";
+import {
+  ResidencyCountdown,
+  ResidencyCountdownCompact,
+} from "@/components/sections/ResidencyCountdown";
 import { VeteranTaxSavingsCalculator } from "@/components/sections/VeteranTaxSavingsCalculator";
 import { getAllSlugs, getPostBySlug } from "@/lib/blog";
 import { organizationId, philPersonId } from "@/lib/entity";
@@ -586,6 +590,8 @@ export default async function BlogPostPage({
                       CheapestPlacesListicle,
                       ExpressLaneFeature,
                       ExpressLaneSection,
+                      ResidencyCountdown,
+                      ResidencyCountdownCompact,
                       VeteranBenefitsTable,
                       VeteranTaxSavingsCalculator,
                       table: ArticleTable,
