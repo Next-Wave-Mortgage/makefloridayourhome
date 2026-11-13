@@ -171,8 +171,7 @@ function getArticleLeadFunnel(
 
   if (
     titleSlug.includes("conventional") ||
-    titleSlug.includes("conforming loan") ||
-    titleSlug.includes("family opportunity mortgage")
+    titleSlug.includes("conforming loan")
   ) {
     return {
       href: "/check-conventional-loan-eligibility",
