@@ -107,10 +107,7 @@ const config: ProductPageConfig = {
       headers: ["Feature", "VA Loan in Florida"],
       rows: [
         ["Down Payment", "$0 with full entitlement"],
-        [
-          "Credit Score",
-          "VA sets no minimum; most lenders look for 580–620",
-        ],
+        ["Credit Score", "VA sets no minimum; most lenders look for 580–620"],
         ["Mortgage Insurance", "None — no monthly PMI or MIP"],
         [
           "VA Funding Fee",
@@ -153,8 +150,22 @@ const config: ProductPageConfig = {
           2026 VA <span className="text-brand-green">Funding Fee</span>
         </>
       ),
-      intro:
-        "The funding fee is a one-time charge that keeps the VA program running. It depends on your down payment and whether you've used your VA benefit before. These rates have been in effect since April 7, 2023.",
+      intro: (
+        <>
+          The funding fee is a one-time charge that keeps the VA program
+          running. It depends on your down payment and whether you&apos;ve used
+          your VA benefit before. These rates have been in effect since April 7,
+          2023. Congress is considering a bill that would raise the streamline
+          refinance and assumption fees; see{" "}
+          <Link
+            href="/learn/va-funding-fee-increase-florida"
+            className={linkClass}
+          >
+            the proposed VA funding fee increase
+          </Link>
+          .
+        </>
+      ),
       headers: ["Loan Type", "First Use", "Subsequent Use"],
       rows: [
         ["Purchase, less than 5% down", "2.15%", "3.3%"],
@@ -171,17 +182,17 @@ const config: ProductPageConfig = {
       type: "table",
       heading: (
         <>
-          How Disabled Veterans <span className="text-brand-green">Save Twice</span>{" "}
-          in Florida
+          How Disabled Veterans{" "}
+          <span className="text-brand-green">Save Twice</span> in Florida
         </>
       ),
       intro: (
         <>
-          A service-connected disability rating can waive the VA funding fee
-          and unlock Florida property tax exemptions on the same home. On a
-          $400,000 purchase with $0 down, a first-time VA borrower would
-          normally owe an $8,600 funding fee. A veteran receiving disability
-          compensation pays $0. Read the full{" "}
+          A service-connected disability rating can waive the VA funding fee and
+          unlock Florida property tax exemptions on the same home. On a $400,000
+          purchase with $0 down, a first-time VA borrower would normally owe an
+          $8,600 funding fee. A veteran receiving disability compensation pays
+          $0. Read the full{" "}
           <Link
             href="/learn/florida-va-disability-property-tax-exemptions"
             className={linkClass}
@@ -305,8 +316,8 @@ const config: ProductPageConfig = {
             <Link href="/hometown-heroes" className={linkClass}>
               Florida Hometown Heroes
             </Link>{" "}
-            without being first-time buyers. It can help with closing costs
-            when funding is available.
+            without being first-time buyers. It can help with closing costs when
+            funding is available.
           </>,
         ],
         [
@@ -377,7 +388,8 @@ const config: ProductPageConfig = {
           description:
             "Exemption amounts by disability rating and how to apply with your county.",
           href: "/learn/florida-va-disability-property-tax-exemptions",
-          image: "/images/learn/florida-va-disability-property-tax-exemptions-2026.webp",
+          image:
+            "/images/learn/florida-va-disability-property-tax-exemptions-2026.webp",
           readTime: "Guide",
         },
         {
@@ -395,7 +407,8 @@ const config: ProductPageConfig = {
           description:
             "The limits that apply when part of your VA entitlement is still in use.",
           href: "/learn/florida-conforming-loan-limits-by-county",
-          image: "/images/learn/florida-conforming-loan-limits-by-county-2026.webp",
+          image:
+            "/images/learn/florida-conforming-loan-limits-by-county-2026.webp",
           readTime: "County table",
         },
         {
